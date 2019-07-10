@@ -1,0 +1,20 @@
+body{
+    background: url("../img/bg_sm.jpg") no-repeat -270px 0px;
+}
+.nav-narrow{
+    display: block;
+    width: 50px;
+    float: left;
+    background-color: #d0d0d0;
+    box-sizing: border-box;
+}
+.nav-wide{
+    display: none;
+    width: 200px;
+    float: left;
+    background-color: #d0d0d0;
+    box-sizing: border-box;
+}
+.content{
+    width: calc(100% - 50px);
+}

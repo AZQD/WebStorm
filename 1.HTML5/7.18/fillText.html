@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <!--<link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>-->
+    <title>HTML5</title>
+    <!--<link href="css/reset.css" rel="stylesheet">-->
+    <!--<link href="css/index.css" rel="stylesheet">-->
+    <script src="words.js"></script>
+    <style type="text/css">
+        /** 添加样式 **/
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mycanvas">
+        您的浏览器不支持canvas
+    </canvas>
+<script type="text/javascript">
+    //添加脚本
+    var mycanvas = document.getElementById('mycanvas');
+    mycanvas.width = 400;
+    mycanvas.height = 400;
+    if(mycanvas.getContext){
+        var painting = mycanvas.getContext('2d');
+//        painting.fillStyle = 'red';
+        //文字的end是这个坐标点。
+        painting.textAlign = 'end';
+        painting.font = "bold 38px '微软雅黑'";
+        //文字的top是这个点
+        painting.textBaseline = 'top';
+        painting.fillText('你好', 50, 50);
+        painting.strokeRect(50, 50, 100, 100);
+//        painting.font = 'bold 19px Arial';
+
+
+
+
+
+    }else {
+        alert('您的浏览器不支持canvas');
+    }
+</script>
+</body>
+</html>

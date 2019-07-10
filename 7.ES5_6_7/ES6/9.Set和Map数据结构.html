@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    /*
+     Set : 多个value的集合, value不重复
+     Map : 多个key-value对的集合, key不重复, value可重复
+     1. Set容器
+     1). Set()
+     2). Set(array)
+     3). add(value)
+     4). delete(value)
+     5). has(value)
+     6). clear()
+     7). size
+     2. Map容器
+     1). Map()
+     2). Map(array)
+     3). set(key, value)
+     4). get(key)
+     5). delete(key)
+     6). has(key)
+     7). clear()
+     8). size
+     */
+    /*var set = new Set([1,2,3,4,5,6,2,4]);
+    set.add(8);
+    set.delete(4);
+    console.log(set.has(5));
+    console.log(set);
+    console.log(set.size);
+    set.clear();
+    console.log(set.size);*/
+
+    var map = new Map([['name', 'zh'],['age', 12]]);
+    map.set('sex' , '男');
+    
+    console.log(map.size);
+    console.log(map.get('name'));
+    console.log(map.delete('name'));
+    console.log(map.size);
+    console.log(map.has('sex'));
+    map.clear();
+    console.log(map.size);
+
+
+
+</script>
+</body>
+</html>

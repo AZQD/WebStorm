@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //只能得到第一个
+            /*var abc = $('.box').attr('title');
+            console.log(abc);*/
+
+            //添加
+            //$('.box').attr('name', 'jack');
+
+            //移出
+            //$('.box').removeAttr('title');
+
+            //addClass
+            //$('.box').addClass('chaojie');
+
+            //remeoveClass
+            //$('#div1').removeClass('box');
+            
+            
+            //html();
+            //读取
+            /*var value = $('li:last').html();
+            console.log(value);*/
+
+            //添加 (会替换之前的内容)
+            //$('li:last').html('<h2>我是新添加的内容<h2>');
+
+            /*var result = $('input').val();
+            console.log(result);*/
+
+            $('input').val('chaojie');
+
+        });
+        
+    </script>
+    
+</head>
+<body>
+    <div id="div1" class="box" title="one">class为box的div1</div>
+    <div id="div2" class="box" title="two">class为box的div2</div>
+    <div id="div3">div3</div>
+    <span class="box">class为box的span</span>
+    <br/>
+    <ul>
+        <li>AAAAA</li>
+        <li title="hello" class="box2">BBBBB</li>
+        <li class="box">CCCCC</li>
+        <li title="hello">DDDDDD</li>
+        <li title="two"><span>BBBBB</span></li>
+    </ul>
+
+    <input type="text" name="username" value="xfzhang" />
+</body>
+</html>

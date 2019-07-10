@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        *{margin: 0; padding: 0; list-style: none;}
+        #wrapper{}
+        #title{
+            width: 300px;
+            height: 20px;
+            background-color: #bfa;
+            margin: 0 auto;
+        }
+        #title li{
+            width: 72px;
+            height: 20px;
+            border: 1px solid fuchsia;
+            float: left;
+        }
+
+        #content{
+            width: 300px;
+            height: 100px;
+            background-color: greenyellow;
+            margin: 0 auto;
+            position: relative;
+        }
+        #content li{
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            background: yellow;
+        }
+        #wrapper .change{
+            background: red;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <ul id="title">
+        <li>title01</li>
+        <li class="change">title02</li>
+        <li>title03</li>
+        <li>title04</li>
+    </ul>
+    <ul id="content">
+        <li>content01</li>
+        <li class="change">content02</li>
+        <li>content03</li>
+        <li>content04</li>
+    </ul>
+</div>
+    <!--方法3：jQuery实现选项卡-->
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#title li').click(function(){
+                $('#title li').removeClass('change');
+                $(this).addClass('change');
+                $('#content li').removeClass('change').hide();
+                $('#content li').eq($(this).index()).addClass('change').show();
+            });
+
+        });
+    </script>
+
+
+
+    <!--<script type="text/javascript">
+        //方法1：
+        var titleLis = document.getElementById('title').getElementsByTagName('li');
+        var contentLis = document.getElementById('content').getElementsByTagName('li');
+        for (var i = 0; i < titleLis.length; i++) {
+            titleLis[i].index = i;
+            titleLis[i].onclick = function(){
+                for (var j = 0; j < contentLis.length; j++) {
+                    titleLis[j].className = '';
+                    contentLis[j].className = '';
+                }
+                this.className = 'change';
+                contentLis[this.index].className = 'change';
+            }
+        }
+    </script>-->
+
+    <!--<script type="text/javascript">
+        //方法2：
+        var titleLis = document.getElementById('title').getElementsByTagName('li');
+        var contentLis = document.getElementById('content').getElementsByTagName('li');
+        var index = 0;
+        for (var i = 0; i < titleLis.length; i++) {
+            titleLis[i].index = i;
+            titleLis[i].onclick = function(){
+                titleLis[index].className = '';
+                contentLis[index].className = '';
+
+                titleLis[this.index].className = 'change';
+                contentLis[this.index].className = 'change';
+                index = this.index;
+            }
+        }
+    </script>-->
+
+
+</body>
+</html>

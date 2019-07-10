@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<div id="div1"></div>
+<script type="text/javascript">
+    
+    //仅作参考
+    var div = document.getElementsByTagName('div');
+    for(var i=0; i<div.length; i++){
+        var num = 1;
+        var attr = div[i].getAttribute('id');
+        
+        for(var j=i+1; j<div.length; j++){
+            if(div[j].getAttribute('id') == attr){
+                num ++;
+            }
+
+        }
+        console.log('属性值为：'+attr, '个数为：'+num);
+    }
+</script>
+</body>
+</html>

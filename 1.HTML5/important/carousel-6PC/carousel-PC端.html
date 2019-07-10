@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电脑端轮播图</title>
+    <link rel="stylesheet" href="../css/cssreset.css">
+    <style>
+        #outer{
+            width: 520px;
+            height: 333px;
+            margin: 50px auto;
+            background-color: #bfa;
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        #imgList{
+            /*ul的宽度用JS设置，这样灵活性比较强。*/
+            /*width: 4160px;*/
+            /*注意：此时对ul用了定位*/
+            position: absolute;
+            left: 0;
+        }
+        #imgList li{
+            float: left;
+            padding: 0 10px;
+        }
+        #nav{
+            position: absolute;
+            bottom: 15px;
+
+        }
+        #nav a{
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            float: left;
+            margin: 0 5px;
+            opacity:0.5;
+            filter:alpha(opacity=50);
+        }
+        #nav a:hover{
+            background: black;
+        }
+    </style>
+    <script src="js/处理动态效果move.js"></script>
+    <script src="js/carousel_PC.js"></script>
+
+    <script>
+
+        window.onload=function(){
+            var imgList=document.getElementById("imgList");
+            var imgs=document.getElementsByTagName("img");
+            var navList=document.getElementById("nav");
+            var aArr=document.getElementsByTagName("a");
+
+            carousel_PC(imgList,imgs,navList,aArr);
+
+
+        };
+    </script>
+    <!--<script>
+        //这个注释的script是最初写好的，没有提取，而上面用的是提取出来的函数carousel_PC；
+
+        //这里面有几个数字是变量，如果换用其他图片，注意修改数字。
+        window.onload=function(){
+            var imgList=document.getElementById("imgList");
+            var imgs=document.getElementsByTagName("img");
+            var navDiv=document.getElementById("nav");
+            var aArr=document.getElementsByTagName("a");
+            imgList.style.width=520*imgs.length+"px";
+            //alert(imgList.style.width);
+            for(var i=0;i<imgs.length-1;i++){
+                navDiv.innerHTML+='<a href="javascript:;"></a>';
+            }
+            //offsetParent &ndash;&gt; 获取当前元素的定位元素
+            //此时也可以用parentNode 获取当前节点的父节点
+            navDiv.style.left=(navDiv.offsetParent.offsetWidth-navDiv.offsetWidth)/2+"px";
+            var num=0;
+            var timer=0;
+            initA();
+            autoChange();
+            for(var i=0;i<aArr.length;i++){
+                aArr[i].onclick=function(index){
+                    return function(){
+                        clearInterval(timer);
+                        num=index;
+                        initA();
+                        move(imgList,"left",-520*index,10,function(){
+                            autoChange();
+                        });
+                    };
+                }(i);
+            }
+
+            function autoChange(){
+                timer=setInterval(function(){
+                    num++;
+                    if(num>=imgs.length){
+                        num=0;
+                    }
+                    move(imgList,"left",-520*num,10,function(){
+                        initA();
+                    });
+                },2000);
+            }
+
+            function initA(){
+                if(num>imgs.length-1){
+                    imgList.style.left=0;
+                    num=0;
+                }
+
+                for(var i=0;i<aArr.length;i++){
+                    aArr[i].style.backgroundColor="";
+                }
+                aArr[num].style.backgroundColor="black";
+            }
+        };
+    </script>-->
+</head>
+<body>
+<!--最好用id表示，因为这是用于PC端，需要考虑兼容性，JS中可以直接用getElementById获取；
+如果要用class，还需要引入自定义的JS文件，用getEleByClass获取class。-->
+<div id="outer">
+    <ul id="imgList">
+        <!--注意：这里只对img最外面的outer设置了和单张图片宽高相同的尺寸，不需要自适应；
+        而在移动端轮播图中，设置了属性没有设置display:block,width:100%，需要自适应。-->
+        <li><img src="img/1.jpg" alt=""></li>
+        <li><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+        <li><img src="img/5.jpg" alt=""></li>
+        <li><img src="img/6.jpg" alt=""></li>
+        <li><img src="img/7.jpg" alt=""></li>
+        <li><img src="img/1.jpg" alt=""></li>
+    </ul>
+    <div id="nav">
+        <!--<a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>-->
+    </div>
+</div>123
+</body>
+</html>

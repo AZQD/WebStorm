@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //replace  注意$需要转义
+    var str = '<tr><td>{$id}</td><td>{$name}</td></tr>';
+    strNew = str.replace(/{\$id}/g, 10).replace(/{\$name}/g, 'Tony');
+    console.log(strNew);
+
+    //验证是否有abcde
+    var str1 = 'abcde';
+    var reg = /^a|e$/g;
+    console.log(reg.test(str1));  //true
+
+    //验证单词
+    var reg2= new RegExp("\\b"+"is"+"\\b");
+    console.log(reg2.test('beijing is our capital'));
+
+    //邮箱正则
+    //abc123@ami.com.cn
+    /*var reg3 = /^[0-9a-zA-Z]{*}+\@+[a-zA-Z]{2,4}+\.+[a-zA-Z]{2,4}$/;
+    console.log(reg3.test('604972395@qq.com'));*/
+    var reg3 = /^[\w\-]+\@[a-zA-Z]{2,4}(\.[a-zA-Z]{2,3}){1,2}$/;
+    console.log(reg3.test('-6_049726395qqcom@rkcr.sds.cd'));
+
+    //手机号正则
+    var reg4 = /^1[3-9]{1}[\d]{9}$/;
+    console.log(reg4.test(13345678901));
+    
+    //汉字验证
+    var reg5 = /[\u4e00-\u9fa5]/g;
+    console.log('Love you 永恒 ！'.replace(reg5, 'forever'));
+
+    //去掉字符串中的html标签
+    //注意：不用加…^$,因为判断的不是整个字符串的开头和结尾
+    //?表示0-1个
+    var str2 = '<div>这里是div<p>里面的段落</p></div>';
+//    写法1：
+    //var result = str2.replace(/\<[a-z]+\>/ig, '').replace(/\<\/[a-z]+\>/ig, '');
+    //    写法2：
+    //var result = str2.replace(/\<\/?[a-z]+\>/ig, '');
+    var result = str2.replace(/(\<|(\<\/))[a-z]+\>/ig, '');
+    console.log(result);
+
+    console.log("********");
+    //93题
+    var reg93 = /^[a-zA-Z\_]{1}.{4,19}$/;
+    console.log(reg93.test('hello'));
+    console.log(reg93.test('_hsdfo'));
+    console.log(reg93.test('3abcdhe'));
+    console.log(reg93.test('b#$%^^&%$  fsdfsfs'));
+
+    //129
+    var reg129 = /^[a-zA-Z]{1}[\w]{5,29}$/;
+    console.log(reg129.test('dsdsdfs'));
+
+    //133 固话号
+    var reg133 = /^0[\d]{2,3}\-[\d]{7,8}\-[\d]{3,4}$/;
+    console.log(reg133.test('010-67758823-1234'));
+
+    //148 replace
+    var str148 = '<tr><td>{$id}</td><td>{$name}</td></tr>';
+    var strNew148 = str148.replace(/\{\$id\}/g, 10).replace(/\{\$name\}/g, 'Tony');
+    console.log(strNew148);
+
+    //图片18.7 由数字和26个大小写英文字母组成的字符串
+    var reg187 = /^[A-Za-z\d]+$/g;
+    console.log(reg187.test('a'));
+
+    //图片8-23： 判断是否是一个正整数
+    var reg823 = /^[0-9]*[1-9][0-9]*$/;
+
+    //6-25个英文字母与数字组合
+    var reg = /^(?!\d+$)(?![A-Za-z]+$)[a-zA-Z0-9]{6,25}/;
+</script>
+</body>
+</html>

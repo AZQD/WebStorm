@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            display: flex;
+            width: 400px;
+            background-color: red;
+        }
+        li{
+            width: 200px;
+
+        }
+        li:first-child{
+            background-color: yellow;
+            flex-basis: 1;
+        }
+        li:nth-child(2){
+            background-color: fuchsia;
+        }
+        li:last-child{
+            background-color: lawngreen;
+            flex-shrink: 3;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<!--需要600px宽度。
+
+但是400px的宽度，需要压缩200px
+
+200*1 + 200*1 + 200*3 = 1000px
+
+第一个li （(200*1)/1000 ）* 200= 40px
+第二个li （(200*1)/1000 ）* 200= 40px
+第三个li   (200*3)/1000 ）* 200==  120px
+
+第一个li压缩后宽度  200-40 = 160px
+第二个li压缩后宽度  200-40 = 160px
+第三个li压缩后宽度  200-120 = 80px-->
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/内部图片拖拽到obj.js"></script>
+    <style>
+        .wrapper{
+            width: 100%;
+            height: 200px;
+            background-color: #bbffaa;
+        }
+        .items img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper"></div>
+<div class="items">
+    <img id="one" src="img/img/item01.jpg" alt="">
+    <img src="img/img/item02.jpg" alt="">
+    <img src="img/img/item03.jpg" alt="">
+    <img src="img/img/item04.jpg" alt="">
+</div>
+</body>
+<script type="text/javascript">
+    /*selectedItem 是全局变量*/
+
+    var wrapper = document.querySelector(".wrapper");
+    var imgs=document.querySelectorAll(".items img");
+    /*var imgs=document.getElementsByTagName("img");*/
+    innerDrag(wrapper,imgs);
+
+
+/*    function innerDrag(obj1,obj2 ){
+        //支持单张和多张图片拖拽,图片必须是数组形式，
+        // 如果是一张图片，也要写一个数组
+        //比如：var imgs=document.querySelectorAll(".items img");
+
+        var selectedItem;
+        var len = obj2.length;
+        for(var i=0; i<len; i++){
+            obj2[i].addEventListener("dragstart", function(event){
+                selectedItem = this;
+                console.log(selectedItem);
+            },false);
+        }
+
+        obj1.addEventListener("dragover", function(event){
+//        一定要在dragover中阻止默认行为。
+            event.preventDefault();
+        }, false);
+
+        obj1.addEventListener("drop", function(event){
+            event.preventDefault();
+            obj1.appendChild(selectedItem);
+
+        }, false);
+
+    }*/
+
+/*    var selectedItem;
+    for(var i=0;i<imgs.length;i++){
+        imgs[i].addEventListener("dragstart",function(){
+            selectedItem=this;
+           // console.log(selectedItem);
+        },false);
+
+    }
+
+    wrapper.addEventListener("dragover",function(event){
+        event.preventDefault();
+    },false);
+    wrapper.addEventListener("drop",function(event){
+        event.preventDefault();
+        wrapper.appendChild(selectedItem);
+    },false);*/
+
+
+</script>
+</html>

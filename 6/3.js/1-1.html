@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //数组去重
+        /*var arr = [1,2,2,1,4,2];
+        var newArr = new Set(arr);
+        console.log(newArr);
+        console.log(newArr instanceof Object);
+        var arr2 = [];
+        console.log(newArr.length);
+        for(var item of arr){
+            console.log(arr[item]);
+            arr2.push(item);
+        }
+        console.log(arr2);
+        var obj = {name : 'zh', age :12, setName : function(){}};
+        for(var item in arr){
+            console.log(arr[item]);
+        }
+        for(var item of arr){
+            console.log(item);
+        }*/
+
+        /*var arr = [1,2,2,1,4,2];
+        var newArr = [];
+        for(var i=0; i<arr.length; i++){
+
+            if(newArr.indexOf(arr[i]) == -1){
+                newArr.push(arr[i]);
+            }
+
+        }
+        console.log(newArr);*/
+
+//        var arr = [1,2,2,1,4,2];
+        /*var newArr = arr.sort(function(a,b){
+            return b-a;
+        });
+        console.log(newArr);*/
+        /*for(var i=0; i<arr.length; i++){
+            var newArr = [];
+            for(var j=0; j<arr.length - i; j++){
+                if(arr[j+1]>arr[j]){
+                    newArr = arr[j+1];
+                    arr[j+1] = arr[j];
+                    arr[j] = newArr;
+                }
+            }
+        }
+        console.log(arr);*/
+
+        /*var ev = ev || event;
+        var target = ev.srcElement || ev.target;
+        function bind(obj, eventStr, callback){
+            if(obj.addEventListener){
+                obj.addEventListener(eventStr, callback, false);
+            }else{
+                obj.attachEvent('on'+eventStr, function(){
+                    callback.call(obj);
+                });
+            }
+        }
+
+        if(ev.stopPropagation){
+            ev.stopPropagation();
+        }else{
+            ev.cancelBubbble = true;
+        }
+
+        if(ev.preventDefault){
+            ev.preventDefault();
+        }else{
+            return false;
+        }
+        
+        function getStyle(obj,attr){
+            try{
+                return obj.getComputedStyle(obj, null)[attr];
+            }catch (e){
+                return obj.currentStyle[attr];
+            }
+        }
+        var clientWidth = document.documentElement.clientWidth || document.body.clientWidth;*/
+
+        var arr = [1,2,2,1,4,2];
+        
+        console.log(typeof arr);
+        console.log(arr instanceof Array);
+        function type(obj){
+            return Object.prototype.toString.call(obj) == "[object Array]";
+        }
+        console.log(type(arr));
+        
+        
+        
+        
+    });
+</script>
+</body>
+</html>

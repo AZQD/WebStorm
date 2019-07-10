@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //当传入一个参数时：
+    function log(msg){
+        return console.log(msg);
+    }
+    log('hn');
+
+    //当传入多个参数时：
+    function log2(){
+        return console.log.call(console, arguments);
+    }
+    log2('z', 2, 'henan');
+
+
+</script>
+</body>
+</html>

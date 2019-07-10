@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        *{margin: 0; padding: 0;}
+        .middle,.left,.right{
+            float: left;
+            position: relative;
+            padding-bottom: 10000px;
+            margin-bottom: -10000px;
+        }
+        .container{
+            padding: 0 200px 0 100px;
+            overflow: hidden;
+        }
+        .middle{
+            width: 100%;
+            background-color: green;
+        }
+        .left{
+            margin-left: -100%;
+            left: -100px;
+            width: 100px;
+            background-color: blue;
+        }
+        .right{
+            width: 200px;
+            right: -200px;
+            margin-left: -200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header style="background-color: red">header</header>
+        <div class="container">
+            <div class="middle">middle
+                    红军不怕远征难，万水千山只等闲。
+                　　五岭逶迤腾细浪，乌蒙磅礴走泥丸。
+                　　金沙水拍云崖暖，大渡桥横铁索寒。
+                　　更喜岷山千里雪，三军过后尽开颜。
+            </div>
+            <div class="left">left</div>
+            <div class="right">right</div>
+        </div>
+        <footer style="background-color: fuchsia;">footer</footer>
+    </div>
+</body>
+</html>

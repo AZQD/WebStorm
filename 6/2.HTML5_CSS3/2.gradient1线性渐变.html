@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        /*gradient有线性渐变和径向渐变，另外cancas也有渐变，详细参考canvas*/
+        .box{
+            width: 200px;
+            height: 200px;
+            margin-bottom: 36px;
+            /*to left/right/top/bottom/45deg*/
+            background-image: linear-gradient(to left, red, yellow, blue);
+            /*所占的比例，也可以用百分比表示*/
+            background-image: linear-gradient(to left, red, yellow 150px, blue);
+            /*重复渐变*/
+            background-image: repeating-linear-gradient(to left, #000, #000 10px, #fff, #fff 10px, #fff 20px);
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-image: linear-gradient(red 95%, #000);
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<hr/>
+<div class="box2">线性渐变的应用:div背景颜色渐变</div>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>KEEP MOVING</title>
+    <style type="text/css" id="css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrapper{
+            position: relative;
+            overflow: hidden;/*需要加上*/
+        }
+
+        #list{
+            position: absolute;/*定位*/
+            left: 0;
+            top: 0;
+            list-style: none;
+            /*width: 500%;*/ /*动态生成*/
+            /*overflow: hidden;*/ /*对定位的父元素，就不用清浮动了*/
+        }
+        #list li{
+            float: left;
+            /*width: 20%;*/  /*动态生成*/
+        }
+        #list li img{
+            width: 100%;
+            display: block;/*解决图片之间间距3像素*/
+        }
+
+        /*nav*/
+        #nav{
+            position: absolute;
+            left: 0;
+            bottom: 3px;
+            line-height: 10px;
+            text-align: center;
+            width: 100%;/*因为定位了，宽度被内容撑开，为了让小圆点居中，加上width：100%*/
+        }
+        #nav span{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 5px;
+        }
+        #nav .active{
+            background: fuchsia;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <ul id="list">
+        <li>
+            <a href="javascript:void(0);">
+                <img src="img/1.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <img src="img/2.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <img src="img/3.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <img src="img/4.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <img src="img/5.jpg" alt="">
+            </a>
+        </li>
+    </ul>
+    <div id="nav">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+hello-world<br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+<script type="text/javascript" src="js/10_cssTransform.js"></script>
+<script type="text/javascript">
+    /*取消默认行为*/
+    document.addEventListener('touchstart', function(ev){
+        //console.log(ev.targetTouches);
+        //console.log(ev.changedTouches);
+        //console.log(ev.changedTouches == ev.targetTouches); //false
+        ev.preventDefault();
+    }, false);
+
+    window.onload = function(){
+        var css = document.querySelector('#css');
+        var wrapper = document.querySelector('#wrapper');
+        var list = document.querySelector('#list');
+
+        //新添加内容：先复制一份
+        list.innerHTML += list.innerHTML;
+
+        var lis = document.querySelectorAll('#list li');
+        var nav = document.querySelectorAll('#nav span');
+        /*动态添加样式，可扩展性更强*/
+        var style = '#list{width:'+lis.length+'00%;}';
+        style += '#list li{width: '+(1/lis.length * 100)+'%;}';
+        style += '#wrapper{height: '+lis[0].offsetHeight+'px;}';
+        css.innerHTML += style;
+
+        var startPoint = 0; //初始的位置
+        var startX = 0; //偏移量
+        var now = 0;
+        wrapper.addEventListener('touchstart', function(ev){
+
+
+
+            /*新添加内容:
+            * 当跳转到第一张时，直接跳到复制的轮播的第一张
+            * 当跳转到复制的轮播的最后一张时，跳转到原轮播图的最后一张
+            *
+            * */
+            if(now == 0){
+                now = nav.length;
+            }else if(now == lis.length-1){
+                now = nav.length-1;
+            }
+            console.log(now);
+            console.log(wrapper.offsetWidth);
+            /*添加过渡效果*/
+            list.style.transition = '1s linear';
+            left = -now*wrapper.offsetWidth;
+            list.style.left = left + 'px';
+
+
+            list.style.transition = 'none';/*最初时移出过渡效果*/
+            var touch = ev.changedTouches[0]; /*触发当前事件的手指列表*/
+            startPoint = touch.clientX;
+            //console.log('startPoint='+startPoint);
+            startX = list.offsetLeft;
+            //cssTransform(list,"translateX",-now * wrapper.offsetWidth);
+            //startX = cssTransform(list, 'translateX');
+
+            //清除自动轮播定时器
+            //clearInterval(clearTime);
+
+        }, false);
+
+        wrapper.addEventListener('touchmove', function(ev){
+            var touch = ev.changedTouches[0];/*触发当前事件的手指列表*/
+            var nowPoint = touch.clientX;
+            var dis = nowPoint - startPoint; //手指移动的偏移量
+            console.log('nowPoint='+nowPoint);
+            console.log('dis='+dis);
+            var left = startX + dis;
+            list.style.left = left + 'px';
+        }, false);
+
+        wrapper.addEventListener('touchend', function(){
+            //var now = 0;
+            var left = list.offsetLeft;
+            now = Math.round(-left/wrapper.offsetWidth);
+
+            /*新添加内容：*/
+            //当图片是第一张或者最后一张时，限制超出，这块内容一定要加。
+            if(now < 0){
+                now = 0;
+            }else if(now > lis.length-1){
+                now = lis.length-1;
+            }
+
+            console.log(now);
+            console.log(wrapper.offsetWidth);
+
+            /*添加过渡效果*/
+            list.style.transition = '1s linear';
+
+            left = -now*wrapper.offsetWidth;
+            list.style.left = left + 'px';
+
+            for (var i = 0; i < nav.length; i++) {
+                nav[i].className = '';
+            }
+            /*轮播小点儿：取余*/
+            nav[now % nav.length].className = 'active';
+        }, false);
+
+
+
+        /*自动轮播:只有一个方向*/
+        var autoFlag = 0;
+        var clearTime = 0;
+        auto();
+        function auto(){
+
+            //自动轮播封装成函数
+            clearTime = setInterval(function(){
+
+                //如果自动到了复制轮播的最后一张，让它跳转到原轮播的最后一张
+                if(autoFlag == lis.length-1){
+                    list.style.transition = 'none';
+                    autoFlag = nav.length-1;
+                    left = -autoFlag*wrapper.offsetWidth;
+                    list.style.left = left + 'px';
+                }
+
+                //为什么需要加延时？
+                //因为当轮播为最后一张的时候，跳转到原轮播的最后一张，渲染需要一定的时间
+                //如果不加，会出现：取消轮播过渡效果失效
+                setTimeout(function(){
+                    autoFlag ++;
+                    /*添加过渡效果*/
+                    list.style.transition = '1s linear';
+                    left = -autoFlag*wrapper.offsetWidth;
+                    list.style.left = left + 'px';
+
+                    for (var i = 0; i < nav.length; i++) {
+                        nav[i].className = '';
+                    }
+                    /*轮播小点儿：取余*/
+                    nav[autoFlag % nav.length].className = 'active';
+                }, 20);
+
+            }, 2000);
+
+        }
+
+
+
+    };
+</script>
+</body>
+</html>

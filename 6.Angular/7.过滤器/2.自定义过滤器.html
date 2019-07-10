@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp">
+<p>{{[1,2,4,65,68,98] | myLimitTo:2:4}}</p>
+<p>{{'beijinghuanyingni'| myLimitTo:2:4}}</p>
+<p>{{ 123 | myLimitTo:2:4}}</p>
+
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .filter('myLimitTo', function(){
+                return function(value, startIndex, endIndex){
+                    if(angular.isArray(value)){
+                        return value.slice(startIndex, endIndex);
+                    }else if(angular.isString(value)){
+                        return value.substring(startIndex, endIndex);
+                    }else{
+                        return value;
+                    }
+                };
+            });
+</script>
+</body>
+</html>

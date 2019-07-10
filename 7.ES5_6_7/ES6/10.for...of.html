@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<button>测试1</button><br>
+<button>测试2</button><br>
+<button>测试3</button><br>
+<script type="text/javascript">
+    /*//1. 遍历数组
+    var arr = ['a', 'b', 'c', 'd'];
+    for(item of arr){
+        console.log(item);
+    }
+    //2. 遍历Set
+    var set = new Set([1,2,3,4,5,6,2,4]);
+    for(item of set){
+        console.log(item);
+    }
+    //3. 遍历Map
+    var map = new Map([['name', 'zh'],['age', 12]]);
+    for(item of map){
+        console.log(item);
+    }
+    //4. 遍历字符串
+    var str = 'abcdefg';
+    for(item of str){
+        console.log(item);
+    }
+    //5. 遍历伪数组
+    var buttons = document.getElementsByTagName('button');
+    console.log(buttons);
+    for(item of buttons){
+        console.log(item); //火狐支持
+    }*/
+
+    //用for……in
+    //var obj = {name : 'zh', age :12, setName : function(){}};
+
+    //用for……of
+    //var obj = 'abcd';
+    //var obj = [1, 23,true, 'string'];
+    //var obj = new Set([1, 2,3,4, 1]);
+    //var obj = new Map([['name', 'zh', 12],['age', 12]]);
+    for(i  in obj){
+        console.log(i);
+    }
+    
+</script>
+</body>
+</html>

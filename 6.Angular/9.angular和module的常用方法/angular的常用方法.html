@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+
+<div>
+    <ul id="ul1">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('Mycontroller', function($scope, $filter){
+                var ul = document.getElementById('ul1');
+                angular.element(ul).append('<li>我是新增的li</li>');
+                var lis = document.getElementsByTagName('li');
+                angular.forEach(lis, function(item, index){
+                    console.log(index, item.innerHTML);
+                });
+                var arr = [{name : 'li', age : 12}];
+                var json = angular.toJson(arr);
+                console.log(json, typeof json);
+                var arr2 = angular.fromJson(json);
+                console.log(arr2, typeof arr2);
+
+                console.log(angular.isObject($scope));
+                console.log(angular.isFunction($filter));
+                console.log(angular.isArray([]));
+
+                var str = 'I Love You !';
+                var lower = angular.lowercase(str);
+                var upper = angular.uppercase(str);
+                console.log(lower);
+                console.log(upper);
+
+            });
+
+</script>
+</body>
+</html>

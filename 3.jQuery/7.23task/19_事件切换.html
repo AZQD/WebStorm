@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 20px;
+            left: 10px;
+            background: blue;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            /*$('.div1').hover(function () {
+                $(this).css('background', 'red');
+            }, function(){
+                $(this).css('background', 'blue');
+            });*/
+
+            $('.div1').mouseenter(function(){
+                $(this).css('background', 'red');
+            }).mouseout(function () {
+                $(this).css('background', 'blue');
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="div1">
+    鼠标移入绿色,移出蓝色
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+#box{
+    width: 200px;
+    height: 300px;
+    background-color: #bfa;
+}
+/*@media要放在css下面*/
+@media screen and (min-width: 800px){
+    #box{
+        background-color: red;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+        .div1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: 100px;
+            background: red;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $div = $('.div1');
+            $('#btn1').click(function () {
+                $div.animate({
+                    width : 200,
+                    height : 200
+                }, 1000, 'linear', function(){
+                    alert('hello');
+                });
+            });
+            $('#btn2').click(function () {
+                $div.animate({
+                    left : $div.position().left + 100
+                });
+            });
+            $('#btn3').click(function () {
+                $div.animate({
+                    left : $div.position().left - 100
+                });
+            });
+            $('#btn4').click(function () {
+                $div.stop();
+            });
+
+        });
+    </script>
+</head>
+<body>
+<button id="btn1">逐渐扩大</button>
+<button id="btn2">向右移动</button>
+<button id="btn3">向左移动</button>
+<button id="btn4">停止动画</button>
+
+<div class="div1">
+    content
+</div>
+</body>
+</html>

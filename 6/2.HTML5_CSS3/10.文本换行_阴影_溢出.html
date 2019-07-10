@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+
+        /*<!--1.文本换行-->*/
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            /*overflow-wrap: break-word;   只支持chrome*/
+            /*word-wrap: break-word;  */    /*禁止截断单词。*/
+            word-break: break-all;   /*会截断单词*/
+        }
+
+        /*<!--2.文本阴影-->*/
+        .box2{
+            text-shadow: 1px 1px 2px red;
+        }
+
+        /*<!--3.文本溢出-->*/
+        .box3{
+            width: 100px;
+            background-color: fuchsia;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; /*当文本溢出时，省略号显示。*/
+            /*text-overflow: clip;  *//*仅仅简单的剪裁，不使用省略号。*/
+            /*注意：上述两个属性需要配合  white-space: nowrap;
+            和 overflow: hidden 一起使用，且容器需要定义宽度。只在块元素内生效。*/
+
+
+            /*支持多行文本溢出*/
+            /*这个属性比较合适WebKit浏览器或移动端，其他浏览器就要用js实现了*/
+            /*-webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            overflow: hidden;*/
+        }
+    </style>
+</head>
+<body>
+    <!--1.文本换行-->
+    <div class="box1">hellooooooooooooooooo world</div>
+    <hr/>
+
+    <!--2.文本阴影-->
+    <div class="box2">
+        毕竟西湖六月中，风光不与四时同。
+    </div>
+    <hr/>
+
+    <!--3.文本溢出-->
+    <div class="box3">
+        山重水复疑无路，柳暗花明又一村。
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+//            需求1. 点击按钮: 显示按钮的文本, 显示一个新的输入框
+//            $('#btn').click(function(){
+//                alert(this.innerHTML);
+//                $('<input type="text" name="msg3" /><br />').appendTo('body');
+//            });
+            
+//            需求2. 遍历输出数组中所有元素值
+            /*var arr = ['abc', true, 123];
+            $.each(arr, function(index, item){
+                console.log(index, item);
+            });*/
+            
+            
+//            需求3. 去掉"  my atguigu  "两端的空格
+            var str = " my atguigu   ";
+            console.log($.trim(str));
+            console.log($.trim(str) === 'my atguigu');
+
+            
+        });
+    </script>
+</head>
+<body>
+    <button id="btn">测试</button>
+
+    <br />
+
+    <input type="text" name="msg1" /><br />
+    <input type="text" name="msg2" /><br />
+
+</body>
+</html>

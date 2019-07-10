@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<button id="btn">zhixin</button>
+<script type="text/javascript">
+    var btn = document.getElementById('btn');
+
+    btn.addEventListener('click', function(){
+        console.log('捕获');
+    }, true);
+    btn.addEventListener('click', function(){
+        console.log('冒泡');
+    }, false);
+    
+
+
+
+    var aa = 'abc';
+    console.log(aa.constructor == String);
+
+    function fun(obj){
+        return Object.prototype.toString.call(obj) === '[object String]';
+    }
+    var result = fun(aa);
+    console.log(result);
+
+
+
+</script>
+</body>
+</html>

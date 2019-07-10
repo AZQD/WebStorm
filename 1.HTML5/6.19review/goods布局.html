@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            min-width: 320px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .goods{
+            background-color: #bfa;
+            display: table;
+            width: 100%;
+            /*height: 200px;*/
+        }
+        .box{
+            display: table-cell;
+        }
+        .box1{
+            width: 30%;
+            background-color: red;
+            vertical-align: middle;
+        }
+        img{
+            vertical-align: middle;
+            width: 100%;
+            border: 1px solid red;
+        }
+        .box2{
+            width: 60%;
+            background-color: greenyellow;
+        }
+        .box2 #span1{
+            font-size: 1.375rem;
+        }
+        .box2 #span2{
+            font-size: 1.25rem;
+            color: red;
+        }
+
+
+        .kong{
+            width: 2%;
+            background-color: yellow;
+        }
+        .kong2{
+            width: 6%;
+            background-color: fuchsia;
+        }
+        @media screen  and (max-width:450px){
+            html{
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="goods">
+            <div class="box kong"></div>
+            <div class="box box1">
+                <img src="img/3.jpg" alt="">
+            </div>
+            <div class="box kong"></div>
+            <div class="box box2">
+                <span id="span1">唤醒肌肤“净化”力量！雪花秀宫中蜜皂100g*2（含皂托），还原纯净幼肌！</span><br/>
+                <span id="span2">￥279</span>
+            </div>
+            <div class="box kong2"></div>
+        </div>
+
+    </div>
+</body>
+</html>

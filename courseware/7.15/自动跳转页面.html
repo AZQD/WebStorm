@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--6s之后跳转到指定页面-->
+    <meta http-equiv="refresh" content="6;url=document.write.html" />
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <span>6</span>s中自动跳转页面……
+    如果没有跳转请点击<a href="document.write.html">这里</a>
+</body>
+<script>
+
+    var n =6;
+    var timer = setInterval(function(){
+        n--;
+        console.log(n);
+        document.getElementsByTagName('span')[0].innerHTML=n;
+        if(n==0){
+            clearInterval(timer);
+        }
+    },1000);
+
+</script>
+</html>
+

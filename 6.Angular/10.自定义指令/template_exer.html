@@ -1,0 +1,15 @@
+
+    <div class="panel panel-default">
+        <div class="panel-heading" ng-click="switch()">
+            <h4 class="panel-title">
+                <a>
+                    {{title}}
+                </a>
+            </h4>
+        </div>
+        <div ng-class="{collapse:!isOpen}">
+            <div class="panel-body">
+                {{content}}
+            </div>
+        </div>
+    </div>

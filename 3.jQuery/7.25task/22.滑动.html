@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            left: 10px;
+            background: red;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $div = $('.div1');
+            $('#btn1').click(function () {
+                $div.slideUp();
+            });
+            $('#btn2').click(function () {
+                $div.slideDown();
+            });
+            $('#btn3').click(function () {
+                $div.stop().slideToggle(1000, function(event){
+                    //alert('ok');
+                    //event.preventDefault();
+                });
+            });
+        });
+        
+        var arr = [1,2,3];
+        for(var i= 0, len = arr.length; i < len; i++){
+            console.log(arr[i]);
+        }
+    </script>
+</head>
+<body>
+<button id="btn1">慢慢收缩</button>
+<button id="btn2">慢慢展开</button>
+<button id="btn3">收缩/展开切换</button>
+
+<div class="div1">
+</div>
+</body>
+</html>

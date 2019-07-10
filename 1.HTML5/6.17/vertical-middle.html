@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       /* 这个例子再看看*/
+        *{margin: 0;padding: 0}
+        #box{
+            width: 500px;
+            height: 600px;
+            background-color: yellow;
+            /*margin: 0 auto;*/
+
+            display: table-cell;
+            vertical-align: middle;
+        }
+        img{
+            vertical-align: middle;
+            background-color: yellow;
+            /*opacity: 0.5;
+            filter:alpha(opacity=50);*/
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        hello<img src="img/ad-big-001.jpg" alt="">
+    </div>
+    <form action="vertical-middle.html">
+        <input type="email"name="text" autocomplete="on" formnovalidate="formnovalidate">
+        <input type="text"name="text" pattern="[0-9]{6}"formnovalidate="formnovalidate">
+        <input type="submit"value="提交">
+    </form>
+    <br><br><br>
+</body>
+</html>

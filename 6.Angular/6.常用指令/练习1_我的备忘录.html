@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+<h1>我喜欢的妹纸</h1>
+<input type="text" ng-model="msg">
+<button ng-click="add()">添加</button>
+
+
+    <div ng-repeat="item in star">
+        <input type="checkbox" ng-model="item.checked">
+        <span>{{item.name}}</span>
+    </div>
+<button ng-click="delete()">删除选中的</button>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+        .controller('Mycontroller', function($scope){
+            $scope.star = [
+                {
+                    name : '梁静茹',
+                    checked : false
+                },
+                {
+                    name : '景甜',
+                    checked : false
+                },
+                {
+                    name : '赵奕欢',
+                    checked : false
+                }
+            ];
+
+            $scope.add = function(){
+                var adds = {
+                    name : $scope.msg,
+                    checked : false
+                };
+                $scope.star.unshift(adds);
+                $scope.msg = '';
+            };
+
+            $scope.delete = function(){
+                if(confirm('确认删除吗？')){
+                    var arrNew = [];
+                    $scope.star.forEach(function(currentItem){
+                        if(!currentItem.checked){
+                            arrNew.push(currentItem);
+                        }
+                    });
+                    $scope.star = arrNew;
+                }
+            };
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function(){
+            var obj={
+                name:"swk",
+                age:20,
+                c:'alert("hello")'
+            };
+            var a=JSON.stringify(obj);
+            //console.log(a);
+            var b=JSON.parse(a);
+            console.log(a);
+
+           // var str4 = "alert('hello')";
+
+            //它会自定执行字符串中的代码
+            //eval(str4);
+
+            //使用eval这个函数，可以将一个json字符串转换为一个JS对象（并且兼容所有的浏览器）
+            //但是由于它可以将一个字符串直接转换为可以执行的代码，所以它不太安全
+            //eval函数中解析到{}会把它当前代码块执行
+           // var obj4 = eval(str4);
+
+            //alert(obj4);
+
+        var m="alert(\"hello\")";
+            console.log(b.c) ;
+            alert(eval(m));
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <link rel="stylesheet" href="../js/bootstrap-3.3.5/css/bootstrap.css">
+    <style type="text/css">
+        .changeRed{
+            color: red;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+    <div class="container" ng-controller="MyController">
+
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" ng-model="search.$">
+            </div>
+        </form>
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th ng-class="{dropup : orders==''}" ng-click="sort('id')">
+                    ID<span class="caret" ng-class="{changeRed : column === 'id'}"></span>
+                </th>
+                <th ng-class="{dropup : orders==''}" ng-click="sort('name')">
+                    名称<span class="caret" ng-class="{changeRed : column === 'name'}"></span>
+                </th>
+                <th ng-class="{dropup : orders==''}" ng-click="sort('price')">
+                    价格<span class="caret" ng-class="{changeRed : column === 'price'}"></span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in products | filter : search | orderBy : orders+column">
+                <td ng-bind="item.id"></td>
+                <td ng-bind="item.name"></td>
+                <td ng-bind="item.price | currency :'¥'"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+        .controller('MyController', function($scope){
+            $scope.products = [
+                {
+                    id : 12,
+                    name : 'xiaomi',
+                    price : 1899
+                },
+                {
+                    id : 18,
+                    name : 'huawei',
+                    price : 2399
+                },
+                {
+                    id : 25,
+                    name : 'meizu',
+                    price : 1260
+                },
+                {
+                    id : 10,
+                    name : 'apple',
+                    price : 4899
+                }
+            ];
+
+            $scope.orders = '-';
+            $scope.column = 'price';
+            $scope.sort = function(sortName){
+                $scope.column = sortName;
+                $scope.orders = $scope.orders === '-'? '':'-';
+            };
+        });
+</script>
+</body>
+</html>

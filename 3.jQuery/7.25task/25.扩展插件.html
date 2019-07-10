@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+        .div1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: 10px;
+            background: red;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript" src="js/25.扩展插件.js"></script>
+    <script type="text/javascript">
+        //插件过来的可以写到$(function(){})外面。
+        console.log('----------'+ $.leftTrim('  abc   ')+'----');
+        console.log('----------'+ $.rightTrim('  abc   ')+'----');
+        $(function () {
+            $('#checkedAllBtn').click(function () {
+                $('[name=items]').checkAll();
+            });
+            $('#checkedNoBtn').click(function () {
+                $('[name=items]').unCheckAll();
+            });
+            $('#reverseCheckedBtn').click(function () {
+                $('[name=items]').reverseCheck();
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="checkbox" name="items" value="足球" />足球
+<input type="checkbox" name="items" value="篮球" />篮球
+<input type="checkbox" name="items" value="羽毛球" />羽毛球
+<input type="checkbox" name="items" value="乒乓球" />乒乓球
+<br />
+<input type="button" id="checkedAllBtn" value="全　选" />
+<input type="button" id="checkedNoBtn" value="全不选" />
+<input type="button" id="reverseCheckedBtn" value="反选" />
+</body>
+</html>

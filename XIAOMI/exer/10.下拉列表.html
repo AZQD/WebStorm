@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            list-style: none;
+        }
+        .nav,
+        .commodity-box{
+            width:100%;
+        }
+        .nav{
+            height:35px;
+            line-height: 35px;
+        }
+        .nav ul::after,
+        .commodity-box ul::after{
+            content: " ";
+            display: block;
+            clear: both;
+        }
+        .nav ul{
+            width:200px;
+            margin: 0 auto;
+        }
+        .nav li{
+            float: left;
+            padding:0 20px;
+            margin: 0 10px
+        }
+        .nav li.active{
+            background: #0f0;
+        }
+        .commodity-box{
+            height:200px;
+            border: 1px solid #f00;
+            display: none;
+        }
+        .commodity-box ul{
+            display: none;
+            width:500px;
+            margin: 0 auto;
+            display: none;
+        }
+        .commodity-box li{
+            float: left;
+            width:150px;
+            height:150px;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <ul>
+        <li>分类1</li>
+        <li>分类2</li>
+    </ul>
+</div>
+
+<div class="commodity-box">
+    <ul>
+        <li>分类1商品</li>
+        <li>分类1商品</li>
+        <li>分类1商品</li>
+    </ul>
+    <ul>
+        <li>分类2商品</li>
+        <li>分类2商品</li>
+        <li>分类2商品</li>
+    </ul>
+</div>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+    $(function(){
+        var timing; //延迟执行函数变量
+        $('.nav li').hover(function(){ //鼠标放上导航li
+            var num = $(this).index(); //获取当前li下标
+            clearTimeout(timing); //清除延迟
+            if($('.commodity-box').is(":hidden")){ //如果分类商品ul隐藏
+                $('.commodity-box').slideDown(); //展开
+            }
+            $('.nav li').removeClass('active'); //移除所有导航li class
+            $(this).addClass('active'); //当前li加class
+            $('.commodity-box ul').hide().eq(num).show(); //分类商品ul.隐藏所有.显示当前
+        },function(){ //鼠标离开导航li时
+            $('.nav li').removeClass('active'); //移除所有class
+            timing = setTimeout(function(){ //延迟200毫秒隐藏商品ul
+                $('.commodity-box').slideUp(); //隐藏商品ul
+            },200);
+        })
+        $('.commodity-box').hover(function(){ //鼠标放上商品模块
+            clearTimeout(timing); //清除延迟执行
+        },function(){ //鼠标离开商品模块
+            timing = setTimeout(function(){ //延迟200毫秒执行
+                $('.commodity-box').slideUp(); //商品模块隐藏
+            },200);
+        });
+    })
+</script>
+</body>
+</html>

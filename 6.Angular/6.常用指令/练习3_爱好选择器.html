@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<form method="post" action="#" ng-app="myApp" ng-controller="Mycontroller">
+    你爱好的运动是？<input type="checkbox" id="checkedAllBox" ng-model="allOrNot" ng-click="checkAllOrNot()"/>全选/全不选
+
+    <br />
+    <input type="checkbox" name="items" value="足球" ng-model="foot" ng-click="click()"/>足球
+    <input type="checkbox" name="items" value="篮球" ng-model="basket" ng-click="click()"/>篮球
+    <input type="checkbox" name="items" value="羽毛球" ng-model="yumao" ng-click="click()"/>羽毛球
+    <input type="checkbox" name="items" value="乒乓球" ng-model="pingpang" ng-click="click()"/>乒乓球
+    <br />
+    <input type="button" id="checkedAllBtn" value="全　选" ng-click="checkAll(true)" />
+    <input type="button" id="checkedNoBtn" value="全不选" ng-click="checkAll(false)"/>
+    <input type="button" id="checkedRevBtn" value="反　选" ng-click="checkAll()"/>
+    <input type="button" id="sendBtn" value="提　交" ng-click="submit()"/>
+</form>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('Mycontroller', function($scope){
+
+                $scope.checkAll = function(isCheck){
+                    if(typeof isCheck ==='boolean'){
+                        $scope.allOrNot = $scope.foot = $scope.basket = $scope.yumao = $scope.pingpang = isCheck;
+
+                    }else{
+                        $scope.foot = !$scope.foot;
+                        $scope.basket = !$scope.basket;
+                        $scope.yumao = !$scope.yumao;
+                        $scope.pingpang = !$scope.pingpang;
+                        $scope.allOrNot = $scope.foot && $scope.basket && $scope.yumao && $scope.pingpang;
+                    }
+                };
+
+                $scope.checkAllOrNot = function(){
+                    //低版本angular-1.2.29，是在属性改变之前调用的。
+                    //$scope.foot = $scope.basket = $scope.yumao = $scope.pingpang = !$scope.allOrNot;
+                    //高版本angular-1.5.5，是在属性改变之后调用的。
+                    $scope.foot = $scope.basket = $scope.yumao = $scope.pingpang = $scope.allOrNot;
+                };
+
+                $scope.click = function(){
+                    $scope.allOrNot = $scope.foot && $scope.basket && $scope.yumao && $scope.pingpang;
+                };
+
+                $scope.submit = function(){
+                    if($scope.foot){
+                        alert('足球');
+                    }
+                    if($scope.basket){
+                        alert('篮球');
+                    }
+                    if($scope.yumao){
+                        alert('羽毛球');
+                    }
+                    if($scope.pingpang){
+                        alert('乒乓球');
+                    }
+                };
+
+            });
+</script>
+
+</body>
+</html>

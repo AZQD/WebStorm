@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+//            1. 选择id为div1的元素
+            //$('#div1').css('background', '#bfa');
+
+//            2. 选择所有的div元素
+            //$('div').css('background', '#bfa');
+
+//            3. 选择所有class属性为box的元素
+            //$('.box').css('background', '#bfa');
+
+//            4. 选择所有的div和span元素
+            //$('div, span').css('background', '#bfa');
+
+//            5. 选择所有class属性为box的div元素
+            $('div.box').css('background', '#bfa');
+        });
+    </script>
+</head>
+<body>
+    <div id="div1" class="box">class为box的div1</div>
+    <div id="div2" class="box">class为box的div2</div>
+    <div id="div3">div3</div>
+    <span class="box">class为box的span</span>
+
+    <br>
+    <ul>
+        <li>AAAAA</li>
+        <li title="hello">BBBBB</li>
+        <li class="box">CCCCC</li>
+        <li title="hello">DDDDDD</li>
+    </ul>
+</body>
+</html>

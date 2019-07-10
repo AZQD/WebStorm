@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            border: 1px solid red;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box1"></div>
+<script type="text/javascript">
+    console.log(window.devicePixelRatio);
+    var box = document.getElementById('box');
+    console.log(getStyle(box, 'border'));
+    function getStyle(obj, attr){
+        try{
+            return getComputedStyle(obj, null)[attr];
+        }catch (e){
+            return obj.currentStyle[attr];
+        }
+    }
+
+    /*
+    详细看自己的为知笔记：
+
+    * 设备像素比devicePixelRatio简单介绍:
+    * 本文所说devicePixelRatio其实指的是window.devicePixelRatio, 被所有WebKit浏览器以及Opera所支持。
+    *
+    * 在手机上的像素是设备/物理像素，和css中的像素是不同的。
+     再讲viewport：
+     屏幕 尺寸 对角线
+     布局视口 layout viewport  css像素
+     可视化视口visual viewport  物理像素
+     移动端window对象有个devicePixelRatio属性, 它表示设备物理像素和css像素的比例,
+     在retina屏的iphone手机上, 这个值为2或3, css里写的1px长度映射到物理像素上就有2px或3px那么长.
+
+     320*480 宽和高 并不是像素
+     分辨率才是物理像素
+
+     加了meta视口标签：
+     把布局视口的宽度改成了可视化视口的宽度
+
+     解决方法：
+     1.用小数来写px值--js判定支持0.5px
+     2.border-image
+     3. background渐变 ---背景图渐变
+     4. :before, :after与transform-scale缩放的方式(推荐此方式)
+     5. flexible.js：---rem解决方案
+     这是淘宝移动端采取的方案, github的地址:https://github.com/amfe/lib-flexible. 前面已经说过1px变粗的原因就在于一刀切的设置viewport宽度,
+     如果能把viewport宽度设置为实际的设备物理宽度, css里的1px不就等于实际1px长了么. flexible.js就是这样干的.
+     <meta name=”viewport”>里面的scale值指的是对ideal viewport的缩放, flexible.js检测到IOS机型, 会算出scale = 1/devicePixelRatio, 然后设置viewport
+    * */
+</script>
+</body>
+</html>

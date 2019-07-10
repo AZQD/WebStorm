@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+
+<input type="text" ng-model="username">{{username}}
+<p>改变的次数是：{{count}}</p>
+<hr/>
+<input type="text"><input type="text">
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('MyController', function($scope){
+                $scope.count = 0;
+                var unWatch = $scope.$watch('username', function(newValue, oldValue){
+                    console.log(newValue, oldValue);
+                    if(newValue != oldValue){
+                        $scope.count ++;
+                        if($scope.count == 10){
+                            unWatch();
+                        }
+                    }
+                });
+            });
+</script>
+</body>
+</html>

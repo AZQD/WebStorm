@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>carousel</title>
+    <link rel="stylesheet" href="../css/cssreset.css">
+    <script src="js/index.js"></script>
+	<style>
+
+		.wrapper {
+			max-width: 640px;
+			min-width: 320px;
+			margin: 0 auto;
+		}
+
+		/*carousel*/
+		.box {
+			overflow: hidden;
+			position: relative;
+		}
+		.carousel {
+			overflow: hidden;
+			width: 12000px;
+		}
+		.carousel img {
+			display: block;
+			width: 640px;
+		}
+		.carousel li {
+			float: left;
+		}
+		.navList {
+			position: absolute;
+			bottom: 10px;
+			z-index: 100;
+		}
+		.navList a {
+			display: inline-block;
+			height: 6px;
+			width: 6px;
+			margin-left: 5px;
+			float: left;
+			border-radius: 3px;
+			border: 1px solid white;
+		}
+		.navList .active {
+			background: white;
+		}
+
+	</style>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <div class="box">
+            <ul class="carousel">
+                <li><a href="#"><img src="img/1.jpg" alt=""></a></li>
+                <li><a href="#"><img src="img/2.jpg" alt=""></a></li>
+                <li><a href="#"><img src="img/3.jpg" alt=""></a></li>
+                <li><a href="#"><img src="img/4.jpg" alt=""></a></li>
+                <li><a href="#"><img src="img/5.jpg" alt=""></a></li>
+                <li><a href="#"><img src="img/1.jpg" alt=""></a></li>
+            </ul>
+            <div class="navList"></div>
+        </div>
+        
+    </div>
+</body>
+</html>

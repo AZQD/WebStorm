@@ -1,0 +1,110 @@
+.wrapper{
+    min-width: 320px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.header{
+    display: table;
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 34px;
+}
+
+.header .common{
+    display: table-cell;
+    vertical-align: middle;
+}
+/*为什么加了display：block之后才可以成为块元素*/
+.header .left,.header .right{
+    /*display: block;*/
+    /*width: 100px;*/
+}
+.header .center{
+    width: 100%;
+}
+
+.header .left img, .header .right img{
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+}
+/*center和right间距*/
+.header .center input{
+    width: 98%;
+    margin:0 5px;
+    height: 22px;
+    outline: none;
+    border: none;
+    background: url("../img/icon_search.png")no-repeat 98% center;
+    background-size: 20px;
+    background-color: #ffffff;
+    text-indent: 5px;
+}
+
+/*goodsList*/
+
+.goodsList{
+    width: 100%;
+}
+
+.goodsList ul li{
+    float: left;
+    width: 25%;
+   /* text-align: center;*/
+    padding: 5px 2px;
+    box-sizing: border-box;
+}
+
+.goodsList li a{
+    display: block;
+    text-decoration: none;
+    /*text-align: left;*/
+
+}
+
+.goodsList li a:link,.goodsList li a:visited{
+    color: #999;
+}
+.goodsList li a:hover,.goodsList li a:active{
+    color: #f00;
+}
+
+.goodsList li a img{
+    width: 100%;
+}
+
+.goodsList li a p{
+    font-size: 0.8rem;
+}
+
+.goodsList li a span{
+    font-size: 1.2rem;
+    color: red;
+}
+.goodsList li a span:before{
+    content: "￥";
+    font-family: "Microsoft YaHei", SimSun, '\5b8b\4f53', sans-serif;
+}
+
+@media screen and (max-width:600px ){
+    .goodsList ul li{
+        width: 50%;
+    }
+    html{
+        font-size: 14px;
+    }
+}
+
+/*横屏portrait，竖屏landscape*/
+/*
+@media screen  and (orientation: portrait){
+    body{
+       background-color: #bfa;
+    }
+}
+@media screen and  (orientation: landscape){
+    body{
+        background-color: #0000FF;
+    }
+}*/

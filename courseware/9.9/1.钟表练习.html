@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+
+    <style type="text/css">
+        #box{
+            width: 300px;
+            height: 300px;
+            background-color: #bfa;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 150px;
+        }
+        #clock{
+            position: relative;
+            left: calc(50% - 3px);
+        }
+        #clock li{
+            width: 4px;
+            height: 12px;
+            background-color: red;
+            position: absolute;
+            transform-origin: 2px 150px;
+        }
+        #clock li:nth-child(2n){
+            height: 8px;
+        }
+        #hour{
+            width: 6px;
+            height: 90px;
+            background-color: red;
+            position: absolute;
+            top: 60px;
+            left: calc(50% - 3px);/*这个地方的-左右有空格*/
+            transform-origin: bottom;
+        }
+        #min{
+            width: 4px;
+            height: 120px;
+            background-color: blue;
+            position: absolute;
+            top: 30px;
+            left: calc(50% - 2px);
+            transform: rotate(45deg);
+            transform-origin: bottom;
+        }
+        #sec{
+            width: 2px;
+            height: 130px;
+            background-color: yellow;
+            position: absolute;
+            top: 20px;
+            left: calc(50% - 1px);
+            transform-origin: bottom;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="clock"></ul>
+    <div id="hour"></div>
+    <div id="min"></div>
+    <div id="sec"></div>
+</div>
+<script type="text/javascript" src="js/html5shiv.js"></script>
+<script type="text/javascript" src="js/prefixfree.min.js"></script>
+<script type="text/javascript" src="js/respond.js"></script>
+<!--移动端不支持？一般情况下像2d,3d常应用于移动端-->
+<script type="text/javascript">
+    alert(1);
+    var box = document.getElementById('box');
+    var clock = document.getElementById('clock');
+    var hourObj = document.getElementById('hour');
+    var minObj = document.getElementById('min');
+    var secObj = document.getElementById('sec');
+    
+    for (var i = 0; i < 60; i++) {
+        var li = document.createElement('li');
+        li.style.transform = 'rotate('+6*i+'deg)';
+        clock.appendChild(li);
+    }
+
+    setInterval(function(){
+        var time = new Date();
+        var hour = time.getHours();
+        var min = time.getMinutes();
+        var sec = time.getSeconds();
+        hourObj.style.transform = 'rotate('+30*(hour + min/60)+'deg)';
+        minObj.style.transform = 'rotate('+6*(min+sec/60)+'deg)';
+        secObj.style.transform = 'rotate('+6*sec+'deg)';
+    }, 1000);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+
+    /*
+    * 继承模式分为以下四种：
+     1.原型链继承
+     2.借用构造函数继承
+     3.组合继承   （是最最最重要的）
+     4.寄生式组合式继承
+     */
+
+
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.setName = function(name){
+        this.name = name;
+    };
+    function Worker(name, age, salary){
+        //继承属性
+        Person.call(this, name, age);
+        this.salary = salary;
+    }
+    //继承方法
+    Worker.prototype = new Person();
+    var worker = new Worker('li', 12, 12000);
+    console.log(worker.name, worker.age, worker.salary);
+    worker.setName('zhang');
+    console.log(worker.name);
+</script>
+</html>

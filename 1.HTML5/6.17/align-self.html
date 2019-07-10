@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            background-color: red;
+            display: flex;
+            flex-flow: row wrap;
+            height: 600px;
+            align-items: center;
+        }
+        li{
+            background-color: yellow;
+        }
+        li:first-child{
+            align-self: flex-start;
+        }
+        li:nth-child(2){
+            align-self: flex-end;
+        }
+        li:nth-child(3){
+            align-self: center;
+        }
+        li:nth-child(4){
+            align-self: baseline;
+        }
+        li:nth-child(5){
+            align-self: stretch;
+        }
+        img{
+            /*width: 100%;*/
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="img/1.png" alt=""></li>
+    <li><img src="img/2.png" alt=""></li>
+    <li><img src="img/3.png" alt=""></li>
+    <li><img src="img/4.png" alt=""></li>
+    <li><img src="img/5.png" alt=""></li>
+    <li><img src="img/6.png" alt=""></li>
+    <li><img src="img/7.png" alt=""></li>
+    <li><img src="img/8.png" alt=""></li>
+</ul>
+</body>
+</html>

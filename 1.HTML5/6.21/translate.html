@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+</head>
+<style>
+    ul{
+        width: 320px;
+        margin: 0 auto;
+    }
+    img{
+        width: 100%;
+        display: block;
+    }
+    li{
+        background-color: red;
+    }
+    li:hover{
+        /*transform: translateX(100px);*/
+        /*transform: translateY(100px);*/
+        transition: 1s linear;
+        /*transform: translate(100px, 100px);*/
+        /*transform: scaleY(1.2);*/
+        /*transform: scale(1.2,2);*/
+        transform: skewY(45deg);
+    }
+</style>
+<body>
+<ul>
+    <li><img src="img/2013.png" alt=""></li>
+    <li><img src="img/2014.png" alt=""></li>
+    <li><img src="img/2015.png" alt=""></li>
+    <li><img src="img/2016.png" alt=""></li>
+</ul>
+</body>
+</html>

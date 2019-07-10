@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        /*<!--display:inline-block的间隙问题-->*/
+        /*方法1*/
+        .box{font-size: 0;}
+        a{background-color: red; display: inline-block; font-size: 16px;
+        *margin-left: -1px;
+        }
+
+        /*方法2*/
+        /*.box{letter-spacing: -8px;}
+        a{background-color: red;display: inline-block;letter-spacing: 0;}*/
+
+        /*方法3*/
+        /*.box{word-spacing: -8px;}
+        a{background-color: red; display: inline-block;word-spacing: 0;}*/
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <a href="">01</a>
+    <a href="">02</a>
+    <a href="">03</a>
+</div>
+</body>
+</html>

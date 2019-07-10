@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+    <!--构造函数+原型-->
+    <script type="text/javascript">
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.setName = function(name){
+            this.name = name;
+        };
+
+        function Worker(name, age, salary){
+            Person.call(this, name, age);      //重要
+            this.salary = salary;
+        }
+        Worker.prototype = new Person();      //重要
+        var worker = new Worker('li', 20, 12000);
+        console.log(worker.name);
+        console.log(worker.age);
+        console.log(worker.salary);
+        worker.setName('ming');
+        console.log(worker.name);
+    </script>
+</body>
+</html>

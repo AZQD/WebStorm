@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        *{margin: 0; padding: 0;}
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+<script type="text/javascript">
+
+
+
+    //元素要定位
+   // window.onload = function(){
+        var box = document.getElementById('box');
+
+        box.onmousedown = function(ev){
+
+            //使当前元素捕获所有的事件
+            try {
+                box.setCapture();
+            }catch (e){
+
+            }
+            //console.log(box.offsetLeft);
+            ev = ev || event;
+
+            //获取鼠标点击的位置距离box的边框距离
+            var disLeft = ev.clientX - box.offsetLeft;
+            var disTop =  ev.clientY - box.offsetTop;
+            //console.log(disLeft, disTop);
+
+            document.onmousemove = function(ev){
+                ev = ev || event;
+                //此时的left，top为实时状态的left，top
+                var left = ev.clientX - disLeft;
+                var top = ev.clientY - disTop;
+
+
+                /*ie6及以下不支持document.documentElement*/
+                var maxLeft = (document.body.clientWidth || document.documentElement.clientWidth) - box.offsetWidth;
+                var maxTop = (document.body.clientHeight || document.documentElement.clientHeight) - box.offsetHeight;
+                if(left<10){
+                    left = 0;
+                }else if(left>maxLeft-10){
+                    left = maxLeft;
+                }
+
+                if(top<10){
+                    top = 0;
+                }else if(top>maxTop-10){
+                    top = maxTop
+                }
+
+
+                box.style.left = left + 'px';
+                box.style.top = top + 'px';
+            };
+
+            document.onmouseup = function(){
+                document.onmouseup = document.onmousemove = null;
+                ////取消捕获事件
+                try{
+                    box.releaseCapture();
+                }catch (e){
+
+                }
+            };
+            return false;
+
+        };
+    //};
+</script>
+</body>
+</html>

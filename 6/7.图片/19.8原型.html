@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    function fun(){
+        this.a = 0;
+        this.b = function(){
+            alert(this.a);
+        }
+    }
+    fun.prototype = {
+        b:function(){
+            this.a = 20;
+            alert(this.a);
+        },
+        c: function(){
+            this.a =30;
+            alert(this.a);
+        }
+    };
+    var my_fun = new fun();
+    //先找本身，如果本身有b，则用b，如果没有，才去原型找。
+    my_fun.b();
+    my_fun.c();
+</script>
+</body>
+</html>

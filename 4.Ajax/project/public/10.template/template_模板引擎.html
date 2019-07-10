@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<select id="selProvince">
+    <option value="">--请选择省份--</option>
+</select>
+<!--用模板引擎-->
+<script id="provinces" type="text/html">
+    <option value="">--请选择省份--</option>
+    {{each ps as value}}
+        <option value="{{value.id}}">{{value.province}}</option>
+    {{/each}}
+</script>
+
+<select id="selCity">
+    <option value="">--请选择城市--</option>
+</select>
+<!--用模板引擎-->
+<script id="citys" type="text/html">
+    <option value="">--请选择城市--</option>
+    {{each cs as value}}
+    <option value="{{value.id}}">{{value.city}}</option>
+    {{/each}}
+</script>
+
+<select id="selCounty">
+    <option value="">--请选择区/县--</option>
+</select>
+<!--用模板引擎-->
+<script id="countys" type="text/html">
+    <option value="">--请选择区/县--</option>
+    {{each cys as value}}
+    <option value="{{value.id}}">{{value.county}}</option>
+    {{/each}}
+</script>
+
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<script type="text/javascript" src="template.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var $selProvince = $('#selProvince');
+        var $selCity = $('#selCity');
+        var $selCounty = $('#selCounty');
+
+        //发送ajax请求, 得到所有省的数据, 并解析显示
+        $.getJSON('/ajax/test/getProvinces', function(provinceArr){
+            console.log(provinceArr);
+            console.log(typeof provinceArr); //object
+
+            /*provinceArr.forEach(function(item){
+                $selProvince.append("<option value='"+item.id+"'>"+item.province+"</option>");
+            });*/
+            //用模板引擎替换
+            var optionEles = template('provinces', {ps:provinceArr});
+            $selProvince.html(optionEles);
+        });
+
+        ////当选择某个省时, 自动ajax请求得到对应的城市的列表,解析显示到$selCity
+        $selProvince.change(function () {
+            //删除$selCity和$selCounty中的所有<option>(第一个除外)
+            $selCity.children(':not(:first)').remove();
+            $selCounty.children(':not(:first)').remove();
+
+            //得到省的id
+            var pid = this.value;
+            ////如果选择的是第一个, 不发请求
+            if(pid === ''){
+                return;
+            }
+            //发送ajax请求
+            $.getJSON('/ajax/test/getCitys', {pid : pid}, function(cityArr){
+                console.log(cityArr);
+                console.log(typeof cityArr);//object
+                /*$.each(cityArr, function(){
+                    $selCity.append("<option value='"+this.id+"'>"+this.city+"</option>");
+                });*/
+                //用模板引擎替换
+                var html = template('citys', {cs : cityArr});
+                $selCity.html(html);
+            });
+        });
+
+//当选择某个市时, 自动ajax请求得到对应的县的列表,解析显示到$selCounty
+        $selCity.change(function () {
+            //删除$selCounty中的所有<option>(第一个除外)
+            $selCounty.children(':not(:first)').remove();
+            var cid = this.value;
+            //如果选择的是第一个, 不发请求
+            if(cid === ''){
+                return;
+            }
+            //发ajax请求,显示县的列表
+            $.getJSON('/ajax/test/getCountys', {cid : cid}, function(countyArr){
+                console.log(countyArr);
+                /*$.each(countyArr, function(){
+                    $selCounty.append("<option value='"+this.id+"'>"+this.county+"</option>");
+                });*/
+                //用模板引擎替换
+                var html = template('countys', {cys : countyArr});
+                $selCounty.html(html);
+            });
+        });
+
+
+    });
+</script>
+</body>
+</html>

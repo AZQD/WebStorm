@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            margin: 100px;
+            width: 300px;
+            transition: 2s linear;
+
+        }
+       /* transform:
+        1.旋转 rotate(45deg);
+        transform-origin:center/left/right/top/bottom
+        2.缩放：scale(1.2);
+        3.移动translate(200px);
+        4.skew(45deg); 斜切*/
+        img:hover{
+            transform: rotate(360deg) scale(2) translate(200px)skew(45deg);
+            transform-origin: top;
+        }
+    </style>
+</head>
+<body>
+<img src="../img/1.jpg" alt="">
+</body>
+</html>

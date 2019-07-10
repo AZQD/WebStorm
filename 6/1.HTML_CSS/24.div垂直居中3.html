@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!--在各个浏览器中都支持！！！-->
+    <style type="text/css">
+        /*设置box1的宽高和背景*/
+        #box1{
+            width: 200px;
+            height: 200px;
+            background: #bfa;
+            /*将父元素设置为table-cell*/
+            display: table-cell;
+            /*设置垂直居中*/
+            vertical-align: middle;
+        }
+
+        /*设置box3的宽高和背景*/
+        #box3{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            margin: 0 auto;
+        }
+    </style>
+    <!-- 如果版本小于IE8，则以下代码生效 -->
+    <!--[if lt IE 8]>
+    <style type="text/css">
+        /*设置box1的宽高和背景*/
+        #box1{
+
+            /*设置一个相对定位*/
+            position: relative;
+        }
+
+        #box2{
+            /*设置了一个绝对定位*/
+            position: absolute;
+
+
+            /*设置元素的偏移量*/
+            top: 50%;
+            left: 50%;
+        }
+        /*设置box3的宽高和背景*/
+        #box3{
+            /*设置一个相对定位*/
+            position: relative;
+
+            /*设置子元素的偏移量*/
+            left: -50%;
+            /*当父元素设置绝对定位以后，如果没有为父元素指定高度，则子元素的垂直偏移量不能相对于父元素来移动
+                 IE8一以下的浏览器是可以找到偏移量
+             * */
+            top:-50%;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body>
+
+<div id="box1">
+
+    <div id="box2">
+
+        <div id="box3"></div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

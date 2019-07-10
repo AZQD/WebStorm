@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 20px;
+            left: 10px;
+            background: blue;
+        }
+        .div2 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            background: red;
+        }
+        .div3 {
+            position: absolute;
+            top: 250px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#btn1').click(function (event) {
+                var scrollTop = $('div').scrollTop();
+                console.log(scrollTop);
+                var scrollTop2 = $('html').scrollTop()+$('body').scrollTop();
+                console.log(scrollTop2);
+            });
+
+            $('#btn2').click(function () {
+                $('div').scrollTop(30);
+                $('body, html').scrollTop(100);
+            });
+            
+        });
+    </script>
+</head>
+<body style="height: 2000px;">
+<div style="border:1px solid black;width:100px;height:150px;overflow:auto">
+    This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text.
+    his is some text.
+</div>
+<br>
+<br>
+<br>
+<button id="btn1">得到scrollTop</button>
+<button id="btn2">设置scrollTop</button>
+</body>
+</html>

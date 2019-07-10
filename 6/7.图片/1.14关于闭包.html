@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    /*这题看看，有个印象*/
+    foo = function(){this.myName = 'Foo function'};
+    foo.prototype.sayHello = function(){alert(this.myName)};
+    //运用闭包 把this传到setTimeout的回调函数里面。
+    foo.prototype.bar = function(){setTimeout((function(that){that.sayHello(), 1})(this));};
+    var f = new foo;
+    f.bar();
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<input type="text" name="username" id="name">
+<p>你输入的用户名为：<span id="resultSpan"></span></p>
+<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+    /*$(function () {
+        $('#name').keyup(function () {
+            $('#resultSpan').html(this.value);
+        });
+    });*/
+    
+    $(function () {
+        $('#name').keyup(function(){
+            var result = $(this).val();
+            console.log(result);
+            $('#resultSpan').html(result);
+        });
+    })
+</script>
+</body>
+</html>

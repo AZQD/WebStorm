@@ -1,0 +1,50 @@
+ju<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">hello</div>
+<script type="text/javascript">
+
+    var a = 3, b = 5;
+//    方法1：只能用于整数
+//    a = a^b;
+//    b = b^a;
+//    a = a^b;
+
+    //方法2：只能用于整数
+    //    a = a+b;
+    //    b = a-b;
+    //    a = a-b;
+
+    //最好直接使用以下四种：
+    //方法3：
+//     a = {a:b, b:a};
+//     b = a.b;
+//     a = a.a;
+
+    //方法4：
+    //b = [a, a = b][0];
+
+    //方法5：
+    //eval('a='+b+'; b='+a);
+
+//    方法6：变量的解构赋值
+//    [a, b] = [b, a];
+
+    console.log(a, b);
+
+
+</script>
+</body>
+</html>

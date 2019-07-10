@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #box{
+            width: 500px;
+            height: 200px;
+            text-align: center;
+            background-color: red;
+
+            animation-name: change;/*名字*/
+            animation-duration: 10s;/*周期*/
+            animation-timing-function: linear;/*速度曲线*/
+            animation-delay: 1s;/*延时时间*/
+            animation-iteration-count: infinite;/*播放次数 要记住！！！*/
+            animation-direction: alternate;/*反向播放*/
+        }
+        @keyframes change {
+            0%{
+                background-image: url("img/1.jpg");
+                font-size: 12px;
+            }
+            /*2.5s时切换到该样式*/
+            25%{
+                background-image: url("img/2.jpg");
+                font-size: 15px;
+            }
+            50%{
+                background-image: url("img/3.jpg");
+                font-size: 18px;
+            }
+            75%{
+                background-image: url("img/4.jpg");
+                font-size: 21px;
+            }
+            100%{
+                background-image: url("img/5.jpg");
+                font-size: 24px;
+            }
+        }
+    </style>
+    <!--html5shiv.js插件：用于解决IE6，IE7，IE8版本浏览器
+    对HTML5新增标签不识别，并导致CSS不起作用的问题。-->
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <!--为 <link> 或 <style> 元素中需要增加前缀的声明自动添加前缀。
+	支持IE9及以上浏览器和其他浏览器,切记一定要在<style>和<link>元素后引入。-->
+    <script type="text/javascript" src="js/prefixfree.js"></script>
+</head>
+<body>
+    <div id="box"><h1>数看风流人物，还看今朝！</h1></div>
+</body>
+</html>
+
+<!--
+jQuery
+$('#btn1').click(function(){
+                $('.div1').animate(
+                        {
+                            width : 200, height : 200,
+                            left : $(this).position().left -50
+                        },
+                        1000, 'linear', function(){alert('ok')}
+                );
+            });
+
+-->

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<a href="#" id="aLink"></a>
+
+
+<ul id="ul1">
+    <li id="aa">01</li>
+    <li name="hello">02</li>
+    <li>03</li>
+</ul>
+
+<script type="text/javascript">
+    var aLink = document.getElementById('aLink');
+    var div = document.createElement('div');
+    div.style.height = 100 + 'px';
+    div.style.width = 100 + 'px';
+    div.style.backgroundColor = 'red';
+    aLink.appendChild(div);
+
+    var ul1 = document.getElementById('ul1');
+    var two = ul1.children[1];
+    var text = document.createTextNode('初来乍到');
+    var li = document.createElement('li');
+    li.appendChild(text);
+    //ul1.appendChild(li);
+    //ul1.insertBefore(li, two);
+    //ul1.replaceChild(li, two); m  //xin jiu
+    //ul1.removeChild(two);
+
+    var aaa = document.getElementsByName('hello');
+    /*aaa.onclick = function(){
+        alert(111);
+    };*/
+    console.log(aaa[0]);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        .box{
+            width: 300px;
+            height: 100px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">hello</div>
+    <!--这是一个比较方便的适配方案，这样设置过之后，仅仅按照320屏幕宽的手机进行设计就可以了。
+        另外一种方案是：程老师讲的一个方案。详细可以看小米移动端布局。
+    -->
+
+    <script type="text/javascript">
+        //在pc上的值是：1366，其实在各个手机上，这个width就是这个手机的屏幕宽度
+        var width = window.screen.width;
+        console.log(width);
+        var tragetW = 320;
+        //在PC上的值是：4.26875，其实在各个手机上，这个值是不同的。
+        var scale = width/tragetW;
+        console.log(scale);
+
+        var meta = document.createElement('meta');
+        meta.setAttribute('name', 'viewport');
+        meta.setAttribute('content', 'initial-scale='+scale+', maximum-scale='+scale+', user-scalable=0');
+        document.head.appendChild(meta);
+    </script>
+</body>
+</html>

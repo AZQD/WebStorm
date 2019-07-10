@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>
+    <title>HTML5</title>
+    <style type="text/css">
+        /** 添加样式 **/
+    </style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    //添加脚本
+    var canvas = document.createElement('canvas');
+    canvas.width = 720;
+    canvas.height = 480;
+    canvas.style.border = '1px solid red';
+    document.body.appendChild(canvas);
+    var painting = canvas.getContext('2d');
+
+    var video = document.createElement('video');
+    video.src = 'media/xuwei.mp4';
+//    video.controls = 'controls';
+//    document.body.appendChild(video);
+    video.play();
+    video.addEventListener('play', function(){
+        console.log('开始播放');
+        editVideo()
+    }, false);
+
+    var img = new Image();
+    img.src = 'img/logo.png';
+
+    var frame = 1;
+
+    function editVideo(){
+        painting.clearRect(0, 0, 720, 480);
+        //添加视频
+        painting.drawImage(video, 0, 0);
+        //添加图片
+        painting.drawImage(img, 30, 30, 36, 36);
+
+//        当播放大于100帧时显示文字
+        frame ++;
+        if(frame > 100){
+            painting.fillStyle = 'red';
+            painting.font = 'bold 18px Microsoft YaHei';
+            painting.fillText('HTML5', 70, 54);
+        }
+
+        setTimeout(editVideo, 25);
+    }
+
+
+
+</script>
+</body>
+</html>

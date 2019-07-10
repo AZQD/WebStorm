@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp">
+<div ng-controller="Mycontroller1">
+    <input type="text" ng-model="content">
+    <p>内容1：{{content}}</p>
+</div>
+<div ng-controller="Mycontroller2">
+    <input type="text" ng-model="content">
+    <p>内容2：{{content}}</p>
+</div>
+<script type="text/javascript" src="../js/angular-1.2.29/angular.js"></script>
+<script type="text/javascript">
+    var appModule = angular.module('myApp', []);
+
+    appModule.controller('Mycontroller1', function($scope){
+                $scope.content = '刘亦菲';
+            });
+    appModule.controller('Mycontroller2', function($scope){
+                $scope.content = '女神++';
+            });
+</script>
+</body>
+</html>

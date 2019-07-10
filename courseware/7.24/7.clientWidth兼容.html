@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+    <button id="btn">dianji</button>
+</body>
+<script type="text/javascript">
+    var clientWidth = document.documentElement.clientWidth ||document.body.clientWidth;
+    //console.log(clientWidth);
+
+    var btn = document.getElementById('btn');
+    btn.onclick = function (ev) {
+        ev=ev||event;
+
+//        获取触发事件的对象
+//        ie8及以下不支持ev.target,会显示undefined
+//        var target = ev.srcElement || ev.target;
+//        ie下的ev.srcElement相当于其他浏览器下ev.target ev.target = ev.target || ev.srcElement;
+        var target = ev.srcElement || ev.target;
+        //var target = ev.target;
+        console.log(target);
+    }
+
+
+</script>
+</html>

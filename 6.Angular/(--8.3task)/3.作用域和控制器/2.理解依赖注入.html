@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //如何引入依赖对象：
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        //方式一：内部自己创建，不动态
+        function showInfo (){
+            var person = new Person('tom', 12);
+            console.log(person.name, person.age);
+        }
+        showInfo();
+        //方式二： 全局变量，污染全局命名空间
+        var person2 = new Person('jack', 15);
+        function showInfo2(){
+            console.log(person2.name, person2.age);
+        }
+        showInfo2();
+        //方式三：形参引入依赖：依赖注入使用的方式
+        function showInfo3(person3){
+            console.log(person3.name, person3.age);
+        }
+        showInfo3(new Person('bob', 18));
+
+        //点击文档，获取坐标信息
+        document.onclick = function(event){
+            console.log(event.clientX);
+        };
+        
+    </script>
+    
+    
+</body>
+</html>

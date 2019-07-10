@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+   /* 连续输出01234
+   var  i =0;
+        setInterval(function(){
+
+            if(i == 5){
+                i = 0;
+            }
+            console.log(i);
+            i++;
+        }, 1000);
+        */
+
+   //延时输出01234
+    for (var i = 0; i < 5; ++i) {
+        (function(i){
+            setTimeout(function () {
+                console.log(i + ' ');
+            }, 1000);
+        })(i);
+    }
+
+</script>
+</html>

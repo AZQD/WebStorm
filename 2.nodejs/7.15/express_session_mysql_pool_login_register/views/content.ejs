@@ -1,0 +1,43 @@
+<div id="wrapper">
+
+    <div id="tableHeader">
+        <table width="100%"  style="table-layout:fixed;background:#fff;">
+            <tr>
+                <th title="job_id">工种ID</th>
+                <th title="job_title">工种名</th>
+                <th title="min_salary">最低工资</th>
+                <th title="max_salary">最高工资</th>
+            </tr>
+        </table>
+    </div>
+    <div id="itemList" >
+    <table id="tableList" width="100%" ;="table-layout:fixed">
+        <tbody>
+
+        <%
+            var tempObj = null;
+            for(var i =0; i<jobs.length; i++){
+                tempObj = jobs[i];
+        %>
+
+        <tr>
+            <td><%= tempObj.job_id %></td>
+            <td><%= tempObj.job_title %></td>
+            <td><%= tempObj.min_salary %></td>
+            <td><%= tempObj.max_salary %></td>
+        </tr>
+
+        <%
+            }
+        %>
+
+        </tbody>
+        </table>
+    </div>
+
+    <div id="footarea">
+
+    </div>
+
+</div>
+

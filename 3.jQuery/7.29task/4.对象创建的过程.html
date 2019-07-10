@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript">
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        var person =  new Person();
+        Person.call(person, 'tom', 23);
+        console.log(person);
+
+        console.log(person.__proto__);
+        console.log(Person.prototype);
+        console.log(person.__proto__ === Person.prototype);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

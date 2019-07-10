@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //小贤
+    function Dog (){
+        this.wow = function(){
+            console.log('wow');
+        };
+        this.yelp = function(){
+            this.wow();
+        }
+    }
+
+    //小芒
+    function MadDog (){
+        this.yelp = function(){
+            var self = this;
+            setInterval(function(){
+                self.wow();
+            }, 500);
+        }
+    }
+    //改变原型指向(父类型的实例对象)
+    MadDog.prototype = new Dog();
+
+    //test
+    var dog = new Dog();
+    dog.yelp();
+
+    var madDog = new MadDog();
+    madDog.yelp();
+
+
+</script>
+</body>
+</html>

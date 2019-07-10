@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>
+    <title>HTML5</title>
+    <!--<link href="css/reset.css" rel="stylesheet">-->
+    <!--<link href="css/index.css" rel="stylesheet">-->
+    <script src="js/common.js"></script>
+    <style type="text/css">
+        /** 添加样式 **/
+    </style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    //添加脚本
+//    创建canvas
+    var canvas = document.createElement('canvas');
+    canvas.width = 500;
+    canvas.height = 500;
+    canvas.style.border = '1px solid red';
+
+    //这一步很关键，必须要写，把canvas添加到document中
+    document.body.appendChild(canvas);
+
+    var context = canvas.getContext('2d');
+
+//    绘制路径的第一种方法：
+/*//    绘制路径
+    context.beginPath();
+    context.moveTo(20, 20);
+    context.lineTo(100, 20);
+    //两个点的坐标，最后面是半径
+    context.arcTo(150, 20, 150, 70, 50);
+    context.lineTo(150, 120);
+    //执行描边的函数
+    context.stroke();*/
+
+
+
+    //    绘制路径的第一种方法：调用drawRoundedRect函数。
+    /**
+     * 圆角矩形
+     * @param strokeStyle 边框颜色
+     * @param fillStyle 填充颜色
+     * @param cornerX  左上角X轴坐标
+     * @param cornerY  左上角Y轴坐标
+     * @param width  矩形宽度
+     * @param height  矩形高度
+     * @param cornerRadius  四个角的半径
+     */
+    drawRoundedRect('red', 'blue', 20, 20, 200, 100, 50);
+
+
+
+</script>
+</body>
+</html>

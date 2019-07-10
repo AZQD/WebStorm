@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+//    var arr = ['hello', 'bei', 'jing'];
+//    var abc = arr.join("*");
+//    console.log(abc);
+    
+    /*var str = 'get-element-by-id';
+    var abc= str.split('-');
+    console.log(abc);
+    abc = abc.join('');
+    console.log(abc);
+    //abc = abc.charAt(0).toUpperCase();
+    abc = abc.substr(1, 2).toUpperCase();
+    console.log(abc);*/
+    
+//  已知有字符串str=”get-element-by-id”,
+//  写一个function将其转化成驼峰表示法”getElementById”。
+    
+//    function fun(str){
+//        
+//    }
+    
+    var str = 'get-element-by-id';
+    fun(str);
+    console.log(fun(str));
+
+    function fun(str){
+
+        var arr = str.split('-');
+        //console.log(arr); //["get", "element", "by", "id"]
+        for(var i= 0; i<arr.length; i++){
+            var head = arr[i].charAt(0).toUpperCase();
+            //console.log(head);  // G E B I
+            var body = arr[i].substr(1, arr.length-1);
+            //console.log(body);
+            arr[i] = head + body;
+            //console.log(arr[i]);
+        }
+        //console.log(arr);
+        var result = arr.join('');
+        //console.log(result);
+        return result;
+
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+    <style>
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color: #bfa;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    var box=document.querySelector(".box");
+    var pageXStart=0;
+    var pageXEnd=0;
+    box.addEventListener("touchstart",function(event){
+        var touches=event.targetTouches;
+        pageXStart=touches[0].pageX;
+        //alert("hello");
+    },false);
+    box.addEventListener("touchmove",function(event){
+        var touches=event.targetTouches;
+        pageXEnd=touches[0].pageX;
+        //alert('hi');
+    },false);
+    box.addEventListener("touchend",function(){
+        if(pageXEnd==0){
+            return;
+        }
+        if((pageXEnd-pageXStart)>0){
+            console.log("1-2");
+        }
+        if((pageXEnd-pageXStart)<0){
+            console.log("2-1");
+        }
+    },false);
+</script>
+</html>

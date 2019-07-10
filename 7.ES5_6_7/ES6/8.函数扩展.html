@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<script type="text/javascript">
+    //1. 箭头函数
+    /*function sum(a, b){
+        return a+b;
+    }*/
+    var sum = (a, b)=>a+b;
+
+    var result = sum(1, 2);
+    console.log(result);
+    
+    setTimeout(function(){
+        console.log('hello');
+    }, 1000);
+    setTimeout(()=>console.log('world'), 1000);
+    //2. 形参的默认值
+    function fun(a=1, b=9){
+        return a+b;
+    }
+    console.log(fun());
+    
+    //3. 可变参数
+    function test(...values){
+        var result = 0;
+        for(var i=0; i<values.length; i++){
+            result += values[i];
+        }
+        return result;
+    }
+    console.log(test(1,2,3,4,5));
+</script>
+</body>
+</html>

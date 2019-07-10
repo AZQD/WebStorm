@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/cssreset.css">
+    <style>
+        .wrapper{
+            min-width: 320px;
+            max-width: 640px;
+            margin: 50px auto;
+            background-color: #bfa;
+            overflow: hidden;
+        }
+        img{
+            display: block;
+            width: 100%;
+        }
+        ul{
+            width: 1000%;
+            background-color: yellow;
+            overflow: hidden;
+        }
+        li{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="carousel">
+            <li><a href="javascript:;"><img src="img/item01.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/item02.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/item03.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/item04.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/item01.jpg" alt=""></a></li>
+        </ul>
+    </div>
+    <p>123</p>
+</body>
+
+<script>
+    var imgs=document.getElementsByTagName("img");
+    var carousel=document.querySelector(".carousel");
+    var minWidth=320;
+    var maxWidth=640;
+    var pageXStart=0;
+    var pageXEnd=0;
+    var index=0;
+    var imgCurrentWidth=0;
+
+    //console.log(currentWidth);
+    resizeImgSize(imgs);
+    window.onresize=function(){
+        resizeImgSize(imgs);
+    };
+        carousel.addEventListener("touchstart",function(event){
+            var touches=event.targetTouches;
+            if(touches.length==1){
+                //console.log("hi");
+                pageXStart=touches[0].pageX;
+                pageXEnd=0;
+                //console.log(pageXStart);
+            }
+        },false);
+
+        carousel.addEventListener("touchmove",function(event){
+            var touches=event.targetTouches;
+            if(touches.length==1){
+                pageXEnd=touches[0].pageX;
+                //console.log(pageXEnd);
+            }
+        },false);
+
+        carousel.addEventListener("touchend",function(){
+            if(pageXEnd==0){
+                return;
+            }
+
+            ///////////
+            if((pageXEnd-pageXStart)>0){
+                /*console.log("从左到右");
+                carousel.style.transition="1s linear";
+                if(index==0){
+                    index=imgs.length;
+                }
+                index--;
+                console.log(index);
+                carousel.style.marginLeft=(0-imgCurrentWidth*index)+"px";*/
+                index=index+1;
+                index--;
+                console.log(index);
+                carousel.style.transition="1s linear";
+                carousel.style.transform="translateX("+(0-imgCurrentWidth*index)+"px"+")";
+                if(index==0){
+                    setTimeout(function(){
+                        index=imgs.length-2;
+                        console.log(index);
+                        carousel.style.transition="none";
+                        carousel.style.transform="translateX("+(0-imgCurrentWidth*index)+"px"+")";
+                    },1000);
+                }
+            }
+            ///////////////
+
+
+            if((pageXEnd-pageXStart)<0){
+                console.log("从右到左");
+                //console.log(imgCurrentWidth);
+                carousel.style.transition="0.2s linear";
+                index++;
+                if(index>=imgs.length){
+                    index=0;
+                }
+                console.log(index);
+                carousel.style.marginLeft=(0-imgCurrentWidth*index)+"px";
+                if(index==imgs.length-1){
+                    index=0;
+                    setTimeout(function(){
+                        console.log(index);
+                        carousel.style.transition="";
+                        carousel.style.marginLeft=0;
+                    },200);
+                }
+            }
+        },false);
+
+
+
+
+
+
+
+
+
+    //运用JS处理图片自适应
+    function resizeImgSize(obj){
+
+        for(var i=0;i<obj.length;i++){
+            var currentWidth=window.innerWidth;
+            if(currentWidth>640){
+                obj[i].style.width=640+"px";
+                imgCurrentWidth=maxWidth;
+            }
+            if(currentWidth>320 && currentWidth<640){
+                obj[i].style.width=currentWidth+"px";
+                imgCurrentWidth=currentWidth;
+            }
+            if(currentWidth<320){
+                obj[i].style.width=320+"px";
+                imgCurrentWidth=minWidth;
+            }
+        }
+
+    }
+
+
+</script>
+</html>

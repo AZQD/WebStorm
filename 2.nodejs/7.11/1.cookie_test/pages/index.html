@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie Test</title>
+</head>
+<script>
+    function pageOnload(){
+        var name = getName('userName');
+        console.log(name);
+        console.log('*******');
+        document.getElementById('welcomeLable').innerHTML = '欢迎 '+name+' 进入';
+    }
+    function getName(name){
+        var nameValueArray = document.cookie.split(';');
+        console.log(nameValueArray);
+        for(var i=0; i<nameValueArray.length;i++){
+            var temp = nameValueArray[i];
+            var nameTemp = temp.split('=')[0].trim();
+            var valueTemp = temp.split('=')[1].trim();
+            if(nameTemp === name){
+                return valueTemp;
+            }
+        }
+    }
+</script>
+<body onload="pageOnload()">
+<h1>前端开发</h1>
+<h2 id="welcomeLable"></h2>
+</body>
+</html>

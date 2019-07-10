@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 20px;
+            left: 10px;
+            background: blue;
+        }
+        .div2 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            background: red;
+        }
+        .div3 {
+            position: absolute;
+            top: 250px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        
+        $(function () {
+            $('.div1').on('click', function (event) {
+                console.log('div1 click');
+                console.log(event.clientX, event.clientY);
+                console.log(event.pageX, event.pageY);
+            });
+            /*$('.div2').on('click', function (event) {
+                console.log('div2 click');
+                event.stopPropagation();
+            }).on('mouseenter', function () {
+                console.log('abc');
+            });*/
+            $('.div2').click(function (event) {
+                console.log('div2 click');
+                event.stopPropagation();
+            }).mouseenter(function () {
+                console.log('div2 mouseenter');
+            }).mouseleave(function () {
+                console.log('div2 mouseleave');
+            });
+            $('#btn1').click(function () {
+                $('.div2').off();
+            });
+
+            $('#btn2').click(function () {
+                $('.div2').off('click');
+            });
+
+            $('#a1').click(function (event) {
+                //取消默认行为
+                event.preventDefault();
+                //return false;
+            });
+
+        });
+
+        
+    </script>
+</head>
+<body style="height: 2000px;">
+<a id="a1" href="http://www.baidu.com">测试事件的默认行为</a>
+<div class="div1">
+    div1.....
+    <div class="div2">div2....</div>
+</div>
+<div class='div3'>
+    <button id="btn1">取消绑定所有事件</button>
+    <button id="btn2">取消绑定click事件</button>
+</div>
+</body>
+</html>

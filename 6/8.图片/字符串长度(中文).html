@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var str = 'hee北京llo';
+    var strNew  = str.replace(/[\u4e00-\u9fa5]/ig, 'aa');
+    console.log(str.length);  //8
+    console.log(strNew.length); //10
+    console.log(str.charAt(0));  //h    // 字符
+    console.log(str.charCodeAt(0)); //104  字符的编码
+    
+    var foo = {};
+    foo.bar = 'hello';
+    console.log(foo.length);
+
+
+    //两种方法：
+    //第一种：
+    /*function strLength(str){
+     var reg = /[\u4e00-\u9fa5]/g;
+     str = str.replace(reg, 'aa');
+     return str.length;
+     }
+     var str = 'hel北京lo';
+     console.log(strLength(str));
+     console.log(str);*/
+
+    //第二种：
+    /*function fun(str){
+     var len = 0;
+     for (var i = 0; i < str.length; i++) {
+     if(str.charCodeAt(i) > 255){
+     len += 2;
+     }else{
+     len++;
+     }
+     }
+     return len;
+     }
+     var str = 'hel北京lo';
+     console.log(fun(str));
+     console.log(str);*/
+</script>
+</body>
+</html>

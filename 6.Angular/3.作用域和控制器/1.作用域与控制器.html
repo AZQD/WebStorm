@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="" ng-init="age=12">
+<div ng-controller="MyControl">
+    <input type="text" ng-model="firstname">
+    <input type="text" ng-model="lastname">
+    <p>姓名为：{{firstname+"--"+lastname}}</p>
+    <p>姓名为：{{getname()}}</p>
+</div>
+<div>
+    {{firstname}}
+</div>
+
+<script type="text/javascript" src="../js/angular-1.2.29/angular.js"></script>
+<script type="text/javascript">
+    function MyControl($scope){
+        alert(this instanceof MyControl);
+        alert($scope.age);
+        $scope.firstname = 'jing';
+        $scope.lastname = 'tian';
+        $scope.getname = function(){
+            return $scope.firstname+'&&&&'+$scope.lastname;
+        }
+    }
+</script>
+</body>
+</html>

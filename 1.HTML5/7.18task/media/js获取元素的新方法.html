@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <!--<link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>-->
+    <title>HTML5</title>
+    <!--<link href="css/reset.css" rel="stylesheet">-->
+    <!--<link href="css/index.css" rel="stylesheet">-->
+    <style type="text/css">
+        /** 添加样式 **/
+    </style>
+</head>
+<body>
+
+    <p>我是p标签，快来点我一下呗！</p>
+    <span>我是span标签，快来点我一下呗！</span><br/>
+    <input type="text">
+
+<script type="text/javascript">
+    //添加脚本
+
+//    获取标签通常用id，class，当然也可以用如下方法：
+
+//    获取标签的第一种方法：
+    var p = document.getElementsByTagName('p')[0];
+    p.onclick = function(){
+        alert('我是p标签！');
+    };
+
+//    获取标签的第二种方法：
+    var span = document.querySelector('span');
+    span.onclick = function(){
+        alert('我是span标签！');
+    };
+
+//    获取标签的第二种方法：
+    var input = document.querySelector('input[type=text]');
+    input.onclick = function(){
+        alert('我是input标签！');
+    };
+</script>
+</body>
+</html>

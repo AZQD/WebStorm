@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    $('ul li').click(function(){
+        var index = $(this).index();
+        var tab = '<li class="num'+index+'">1</li>';
+        $('ul').append(tab);
+    });
+</script>
+</body>
+</html>

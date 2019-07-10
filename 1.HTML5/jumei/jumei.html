@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/jumei.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <header>
+            <div class="hd-cell">
+                <img class="hd-logo" src="img/guide_logo.png" alt="聚美优品">
+            </div>
+            <div class="hd-cell hd-cell-mid">
+                 <span class="hd-ad">我为自己代言</span><br>
+                送礼包
+            </div>
+            <div class="hd-cell hd-cell-r">
+                <span class="download-app">立即体验</span>
+                <img class="icon-cancel" src="img/cancle_03.png" alt="">
+            </div>
+        </header>
+
+        <nav>
+
+        daohang
+
+        </nav>
+        
+    </div>
+</body>
+
+<script>
+    var iconCancel=document.querySelector(".icon-cancel");
+    var header=document.getElementsByTagName("header")[0];
+    /*header.onclick=function(){
+        alert("hello");
+    };iconCancel.onclick=function(ev){
+        ev=ev||event;
+        ev.cancelBubble=true;
+        alert("cancel");
+    };*/
+    /*window.sessionStorage("mess",header);*/
+    var access=window.localStorage.getItem("access");
+
+
+    iconCancel.onclick= function(){
+        header.style.display="none";
+        window.localStorage.setItem("access","1");
+    };
+    if(access=="1"){
+        header.style.display="none";
+    }else{
+        header.style.display="block";
+    }
+   // window.localStorage.removeItem("access");
+</script>
+
+</html>

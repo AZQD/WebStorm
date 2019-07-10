@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+    <style type="text/css">
+        .wrapper{
+            margin: 0 auto;
+        }
+        .clear{
+            clear: both;
+        }
+
+
+        #ul1{
+            float: left;
+        }
+        #ul1 li{
+            float: left;
+            width: 60px;
+            background-color: yellow;
+            text-align: center;
+        }
+        #ul1 li:nth-child(2n){
+            background-color: red;
+        }
+
+
+        .outer{
+            float: left;
+            position: relative;
+        }
+        .more{
+            position: absolute;
+            width: 100px;
+        }
+        .outer:hover #inner{
+            display: block;
+            color: red;
+        }
+        #inner{
+            display: none;
+            position: absolute;
+            width: 200px;
+            top: 25px;
+        }
+        #inner li{
+            float: left;
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <ul id="ul1">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+    </ul>
+
+    <div class="outer">
+        <div class="more"><a href="#">更多</a></div>
+        <div id="inner">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+</body>
+</html>

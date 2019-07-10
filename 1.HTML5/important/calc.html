@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            width: 360px;
+            height: 360px;
+            background-color: #bfa;
+            position: relative;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            /*可以让box2移动中间，而不是完全移动50%，注意：中间的减号前后都有空格！！！*/
+            /*可以对比下面两者的区别*/
+            /*left: calc(50%);*/
+            left: calc(50% - 50px);
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+</body>
+</html>

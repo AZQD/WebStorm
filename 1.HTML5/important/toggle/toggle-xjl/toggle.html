@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <button id="btn">切换</button>
+    </div>
+</body>
+<script>
+    var box=document.querySelector(".box");
+    var btn=document.getElementById("btn");
+    btn.onclick=function(){
+        //classList是HTML5中新添加的属性，可以直接拿来用。
+        box.classList.toggle("box2");
+        box.style.transition="3s linear";
+    };
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<ul id="test">
+    <li>content1</li>
+    <li>content2</li>
+    <li>content3</li>
+</ul>
+<script type="text/javascript" src="jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    /*//在原生js中运用事件委托
+    var ul1 = document.getElementById('test');
+    ul1.addEventListener('click', function (ev) {
+        ev = ev || event;
+        var ele = ev.target || ev.srcElement;
+        ele.style.backgroundColor = 'red';
+    }, false);*/
+
+    /*//在jQuery中运用事件委托
+    $(function () {
+        var ul = $('#test');
+        ul.delegate('li', 'click',function(){
+            $(this).css({background : 'red'});
+            //this.style.background = 'red';
+        });
+    });*/
+
+    $(function () {
+
+        $('#test').bind({
+            click : function(){this.style.color='yellow'},
+            mouseenter : function(){this.style.color='blue'},
+            mouseleave : function(){this.style.color='red'}
+        });
+        $('#test').append('<li>content4</li>');
+    });
+
+    //看js基础99 bind(),live(),delegate()的区别
+
+
+</script>
+</body>
+</html>

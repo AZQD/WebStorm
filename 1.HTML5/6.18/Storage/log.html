@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj={
+        name:"li",
+        age:23,
+        address:"bj"
+    };
+    window.localStorage.setItem("mess",JSON.stringify(obj));
+    var messJson=window.localStorage.getItem("mess");
+    console.log(JSON.parse(messJson).address);
+</script>
+</html>

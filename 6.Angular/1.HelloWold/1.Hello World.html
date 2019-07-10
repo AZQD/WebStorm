@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+<input type="text" name="username" ng-model="myself">
+<p>你输入的用户名为：<span ng-bind="myself"></span></p>
+<script type="text/javascript" src="../js/angular-1.2.29/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('MyController', function($scope){
+
+            });
+</script>
+</body>
+</html>

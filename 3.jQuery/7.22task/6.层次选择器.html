@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+//            1. 选中ul下所有的的span
+            //$('ul span').css('color', 'red');
+
+//            2. 选中ul下所有的子元素span
+            //$('ul>span').css('color', 'red');
+
+//            3. 选中class为box的下一个li
+            //$('.box+li').css('color', 'red');
+
+//            4. 选中ul下的class为box的元素后面的所有兄弟元素
+            $('ul .box~*').css('color', 'red');
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>AAAAA</li>
+        <li class="box">CCCCC</li>
+        <li title="hello"><span>BBBBB</span></li>
+        <li title="hello"><span>DDDD</span></li>
+        <span>EEEEE</span>
+    </ul>
+</body>
+</html>

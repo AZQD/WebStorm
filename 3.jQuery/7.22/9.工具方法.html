@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+
+        /*
+         $.each(): 遍历数组或对象中的数据
+         $.trim(): 去除字符串两边的空格
+         $.type(obj): 得到数据的类型
+         $.isarray(obj): 判断是否是数组
+         $.isFunction(obj): 判断是否是函数
+         $.parseJSON(json) : 解析json字符串转换为js对象/数组
+         */
+        $(function () {
+
+            //$.each(): 遍历数组或对象中的数据
+            var person = {
+                name: 'li',
+                age: 12
+            };
+            $.each(person, function(key, value){
+                console.log(key, value);
+            });
+            console.log('&&&&&&&&&&&&&&&&&&&');
+            
+            //$.trim(): 去除字符串两边的空格
+            var str = '  bei  jing  ';
+            console.log($.trim(str));
+            console.log($.trim(str)==='bei  jing');
+            console.log('&&&&&&&&&&&&&&&&&&&');
+
+            //$.type(obj): 得到数据的类型
+            console.log($.type(person));
+            console.log($.type(person)==='object');
+            console.log($.type(str));
+            console.log($.type(str)==='string');
+            console.log('&&&&&&&&&&&&&&&&&&&');
+
+            //$.isarray(obj): 判断是否是数组
+            console.log($.isArray($));
+            console.log($.isArray($()));
+            console.log($.isArray(person));
+            console.log($.isArray(str));
+            console.log($.isArray([]));
+            console.log('&&&&&&&&&&&&&&&&&&&');
+
+            //$.isFunction(obj): 判断是否是函数
+            console.log($.isFunction($));
+            console.log($.isFunction($()));
+            console.log($.isFunction(function(){}));
+            console.log('&&&&&&&&&&&&&&&&&&&');
+
+            //$.parseJSON(json) : 解析json字符串转换为js对象/数组
+            var json = '{"name":"guigu", "age":18}';
+            console.log($.parseJSON(json));
+
+            var json2 = '["abc", {"name":"guigu"},123]';
+            console.log($.parseJSON(json2));
+
+            
+        });
+
+    
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

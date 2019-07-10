@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<p>zhonghuou</p>
+
+<!--//    js的延迟加载有助与提高页面的加载速度，以下是延迟加载的几种方法：-->
+
+<!--    参考异步加载方式：
+对于支持HTML5的浏览器，实现JS的异步加载只需要在script元素中加上async属性，
+为了兼容老版本的IE还需加上defer属性；对于不支持HTML5的浏览器(IE可以用defer实现)，
+可以采用以上几种方法实现。原理基本上都是向DOM中写入script或者通过eval函数执行JS代码，
+你可以把它放在匿名函数中执行，也可以在onload中执行，也可以通过XHR注入实现，
+也可以创建一个iframe元素，然后在iframe中执行插入JS代码。-->
+
+延迟加载总结：
+1.defer async
+2.load事件
+3.iframe
+4.ajax下载代码，eval函数执行
+5.定时器里面
+6.googel推荐：动态创建script标签，监听onload事件
+<!--
+
+    1.在script元素中加上async属性和defer属性
+
+    2.让js最后加载
+//把js外部引入的文件放到body底部，来让js最后引入，从而加快页面加载速度
+
+    3.用ajax下载代码，然后用eval执行
+-->
+<!--
+// 4.使用setTimeout延迟方法的加载时间
+<script type="text/javascript">
+    function fun(){
+        alert('china');
+    }
+    setTimeout(fun, 2000);
+    alert('111');
+</script>-->
+
+<!--//    5.这里的解决方案将是来自Google帮助页面的推荐方案。
+    动态创建script标签，然后监听onload事件：
+//下面这些代码应被放置在</body>标签前(接近HTML文件底部)-->
+
+<!--<script type="text/javascript">
+    function downloadJSAtOnload(){
+        var element  = document.createElement('script');
+        element.type = 'text/javascript';
+        element.src = '1.js';
+        document.body.appendChild(element);
+    }
+    if(window.addEventListener){
+        window.addEventListener('load', downloadJSAtOnload, false);
+    }else if(window.attachEvent){
+        window.attachEvent('onload', downloadJSAtOnload);
+    }else {
+        window.onload = downloadJSAtOnload;
+    }
+</script>-->
+
+    <!--看js基础136-->
+
+
+
+</body>
+</html>

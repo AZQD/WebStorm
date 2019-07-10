@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        .wrapper{
+            width: 360px;
+            height: 360px;
+            border: 1px solid black;
+        }
+        .box1{
+            width: 50px;
+            height: 50px;
+            background-color: #bfa;
+        }
+
+        /*b是a的子元素就可以使用a:hover>b{....}*/
+        /*.wrapper:hover >.box2{
+            background-color: yellow;
+        }*/
+
+        /*b刚好是a的同级元素并且是紧接着的，就可以a:hover+b{....}*/
+        /*.box1:hover +.box2{
+            background-color: yellow;
+        }*/
+
+        /*b这一类的元素都是a的同级元素并且是a元素之后的就可以a:hover~b{....}*/
+        /*.box1:hover ~.box3{
+            background-color: yellow;
+        }*/
+
+
+
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .box3{
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+</div>
+
+<p>hello</p>
+</body>
+</html>

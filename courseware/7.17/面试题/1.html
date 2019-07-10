@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    window.val = 1;
+    var json = {
+        val:10,
+        dbl: function () {
+            this.val*=2;
+        }
+    };
+    json.dbl();
+    var dbl = json.dbl;
+    dbl();
+    json.dbl.call(window);
+    //console.log(json.val);
+    //console.log(window.val);
+    console.log(window.val+json.val);
+
+//    总结：
+//    1.如果以函数的形式调用一个函数，则this永远都是window
+//    2.如果以对象的方法的形式调用一个函数，则this就是当前的对象
+//    3.如果以构造函数的形式去调用一个函数，则this是新建的那个对象
+//    4.如果以call或apply的形式去掉用一个函数，则this就是call或apply的第一个参数。
+</script>
+</body>
+</html>

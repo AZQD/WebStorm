@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //    ES5给Object扩展了好一些静态方法, 常用的3个:
+    //    1. Object.create(prototype[, descriptors]) : 创建一个新的对象
+    //    1). 以指定对象为原型创建新的对象
+     var obj = {
+         name : 'li',
+         age : 12,
+         setName : function(name){
+             this.name = name;
+         }
+     };
+    var obj2 = Object.create(obj);
+    obj2.setName('zh');
+    console.log(obj2.name);
+    console.log(obj2.__proto__ === obj); //true
+
+    //    2). 创建一个以null为对象原型，并添加一些属性描述
+    var obj3 = Object.create(null, {
+        name : {
+            value : 'jack',
+            writable : true, //该属性是否可以修改
+            enumerable : true,// 该属性是否可以枚举
+            configurable : false //该属性是否可以被删除
+        }
+    });
+    console.log(obj3.name);
+    obj3.name = 'bob';
+    console.log(obj3.name);
+    //给对象枚举  for...in
+    for(n in obj3){
+        console.log(n);
+    }
+
+    //    2. Object.defineProperties(object, descriptors) : 为指定对象定义多个属性
+    var obj4 = {};
+    Object.defineProperties(obj4, {
+        p1 : {
+            value : 'beijing',
+            writable : true,
+            enumerable : true,
+            configurable : false//不可以删除
+        },
+        p2 : {
+            set : function (value){ //当给属性设置值时调用
+                console.log('set'+value);
+            },
+            get : function(){  //获取属性值时调用
+                console.log('get');
+                return this.p1.toUpperCase();
+            }
+
+        }
+    });
+    console.log(obj4.p1);
+    delete obj4.p1; //
+    console.log(obj4.p1);
+
+    obj4.p2 = 'shanghai';
+    console.log(obj4.p2);
+    //    3. Object.keys(object) : 返回对象的可枚举属性和方法的名称
+    console.log(Object.keys(obj));
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    /*var a = 1;
+    var a = 'abc';
+    var a = true;
+    var a = undefined;
+    var a = null; //object
+    var a = [];
+    var a = {};
+    var a = function(){}; //object
+    console.log(typeof a);*/
+    
+    /*var a = [];
+    console.log(a instanceof Object);
+    var a = {};
+    console.log(a instanceof Object);
+    var a = function(){};
+    console.log(a instanceof Function);*/
+
+    console.log(Function instanceof Function);
+    console.log(Function instanceof Object);
+    console.log(Object instanceof Object);
+    console.log(Object instanceof Function);
+    
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.setName = function(name){
+        this.username = name;
+    };
+    var per1 = new Person('jack', 12);
+    Person.setName('zhang');
+    console.log(Person.username);
+    
+
+</script>
+</html>

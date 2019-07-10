@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj={
+        name:"zh",
+        age:18,
+        address:"huaGuoShan"
+    };
+    window.localStorage.setItem("message",JSON.stringify(obj));
+    //console.log(JSON.stringify(obj));
+    //获取
+    var messJson=window.localStorage.getItem("message");
+    console.log(JSON.parse(messJson).address);
+    //删除
+    window.localStorage.removeItem("message");
+    var abc=window.localStorage.getItem("message");
+    console.log(JSON.parse(abc).address);
+</script>
+</html>

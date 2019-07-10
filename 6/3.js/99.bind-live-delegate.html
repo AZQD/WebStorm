@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    /*bind和live的区别:
+    都是为一个元素绑定某个事件，并返回jQuery对象，但是bind方法只能给当前存在的元素绑定事件，
+    对于事后采用JS等方式新生成的元素无效，而live方法则正好弥补了bind方法的这个缺陷，
+    live的事件类型有限，
+    它可以对后生成的元素也可以绑定相应的事件。
+
+    看10.委派_js高级49.html
+    */
+
+    /*
+    10.什么是事件委托delegate?
+    1. 将多个子元素的事件监听统一委托给父元素
+    2. 当某个子元素发生事件时, 事件会冒泡到父元素上
+    3. 父元素接收到事件后, 并不自己调用事件回调函数, 而是通过event的target属性取出发生事件的子元素, 让它调用回调函数
+*/
+    /*click(function(){});或者on('click', function(){});*/
+</script>
+</body>
+</html>

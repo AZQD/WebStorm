@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        .container{
+            width: 960px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .boxa1{
+            width: 180px;
+            background-color: red;
+            float: left;
+        }
+        .boxb1{
+            width: 600px;
+            background-color: blue;
+            float: left;
+        }
+        .boxc1{
+            width: 180px;
+            background-color: yellow;
+            float: left;
+        }
+
+        .boxa2{
+            width: 180px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: red;
+        }
+        .boxb2{
+            width: auto;
+            /*记住这一步，boxb2不用定位，居中就行*/
+            margin: 0 180px;
+            background-color: blue;
+        }
+        .boxc2{
+            width: 180px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: yellow;
+        }
+
+        .boxa3{
+            width: 180px;
+            position: absolute;
+            top: 0;
+            left: 600px;
+            background-color: red;
+
+        }
+        .boxb3{
+            width: 600px;
+            background-color: blue;
+            float: left;
+        }
+        .boxc3{
+            width: 180px;
+            background-color: yellow;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+<!--三个都左浮动-->
+    <div class="container">
+        <div class="boxa1">A</div>
+        <div class="boxb1">B</div>
+        <div class="boxc1">C</div>
+    </div>
+    <br/>
+<!--C,A定位，B居中-->
+    <div class="container">
+        <div class="boxa2">A</div>
+        <div class="boxb2">B</div>
+        <div class="boxc2">C</div>
+    </div>
+    <br/>
+<!--B,C左右浮动，A定位-->
+    <div class="container">
+        <div class="boxa3">A</div>
+        <div class="boxb3">B</div>
+        <div class="boxc3">C</div>
+    </div>
+</body>
+</html>

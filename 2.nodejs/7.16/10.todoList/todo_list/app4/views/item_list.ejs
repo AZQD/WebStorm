@@ -1,0 +1,75 @@
+<%- include header.ejs -%>
+<div class="main box">
+    <div class="box">
+
+    <div class="box todos">
+        <h2 class="box">待办事项</h2>
+        <ul>
+            <%//页面显示逻辑
+            for(var i=0; i<items.length; i++){
+                var item = items[i];
+                var id = item._id;
+                var title = item.title;
+
+                //显示未完成样式
+                if(item.finish_state == '1'){
+                %>
+                    <li>
+                    <%- title %>
+                    &nbsp;
+                    <a href="/finish/<%- id %>/?state=yes">完成</a>,
+                    <a href="/edit/<%- id %>">修改</a>,
+                    <a href="/delete/<%- id %>"
+                       onclick="return confirm('删除以后不能恢复的，确定？')">删除</a>
+                </li>
+                <%
+                }
+                //显示完成样式
+                else if(item.finish_state == '2'){
+                %>
+                    <li class="finished">
+                    <del><%- title %></del>
+                    &nbsp;
+                    <a href="/finish/<%- id %>/?state=no">恢复</a>,
+                    <a href="/edit/<%- id %>">修改</a>,
+                    <a href="/delete/<%- id %>" onclick="return confirm('删除以后不能恢复的，确定？')">删除</a>
+                </li>
+                <%
+                }else {
+                    console.log('数据出错');
+                }
+            }%>
+            <!--
+
+                                <li>
+                                    整理笔记
+                                    &nbsp;
+                                    <a href="/finish/575721c511b6da2023bea343/?state=yes">完成</a>,
+                                    <a href="/edit/575721c511b6da2023bea343">修改</a>,
+                                    <a href="/delete/575721c511b6da2023bea343"
+                                       onclick="return confirm('删除以后不能恢复的，确定？')">删除</a>
+                                </li>
+                                <li class="finished">
+                                    <del>做作业</del>
+                                    &nbsp;
+                                    <a href="/finish/575721c511b6da2023bea343/?state=no">恢复</a>,
+                                    <a href="/edit/575721c511b6da2023bea343">修改</a>,
+                                    <a href="/delete/575721c511b6da2023bea343" onclick="return confirm('删除以后不能恢复的，确定？')">删除</a>
+                                </li>
+            -->
+
+        </ul>
+    </div>
+
+    <div class="box post">
+        <h2>新增</h2>
+        <form action="/new" method="post" id="post_new">
+            <p><input type="text" name="title" class="long_txt" /></p>
+            <p><input type="submit" class="submit" value="添加" /></p>
+        </form>
+    </div>
+
+</div>
+</div>
+<%- include footer.ejs -%>
+

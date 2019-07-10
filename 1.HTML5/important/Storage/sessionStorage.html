@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <button class="btn1">删除</button>
+
+</body>
+<script>
+    var obj={
+        name:"li",
+        age:11,
+        address:"China"
+    };
+    var obj2={
+        name:"wu",
+        age:22,
+        address:"America"
+    };
+    var btn1=document.querySelector(".btn1");
+
+    window.sessionStorage.setItem("infoFir",JSON.stringify(obj));
+    window.sessionStorage.setItem("infoSec",JSON.stringify(obj2));
+    var infoFirJson=window.sessionStorage.getItem("infoFir");
+    var infoSecJson=window.sessionStorage.getItem("infoSec");
+    console.log(infoFirJson);
+    console.log(infoSecJson);
+    console.log("--------------");
+    btn1.onclick=function(){
+        //var abc=window.sessionStorage.removeItem("infoFir");
+        //var abc=window.sessionStorage.clear();
+        var abc=window.sessionStorage.length;
+        console.log(abc);
+        for(var i=0;i<abc;i++){
+            var key=window.sessionStorage.key(i);
+            var keyContent=window.sessionStorage.getItem(key);
+            console.log(key);
+            console.log(keyContent);
+        }
+
+    };
+</script>
+</html>

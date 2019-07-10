@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .factory('fService', function(){
+                return {
+                    username : 'tom',
+                    setUsername : function(username){
+                        this.username = username;
+                    }
+                }
+            })
+            .factory('fService2', function(){
+                return function(msg){
+                    console.log(msg.toUpperCase());
+                };
+            })
+            .service('sService', function(){
+                this.age = 12;
+                this.setAge = function(age){
+                    this.age = age;
+                };
+            })
+            .value('job', 'HTML5')
+            .constant('COUNTRY', 'china')
+            .provider('pService', function(){
+                this.$get = function(){
+                    return {
+                        username : 'beijing',
+                        setUsername : function(username){
+                            this.username = username;
+                        }
+                    }
+                }
+            })
+            .controller('Mycontroller', function($scope, fService, fService2, sService, job, COUNTRY, pService){
+                console.log(fService.username);
+                fService.setUsername('xiaoLi');
+                console.log(fService.username);
+
+                fService2('liming');
+
+                console.log(sService.age);
+                sService.setAge(20);
+                console.log(sService.age);
+
+                console.log(job);
+                console.log(COUNTRY);
+                
+                console.log(pService.username);
+                pService.setUsername('shanghai');
+                console.log(pService.username);
+            });
+</script>
+</body>
+</html>

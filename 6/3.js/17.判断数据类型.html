@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript" src="jquery-1.10.1.js"></script>
+<script type="text/javascript" async="async" defer="defer">
+
+    //举一反三，用同样的方法判断其他类型
+
+    //方法一:
+    console.log(typeof undefined);
+    var arr = [1, 2, 3];
+    console.log(arr instanceof Array);
+
+    //方法二:
+    console.log(arr.constructor === Array);
+
+    //方法三:
+    //console.log(Object.prototype.toString.call(undefined));
+    function isArray(obj){
+        return Object.prototype.toString.call(obj) === '[object Array]';
+    }
+    console.log(isArray(arr));
+
+    //方法四:用jQuery核心函数的type方法：
+    //string number boolearn null undefined function array object 8种
+    var result = $.type({});
+    console.log(result);
+
+
+    //将上述方法封装成函数如下：//里面用到的Array都是大写
+    /*var arr = [];
+    isArr(arr);*/
+
+    /*function isArr (arr){
+     if(arr instanceof Array){
+     alert(1);
+     }else{
+     alert(2);
+     }
+     }*/
+
+    /*function isArr (arr){
+     if(arr.constructor == Array){
+     alert('1');
+     }else{
+     alert(2);
+     }
+     }*/
+
+    /*function isArr (arr){
+     if(Object.prototype.toString.call(arr) == '[object Array]'){
+     alert(1);
+     }else{
+     alert(2);
+     }
+     }*/
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <style type="text/css">
+        /** 添加样式 **/
+        @media screen and (min-width: 768px) {
+            .box{
+                width: 128px;
+                height: 128px;
+                background: url("img/Play_Normal_128px_560453_easyicon.net.png") no-repeat;
+                border: 2px solid red;
+                transition: .2s linear;
+            }
+        }
+
+        @media screen and (min-width: 640px) and (max-width: 768px) {
+            .box{
+                width: 72px;
+                height: 72px;
+                background: url("img/Play_Normal_72px_560453_easyicon.net.png") no-repeat;
+                border: 2px solid blue;
+                transition: .2s linear;
+            }
+        }
+        @media screen and (max-width: 640px){
+            .box{
+                width: 48px;
+                height: 48px;
+                background: url("img/Play_Normal_48px_560453_easyicon.net.png") no-repeat;
+                border: 2px solid green;
+                transition: .2s linear;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box"></div>
+
+<script type="text/javascript">
+    //添加脚本
+</script>
+</body>
+</html>

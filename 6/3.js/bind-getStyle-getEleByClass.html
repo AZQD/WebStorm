@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class='aa bb'></div>
+<script type="text/javascript">
+
+    //bind
+    function bind(obj, eventStr, callback){
+
+        //* addEventListener ie8以下都不支持
+        //* attachEvent 只支持IE10以下的浏览器
+
+        if(obj.addEventListener){
+            obj.addEventListener(eventStr, callback, false);
+        }else{
+            obj.attachEvent('on'+eventStr, function(){
+                callback.call(obj);
+            }, false);
+        }
+    }
+
+    //getStyle
+    function getStyle (obj, attr){
+        try{
+            //getComputedStyle支持火狐，chorme，IE9及以上
+            return getComputedStyle(obj, null)[attr];
+        }catch (e){
+            //currentStyle这个属性只有IE支持，可以获取元素的样式
+            return obj.currentStyle[attr];
+        }
+    }
+
+
+    //bind应用：
+    var box = document.getElementById('box');
+    bind(box, 'click', function(){
+        console.log('ok');
+    });
+
+    //getStyle应用：
+    var height = getStyle(box, 'width');
+    console.log(height);
+
+
+    //定义获取class的函数
+    function getEleByClass(cn){
+        var result = [];
+        var reg = new RegExp('\\b' + cn + '\\b');
+        var allEles = document.all;
+        for (var i = 0; i < allEles.length; i++) {
+            var className = allEles[i].className;
+            if(reg.test(className)){
+                result.push(allEles[i]);
+            }
+        }
+        return result;
+    }
+    
+    var classArr = getEleByClass('aa');
+    console.log(classArr);
+
+
+</script>
+</body>
+</html>

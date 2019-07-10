@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //这种方法并不够完美。整体思路：去除最大值和最小值，然后遍历去除和他们相等的。
+    /*Array.prototype.deleteMinMax = function(){
+        var that = [];
+        for (var i = 0; i < this.length; i++) {
+            that.push(this[i]);
+        }
+        console.log(that);
+        var newArr = this.sort(function(a, b){
+            return a-b;
+        });
+        var min = newArr[0];
+        var max = newArr[newArr.length-1];
+        var result = [];
+        console.log(newArr == this); //true，改变了数组本身
+        console.log(min,max);
+        console.log(that);
+        for (var i = that.length-1; i >0 ; i--) {
+            if(that[i] != min && that[i] != max){
+                result.push(that[i]);
+            }
+        }
+        return result.reverse();
+    };
+
+    var arr = [1,4,2,3,4,5,5,5,1,4,3,2,3,2,2,1,1,5,5,5];
+    var result = arr.deleteMinMax();
+    console.log(result);*/
+
+    //第2题
+    var reg = /^[a-zA-Z][\w]{4,19}$/;
+    var result = reg.test('A____sdf_');
+    console.log(result);
+</script>
+</body>
+</html>

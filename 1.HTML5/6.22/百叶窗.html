@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            margin: 0 auto;
+            width: 600px;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+            width: 100%;
+        }
+        li{
+            float: left;
+            width: 33.333%;
+            height: 200px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+    <button id="btn">切换</button>
+</div>
+</body>
+<script>
+    var lis=document.querySelectorAll("li");
+    var btn=document.querySelector("#btn");
+    btn.onclick=function(){
+
+        /*for(var i=0;i<lis.length;i++){
+         if(lis[i].style.transform.indexOf("360deg")!=-1){
+         lis[i].style.transform="rotateY(0deg)";
+         }else{
+             lis[i].style.transform="rotateY(360deg)";
+         }
+         lis[i].style.transition="0.5s linear "+i*0.5+"s";
+         }*/
+        for(var i=0;i<lis.length;i++){
+            if(lis[i].style.transform.indexOf("360deg")!=-1){
+                lis[i].style.transform="rotateY(0deg)";
+            }else {
+                lis[i].style.transform="rotateY(360deg)";
+            }
+            lis[i].style.transition="0.6s linear "+i*0.6+"s";
+        }
+    };
+
+</script>
+</html>

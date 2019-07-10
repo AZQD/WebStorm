@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <link rel="stylesheet" href="../js/bootstrap-3.3.5/css/bootstrap.css">
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+
+<div class="container">
+    <!--ng-repeat="item in arr"-->
+    <my-directive1>
+        <my-directive2 ng-repeat="item in arr" title="item.title" content="item.content">
+
+        </my-directive2>
+    </my-directive1>
+
+</div>
+
+
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .directive('myDirective1', function(){
+                return {
+                    restrict : "E",
+                    template : '<div class="panel-group" ng-transclude></div>',
+                    replace : true,
+                    transclude : true
+                }
+            })
+            .directive('myDirective2', function(){
+                return {
+                    restrict : 'E',
+                    templateUrl : 'template_exer.html',
+                    replace : true,
+                    scope : {
+                        title : '=',
+                        content : '='
+                    },
+                    controller : function($scope, $element, $attrs, $transclude){
+                        $scope.isOpen = false;
+                        $scope.switch = function(){
+                            $scope.isOpen = !$scope.isOpen;
+                        }
+                    }
+                }
+            })
+            .factory('fService', function(){
+                return {
+                    arr : [
+                        {title : '111111', content : 'aaaaaa'},
+                        {title : '222222', content : 'bbbbbb'},
+                        {title : '333333', content : 'cccccc'}
+                    ]
+                }
+            })
+            .controller('MyController', function($scope, fService){
+                $scope.arr = fService.arr;
+            });
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING-测试jsonp解决跨域</title>
+</head>
+<body>
+    <h1>测试jsonp解决跨域</h1>
+    用户名：<input type="text" name="username" id="name"/>
+    <span id="resultSpan"></span>
+    <br>
+    密&nbsp;码: <input type='password' name='pwd'>
+</body>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $('#name').blur(function(){
+
+            //不采用跨域请求(为下面跨域请求做参考)
+            /*$.get('/ajax/test/normal', {username : this.value}, function(data){
+                console.log(data);
+                $('#resultSpan').html(data);
+            });*/
+
+            //采用jsonp实现跨域请求
+            /*$.getJSON('http://localhost:3000/ajax/test/jsonp?callback=?', {username : this.value}, function(data){
+                console.log('hell');
+                console.log(data);
+                $('#resultSpan').html(data.result);
+            });*/
+
+            //采用CORS实现跨域请求 Cross Origin Resource Sharing (跨域资源共享)
+            $.post('http://localhost:3000/ajax/test/cors', {username : this.value}, function(data){
+                console.log(data);
+                $('#resultSpan').html(data);
+            });
+
+        });
+    });
+</script>
+</html>

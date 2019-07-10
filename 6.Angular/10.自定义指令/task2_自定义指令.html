@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp">
+
+<div my-directive></div>
+<my-directive></my-directive>
+<div class="my-directive"></div>
+<!-- directive:my-directive -->
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .directive('myDirective', function(){
+                return {
+                    restrict : 'ECMA',
+                    template : '<p>奥运会</p>',
+                    replace : true,
+                    priority : 10, //优先级
+                    terminal : false //是否终止优先级较低的指令执行, 默认是false
+                }
+            });
+</script>
+</body>
+</html>

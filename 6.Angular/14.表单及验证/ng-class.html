@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        .box{
+            color: red;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+
+<div ng-class="'box'" ng-bind="'河南工业大学'"></div>
+<div ng-class="{box : true}" ng-bind="'电气工程学院'"></div>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('MyController', function($scope){
+
+            });
+</script>
+</body>
+</html>

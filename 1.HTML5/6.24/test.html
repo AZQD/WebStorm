@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var json={
+
+        "name":"xiaoming"
+    };
+    var str="";
+    for(var i=0;i<100000;i++){
+        str+="abc";
+    }
+    json.name=str;
+    window.history.pushState(json,"标题","http://localhost:63342/Webstorm/6.24/test.html");
+    window.history.pushState(json,"标题","http://localhost:63342/Webstorm/6.24/test.html");
+</script>
+</body>
+</html>

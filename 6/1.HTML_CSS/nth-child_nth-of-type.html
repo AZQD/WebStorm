@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        /*test下面的第2个元素，而且这个元素必须是span，但现在是div1，因此不会变红*/
+        /*#test p:nth-child(2){
+            background-color: red;
+        }*/
+        /*test下面的p元素，当中的第2个元素，因此p2会变红*/
+        #test p:nth-of-type(2){
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="test">
+    <p>p1</p>
+    <div>div1</div>
+    <div>div2</div>
+    <p>p2</p>
+    <p>p3</p>
+</div>
+</body>
+</html>

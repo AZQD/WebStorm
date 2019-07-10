@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+//            需求: 点击"确定"按钮, 提示输入的值
+            $('#confirm').click(function(){
+                alert($('#name').val());
+            });
+        });
+    </script>
+</head>
+<body>
+    用户名:
+    <input type="text" name="username" id="name"/>
+    <input type="button" id="confirm" value="确定"/>
+</body>
+</html>

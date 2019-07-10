@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    /*
+     作用:
+     定义一个常量
+     特点:
+     不能修改
+     也是块作用域有效
+     应用:
+     保存应用需要的常量数据
+     */
+    if(true){
+        const a = 1;
+        console.log(a);
+        /*a = 2;
+        console.log(a); //报错*/
+    }
+    
+    const b = 10; //保存不变化的数据
+    console.log(b);
+</script>
+</body>
+</html>

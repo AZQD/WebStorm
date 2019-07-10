@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript">
+        //此时加了参数
+        /*function fun(a, b){
+            var result = 0;
+            result = a + b;
+            return result;
+        }
+        //var ans = fun(12);//NaN
+        var ans = fun(12, 10);//22
+        alert(ans);*/
+
+        //如果没有参数
+        function fun2(){
+            var result = 0;
+            for(var i = 0; i < arguments.length; i++){
+                result += arguments[i];
+            }
+            return result;
+        }
+        var ans = fun2(12, 23, 34, 45, 1, 1);
+        alert(ans);
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

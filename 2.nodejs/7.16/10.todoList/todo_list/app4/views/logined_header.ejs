@@ -1,0 +1,34 @@
+
+<div id='notLoginHeader' class="header box">
+    <!-- 创建导航条 -->
+    <ul class="nav">
+        <li>
+            <div class="avatar">
+                <%//如果头像存在，那么，地址就是用户的头像地址
+                if(userInfo.avatar){%>
+                <a href="/upload_avatar"> <img src="/avatars/<%- userInfo.avatarFileName %>"> </a>
+                <%}
+                //如果头像不存在，那么，地址就是默认的头像地址
+                else{%>
+                    <a href="/upload_avatar"> <img src="/avatars/default_avatar_2.png"> </a>
+                <%}%>
+            </div>
+        </li>
+        <li>
+            <div class="text">
+                <%- userInfo.userName %>
+            </div>
+        </li>
+        <li>
+            <div class="text">
+                <a href="/logout">登出</a>
+            </div>
+        </li>
+    </ul>
+
+    <!-- 设置logo -->
+    <h1 class="logo">
+        <a href="/">TODO List</a>
+    </h1>
+
+</div>

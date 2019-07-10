@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp">
+<div ng-controller="Mycontroller1">
+    <h1>价格计算器(自动)</h1>
+    数量：<input type="number" ng-model="auto.count"><br/>
+    价格：<input type="number" ng-model="auto.price"><br/>
+    总价：{{auto.count*auto.price}}
+</div>
+
+<div ng-controller="Mycontroller2" ng-init="count=2;price=20;result=40">
+    <h1>价格计算器(手动)</h1>
+    数量：<input type="number" ng-model="count"><br/>
+    价格：<input type="number" ng-model="price">
+    <button ng-click="multiply()">计算器</button><br/>
+    总价：{{result}}
+</div>
+
+<div ng-controller="Mycontroller3">
+    <h1>人员信息列表</h1>
+    <ul>
+        <li ng-repeat="item in arr">
+            第{{$index}}个：{{item}}<br/>
+            {{$first}}--{{$middle}}--{{$last}}
+        </li>
+    </ul>
+</div>
+
+<div ng-init="msg='范冰冰'">
+    <p>{{msg}}</p>
+    <p ng-bind="msg"></p>
+</div>
+
+<div ng-controller="Mycontroller4">
+    <h1>我喜欢的明星：</h1>
+    <p ng-show="like">{{'邓超'}}</p>
+    <p ng-hide="like">{{'孙俪'}}</p>
+    <button ng-click="change()">切换</button>
+</div>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    //alert('hello');
+    angular.module('myApp', [])
+            .controller('Mycontroller1', function($scope){
+                $scope.auto = {
+                    count : 1,
+                    price : 10
+                };
+            })
+            .controller('Mycontroller2', function($scope){
+                $scope.multiply = function(){
+                    //$scope.result = $scope.count*$scope.price;
+                    this.result = this.count*this.price;
+                };
+            })
+            .controller('Mycontroller3', function($scope){
+                $scope.arr = [
+                    {name : 'tom1', age : 12},
+                    {name : 'tom2', age : 13},
+                    {name : 'tom3', age : 14},
+                    {name : 'tom4', age : 15}
+                ];
+            })
+            .controller('Mycontroller4', function($scope){
+                $scope.like = true;
+                $scope.change = function(){
+                    $scope.like = !$scope.like;
+                };
+            });
+</script>
+</body>
+</html>

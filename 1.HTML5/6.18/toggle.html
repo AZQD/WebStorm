@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            background-color: fuchsia;
+        }
+        .box2{
+            background-color: yellow;
+        }
+        .box3{
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="firstbox" class="box1">你好呀！</div>
+    <button id="btn">切换</button>
+    <script>
+        var firstbox=document.querySelector(".box1");
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            /*firstbox.classList.add("box2");*/
+            /*firstbox.classList.remove("box1");*/
+            firstbox.classList.toggle("box3");
+            firstbox.classList.toggle("box2");
+            console.log(firstbox.classList.length);
+        };
+
+    </script>
+</body>
+</html>

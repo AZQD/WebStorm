@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>
+    <title>HTML5</title>
+    <style type="text/css">
+        /*页面不显示元素：6种方法*/
+        p{
+            visibility: hidden;
+        }
+        p{
+            /*display: none;*/
+        }
+        .box1{
+            /*设置宽高为0，设置透明度为0，
+            设置z-index位置在-1000*/
+            width: 0 ;
+            height: 0;
+            opacity: 0;
+
+        }
+        .box2{
+            font-size: 2em;
+            text-indent: -999px;
+        }
+
+        span{
+            position: relative;
+            z-index: -999;
+        }
+
+        .box1{
+            font-size: 0;
+        }
+    </style>
+</head>
+<body>
+    <p>山重水复疑无路，柳暗花明又一村！</p>
+    <div class="box1">陆游</div>
+    <!--//em是相对于父元素字体的大小-->
+    <div class="box2" style="font-size: 20px">游山西村<span>好词</span></div>
+
+
+
+<script type="text/javascript">
+    //添加脚本
+</script>
+</body>
+</html>

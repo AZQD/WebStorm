@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-init="msg='best'">
+
+<div my-directive></div>
+{{msg}}
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .directive('myDirective', function(){
+                return {
+                    restrict : "A",
+                    template : '<p>向前冲</p>',
+                    controller : function($scope, $element, $attrs, $transclude){
+                        $scope.msg += 'wishes';
+                    },
+
+                    //compile 和 link 不能同时出现！！！
+                    /*compile : function(){
+                        return {
+                            pre : function preLink(scope, element, attributes){
+                                scope.msg += '***compile_pre***';
+                            },
+                            post : function postLink(scope, element, attributes){
+                                scope.msg += '***compile_post***';
+                            }
+                        }
+                    },*/
+                    link : function(scope, elements, attrs, controller){
+                        scope.msg += 'to you';
+                    }
+                }
+            });
+</script>
+</body>
+</html>

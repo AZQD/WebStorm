@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+//    <!--清除字符串前后的空格-->
+    //第一种方法：
+    /*function trim(str){
+        return str.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    var result = trim('  shd sd   ');
+    console.log('***'+result+'***');*/ //***shd sd***
+
+    /*//第二种方法：
+    String.prototype.trim = function(){
+        return this.replace(/^\s+/, '').replace(/\s+$/, '');
+    };
+    var str = '   hello world  ';
+    var result = str.trim();
+    console.log("***"+result+'***'); //!***hello world****/
+    
+    
+    //给字符串之间加空格
+    String.prototype.spacify = function(){
+        return this.split('').join(' ');
+    };
+    var str = 'hello world';
+    console.log(str.spacify());
+
+</script>
+</body>
+</html>

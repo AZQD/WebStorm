@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+<div id="box">欢迎<a href="http://baidu.com">百度一下</a></div>
+<script type="text/javascript">
+    var box = document.getElementById('box');
+    if(box.addEventListener){
+        box.addEventListener('click', function(ev){
+            //ev = ev || event;
+            var ele  = ev.target;
+            ele.style.color = 'red';
+            ev.stopPropagation();
+            ev.preventDefault();
+        }, false)
+    }else{
+        box.attachEvent('onclick', function(event){
+            //ev = ev || event;
+            var ele = event.srcElement;
+            ele.style.color = 'red';
+            event.cancelBubble = true;
+            fun.call(box);//这个函数需要在外面先定义好
+            return false;
+        });
+
+    }
+
+
+    function fun (){
+        //this.srcElement.style.color = 'red';
+        //alert(this.srcElement);
+    }
+    
+    alert(null instanceof Object); //false
+</script>
+</body>
+</html>

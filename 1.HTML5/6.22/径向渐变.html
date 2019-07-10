@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css" rel="stylesheet">
+    .box1{
+        width: 400px;
+        height: 100px;
+        border-radius:100px;
+        background-image: radial-gradient(ellipse,blue, #ffe0bd,yellow);
+    }
+        .box2{
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            transform-origin: left;
+            transform: rotate(45deg) scale(1.2);
+            animation:donghua 3s infinite;
+            /*background-image: radial-gradient(50% 100% at right,red,yellow,blue);*/
+
+        }
+        @keyframes donghua {
+            0%{
+                background-image: radial-gradient(circle at left,red 15%,#000);
+            }
+            25%{
+                background-image: radial-gradient(circle at right,yellow 15%,#000);
+            }
+            75%{
+                background-image: radial-gradient(circle at center,blue 15%,#000);
+            }
+            100%{
+                background-image: radial-gradient(circle at 10% 0,#fff 15%,#000);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <br><br>
+    <div class="box2"></div>
+</body>
+</html>

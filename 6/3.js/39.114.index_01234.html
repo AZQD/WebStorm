@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //循环输出结果01234
+    /*for(let  i=0; i<5; i++){
+        setTimeout(function(){
+            console.log(i);
+        }, 100*i);
+    }*/
+
+
+    /*for(var  i=0; i<5; i++){
+        setTimeout((function(i){
+            console.log(i);
+        })(i), 100*i);
+    }*/
+
+    /*for(let  i=0; i<5; i++){
+        setTimeout(function(i){
+            return function(){
+                console.log(i);
+            };
+        }(i), 100*i);
+    }*/
+
+
+
+    //连续输出结果01234
+    var i=0;
+    var time = setInterval(function(){
+        if(i == 4){
+            clearInterval(time);
+        }
+        console.log(i);
+        i++;
+    }, 500);
+    
+    console.log(8 | 1);
+
+</script>
+</body>
+</html>

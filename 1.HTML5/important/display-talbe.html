@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display-table</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            min-width: 320px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        ul{
+            list-style: none;
+            background-color: yellow;
+            width: 100%;
+            display: table;
+        }
+        li{
+            background-color: fuchsia;
+            width: 33.333%;
+            display: table-cell;
+            vertical-align: top;
+        }
+        li:first-child{
+            background-color: yellow;
+
+
+        }
+        li:last-child{
+            background-color: dodgerblue;
+        }
+        img{
+            /*width: 100%;*/
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul>
+            <li>
+                <img src="img/logo.gif" alt="">
+            </li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <p>
+            我成功是因为有决心，从不犹豫。<br/>
+            I succeeded because I willed it, I never hesitated.
+        </p>
+    </div>
+</body>
+</html>

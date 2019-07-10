@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+<my-directive1 msg="abc"></my-directive1>
+<my-directive2 msg="abc"></my-directive2>
+<my-directive3 msg="test()"></my-directive3>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .directive('myDirective1', function(){
+                return {
+                    restrict : 'E',
+                    template : '<p>{{msg}}</p>',
+                    replace : true,
+                    scope : {
+                        msg : '@'
+                    }
+                }
+            })
+            .directive('myDirective2', function(){
+                return {
+                    restrict : 'E',
+                    template : '<p>{{msg}}</p>',
+                    replace : true,
+                    scope : {
+                        msg : '='
+                    }
+                }
+            })
+            .directive('myDirective3', function(){
+                return {
+                    restrict : 'E',
+                    template : '<p>{{msg()}}</p>',
+                    replace : true,
+                    scope : {
+                        msg : '&'
+                    }
+                }
+            })
+            .controller('Mycontroller', function($scope){
+                $scope.abc = 'hello';
+                $scope.test = function(){
+                    return 'i love you';
+                };
+            });
+</script>
+</body>
+</html>

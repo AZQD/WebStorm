@@ -1,0 +1,9 @@
+
+.cell{
+    width: 25%;
+    border: 1px dotted;
+    height: 200px;
+    box-sizing: border-box;
+    float: left;
+    background-color: #ffe013;
+}

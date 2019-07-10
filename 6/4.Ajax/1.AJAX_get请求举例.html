@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<button id="btn">测试get请求</button>
+<span id="result"></span>
+<script type="text/javascript">
+    /*
+     测试get类型的Ajax请求
+     1. 创建一个xmlhttpRequest对象
+     2. 设置回调监听
+     3. 打开一个连接
+     4. 发请求
+     */
+    var btn = document.getElementById('btn');
+    btn.onclick = function(){
+        //1. 创建一个xmlhttpRequest对象
+        var request = createRequest();
+        console.log(request);
+
+        // 2. 设置回调监听
+        //当readystate的值发生变化时调用
+        request.onreadystatechange = function(){
+            //请求响应完成时，且成功响应
+            if(request.readyState === 4 && request.status === 200){
+                //获取服务器返回的响应数据
+                var result = request.responseText;
+                alert(result);
+                document.getElementById('result').innerHTML = result;
+            }
+        };
+        // 3. 打开一个连接
+        request.open('GET', '/ajax/test/get?username=Bob');
+        //4.发送请求
+        //因为get请求，所以不需要指定请求体参数
+        request.send();
+    };
+
+    /**
+     * 创建一个XmlhttpRequest对象
+     */
+    function createRequest(){
+        var xmlhttp;
+        if(window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+        }else{
+            //看js基础 BOM判断是哪个浏览器.html
+            xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+    }
+
+
+
+    /*//可以通过这种方式获取http的请求头信息和返回的头信息。做为了解。
+    var req = new XMLHttpRequest();
+    req.open('GET', document.location, false);
+    req.send(null);
+    var headers = req.getAllResponseHeaders().toLowerCase();
+    alert(headers);*/
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<ul id="test">
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+</ul>
+<script type="text/javascript">
+    /*var lis = document.querySelectorAll('li'); //对新添加的元素不起作用
+    lis[0].style.backgroundColor = 'red';
+    test.innerHTML += '<li>hello</li>';
+    lis[3].style.backgroundColor = 'red';*/
+
+    var lis = document.getElementsByTagName('li');//对新添加的元素起作用
+    lis[0].style.backgroundColor = 'red';
+    test.innerHTML += '<li>hello</li>';
+    lis[3].style.backgroundColor = 'red';
+</script>
+</body>
+</html>

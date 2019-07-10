@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //回调函数是在for结束之后才运行的
+    //所以运用立即执行函数
+    /*for(var i=0; i<3; i++){
+        setTimeout((function(i){
+            console.log(i);
+        })(i), 1);
+    }*/
+
+    //闭包举例,面试就举这个例子
+    function fun1(){
+        var a = 1;
+        function fun2(){
+            a++;
+            console.log(a);
+        }
+        return fun2;
+    }
+    var result = fun1();
+    result();
+    result();
+
+</script>
+</body>
+</html>

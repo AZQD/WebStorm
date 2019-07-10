@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="8.队列.js"></script>
+    <script type="text/javascript">
+        var queue = new Queue();
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        queue.enqueue(40);
+        console.log(queue.size());//4
+        console.log(queue.isEmpty());//false
+        console.log(queue.first());//10
+        console.log(queue.dequeue());//10
+        console.log(queue.first());//20
+        console.log(queue.size());//3
+        queue.clear();
+        console.log(queue.isEmpty());//true
+    </script>
+</head>
+<body>
+
+</body>
+</html>

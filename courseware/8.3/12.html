@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        input{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<form action="#">
+    <input type="text" id="inp1" placeholder="on+'event'"><br>
+    <input type="text" id="inp2" placeholder="event"><br>
+    <input type="text" id="inp3" placeholder="mouseenter, mouseout"><br>
+    <input type="text" id="inp4" placeholder="hover"><br>
+
+</form>
+<script type="text/javascript" src="jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#inp1').on('click', function(){
+                console.log('1clickEvent');
+            })
+            .on('keydown', function(){
+                console.log('2keydownEvent');
+            })
+            .on('keyup', function(){
+                console.log('3keyupEvent');
+            });
+
+            
+            $('#inp2').click(function(){
+                console.log('click');
+            })
+            .mouseenter(function(){
+                console.log('mouseenter');
+            })
+            .mouseout(function(){
+                console.log('mouseout');
+            });
+            
+            $('#inp3').bind('mouseenter, mouseout', function(){
+                console.log('mouseEvent');
+            });
+
+            $('#inp4').hover(function(){
+                console.log('进入');
+            }, function(){
+                console.log('出来');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<script type="text/javascript">
+    //Math.random()；返回0-1之间的随机数。
+    //要求返回10-100之间,并排序
+
+    function fun(min, max, length){
+
+        var num;
+        var arr = [];
+        for(var i=0; i<length; i++){
+            num = parseInt(Math.random()*(max - min) + min);
+            arr.push(num);
+        }
+        console.log(arr);
+        var arrNew = arr.sort(function(a, b){
+            return a-b;
+        });
+        console.log(arrNew);
+    }
+
+    fun(10, 100, 20);
+
+
+    //合并数组，并删除第二个
+    var arr1 = ['hello', true, 12];
+    var arr2 = ['go', 66, false];
+    var result = arr1.concat(arr2);
+    console.log(result);
+    result.splice(1, 1);
+    console.log(result);
+
+
+//    74题：
+    //5-20的随机数
+    var arr = [];
+    for(var i=0; i<5; i++){
+        arr[i] = Math.floor(Math.random()*15+5);
+        for(var j=0; j<i; j++){
+            //遍历i之前的所有项，进行对比
+            if(arr[i] == arr[j]){
+                i--;
+            }
+        }
+    }
+    console.log(arr);
+    
+    
+    //121.f(x, a, b);
+    
+    function f(x, a, b){
+        var temp = Math.ceil(Math.min(Math.max(x-100, 0), 1));
+        return a*temp + b*(1-temp);
+    }
+    console.log(f(10, 1, 2));
+    
+    
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+
+<div my-directive type="address">
+    <ul>
+        <li>zhengzhou</li>
+        <li>kaifeng</li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .directive('myDirective', function(){
+                return {
+                    restrict : 'A',
+                    template : '<h1>{{type}}</h1><span  ng-transclude></span>',
+                    scope : {
+                        type : '@'
+                    },
+                    transclude : true
+                };
+            })
+            .controller('MyController', function($scope){
+                $scope.type = 'zhongguo';
+            });
+</script>
+</body>
+</html>

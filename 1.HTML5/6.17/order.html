@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            background-color: red;
+            display: flex;
+            flex-flow: row wrap;
+            height: 600px;
+            align-items: center;
+        }
+        li{
+            background-color: yellow;
+        }
+        li:first-child{
+            order: 2;
+        }
+        li:nth-child(2){
+            order: 8;
+        }
+        li:nth-child(3){
+            order: 2;
+        }
+        li:nth-child(4){
+            order: 2;
+        }
+        li:nth-child(5){
+            order: 10;
+        }
+        img{
+            /*width: 100%;*/
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="img/1.png" alt=""></li>
+    <li><img src="img/2.png" alt=""></li>
+    <li><img src="img/3.png" alt=""></li>
+    <li><img src="img/4.png" alt=""></li>
+    <li><img src="img/5.png" alt=""></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="" ng-controller="Mycontroller">
+<p>{{12}}</p>
+<p>{{'abc'}}</p>
+<p>{{true}}</p>
+<p>---{{null}}</p>
+<p>---{{undefined}}</p>
+<p>---{{Infinity}}</p>
+<p>---{{NaN}}</p>
+<p>---{{'OK'}}</p>
+<hr>
+<p>{{msg}}</p>
+<p>{{type.height}}</p>
+<p>{{name[2]}}</p>
+<p>---{{myLove}}</p>
+<p>{{myLove()}}</p>
+<script type="text/javascript" src="../js/angular-1.2.29/angular.js"></script>
+<script type="text/javascript">
+    function Mycontroller($scope) {
+        $scope.msg = 'meinv';
+        $scope.type = {
+            age : 25,
+            height : "170cm"
+        };
+        $scope.name = ['范冰冰', '杨颖', '佟丽娅'];
+        $scope.myLove = function () {
+            return $scope.name[1];
+        }
+    }
+</script>
+</body>
+</html>

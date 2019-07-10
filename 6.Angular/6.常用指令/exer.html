@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+<ul>
+    <li ng-repeat="item in arr">
+        {{item}}
+        <button ng-click="clear($index)">删除</button>
+    </li>
+    <button ng-click="add()">添加</button>
+</ul>
+
+<div>
+    <input type="text" ng-model="message">
+    <button>将输入框内容添加到ul</button>
+</div>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('Mycontroller', function($scope){
+                $scope.arr = [
+                    {name : 'zww', age : 25},
+                    {name : 'lxr', age : 28},
+                    {name : 'fbb', age : 26}
+                ];
+
+                $scope.add = function(){
+                    var addContent = {
+                        name : 'li',
+                        age : 30
+                    };
+                    $scope.arr.push(addContent);
+                };
+
+                $scope.clear = function(index){
+                    var name = $scope.arr[index].name;
+                    if(confirm('你确定删除'+name+'吗？')){
+                        $scope.arr.splice(index, 1);
+                    }
+                };
+
+            });
+</script>
+</body>
+</html>

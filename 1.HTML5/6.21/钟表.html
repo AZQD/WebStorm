@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/cssreset.css">
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            margin: 0 auto;
+            border-radius: 150px;
+            position: relative;
+        }
+        ul{
+            position: relative;
+            left: calc(50% - 2px);
+
+        }
+        li{
+            width: 4px;
+            height: 8px;
+            background-color: red;
+            position: absolute;
+            transform-origin: 2px 150px;
+        }
+        li:nth-child(5n+1){
+            height: 12px;
+        }
+        /*li:after{
+            content: "1";
+        }*/
+        .hour{
+            width: 4px;
+            height: 80px;
+            background-color: greenyellow;
+            position: absolute;
+            left: calc(50% - 2px);
+            top: 70px;
+            transform-origin: bottom;
+        }
+        .min{
+            width: 4px;
+            height: 100px;
+            background-color: firebrick;
+            position: absolute;
+            left: calc(50% - 2px);
+            top: 50px;
+            transform-origin: bottom;
+        }
+        .sec{
+            width: 2px;
+            height: 126px;
+            background-color: fuchsia;
+            position: absolute;
+            left: calc(50% - 1px);
+            top:24px ;
+            transform-origin: bottom;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul id="clock"></ul>
+        <div class="hour"></div>
+        <div class="min"></div>
+        <div class="sec"></div>
+    </div>
+</body>
+<script>
+    var clock=document.querySelector("#clock");
+    var hourObj=document.querySelector(".hour");
+    var minObj=document.querySelector(".min");
+    var secObj=document.querySelector(".sec");
+
+    for (var i=0;i<60;i++){
+        var li=document.createElement("li");
+        li.style.transform="rotate("+6*i+"deg)";
+        //li:after.style.content="i";
+        clock.appendChild(li);
+
+    }
+
+    window.setInterval(function(){
+        var time=new Date();
+        var hour=time.getHours();
+        var min=time.getMinutes();
+        var sec=time.getSeconds();
+        secObj.style.transform="rotate("+6*sec+"deg)";
+        minObj.style.transform="rotate("+6*(min+sec/60)+"deg)";
+        hourObj.style.transform="rotate("+30*(hour+min/60)+"deg)";
+    },1000);
+
+</script>
+</html>

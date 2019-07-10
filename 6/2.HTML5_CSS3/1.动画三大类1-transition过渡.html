@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 200px;
+            background-color: red;
+            /*transition-property: all;
+            transition-duration: 2s;
+            transition-timing-function: linear;
+            transition-delay: 1s;*/
+            /*四个特性，可以简写属性*/
+            transition: all 2s 1s ease;
+        }
+    </style>
+    <!--html5shiv.js插件：用于解决IE6，IE7，IE8版本浏览器
+    对HTML5新增标签不识别，并导致CSS不起作用的问题。-->
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <!--为 <link> 或 <style> 元素中需要增加前缀的声明自动添加前缀。
+	支持IE9及以上浏览器和其他浏览器,切记一定要在<style>和<link>元素后引入。-->
+    <script type="text/javascript" src="js/prefixfree.js"></script>
+    <!--<script type="text/javascript" src="js/html5shiv.js"></script>&lt;!&ndash;解决低版本浏览器对HTML5新增标签不识别&ndash;&gt;
+    <script type="text/javascript" src="js/prefixfree.js"></script>&lt;!&ndash;自动添加浏览器厂商前缀插件&ndash;&gt;-->
+</head>
+<body>
+    <div id="box"></div>
+    <button id="btn">过渡</button>
+    <script type="text/javascript">
+        var box = document.getElementById('box');
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', function(){
+            box.style.width = 360+'px';
+            box.style.height = 520+'px';
+            box.style.backgroundColor = 'yellow';
+        }, false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            background-color: #FFE013;
+        }
+        footer{
+            background-color: #D0F0F0;
+        }
+        div{
+            height: 500px;
+            display: flex;
+            list-style: none;
+        }
+        nav{
+            flex-grow: 2;
+            flex-shrink: 0;
+            flex-basis: 100px;
+            background-color: #FF00FF;
+        }
+        article{
+            flex-grow: 6;
+            background-color: #0AA6E8;
+        }
+        aside{
+            flex-grow: 2;
+            flex-shrink: 0;
+            flex-basis: 50px;
+            background-color: #646464;
+        }
+    </style>
+</head>
+<body>
+    <header>页眉-header</header>
+
+    <div>
+        <nav>风景</nav>
+        <article>文章-article</article>
+        <aside>侧边-aside</aside>
+    </div>
+
+    <footer>页脚-footer</footer>
+</body>
+</html>

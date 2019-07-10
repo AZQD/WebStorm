@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <!--<link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>-->
+    <title>HTML5</title>
+    <!--<link href="css/reset.css" rel="stylesheet">-->
+    <!--<link href="css/index.css" rel="stylesheet">-->
+    <style type="text/css">
+        /** 添加样式 **/
+        canvas{
+            border:1px solid fuchsia;
+        }
+    </style>
+</head>
+<body>
+<canvas id="mycanvas">
+    您的浏览器不支持Canvas
+</canvas>
+
+<script type="text/javascript">
+    //添加脚本
+    var mycanvas = document.querySelector('#mycanvas');
+    mycanvas.width = 360;
+    mycanvas.height = 360;
+
+    if(mycanvas.getContext){
+        var pointing = mycanvas.getContext('2d');
+
+        pointing.strokeStyle = 'red';
+        pointing.beginPath();
+
+        var R = 100;
+        var r =40;
+        pointing.moveTo(
+                Math.cos(18/180 * Math.PI)* R + 180,
+                -Math.sin(18/180 * Math.PI)* R + 180
+        );
+        var num =0;
+        star(num);
+
+        function star(i){
+
+
+                pointing.lineTo(
+                        Math.cos((18 + 72*i)/180 * Math.PI)* R + 180,
+                        -Math.sin((18 + 72*i)/180 * Math.PI)* R + 180
+                );
+                pointing.lineTo(
+                        Math.cos((54 + 72*i)/180 * Math.PI)* r + 180,
+                        -Math.sin((54 + 72*i)/180 * Math.PI)* r + 180
+                );
+            //此处不可以写closePath，否则每次都会执行。
+            // pointing.closePath();
+            pointing.stroke();
+            num += 1;
+            if(num < 6){
+                setTimeout(star, 1000, num);
+            }
+
+
+        }
+
+
+
+    }else {
+        alert('您的浏览器不支持Canvas');
+    }
+</script>
+</body>
+</html>

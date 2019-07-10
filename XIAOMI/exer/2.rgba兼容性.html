@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255,0,0,0.5);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7fff0000,endColorstr=#7fff0000);
+        }
+    </style>
+</head>
+<body>
+    <div id="box">rgba兼容性</div>
+</body>
+</html>
+
+<!--
+                rgba兼容总结：IE9及以下：
+				background-color: rgba(255,0,0,0.5);
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7fff0000,endColorstr=#7fff0000);
+				参数7f表示透明度为0.5
+				0.1 19；
+				0.2 33；
+				0.3 4C;
+				0.4 66;
+				0.5 7F;
+				0.6 99;
+				0.7 B2;
+				0.8 C8;
+				0.9 E5;
+				ff0000表示颜色
+-->

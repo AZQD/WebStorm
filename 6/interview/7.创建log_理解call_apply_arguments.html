@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    //一个参数
+    /*function log(a){
+        console.log(a);
+    }
+    log('abc');*/
+    
+    //多个参数
+    function log(){
+        console.log.apply(console, arguments);
+        console.log.call(console, arguments);
+        for (var i=0;i<arguments.length;i++){
+            console.log(arguments[i]);
+        }
+    }
+    log('a','b','c');
+    
+    //提到伪数组，去看js高级13题
+    
+    
+    //132题
+    function sum(){
+        var result = 0;
+        for(var i=0; i<arguments.length; i++){
+            result += arguments[i];
+        }
+        return result;
+    }
+    console.log(sum(-6, 0, 6));
+    console.log(sum(1, 2, 3, 4));
+</script>
+</html>

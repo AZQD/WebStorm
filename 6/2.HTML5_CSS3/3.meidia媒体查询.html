@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--视口大小-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        .wrapper{
+            min-width: 320px;
+            max-width: 720px;
+            background-color: #bfa;
+        }
+
+
+        ul{
+            overflow: hidden;
+        }
+        li{
+            float: left;
+            width: 100%;
+            background-color: greenyellow;
+        }
+        li:nth-child(2n){
+            background-color: red;
+        }
+
+
+        /*media放在最下面*/
+        @media screen and (max-width: 500px) and {
+            .wrapper{
+                background-color: fuchsia;
+            }
+            body{
+                font-size: 12px;
+            }
+        }
+        @media screen and (min-width: 500px) and (max-width: 600px){
+            .wrapper{
+                background-color: red;
+            }
+            body{
+                font-size: 20px;
+            }
+            ul li {
+                width: 50%;
+            }
+        }
+        @media screen and (min-width: 600px){
+            .wrapper{
+                background-color: blue;
+            }
+            body{
+                font-size: 25px;
+            }
+            ul li {
+                width: 25%;
+            }
+        }
+
+        /*判断横屏和竖屏*/
+        /*横屏*/
+        /*@media screen and (orientation: landscape){
+            body{
+                background-color: #0000FF;
+            }
+        }*/
+        /*竖屏*/
+        /*@media screen and (orientation: portrait){
+            body{
+                background-color: #f00;
+            }
+        }*/
+
+
+    </style>
+</head>
+<body>
+<div class="wrapper">media媒体查询</div>
+
+<br/>
+<br/>
+
+<hr/>
+
+<ul>
+    <li>商品 01</li>
+    <li>商品 02</li>
+    <li>商品 03</li>
+    <li>商品 04</li>
+</ul>
+</body>
+</html>

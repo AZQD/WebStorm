@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+        .div1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: 10px;
+            background: red;
+        }
+        .aa{
+            background-color: red;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.10.1.js"></script>
+    <script type="text/javascript" src="extentd.js"></script>
+    <script type="text/javascript">
+        //插件过来的可以写到$(function(){})外面。
+        console.log('---'+ $.trimLeft('   henan   ')+'--------');
+        console.log('---'+ $.trimRight('   henan   ')+'--------');
+        console.log('---'+ $.Trim('   henan   ')+'--------');
+        var arr = [12,'abc', {name : 'li'}];
+        var result1 = $.arrToJson(arr);
+        console.log(result1);
+        console.log(typeof result1);
+        var result2 = $.jsonToArr(result1);
+        console.log(result2);
+        console.log(typeof result2);
+        $(function () {
+            $('#checkedAllBtn').click(function(){
+                $('[name=items]').checkAll();
+            });
+            $('#checkedNoBtn').click(function(){
+                $('[name=items]').uncheckAll();
+            });
+            $('#reverseCheckedBtn').click(function(){
+                $('[name=items]').reverseCheck();
+            });
+            $('li').addClass('aa');
+        });
+    </script>
+</head>
+<body>
+<input type="checkbox" name="items" value="足球" />足球
+<input type="checkbox" name="items" value="篮球" />篮球
+<input type="checkbox" name="items" value="羽毛球" />羽毛球
+<input type="checkbox" name="items" value="乒乓球" />乒乓球
+<br />
+<input type="button" id="checkedAllBtn" value="全　选" />
+<input type="button" id="checkedNoBtn" value="全不选" />
+<input type="button" id="reverseCheckedBtn" value="反选" />
+<li>01</li>
+<li class="bb">02</li>
+<li class="cc">03</li>
+</body>
+</html>

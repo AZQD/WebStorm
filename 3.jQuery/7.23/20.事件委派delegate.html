@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        
+        $(function () {
+            $('ul').delegate('li', 'click', function () {
+                $(this).css('background', 'red');
+            });
+
+            $('#btn1').click(function () {
+                $('<li>hello</li>').appendTo('ul');
+            });
+
+        });
+
+
+    </script>
+</head>
+<body>
+<ul>
+    <li>11111</li>
+    <li>2222</li>
+    <li>3333</li>
+    <li>4444</li>
+</ul>
+
+<li>22222</li>
+<br>
+<button id="btn1">添加新的li</button><br>
+<button id="btn2">删除ul上的事件委托的监听器</button>
+</body>
+</html>

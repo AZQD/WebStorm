@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #big{
+            width: 300px;
+            height: 200px;
+            background-color: #bfa;
+            margin-bottom:50px;
+        }
+        #small{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="text">
+<div id="big"></div>
+<!--// 注意！！！draggable="true"-->
+<div id="small" draggable="true"></div>
+
+<script type="text/javascript">
+    var big = document.getElementById('big');
+    var small = document.getElementById('small');
+    ////这里是small
+    small.addEventListener('dragstart', function(){
+        console.log('dragstart');
+    }, false);
+
+    //这里是big
+    big.addEventListener('dragover', function(event){
+        event.preventDefault(); //必须写
+        console.log('dragover');
+    }, false);
+    ////这里是big
+    big.addEventListener('drop', function(event){
+        console.log('drop');
+        event.preventDefault(); //必须写
+        big.appendChild(small);
+    }, false);
+    var input = document.querySelector('input[type=text]');
+    input.onblur = function(){
+        alert(222);
+    };
+</script>
+</body>
+</html>

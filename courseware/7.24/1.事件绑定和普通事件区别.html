@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+    <button class="btn">按钮</button>
+    <a href="http://baidu.com" id="baidu">百度一下</a>
+</body>
+<script type="text/javascript">
+    var btn = getEleByClass('btn')[0];
+
+
+    /*//普通事件，只能响应一次
+    btn.onclick = function(){
+      //console.log(this.className);
+        console.log('one');
+    };
+    btn.onclick = function(){
+      //console.log(this.className);
+        console.log('two');
+    };*/
+
+    //绑定事件 可以同时响应多个函数
+    /*btn.addEventListener('click', function(){
+        console.log('one');
+    }, false);
+    btn.addEventListener('click', function(){
+        console.log('two');
+    }, false);
+    btn.addEventListener('click', function(){
+        console.log('three');
+    }, false);*/
+    bind(btn, 'click', function(){console.log('one');});
+    bind(btn, 'click', function(){console.log('two');});
+    bind(btn, 'click', function(){console.log('three');});
+
+
+
+//    由于兼容问题，所以定义一个绑定函数bind
+    function bind(obj, eventStr, callBack){
+        if(obj.addEventListener){
+            obj.addEventListener(eventStr, callBack, false);
+        }else{
+            obj.attachEvent('on'+eventStr, function(){
+                callBack.call(obj);
+            });
+        }
+    }
+
+
+
+    /*var baidu = document.getElementById('baidu');
+    baidu.addEventListener('click', function(event){
+        alert('baiduyixia');
+        event.preventDefault(); //addEventListener取消默认行为只能用preventDefault
+        //return false;   //addEventListener不支持return false
+    }, false);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    获取class的函数
+    function getEleByClass(cn){
+        var result = [];
+        var reg = new RegExp("\\b" + cn + "\\b");
+        
+        var allEles = document.all;
+        //console.log(allEles);
+        for(var i =0; i < allEles.length; i++){
+            var className = allEles[i].className;
+            //console.log(typeof className);
+            if(reg.test(className)){
+                result.push(allEles[i]);
+            }
+        }
+        //返回的是一个数组，所以用的时候需要用确定是哪一个
+        return result;
+    }
+    
+</script>
+</html>

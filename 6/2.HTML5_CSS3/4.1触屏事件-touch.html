@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: fuchsia;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript">
+    var box = document.getElementById('box');
+    var pageXStart = 0;
+    var pageXEnd = 0;
+    box.addEventListener('touchstart', function(event){
+        var touches = event.targetTouches;  //这几个名称记住
+        pageXStart = touches[0].pageX;
+        //console.log('touchstart');
+    }, false);
+    box.addEventListener('touchmove', function(event){
+        var touches = event.targetTouches;
+        pageXEnd = touches[0].pageX; //注意：这里是pageXEnd
+        //console.log('touchmove');
+    }, false);
+    box.addEventListener('touchend', function(){
+        //console.log('touchend');
+        if(pageXEnd == 0){
+            return;
+        }
+        if((pageXEnd - pageXStart) > 0){
+            console.log('向右');
+        }
+        if((pageXEnd - pageXStart) < 0){
+            console.log('向左');
+        }
+    }, false);
+</script>
+</body>
+</html>

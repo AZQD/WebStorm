@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            margin:20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">box1</div>
+    <div class="box2">参考box2</div>
+    <button id="btn">点击隐藏box1</button>
+</body>
+<script type="text/javascript">
+    var box1 = document.querySelector('.box1');
+    var box2 = document.querySelector('.box2');
+    var btn = document.querySelector('#btn');
+    var result = 0;
+   /* result = window.sessionStorage.getItem('key') == null? 0:1;
+//    console.log(sessionStorage.getItem('key'));//1
+    if(result == 1){
+        box1.style.display = 'none';
+    }else{
+        box1.style.display = 'block';
+    }
+
+    btn.onclick = function(){
+        window.sessionStorage.setItem('key', 1);
+        box1.style.display = 'none';
+        result = 1;
+    };*/
+
+
+    result = window.localStorage.getItem('key') == null? 0:1;
+//    console.log(localStorage.getItem('key'));//1
+    if(result == 1){
+        box1.style.display = 'none';
+    }else{
+        box1.style.display = 'block';
+    }
+
+    btn.onclick = function(){
+        window.localStorage.setItem('key', 1);
+        box1.style.display = 'none';
+        result = 1;
+    };
+</script>
+</html>

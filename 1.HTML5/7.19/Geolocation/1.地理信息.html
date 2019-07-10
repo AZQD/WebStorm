@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>
+    <title>HTML5</title>
+    <!--<link href="css/reset.css" rel="stylesheet">-->
+    <!--<link href="css/index.css" rel="stylesheet">-->
+    <style type="text/css">
+        /** 添加样式 **/
+    </style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    //添加脚本
+    var geo = window.navigator.geolocation;
+    console.log(geo);
+    geo.getCurrentPosition(function(position){
+        //position对象有两个属性：coords和timestamp
+        // （获取定位的时间戳）。
+        var coords = position.coords;
+        console.log(coords.longitude); // longitude:  经度坐标
+        console.log(coords.latitude);  //latitude:   纬度坐标
+    }, function(err){
+        console.log(err);
+    }, {
+        timeout: 5000, //可选，等待返回位置信息的最长时间
+
+        //true表示经可能的使用精确的位置信息。除非确实非常需要精确的信息，否则建议使用false。
+        // 如果设置true，数据返回时间慢，还会导致移动设备耗用更多电量。
+        enableHighAccruacy: true,
+        //可选，上一次取得坐标的有效时间（单位毫秒）
+        maximumAge: 55
+    });
+
+</script>
+</body>
+</html>

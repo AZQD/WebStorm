@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <link rel="stylesheet" href="../js/bootstrap-3.3.5/css/bootstrap.css">
+    <script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+<h1 ng-show="cart.length == 0" ng-bind="'空无一物'"></h1>
+<div class="container" ng-show="cart.length > 0">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>产品编号</th>
+            <th>产品名字</th>
+            <th>购买数量</th>
+            <th>产品单价：(万)</th>
+            <th>产品总价：(万)</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in cart">
+            <th scope="row" ng-bind="item.id"></th>
+            <td ng-bind="item.name"></td>
+            <td><button type="button" class="btn btn-success" ng-click="add(true, $index)">+</button>
+                <input type="text" ng-model="item.number">
+                <button type="button" class="btn btn-success" ng-click="add(false, $index)">-</button>
+            </td>
+            <td ng-bind="item.price | currency : '¥'"></td>
+            <td ng-bind="item.price*item.number | currency : '¥'"></td>
+            <td>
+                <button type="button" class="btn btn-danger" ng-click="remove($index)">移除</button>
+            </td>
+        </tr>
+        <tr>
+            <td>总购买价格：(万)</td>
+            <td ng-bind="getTotalPrice() | currency : '¥'"></td>
+            <td>总购买数量</td>
+            <td ng-bind="getNumber()"></td>
+            <td colspan="2">
+                <button type="button" class="btn btn-danger" ng-click="empty()">清空</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('Mycontroller', function($scope){
+                $scope.cart = [
+                    {
+                        id : 'No.1',
+                        name : '宝马',
+                        number : 2,
+                        price : 560
+                    },
+                    {
+                        id : 'No.2',
+                        name : '奔驰',
+                        number : 4,
+                        price : 520
+                    },
+                    {
+                        id : 'No.3',
+                        name : '奥迪',
+                        number : 6,
+                        price : 500
+                    }
+                ];
+
+                $scope.getTotalPrice = function(){
+                    var totalPrice = 0;
+                    $scope.cart.forEach(function(item){
+                        totalPrice += item.price*item.number;
+                    });
+                    return totalPrice;
+                };
+
+                $scope.getNumber = function(){
+                    var num = 0;
+                    $scope.cart.forEach(function(item){
+                        num += item.number;
+                    });
+                    return num;
+                };
+
+                //方法一：
+                $scope.add2 = function(isAdd, index){
+                    var item = $scope.cart[index];
+                    item.number += isAdd ? 1:-1;
+
+                    if(item.number === 0){
+                        var name = item.name;
+                        if(confirm('你确定要删除'+name+'吗？')){
+                            $scope.cart.splice(index, 1);
+                        }else {
+                            item.number = 1;
+                        }
+                    }
+                };
+
+                //方法二：
+                $scope.add = function(isAdd, index){
+                    var item = $scope.cart[index];
+                    if(isAdd){
+                        item.number += 1;
+                    }else{
+                        item.number -= 1;
+                        if(item.number === 0){
+                            var name = item.name;
+                            if(confirm('你确定删除'+name+'吗？')){
+                                $scope.cart.splice(index, 1);
+                            }else{
+                                item.number = 1;
+                            }
+                        }
+                    }
+                };
+
+                $scope.remove = function(index){
+                    var name = $scope.cart[index].name;
+                    if(confirm('你确定删除'+name+'吗？')){
+                        $scope.cart.splice(index, 1);
+                    }
+                };
+
+                $scope.empty = function(){
+                    if(confirm('你确定清空所有信息吗？')){
+                        $scope.cart.length = 0;
+                        //$scope.cart = [];
+
+                    }
+                };
+
+
+            });
+</script>
+</body>
+</html>

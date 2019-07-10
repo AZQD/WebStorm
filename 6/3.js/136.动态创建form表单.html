@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    window.onload = function(){
+        var form = document.createElement('form');
+        //两种添加属性的方法：
+        form.setAttribute('method', 'post');
+        form.action = 'http://127.0.0.1/save.php';
+        var input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.name = 'input';
+        input.value = 'hello';
+        form.appendChild(input);
+        document.body.appendChild(form);
+        form.submit();
+    };
+</script>
+</body>
+</html>

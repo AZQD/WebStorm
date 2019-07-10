@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        .box1{
+            overflow: hidden;
+            zoom: 1;
+        }
+        .box1 div{
+            float: left;
+            width: 33.3%;
+            background-color: yellow;
+        }
+        .box1 .middle{
+            background-color: red;
+        }
+
+        .box2{
+            display: table;
+            width: 100%;/*这里需要写width:100%*/
+        }
+        .box2 div{
+            display: table-cell;
+            width: 33.3%;
+        }
+
+        .box3{
+            display: flex;
+        }
+        .box3 div{
+            width: 33.3%;
+        }
+    </style>
+</head>
+<body>
+
+<!--float:left-->
+<div class="box1">
+    <div class="left">1</div>
+    <div class="middle">2</div>
+    <div class="rigth">3</div>
+</div>
+
+<!--display:table-->
+<div class="box2">
+    <div class="left">1</div>
+    <div class="middle">2</div>
+    <div class="rigth">3</div>
+</div>
+
+<!--display:flex-->
+<div class="box3">
+    <div class="left">1</div>
+    <div class="middle">2</div>
+    <div class="rigth">3</div>
+</div>
+</body>
+</html>

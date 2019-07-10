@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/javascript" src="build/react.js"></script>
+<script type="text/javascript" src="build/react-dom.js"></script>
+<script type="text/javascript" src="build/browser.min.js"></script>
+<script type="text/babel">
+    var MyComp = React.createClass({
+        getInitialState:function(){
+            return ({
+                opacity:1.0
+            });
+        },
+        render:function(){
+            return (
+                    <p style={{opacity:this.state.opacity}}>hello world</p>
+            );
+        },
+        componentDidMount:function(){
+            var opacity = this.state.opacity;
+            setInterval(function(){
+                opacity -= 0.05;
+                if(opacity <= 0.05){
+                    opacity = 1.0;
+                }
+                this.setState({
+                    opacity:opacity
+                });
+            }.bind(this), 100);
+        }
+    });
+    ReactDOM.render(<MyComp/>,document.getElementById("example"));
+</script>
+</body>
+</html>

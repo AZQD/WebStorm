@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            position: relative;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="box"></div>
+</div>
+
+    <!--<ul>
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+        <li>05</li>
+    </ul>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <p id="here">I am here !</p>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <input type="text" value="张三">
+    <button id="btn">bind()函数</button>
+    <span>top</span>-->
+    <script type="text/javascript" src="jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        /*bootstrap container-fluid row col-xs sm md lg
+        元素增删改查，样式设置，事件绑定，js动画效果，ajax封装，浏览器兼容性处理，链式调用
+        对话框，拖动行为，改变大小，选项卡效果等。
+        jQuery-UI，validation， mobile，幻灯，lazeload
+        核心函数$ trim,each, isFunction, isArray, type, paseJSON
+        核心对象$() each length size index*/
+        /*function fn(){
+            var a = 1;
+            return function fn(){
+                a++;
+                console.log(a);
+            }
+        }
+        var result = fn();
+        result();
+        result();*/
+//        闭包，控制台日志，setTimeout，嵌套语句
+        /*async defer
+        iframe
+        onload
+        setTimeout
+        ajax下载代码，eval函数执行
+        谷歌动态创建script标签，然后监听所有的onload事件
+        websocket是h5新增API，可以实现客户端和服务端的全双工通信。
+        实现常连接，减少无用信息传递，实现全双工，请求和响应同时进行。
+        服务端有消息发生变化，就会立即传输给客户端。
+        可以跨域请求第三方服务。
+        less sass 定义变量，封装属性，传递参数
+        -*、9、0
+        Math.ceil, floor, round random abs max min
+        jQuery.eq()
+        onreadyStateChange readystate status
+        创建XmlhttpRequest对象
+        设置回调函数
+        打开一个连接
+        发送请求
+        Array ReaExp Date
+        global math
+        window document screen navigator history location
+        兼容 只加载css 暂停其他资源 js控制
+        angular是谷歌开源的js前端开发框架
+        双向数据绑定，声明式依赖注入，完整的解耦逻辑MVC， 完善的页面指令，ajax封装，定制表单验证，测试更方便
+        mvc view层传达指令到controller层，c完成业务逻辑，要求更新model层，model将新的数据发送给view层，用户得到反馈
+        ng-app 声明所在标签都是有angular来管理和解析的
+        ng-controller 每创建一个ng-controller，内部都会创建一个作用域对象$scope，并输入到构造函数中。
+        angular.module('app', [])
+                .controller('MyController', function($scope){
+
+                });
+        angular.router
+        angular-message
+        angular-animate
+        自定义服务 server factory
+        自动义指定 directive
+        过滤器：filter
+        currency number data json uppercase lowercase limitTo orderBy
+        $filter('data')();
+        $apply $scope中有数据发生变化，就会更新页面  $watch监视属性变化
+        ng-view
+        ng-minlength ng-maxlength ng-pattern ng-required
+        $http({
+            method : 'POST',
+            url: ''
+            data: params:
+
+        })
+        .success(function(result){
+            console.log(result);
+        })
+                .error(function(msg){
+                    alert(msg);
+                });
+
+
+        React是facebook开源的js库，它并不是一个完整的MVC层，只是其中的view层，用来渲染视图页面的。
+        React是非常高效的。
+        创建虚拟dom，将虚拟dom导入到真实的dom中，减少对真实dom的操作，从而提高效率。
+        采用dom-diff算法，最小化页面重绘。（某个节点发生变化，就会重新计算真个子树。）
+        babel React.js react-dom.js brower.js 将jsx语法转化为js语法
+        var MyComp = React.creatClass({
+            render : function(){
+                return ();
+            }
+        });
+        React.render(<MyComp/>, document.getElementById('example');)
+        先创建组件，再渲染组件，然后将虚拟dom导入到真实的dom中
+        props staus componentDidMount refs
+        props refs state componentDidMount
+        XHTML 正确嵌套 小写 闭合 根标签
+        html是一种基于web的网页设计语言
+        xhtml是一个基于xml的置标语言
+
+        vue是前谷歌工程师开发的js库
+        体积小，比较适合移动端开发，
+        它本身也不是全能的框架，只关注ui，如果需要引入路由，可以使用对应的插件或者别的库实现。
+        vue-router.js
+
+        new Vue({
+            el:'demo',
+            data :{
+
+            },
+            methods :
+            computed:
+            watch:
+        });
+        v-text/html v-model v-bind v-class v-show v-hide v-click
+        checkout updata commit
+        edit-conflict resolve-conflict
+        git init add commit
+        git push master origin git pull master origin
+        git log git state
+        ?callback=?
+                ?callback=JSON_CALLBACK
+                        js css
+                insert delete updata where find remove
+        insert Remove updata find where*/
+        更能快捷的获取数据，提高访问速度
+
+        当设定定时器的时候，内部会将回调函数和时间交给定时器模块，
+        当达到一定的时候之后，会将回调函数添加到事件回调队列
+        当执行栈中的代码执行完之后，会去执行时间回调队列中的函数，此时可能会晚一些。
+
+
+
+
+
+
+
+        /*function fun(num){
+            if(num<=1){
+                return 1;
+            }else{
+                return num*fun(num-1);
+            }
+        }
+        console.log(fun(5));*/
+        /*var box =  document.getElementById('box');
+        box.onmousedown = function(ev){
+            try{
+                box.setCapture();
+            }catch(e){
+
+            }
+            ev = ev || event;
+            var disX = ev.clientX - box.offsetLeft;
+            var disY = ev.clientY - box.offsetTop;
+            document.onmousemove = function(ev){
+                ev = ev || event;
+                var left = ev.clientX - disX;
+                var top = ev.clientY - disY;
+
+                var maxLeft = (document.body.clientWidth || document.documentElement.clientWidth) -box.offsetWidth;
+                var maxTop = (document.body.clientHeight || document.documentElement.clientHeight) - box.offsetHeight;
+                if(left<10){
+                    left = 0;
+                }else if(left>maxLeft-10){
+                    left = maxLeft;
+                }
+
+                if(top<10){
+                    top = 0;
+                }else if(top>maxTop-10){
+                    top = maxTop;
+                }
+
+                box.style.left = left + 'px';
+                box.style.top = top + 'px';
+            };
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+                try{
+                    box.releaseCapture();
+                }catch(e){
+
+                }
+            };
+            return false;
+        };*/
+        /*var str = 'http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e';
+        function fun(str){
+            var strNew = str.split('?')[1];
+            var arr = strNew.split('&');
+            var obj = {};
+            for (var i = 0; i < arr.length; i++) {
+                obj[arr[i].split('=')[0]] = arr[i].split('=')[1];
+            }
+            return obj;
+        }
+        console.log(fun(str));*/
+
+        /*var str = 'hello-bei-jing';
+        function fun(str){
+            var arr;
+            arr = str.split('-');
+            for (var i = 1; i < arr.length; i++) {
+                arr[i] = arr[i].charAt(0).toUpperCase()+arr[i].slice(1);
+            }
+            var result = arr.join('');
+            return result;
+        }
+        console.log(fun(str));*/
+        //var arr = [1,3,5,2,4,6,1,2,3];
+        /*var arrNew = arr.sort(function(a, b){
+            return a-b;
+        });*/
+        /*function fun(arr){
+            var arrNew = [];
+            for (var i = 0; i < arr.length; i++) {
+               if(arrNew.indexOf(arr[i]) == -1){
+                   arrNew.push(arr[i]);
+               }
+            }
+            return arrNew;
+        }
+        console.log(fun(arr));*/
+        /*var box =  document.getElementById('box');
+        box.onmousedown = function(ev){
+            try{
+                box.setCapture();
+            }catch(e){
+
+            }
+            ev = ev || event;
+            var disX = ev.clientX - box.offsetLeft;
+            var disY = ev.clientY - box.offsetTop;
+            document.onmousemove = function(ev){
+                var left = ev.clientX - disX;
+                var top =  ev.clientY - disY;
+
+                var maxLeft = (document.body.clientWidth || document.documentElement.clientWidth) - box.offsetWidth;
+                var maxTop = (document.body.clientHeight || document.documentElement.clientHeight) - box.offsetHeight;
+                if(left<10){
+                    left = 0;
+                }else if(left>maxLeft-10){
+                    left = maxLeft;
+                }
+                if(top<10){
+                    top = 0;
+                }else if(top>maxTop-10){
+                    top = maxTop;
+                }
+
+                box.style.left = left+'px';
+                box.style.top = top+'px';
+            };
+            document.onmouseup = function(ev){
+                document.onmouseup = document.onmousedown = null;
+                try{
+                    box.releaseCapture();
+                }catch(e){
+
+                }
+            };
+            return false;
+        };*/
+        /*var box =  document.getElementById('box');
+        var ul = document.getElementsByTagName('ul')[0];
+        ul.addEventListener('click', function(ev){
+            var eles = ev.target || ev.srcElement;
+            eles.style.backgroundColor = 'red';
+        }, false);
+        var li = document.createElement('li');
+        var text = document.createTextNode('hello');
+        li.appendChild(text);
+        ul.appendChild(li);*/
+        /*$(function(){
+            $('#box').hover(
+                    function(){
+                        $(this).css({
+                            backgroundColor:'red'
+                        });
+                        console.log($.fn == $.prototype);
+                    },
+                    function(){
+                        $(this).css({
+                            backgroundColor:'blue'
+                        });
+                    }
+            );
+            $('span').click(function(){
+                $('html, body').animate({
+                    scrollTop : '0px'
+                }, 2000, 'linear');
+            }).css({
+                color:'red'
+            });*/
+            /*var htmll = $('li:last').html();
+            alert(htmll);
+            var val = $('input').val();
+            alert(val);*/
+            /*$('ul').delegate('li', 'click', function(){
+                $(this).css({color:'red'});
+            })
+                    .append('<li>heihie</li>');*/
+            /*$('ul').children().click(function(){
+                $(this).slideDown({
+                    height : '50px'
+                }, 2000, 'linear');
+            });*/
+        /*});*/
+        //继承
+        /*function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.setName = function(name){
+            this.name = name;
+        };
+        function Worker(name, age, salary){
+            Person.call(this, name, age);
+            this.salary = salary;
+        }
+        Worker.prototype = new Person();
+        var worker = new Worker('li', 20, 12000);
+        console.log(worker);
+        worker.setName('zh');
+        console.log(worker);*/
+        /*function log(value){
+         return console.log(value);
+         }
+         log('hello');*/
+        /*function fun(){
+            return arguments;
+        }
+        var result = fun(1,3,2,6);
+        //result = Array.from(result);
+        result = Array.prototype.slice.call(result);
+        console.log(result instanceof Array);
+        //eval('console.log("my")');
+        function fn1(num){
+            var result = 1;
+            for (var i = 1; i <= num; i++) {
+                result*=i;
+            }
+            return result;
+        }
+        console.log(fn1(5));
+        function fn2(num){
+            if(num<=0){
+                return 1;
+            }else{
+                return num*fn2(num-1);
+            }
+        }
+        console.log(fn2(5));
+        var btn = document.getElementById('btn');
+        btn.onclick = function(){
+            return (function(){
+                alert(this);
+            }.bind(this))();
+        };
+        (function(window, undefined){
+            window.jQuery = window.$ = jQuery;
+        })(window);*/
+        /*
+        window作为局部变量，不用去顶层，提高访问速度
+        undefined提高访问速度
+        将一些属性和方法封装在jQuery.prototype上，方便使用，
+        又用jQuery.fn简写，更加形象
+        将一些常用的对象和属性的方法作为局部变量，提高访问速度
+        实现的是链式调用，提高代码效率
+        * */
+        /*var str = 'hello北京';
+        function nummm(str){
+            var num = 0;
+            for (var i = 0; i < str.length; i++) {
+                if(str.charCodeAt(i)>255){
+                    num +=2;
+                }else{
+                    num ++;
+                }
+            }
+            return num;
+        }
+        console.log(nummm(str));
+        var reg = /[\u4e00-\u9fa5]/ig;
+        var result = str.replace(reg, 'aa');
+        console.log(result.length);
+        var a= 1, b=2;
+        a={a:b, b:a}
+        b = a.b;
+        a = a.a;
+        console.log(a, b);*/
+    </script>
+</body>
+</html>

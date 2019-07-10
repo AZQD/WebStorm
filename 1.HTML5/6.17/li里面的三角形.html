@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+            background-color: #0000FF;
+        }
+        li{
+            border: 1px solid yellow;
+        }
+        li:after{
+            content: "";
+            width: 0;
+            height:0;
+            border-top: 10px solid transparent;
+            border-right: 0px solid red;
+            border-bottom: 10px solid red;
+            border-left: 10px solid transparent;
+
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><span>首页</span></li>
+</ul>
+</body>
+</html>

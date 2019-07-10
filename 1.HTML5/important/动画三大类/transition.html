@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+           /* transition: 1s lineaer;*/
+            /*transition-property: all;*/
+            transition-delay: 1s;
+            transition-duration: 4s;
+            transition-timing-function: cubic-bezier(0,0,1,1);
+            /*可用简写属性*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button id="btn">加载</button>
+</body>
+<script>
+    var box=document.querySelector(".box");
+    var btn=document.querySelector("#btn");
+    btn.onclick=function(){
+        box.style.width=560+"px";
+        box.style.height=560+"px";
+        box.style.backgroundColor="yellow";
+    }
+</script>
+</html>

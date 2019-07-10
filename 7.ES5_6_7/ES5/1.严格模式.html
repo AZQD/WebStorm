@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    'use strict';
+    eval('var a=2;');
+    //alert(a);
+
+    //禁止this关键字指向window
+    function Person (name, age){
+        this.name = name;
+        this.age  = age;
+        console.log(this);
+    }
+    //var p = new Person('zh', 12);
+    Person();
+</script>
+</body>
+</html>

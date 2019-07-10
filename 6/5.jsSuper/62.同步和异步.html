@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //javascript同步表示sync，指：代码依次执行。
+    // js中代码是同步执行的
+    for(var i=0; i<10; i++){
+        console.log(i);
+    }
+    
+    for(var j=50; j<60; j++){
+        console.log(j);
+    }
+
+    //javascript 异步表示async，指：代码执行不按顺序，‘跳过’执行，
+    // 待其他某些代码执行完后，再来执行，称为“异步”。
+//    重点！！！ ： ajax是采用异步方式和后台交互
+
+
+    //异步执行
+    setTimeout(function(){
+        console.log(1);
+    }, 3000);
+    setTimeout(function(){
+        console.log(2);
+    }, 4000);
+
+
+</script>
+</body>
+</html>

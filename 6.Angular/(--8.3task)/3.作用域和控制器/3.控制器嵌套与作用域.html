@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="" ng-init="age=23">
+<div ng-controller="Mycontroller1">
+    <input type="text" ng-model="content">
+    <p>内容1：{{content}}</p>
+    <div ng-controller="Mycontroller2">
+        <input type="text" ng-model="content">
+        <p>内容2：{{content}}</p>
+    </div>
+</div>
+<hr>
+<div ng-controller="Mycontroller3">
+    <input type="text" ng-model="user.content">
+    <p>内容1：{{user.content}}</p>
+    <div ng-controller="Mycontroller4">
+        <input type="text" ng-model="user.content">
+        <p>内容2：{{user.content}}</p>
+    </div>
+</div>
+<script type="text/javascript" src="../js/angular-1.2.29/angular.js"></script>
+<script type="text/javascript">
+    function Mycontroller1($scope){
+        /*console.log(this);
+        console.log($scope.age);
+        console.log(Mycontroller1);
+        console.log(this instanceof Mycontroller1);*/
+        //$scope.content = 'liuyifei';
+    }
+    function Mycontroller2($scope){
+
+    }
+    function Mycontroller3($scope){
+
+    }
+    function Mycontroller4($scope){
+
+    }
+</script>
+</body>
+</html>

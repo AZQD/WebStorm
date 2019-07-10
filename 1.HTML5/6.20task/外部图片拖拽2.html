@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 300px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    var box=document.querySelector(".box");
+    box.addEventListener("dragover",function(event){
+        event.preventDefault();
+    },false);
+    box.addEventListener("drop",function(event){
+        event.preventDefault();
+        var files=event.dataTransfer.files;
+        for(var i=0;i<files.length;i++){
+            if(files[i].type.indexOf("image")!=-1){
+                var fileReader=new FileReader();
+                fileReader.readAsDataURL(files[i]);
+                fileReader.onload=function(){
+                    var img=document.createElement("img");
+                    img.src=this.resultsd;
+                    box.appendChild(img);
+                };
+            }
+        }
+    },false);
+</script>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>
+    <title>HTML5</title>
+    <style type="text/css">
+        /** 添加样式 **/
+        body{
+            background-color: #666;
+            font-family: "Microsoft YaHei", SimSun, '\5b8b\4f53', sans-serif;
+        }
+        .wrapper{
+            margin: 0 auto;
+            min-width: 320px;
+            max-width: 640px;
+            background-color: #e0e0e0;
+        }
+        header{
+            background-color: blue;
+            padding: 5px 10px;
+        }
+        header img{
+            width: 45px;
+            height: 45px;
+            vertical-align: middle;
+        }
+        header #pageTitle{
+            display: inline-block;
+            vertical-align: middle;
+            color: #fff;
+        }
+
+        #chatList{
+            list-style: none;
+            height: 300px;
+            padding: 0 10px;
+            overflow-y: scroll;
+            border: 1px solid transparent;
+        }
+
+        .your-self{
+            text-align: right;
+            margin: 10px 0;
+            position: relative;
+        }
+        .your-self .avatar{
+            display: inline-block;
+            background: url("img/icon_avatar.png") no-repeat;
+            background-size: 28px;
+            width: 28px;
+            height: 28px;
+            vertical-align: middle;
+        }
+
+        .custom{
+            margin: 10px 0;
+            position: relative;
+        }
+        .custom .avatar{
+            display: inline-block;
+            background: url("img/icon_customer_service.png") no-repeat;
+            background-size: 28px;
+            width: 28px;
+            height: 28px;
+            vertical-align: middle;
+        }
+        /*消息内容样式*/
+        .msg-item{
+            background-color: #f9f9f9;
+            display: inline-block;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 14px;
+            text-align: left;
+            margin-left: 10px;
+            width: 50%;
+            border: 1px solid #f0f0f0;
+            vertical-align: middle;
+        }
+
+        /*输入框样式*/
+        .sendBar{
+            background-color: #fff;
+            padding: 5px 10px;
+            text-align: right;
+        }
+        input{
+            width: 99%;
+            outline: none;
+            display: block;
+            margin: 5px 0;
+            border: none;
+            line-height: 35px;
+        }
+        button{
+            line-height: 35px;
+            width: 50px;
+            border-radius: 8px;
+            outline: none;
+            border: none;
+            margin-left:10px;
+        }
+        #btnSend{
+            background: rgba(45, 142, 242, .7);
+            color: #fff;
+        }
+        #btnSend:hover{
+            background: rgba(45, 142, 242, 1);
+        }
+    </style>
+</head>
+<body>
+    <!--div.wrapper>header(img[src='img/logo.png']+span#pageTitle)+ul#chatList(li.your-self(span.avatar+span.msg-item)+li.custom(span.avatar+span.msg-item))+div.sendBar(input#yourMsg+button#btnClose+button#btnSend)-->
+    <div class="wrapper">
+        <header>
+            <img src="img/logo.png" alt="">
+            <span id="pageTitle">模拟智能机器人</span>
+        </header>
+        <ul id="chatList">
+            <li class="your-self">
+                <span class="avatar"></span>
+                <span class="msg-item">你s是劳动法是电风扇的个胜利大街分好</span>
+            </li>
+            <li class="custom">
+                <span class="avatar"></span>
+                <span class="msg-item">你好</span>
+            </li>
+        </ul>
+        <div class="sendBar">
+            <input type="text" id="yourMsg" name="yourMsg" autofocus="autofocus" placeholder="请输入您需要咨询的问题">
+            <button id="btnClose">关闭</button>
+            <button id="btnSend">发送</button>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    //添加脚本
+    //本地聊天服务器
+    var wsUri = 'ws://localhost:8080/html5/mywebsocket';
+    var webSocet = null;
+
+    var chatList = document.querySelector('#chatList');
+    var btnSend = document.querySelector('#btnSend');
+    var btnClose = document.querySelector('#btnClose');
+    var msgShow = document.querySelector('#msgShow');
+    var yourMsg = document.querySelector('#yourMsg');
+
+    if(webSocet === null){
+        webSocet = new WebSocket(wsUri);
+        console.log('第一次创建webSocket,握手完毕，等待发送消息...');
+
+        webSocet.onopen = function(event){
+            console.log('已经建立了webSocket连接。');
+            webSocet.send('open');
+        }
+    }
+    //发送消息
+    document.onkeydown = function(event){
+        //按下回车直接发送
+        if(event.keyCode == 13){
+            sendMsg();
+        }
+    };
+    btnSend.onclick = function(){
+        sendMsg();
+    };
+
+    //从服务端接收到消息
+    webSocet.onmessage = function(event){
+        var msg = event.data;
+        if(typeof msg === 'string'){
+            //创建消息记录
+            createMsgList(msg, 'custom');
+        }
+    };
+    btnClose.onclick = function(){
+        console.log('准备关闭：webSocket连接。');
+        webSocet.close();
+        webSocet.onclose = function(){
+            console.log('关闭：webSocket连接。');
+            window.close();
+        };
+    };
+
+    /**
+     * 发送消息
+     */
+    function sendMsg(){
+        createMsgList(yourMsg.value, 'your-self');
+        webSocet.send(yourMsg.value);
+        yourMsg.value = '';
+    }
+
+    /**
+     * 创建聊天记录
+     */
+    function createMsgList(msg, className){
+        var li = document.createElement('li');
+        li.classList.add(className);
+
+        var avator = document.createElement('span');
+        avator.classList.add('avatar');
+
+        var msgItem = document.createElement('span');
+        msgItem.classList.add('msg-item');
+        msgItem.innerHTML = msg;
+
+        chatList.appendChild(li);
+        li.appendChild(avator);
+        li.appendChild(msgItem);
+
+        chatList.scrollTop = chatList.scrollHeight;
+    }
+
+</script>
+</body>
+</html>

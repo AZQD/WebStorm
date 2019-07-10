@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+
+
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+
+    /**
+     * 顺序为:
+     * config() : 指定做一些配置的回调函数
+     * run() :
+     * factory() : 定义服务对象
+     * controller()
+     */
+
+
+    angular.module('myApp', [])
+            .config(function(){
+                console.log('config()');
+            })
+            .run(function(){
+                console.log('run()');
+            })
+            .factory('fService', function(){
+                console.log('fService()');
+                return [10, 20];
+            })
+            .controller('Mycontroller', function($scope, fService){
+                console.log('controller()');
+                console.log(fService[1]);
+            });
+</script>
+</body>
+</html>

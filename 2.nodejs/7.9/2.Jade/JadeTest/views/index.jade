@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    if title
+        h1 whooooooo
+    - var authenticated = true
+    div(class=authenticated ? 'authed' : 'anon')
+    - var currentUrl = '/about'
+        a(class={active: currentUrl === '/'} href='/') Home
+        a(class={active: currentUrl === '/about'} href='/about')
+        About

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        *{margin: 0 ; padding: 0}
+        header,footer{
+            border: 3px solid greenyellow;
+        }
+        .middle,.left,.right{
+            float: left;
+            min-height: 150px;
+            /*padding-bottom: 10000px;
+            margin-bottom: -10000px;*/
+        }
+        .left{
+            background-color: yellow;
+            width: 100px;
+            margin-left: -100%;
+        }
+        .right{
+            background-color: green;
+            width: 200px;
+            margin-left: -200px;
+        }
+        .middle{
+
+            width: 100%;
+        }
+        .middle-inner{
+            background-color: blue;
+            margin-left: 100px;
+            margin-right: 200px;
+            min-height: 150px;
+        }
+        footer{
+            clear: both;
+        }
+    </style>
+
+</head>
+<!--双飞翼布局：中间三个div不在一个container内部，各自独立-->
+<!--
+步骤：
+1.middle里面包含一个middle-inner, 看清楚对父子div的不同设置-->
+<body>
+<div class="wrapper">
+
+    <header><h1>header</h1></header>
+
+    <div class="middle">
+        <div class="middle-inner">
+            <h1>middle</h1>
+            <p>我忽而听到夜半的笑声，吃吃地，似乎不愿意惊动睡着的人，然而四围的空气都应和着笑。
+                夜半，没有别的人，我即刻听夜半的笑声，吃吃地，似乎不愿意惊动睡着的人，然而四围的空气都应和着笑。
+                夜半，没有别的人，我即刻听出这声音就在我嘴里，我也即刻被这笑声所驱逐，
+                回进自己的房。灯火的带出这声音就在我嘴里，我也即刻被这笑声所驱逐，
+                回进自己的房。灯火的带子也即刻被我旋高了。</p>
+        </div>
+    </div>
+    <div class="left">
+        <h1>left</h1>
+        <p>在我的后园，可以看见墙外有两株树，一株是枣树，还有一株也是枣树。</p>
+    </div>
+    <div class="right">
+        <h1>right</h1>
+        <p>千淘万漉虽辛苦，吹尽黄沙始到金</p>
+    </div>
+
+    <footer><h1>footer</h1></footer>
+
+</div>
+</body>
+</html>

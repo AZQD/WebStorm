@@ -1,0 +1,62 @@
+
+//一、变量
+//1.定义一个变量，下面可以直接引用；
+@color:#bfa;
+.box1{
+  color: @color;
+}
+
+//2.当定义两个颜色的时候，只认最后一次；
+.box2{
+  @color: red;
+  border:1px solid @color;
+  @color: purple;
+}
+
+//3.在 LESS 中我们可以定义一些通用的属性集为一个 class，
+//然后在另一个 class 中去调用这些属性
+.box31{
+  width: 50px;
+  height: 100px;
+}
+.box32{
+  .box31;
+  color: red;
+}
+
+//4.带参数混合
+.box41(@aaa, @bbb){
+  background-color: @aaa;
+  font-size: @bbb;
+}
+#header{
+  .box41(#bfa, 12px);
+}
+
+//5.嵌套,就是说，包含在box5中的内容都在内部定义。
+.box5{
+  @cl:yellow;
+  color: @cl;
+  .canousel{
+    width: 200px;
+    height: 100px;
+  }
+  .more{
+    font-size: 12px;
+  }
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+//6.LESS和CSS的注释方式基本相同，
+//注意：如果修改了css，
+//然后又修改了less，那么之前修改的css就没有了。
+
+/*7.原生注释，会在.css文件中显示*/
+//单行注释，不编译不保留
+
+//8运算
+.aa{
+    color: #f00 - 200;
+}

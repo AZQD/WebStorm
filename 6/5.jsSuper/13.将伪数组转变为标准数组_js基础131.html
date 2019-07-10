@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<ul id="test">
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+</ul>
+<script type="text/javascript">
+
+    //将伪数组转变为标准数组：方法一
+    function log(){
+        var args = Array.prototype.slice.call(arguments);
+        args.unshift('(app)');
+        return console.log.apply(console, args);
+    }
+    log('hello world');
+
+
+    //将伪数组对象或可遍历对象转换为真数组：方法二： Array.from(v) :
+    var lis = document.getElementsByTagName('li');
+    var lisArr = Array.from(lis);
+    console.log(lisArr);
+    lisArr.forEach(function(item, index){
+        console.log(item, index);
+    });
+
+</script>
+</body>
+</html>

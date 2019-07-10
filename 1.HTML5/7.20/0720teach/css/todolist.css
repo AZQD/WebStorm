@@ -1,0 +1,50 @@
+body{
+    background: url("../img/bg_lg.jpg") no-repeat -170px -100px;
+}
+
+.nav-narrow{
+    display: none;
+    width: 50px;
+    float: left;
+    background-color: #d0d0d0;
+    box-sizing: border-box;
+}
+.nav-wide{
+    width: 200px;
+    float: left;
+    background-color: #d0d0d0;
+    box-sizing: border-box;
+}
+
+.nw-flex{
+    display: flex;
+    background-color: #6699FF;
+}
+.nw-flex:first-child{
+    flex: 1;
+}
+.nw-flex:nth-child(2){
+    flex: 3;
+}
+.nw-flex:last-child{
+    flex: 1;
+}
+img[src*="icon"]{
+    width: 100%;
+    margin: 5px;
+    vertical-align: middle;
+}
+input{
+    vertical-align: middle;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.content{
+    width: calc(100% - 200px);
+    float: left;
+    /*min-width: 420px;*/
+    background-color: transparent;
+    box-sizing: border-box;
+}

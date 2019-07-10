@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+
+<table id="employeeTable">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr ng-repeat="item in empArr">
+        <!--<td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.salary}}</td>-->
+        <!--用ng-bind的方法比较好！！-->
+        <td ng-bind="item.name"></td>
+        <td ng-bind="item.email"></td>
+        <td ng-bind="item.salary"></td>
+
+        <td ng-click="deleteItem($index)"><a href="deleteEmp?id=00#" onclick = 'return false'>Delete</a></td>
+    </tr>
+</table>
+
+
+
+<div id="formDiv">
+    <h4>添加新员工</h4>
+    <a href="www.baidu.com" onclick="return false">百度一下</a>
+
+    <table>
+        <tr>
+            <td class="word">name: </td>
+            <td class="inp">
+                <input type="text" name="empName" id="empName" ng-model="addName" />
+            </td>
+        </tr>
+        <tr>
+            <td class="word">email: </td>
+            <td class="inp">
+                <input type="text" name="email" id="email" ng-model="addEmail" />
+            </td>
+        </tr>
+        <tr>
+            <td class="word">salary: </td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary" ng-model="addSalary" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button id="addEmpButton" value="abc" ng-click="add()">
+                    Submit
+                </button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+        .controller('Mycontroller', function($scope){
+
+            $scope.empArr = [
+                {
+                    name : 'Tom',
+                    email : 'tom@tom.com',
+                    salary : '5000'
+                },
+                {
+                    name : 'Jerry',
+                    email : 'jerry@sohu.com',
+                    salary : '8000'
+                },
+                {
+                    name : 'Bob',
+                    email : '	bob@tom.com',
+                    salary : '10000'
+                }
+            ];
+
+            $scope.add = function(){
+                var newEmp = {
+                    name : $scope.addName,
+                    email : $scope.addEmail,
+                    salary : $scope.addSalary
+                };
+                $scope.empArr.push(angular.copy(newEmp));
+                $scope.empArr.push(newEmp);
+
+                $scope.addName = '';
+                $scope.addEmail = '';
+                $scope.addSalary = '';
+            };
+
+            $scope.deleteItem = function(index){
+                var name = $scope.empArr[index].name;
+                if(confirm('你确定删除'+name+'吗？')){
+                    $scope.empArr.splice(index, 1);
+                }
+            };
+        });
+</script>
+
+</body>
+</html>

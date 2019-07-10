@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="">
+    <h1>测试一</h1>
+    <div ng-controller="Mycontrol1">
+        <input type="text" ng-model="username">
+        <p>内容1：{{username}}</p>
+        <div ng-controller="Mycontrol2">
+            <input type="text" ng-model="username">
+            <p>内容2：{{username}}</p>
+        </div>
+    </div>
+    <hr>
+    <h1>测试一</h1>
+    <div ng-controller="Mycontrol3">
+        <input type="text" ng-model="user.username">
+        <p>内容3：{{username}}</p>
+        <div ng-controller="Mycontrol4">
+            <input type="text" ng-model="user.username">
+            <p>内容4：{{username}}</p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <input type="text" ng-model="username">
+        <p>内容5：{{username}}</p>
+    </div>
+<script type="text/javascript" src="../js/angular-1.2.29/angular.js"></script>
+<script type="text/javascript">
+    function Mycontrol1(){
+
+    }
+    function Mycontrol2(){
+
+    }
+    function Mycontrol3(){
+
+    }
+    function Mycontrol4(){
+
+    }
+</script>
+</body>
+</html>

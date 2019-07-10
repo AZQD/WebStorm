@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str="再别康桥xzm";
+    var buffer=new Buffer(str);
+    console.log(str.length);
+    //Buffer是node.js中，全局变量global的属性，不是window中的属性。
+    //console.log(buffer.length);
+    console.log(window);
+    //golbal是node.js中的全局变量，可以在WebStorm控制台输出，
+    //在浏览器中不存在global
+    //console.log(global);
+</script>
+</body>
+</html>

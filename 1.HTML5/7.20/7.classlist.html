@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <!--<link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>-->
+    <title>HTML5</title>
+    <style type="text/css">
+        /** 添加样式 **/
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box3"></div>
+    <button class="btn">切换</button>
+
+<script type="text/javascript">
+    //添加脚本
+    var box = document.querySelector('.box');
+    var btn = document.querySelector('.btn');
+    /*btn.onclick = function(){
+        //box.classList.add('box2');
+        //box.classList.remove('box');
+
+//        var abc = box.classList.length;
+//        alert(abc);
+        setInterval(function(){
+            box.classList.toggle('box2');
+        }, 1000);
+
+    };*/
+    setInterval(function(){
+        box.classList.toggle('box2');
+    }, 1000);
+</script>
+</body>
+</html>

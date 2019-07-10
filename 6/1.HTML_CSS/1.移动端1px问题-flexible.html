@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width"/>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#one{
+				width: 8rem;
+				height: 8rem;
+				border: 1px solid black;
+				background: pink;
+			}
+		</style>
+		<script type="text/javascript">        
+	        var dpr, rem, scale;
+			var docEl = document.documentElement;
+			var fontEl = document.createElement('style');
+			var metaEl = document.querySelector('meta[name="viewport"]');
+			
+			
+			dpr = window.devicePixelRatio || 1;
+			rem = docEl.clientWidth * dpr / 16;
+			scale = 1 / dpr;
+			
+			// 设置viewport，进行缩放，达到高清效果
+			metaEl.setAttribute('content', 'initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+			
+			
+			// 动态写入样式
+			docEl.firstElementChild.appendChild(fontEl);
+			fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+			
+			
+			window.dpr = dpr;
+			window.rem = rem;
+    </script>
+	</head>
+	<body>
+		<div id="one"></div>
+	</body>
+</html>
+
+
+

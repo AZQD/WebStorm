@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller" ng-init="result=123456.123456;str='Hello Meimei !'">
+<p>{{result}}--{{result | currency}}--{{result | currency : 'money'}}</p>
+<p>{{result}}--{{result | number}}--{{result | number:1}}</p>
+<p>{{time}}--{{time | date: 'yyyy-MM-dd EEEE HH:mm:ss'}}</p>
+<p>{{arr}}--{{arr | json}}</p>
+<p>{{"str"}}--{{str | uppercase}}--{{str | lowercase}}</p>
+
+<p>{{arr}}--{{arr | limitTo:1}}----{{arr | limitTo:-2}}</p>
+<p>{{arr}}--{{arr | orderBy :'-age'}}</p>
+
+<input type="text" ng-model="find.name" placeholder="根据id去找">
+<ul>
+    <li ng-repeat="item in arr | filter :find">
+        <span>{{item}}</span>
+    </li>
+</ul>
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('Mycontroller', function($scope, $filter){
+                $scope.time = new Date();
+                $scope.arr = [
+                    {name : 'li', age : 12},
+                    {name : 'zh', age : 11},
+                    {name : 'sun', age : 18},
+                    {name : 'qian', age : 15}
+                ];
+                console.log($scope.arr);
+                console.log($filter('json')($scope.arr));
+                console.log($filter('date')($scope.time));
+
+            });
+</script>
+</body>
+</html>

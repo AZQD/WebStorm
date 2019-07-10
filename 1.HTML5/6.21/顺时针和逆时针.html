@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            width: 100px;
+            margin: 20px;
+        }
+        .box{
+            width: 400px;
+            margin: 66px auto;
+            background-color: #bfa;
+            text-align: center;
+
+        }
+        #img1,#img2{
+            transition: 2s linear;
+        }
+        .box:hover #img1{
+            transform: rotate(360deg) scale(1.5) ;
+        }
+        .box:hover #img2{
+            transform: rotate(-360deg) scale(1.5);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img id="img1" src="img/2013.png" alt="">
+    <img id="img2" src="img/2015.png" alt="">
+</div>
+</body>
+</html>

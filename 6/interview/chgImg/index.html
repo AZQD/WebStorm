@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<script type="text/javascript">
+
+    function chgImg(){
+        var img = document.getElementsByTagName('img')[0];
+        var sel = document.getElementById('sel');
+
+        console.log(sel.value);
+        var index = sel.selectedIndex;
+        var val = sel.options[index].value;
+        var text = sel.options[index].text;
+        console.log(val);
+        console.log(index);
+        console.log(text);
+        img.src = 'img/'+(index+1)+'.jpg';
+    }
+
+
+</script>
+<body>
+<img src="img/0.jpg" alt="">
+<hr/>
+<select id="sel" onchange="chgImg(this)">
+<!--<select id="sel">-->
+    <option value="img/1.jpg">beijing</option>
+    <option value="img/2.jpg">tianjin</option>
+    <option value="img/3.jpg">shanghai</option>
+</select>
+</body>
+</html>

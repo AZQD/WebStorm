@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<p></p>
+<div class="box1"></div>
+<input type="text" value="hello">
+<script type="text/javascript" src="jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('p').css({color:'red'})
+                .html('<span>我是p标签</span>');
+        $('.box1').text('<span>我是p标签</span>');
+        console.log($('input').val());
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        *{margin: 0; padding: 0;}
+        #box{
+            width: 100px;
+            background-color: #bfa;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">给box添加内容</button>
+<button id="btn2">移动box</button><br/>
+<div id="box">hello<br/></div>
+<script type="text/javascript">
+
+
+    //1.给box添加内容
+    btn1.onclick = function(){
+        setInterval(function(){
+            box.innerHTML += 'world<br/>';
+        }, 1000);
+    };
+
+    //2.移动box
+    btn2.onclick = function(){
+        animate();
+    };
+
+    var time;
+    function animate(){
+        clearInterval(time);
+        time = setInterval(function(){
+            var left = parseInt(getStyle(box, 'left'));
+            console.log(left);
+            if(left >= 200){
+                clearInterval(time);
+            }else{
+                box.style.left = 10+ left+'px';
+            }
+        }, 60);
+    }
+
+    function getStyle(obj, attr){
+        try{
+            return getComputedStyle(obj, null)[attr];
+        }catch (e){
+            return obj.currentStyle[attr];
+        }
+    }
+
+</script>
+</body>
+</html>

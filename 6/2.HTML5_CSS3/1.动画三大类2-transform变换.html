@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        img{
+            width: 360px;
+            /*结合transition*/
+            transition: all 2s linear;
+        }
+        img:hover{
+            transform:rotate(30deg);/*旋转*/
+            /*transform-origin:center/left/right/top/bottom  圆心*/
+            transform: scale(1.2);/*缩放*/
+            transform: translate(200px);/*移动*/
+            transform: translateY(200px);
+            transform: skew(-30deg); /*斜切*/
+            transform: translateX(200px);
+            /*简写属性*/
+            /*transform: rotate(360deg) scale(1.2) translate(100px) skew(30deg);*/
+            /*transform-origin: bottom;*/
+        }
+    </style>
+    <!--html5shiv.js插件：用于解决IE6，IE7，IE8版本浏览器
+    对HTML5新增标签不识别，并导致CSS不起作用的问题。-->
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <!--为 <link> 或 <style> 元素中需要增加前缀的声明自动添加前缀。
+	支持IE9及以上浏览器和其他浏览器,切记一定要在<style>和<link>元素后引入。-->
+    <script type="text/javascript" src="js/prefixfree.js"></script>
+</head>
+<body>
+<img src="img/zyh.jpg" alt="zyh" title="赵奕欢">
+</body>
+</html>

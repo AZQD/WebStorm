@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+        }
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 20px;
+            left: 10px;
+            background: blue;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#btn1').on('click', function(){
+                $('<li>新的</li>').appendTo('ul');
+            });
+            $('ul').delegate('li', 'click', function(){
+                $(this).css('background', 'red');
+            });
+            
+            $('#btn2').click(function () {
+                $('ul').off();
+            });
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>11111</li>
+    <li>2222</li>
+    <li>3333</li>
+    <li>4444</li>
+</ul>
+
+<li>22222</li>
+<br>
+<button id="btn1">添加新的li</button><br>
+<button id="btn2">删除ul上的事件委托的监听器</button>
+</body>
+</html>

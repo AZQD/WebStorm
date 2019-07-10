@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript">
+
+
+        /**对象创建模式分为以下七种：
+         1.Object构造函数模式
+         2.对象字面量模式
+         3.工厂模式
+         4.自定义构造函数模式
+         5.原型模式
+         6.构造函数+原型组合模式 （最最最重要的一种方式）
+         7.动态原型模式
+         *
+         * @param name
+         * @param age
+         * @constructor
+         */
+
+
+
+
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.salary = function(salary){
+            this.salary = salary;
+        };
+        var person = new Person('liu', 12);
+        person.salary('12000');
+        console.log(person);
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

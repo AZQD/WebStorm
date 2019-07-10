@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //判断是哪个浏览器
+    var ua = window.navigator.userAgent;
+    console.log(ua);
+    if(/firefox/i.test(ua)){
+        alert('火狐');
+    }else if(/chrome/i.test(ua)){
+        alert('谷歌');
+    //ActiveXObject是window的一个方法，联想起创建XMLHttpRequest对象
+        //写4.Ajax--第一题，练习创建它的写法
+    }else if('ActiveXObject' in window){
+        alert('IE');
+    }
+
+
+    //BOM补充
+    //window.location.search(); 返回url中？后面的参数
+    //window.location.reload(); 刷新当前页面
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+<ul id="ul1">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            //element() : 将dom对象/html标签包装为jQuery对象
+            .controller('Mycontroller', function($scope, $filter){
+                var ul = document.getElementById('ul1');
+                angular.element(ul).append('<li>new</li>');
+
+                //forEach() : 遍历数组和元素集合伪数组
+                var lis = document.getElementsByTagName('li');
+                angular.forEach(lis, function(item, index){
+                    console.log(item.innerText, index);
+                });
+
+                //toJson()和fromJson() : js对象与Json字符串相互转换
+                var arr = [1, 'abc', true, {name : 'xiaoli', age : 18}];
+                var json = angular.toJson(arr);
+                console.log(json, typeof json);
+                var arrNew = angular.fromJson(json);
+                console.log(arrNew, typeof arrNew);
+
+                //isArray(),isObject(),isFunction() : 类型判断
+                console.log(angular.isArray([]));
+                console.log(angular.isObject({}));
+                console.log(angular.isObject($scope));
+                console.log(angular.isFunction(function(){}));
+                console.log(angular.isFunction($filter));
+
+                //lowercase()和uppercase() : 大小写转换
+                var str = 'Come On !';
+                console.log(angular.lowercase(str));
+                console.log(angular.uppercase(str));
+
+
+            });
+</script>
+</body>
+</html>

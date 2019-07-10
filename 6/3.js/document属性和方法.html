@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<ul id="test">
+    <li>01中国人民</li>
+    <li>02</li>
+    <li name="work">03</li>
+</ul>
+<script type="text/javascript">
+    var test = document.getElementById('test');
+    var lis = document.getElementsByTagName('li');
+    for(var i= 0, len = lis.length; i<len; i++){
+        console.log(i);
+    }
+
+    document.title = '河南工业大学';
+    document.bgColor = 'yellow';
+    document.fgColor = 'red';
+    document.charset = 'utf-8';
+    console.log(document.cookie);
+    document.write('hello');
+    document.URL = 'http://www.baidu.com';
+    var eles = document.all; //获取所有元素
+    console.log(eles);
+
+    //aa是一个伪数组
+    var aa = document.getElementsByName('work');
+    aa[0].onclick = function(){
+        alert(111);
+    };
+    var bb = document.all;
+    console.log(bb);
+
+    //title bgColor fgColor cookie URL all charset
+    //write getElementById getElementsByClassName getElementsByName
+    //querySelector querySelectorAll
+</script>
+</body>
+</html>

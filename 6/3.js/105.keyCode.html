@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<textarea name="text" id="text" cols="30" rows="10"></textarea>
+<script type="text/javascript">
+    var text = document.getElementById('text');
+    document.onkeydown = function(ev){
+        ev = ev || event;
+        console.log(ev.keyCode);
+        if(ev.keyCode == 13){
+            text.value += '{{enter}}';
+            return false;
+        }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+
+
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .factory('fserver', function(){
+                return function(msg){
+                    console.log(msg.toUpperCase());
+                };
+            })
+            .factory('fserver2', function(){
+                return {
+                    name : 'wukong',
+                    setname : function(name){
+                        this.name = name;
+                    }
+                }
+            })
+            .service('sService', function(){
+                this.age = 15;
+                this.setage = function(age){
+                    this.age = age;
+                };
+            })
+            .controller('Mycontroller', function($scope, fserver, fserver2, sService){
+
+                fserver('ni hao');
+                fserver2.setname('chaojie');
+                console.log(fserver2.name);
+
+                sService.setage(20);
+                console.log(sService.age);
+            });
+</script>
+</body>
+</html>

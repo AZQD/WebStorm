@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var obj = {proto: {a:1,b:2}};
+     function F(){}
+     F.prototype = obj.proto;
+     var f = new F();
+     obj.proto.c = 3;
+     obj.proto = {a:-1, b:-2};
+     alert(f.a);
+     alert(f.c);
+     delete F.prototype['a'];
+     alert(f.a);
+     alert(obj.proto.a);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="invalid2.html">
+    <input type="text" id="txt" name="text" required="required">
+    <input type="email" id="email" name="email" required="required">
+
+    <br/><input type="submit" value="提交">
+</form>
+<script>
+    var txt=document.getElementById("txt");
+    txt.addEventListener("invalid",function(){
+        console.log(this.validity);
+    },false);
+    var email=document.getElementById("email");
+    email.addEventListener("invalid",function(){
+        console.log(this.validity);
+    },false);
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一站式开发</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            float: left;
+            list-style: none;
+            width: 100px;
+        }
+        li{
+            background-color: fuchsia;
+            height: 36px;
+            line-height: 36px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        li:hover{
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li id="one">1</li>
+    <li id="two">2</li>
+    <li id="three">3</li>
+    <li id="four">4</li>
+</ul>
+<p id="content">23</p>
+<script>
+    var json={
+        one:{
+
+            "name":"henan"
+        },
+        two:{
+
+            "name":"beijing"
+        },
+        three:{
+            "name":"zhengzhou"
+        },
+        four:{
+            "name":"kaifeng"
+        }
+    };
+    var content=document.querySelector("#content");
+    var lis=document.querySelectorAll("li");
+    for(var i=0;i<lis.length;i++){
+        //console.log(lis[i]);
+        lis[i].onclick= function () {
+            var index=this.getAttribute("id");
+            console.log(index);
+            switch (index){
+                case "one":
+                    content.innerHTML="首页";
+                    window.history.pushState(json.one.name,"title","一站式开发.html");
+                    content.style.backgroundColor="yellow";
+                    document.title="主题一";
+                    break;
+                case "two":
+                    content.innerHTML="导航";
+                        content.style.backgroundColor="blue";
+                    window.history.pushState(json.two.name,"title","一站式开发.html");
+                        document.title="主题二";
+                    break;
+                case "three":
+                    content.innerHTML="内容";
+                    window.history.pushState(json.three,"title","一站式开发.html");
+                    content.style.backgroundColor="red";
+                    document.title="主题三";
+                    break;
+                case "four":
+                    content.innerHTML="页脚";
+                    window.history.pushState(json.four,"","一站式开发.html");
+                    content.style.backgroundColor="purple";
+                    document.title="主题四";
+                    break;
+            }
+
+        }
+    }
+
+    window.onpopstate=function(event){
+        var state=event.state;
+        console.log(state);
+        if(state!=null){
+            content.innerHTML=state.content;
+        }
+    };
+</script>
+</body>
+</html>

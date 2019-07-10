@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<input type="checkbox">
+<input type="checkbox">
+<input type="password">
+<input type="checkbox">
+</body>
+<!--<script type="text/javascript">
+    //方法1：用原生js获取页面中所有的checkbox
+    var inputs = document.getElementsByTagName('input');
+    var len = inputs.length;
+    var arrNew = [];
+    for(var i=0; i<len; i++){
+        if(inputs[i].type == 'checkbox'){
+            arrNew.push(inputs[i]);
+        }
+    }
+    console.log(arrNew);
+</script>-->
+
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+    //方法2：用jQuery获取页面中所有的checkbox
+    /*$(function () {
+        var result = $('input[type = "checkbox"]');
+        console.log(result);
+    });*/
+
+</script>
+</html>

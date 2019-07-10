@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            width: 100%;
+            height: 200px;
+            background-color: #bbffaa;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: fuchsia;
+            margin-top: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper"></div>
+    <div class="box" draggable="true"></div>
+</body>
+<script>
+    var box=document.querySelector(".box");
+    var wrapper=document.querySelector(".wrapper");
+    box.addEventListener("dragstart",function(){
+        console.log("飞机起飞");
+    },false);
+    box.addEventListener("drag",function(){
+        console.log("飞行中");
+    },false);
+    wrapper.addEventListener("dragenter",function(){
+        console.log("进入");
+    },false);
+    wrapper.addEventListener("dragover",function(event){
+        event.preventDefault();
+        console.log("准备降落");
+    },false);
+    wrapper.addEventListener("dragleave",function(){
+        console.log("准备离开");
+    },false);
+</script>
+</html>

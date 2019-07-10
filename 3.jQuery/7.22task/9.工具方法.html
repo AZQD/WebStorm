@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        //$.each(): 遍历数组或对象中的数据
+        //数组
+        /*var arr = [12, 'abc', true];
+        $.each(arr, function(index, item){
+            console.log(index, item);
+        });*/
+        
+        //对象
+        /*var obj = {
+            name : 'xiaoli',
+            age : 15,
+            address : 'beijing'
+        };
+        $.each(obj, function(index, item){
+            console.log(index, item);
+        });*/
+
+        //$.trim(): 去除字符串两边的空格
+        /*var str = '  wo  ai  ni  zhong guo   ';
+        var str2 = $.trim(str);
+        console.log(str2 );
+        console.log(str2 === 'wo  ai  ni  zhong guo');*/
+        
+        //$.type(obj): 得到数据的类型
+        /*console.log($.type($));
+        console.log($.type($) === 'function');
+        console.log($.type($()));
+        console.log($.type($()) === 'object');*/
+        
+        //$.isarray(obj): 判断是否是数组
+        /*console.log($.isArray([]));*/
+        
+        //$.isFunction(obj): 判断是否是函数
+        /*console.log($.isFunction($));
+        console.log($.isFunction($()));*/
+        
+        //$.parseJSON(json) : 解析json字符串转换为js对象/数组
+        //var json = '{"name":"li", "age": 12}';
+        //console.log($.parseJSON(json));
+        
+        var json2 = '["hello", 123]';
+        console.log($.parseJSON(json2));
+
+        
+        
+    </script>
+    
+</head>
+<body>
+
+</body>
+</html>

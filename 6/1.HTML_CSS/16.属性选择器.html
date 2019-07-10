@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background: #bfa;
+            margin: 10px;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background: #bfa;
+            margin: 10px;
+        }
+        .box3{
+            width: 200px;
+            height: 200px;
+            background: #bfa;
+            margin: 10px;
+        }
+
+        /*div[class^="x2"]：属性class的值以“x2”开始的元素*/
+        /*div[class*="x2"]：属性class的值包含“x2”的元素*/
+
+        /*属性class的值以“x2”结尾的元素*/
+        div[class$="x2"]{
+            background-color: yellow;
+        }
+        div[class$="x1"]:hover .box{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box" style="width: 20px;height: 20px;"></div>
+</div>
+<div class="box2"></div>
+<div class="box3"></div>
+</body>
+</html>

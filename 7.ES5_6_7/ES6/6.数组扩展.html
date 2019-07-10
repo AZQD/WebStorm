@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<ul id="test">
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+</ul>
+<script type="text/javascript">
+//    1. Array.from(v) : 将伪数组对象或可遍历对象转换为真数组
+
+        var lis = document.getElementsByTagName('li');
+        var lisArr = Array.from(lis);
+        console.log(lisArr);
+        lisArr.forEach(function(item, index){
+            console.log(item, index);
+        });
+        //    2. Array.of(v1, v2, v3) : 将一系列值转换成数组
+        var result = Array.of(12,23,34);    
+        console.log(result);
+        //    3. find(function(value, index, arr){return true}) : 找出第一个满足条件返回true的元素
+        result = [12, 23, 34].find(function(item, index, arr){
+            return item>20;
+        }); 
+        console.log(result);
+        //    4. findIndex(function(value, index, arr){return true}) : 找出第一个满足条件返回true的元素下标
+        result = [12, 23, 34].findIndex(function(item, index, arr){
+            return item>20;
+        });
+        console.log(result);
+        //    5. keys() : 返回包含所有下标的可迭代对象
+        result = [12, 23, 34].keys();
+        console.log(typeof [12, 23, 34].keys()); //object
+        for(item of result){
+            console.log(item);
+        }
+        //    6. values() : 返回包含所有值的可迭代对象
+        result = [12, 23, 34].values();
+        for(item of result){
+            console.log(item);  //chrome不支持
+        }
+        //    7. entries() : 返回包含所有下标和值的可迭代对象
+        result = [12, 23, 34].entries();
+        for(item of result){
+            console.log(item);
+        }
+    
+</script>
+</body>
+</html>

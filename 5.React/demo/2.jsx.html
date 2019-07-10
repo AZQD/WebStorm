@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/react-dom.js"></script>
+    <!--<script type="text/javascript" src="../build/browser.min.js"></script>-->
+    <script type="text/javascript" src="../build/JSXTransformer.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/jsx">
+        var arr = ['佟丽娅','刘诗诗', '刘亦菲'];
+        ReactDOM.render(
+                <div>
+                    {
+                        arr.map(function(item, index){
+                            return <h2>{item+index}</h2>
+                        })
+                    }
+                </div>,
+                document.getElementById('example')
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //返回{a:’1′, b:’2′, c:”, d:’xxx’, e:undefined}
+    var str = 'http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e';
+    //console.log(str.indexOf('?'));
+    var start = str.indexOf('?');
+    //str1 = str.slice(start + 1);
+    str1 = str.substring(start + 1);
+    console.log(str1);
+    
+    var arr = str1.split('&');
+    console.log(arr);
+    var arrNew = {};
+    for(var i=0; i<arr.length; i++){
+        var item = arr[i].split('=');
+        arrNew[item[0]] = item[1];
+    }
+    console.log(arrNew);
+    var result = JSON.stringify(arrNew);
+    console.log(result);
+    console.log(typeof result);
+
+</script>
+</body>
+</html>

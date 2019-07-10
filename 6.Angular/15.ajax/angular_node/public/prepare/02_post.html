@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        table, th, td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+<div>
+    <table>
+        <tr ng-repeat="info in emps">
+            <td>{{ info.name }}</td>
+            <td>{{ info.age }}</td>
+            <td>{{ info.salary }}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr ng-repeat="info in emps2">
+            <td>{{ info.name }}</td>
+            <td>{{ info.age }}</td>
+            <td>{{ info.salary }}</td>
+        </tr>
+    </table>
+</div>
+
+<script src="../javascripts/angular.js"></script>
+<script>
+    angular.module('myApp',[])
+            .controller('MyController', function($scope, $http){
+                //提交ajax get请求
+                $http({
+                    method : 'POST',
+                    url : 'http://localhost:3000/angular_node/post',
+                    data : {username:'Tom3', age:12}
+                })
+                        .success(function (data, status, headers, config) {
+                            $scope.emps = data;
+                        })
+                        .error(function (data, status, headers, config) {
+                            alert(data);
+                        });
+
+                $http.post('http://localhost:3000/angular_node/post', {username:'Tom4',age:13})
+                        .success(function (data, status, headers, config) {
+                            $scope.emps2 = data;
+                        })
+                        .error(function (data, status, headers, config) {
+                            alert(data);
+                        });
+
+            });
+</script>
+</body>
+
+</html>

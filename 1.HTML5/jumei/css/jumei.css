@@ -1,0 +1,65 @@
+.wrapper{
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+img{
+    border: none;
+}
+ul{
+    list-style: none;
+}
+
+header{
+    display: table;
+    background: url("../img/float_car.png")no-repeat;
+    width: 100%;
+    height: 62px;
+
+}
+.hd-cell{
+    display: table-cell;
+    vertical-align: middle;
+}
+.hd-logo{
+    /*display: block;*/
+    width: 42px;
+    height: 42px;
+    padding:0 12px ;
+    /*background-color: yellow;*/
+}
+.hd-cell-mid{
+    width: 100%;
+}
+.download-app{
+    display: inline-block;
+    background-color: #fe4478;
+    width: 96px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    margin-right: 24px;
+    border-radius: 16px;
+    color: white;
+}
+
+.hd-ad{
+    font-size: 1.25rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.hd-cell-r{
+    position: relative;
+}
+.icon-cancel{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+}
+
+
+ /*导航栏*/

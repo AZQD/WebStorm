@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    function fun(n,o) {
+        console.log(o);
+        return {
+            fun:function(m){
+                return fun(m,n);
+            }
+        };
+    }
+    var a = fun(0);
+    a.fun(1);  a.fun(2);  a.fun(3);
+</script>
+</html>

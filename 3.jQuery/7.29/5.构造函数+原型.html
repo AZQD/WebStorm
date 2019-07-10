@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    function Fun(){}
+    var fun1 = new Fun();
+    var fun2 = new Fun();
+    console.log(Fun.prototype);
+    console.log(fun1.__proto__);
+    Fun.prototype.test = function (){
+        console.log('aaa');
+    };
+    fun1.test();
+    fun1.__proto__.test();
+    console.log(Fun.prototype.constructor); //
+    console.log(Fun.prototype.__proto__);
+    console.log(Fun.prototype.__proto__ == Object);
+    console.log(Fun.prototype.__proto__ == Object.prototype);
+    console.log(Fun.prototype.__proto__.__proto__);
+    console.log(fun1.__proto__);
+    console.log(fun1.__proto__.__proto__);
+    console.log(fun1.__proto__.__proto__.__proto__);
+    console.log(Object);
+    console.log(Object.prototype);
+    console.log(Object.prototype.__proto__);
+</script>
+</html>

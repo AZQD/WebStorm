@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        body{
+            height: 2000px;
+            width: 2000px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div{
+            width: 100px;
+            height: 200px;
+            background-color: #bfa;
+            margin: 60px 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">0</div>
+</body>
+<script type="text/javascript">
+    window.onload = function(){
+        var div = document.getElementById('div');
+        div.onclick = function(ev){
+            ev = ev || event;
+            var docElement = document.documentElement;
+            //console.log(docElement);
+            var newPageX = ev.pageX || (ev.clientX + docElement.scrollLeft - docElement.clientLeft) ;
+            var newPageY = ev.pageY || (ev.clientY + docElement.scrollTop - docElement.clientTop) ;
+
+            console.log('ev.screen:' + ev.screenX, ev.screenY);
+            console.log('ev.page:' + newPageX, newPageY);
+            console.log('ev.client:' + ev.clientX, ev.clientY);
+            console.log('ev.offset:' + ev.offsetX, ev.offsetY);
+        };
+    };
+</script>
+</html>

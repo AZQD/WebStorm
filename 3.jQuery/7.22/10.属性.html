@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            /*
+             操作任意属性
+             attr()
+             removeAttr()
+             操作class属性
+             addClass()
+             removeClass()
+             操作HTML代码/文本/值
+             html()
+             val()
+             */
+
+            //操作任意属性attr()    removeAttr()
+            /*
+            读取时，只读取第一个
+            var title = $('div').attr('title');
+            console.log(title);*/
+
+            /*//写时，写所有的
+            $('div').attr('name', 'guigu');*/
+
+            //移除操作时,目标是所有的dom元素  removeAttr()
+            //$('div').removeAttr('title');
+
+//            操作class属性
+//            addClass()
+//            $('div').addClass('cj');
+//              $('div').removeClass('box');
+
+//            html()
+            //读取操作
+//            var abc = $('li:last').html();
+//            console.log(abc);
+
+            //写操作  覆盖之前的
+            //$('li:last').html('<h1>你好</h1>>');
+
+            //val(); 读取操作
+//            var value = $(':input').val();
+//            console.log(value);
+
+            //val(); 写操作
+            //$(':input').val('chaojie');
+
+        });
+    </script>
+</head>
+<body>
+    <div id="div1" class="box" title="one">class为box的div1</div>
+    <div id="div2" class="box" title="two">class为box的div2</div>
+    <div id="div3">div3</div>
+    <span class="box">class为box的span</span>
+    <br/>
+    <ul>
+        <li>AAAAA</li>
+        <li title="hello" class="box2">BBBBB</li>
+        <li class="box">CCCCC</li>
+        <li title="hello">DDDDDD</li>
+        <li title="two"><span>BBBBB</span></li>
+    </ul>
+
+    <input type="text" name="username" value="xfzhang" />
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<p>123</p>
+<div>zhongguo</div>
+<div class="box">
+    <p>hello1</p>
+    <p>hello2</p>
+    <a href="###">超链接</a>
+    <p>world</p>
+
+    <div class="box2">
+        <p>hello <span>world</span></p>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+//    closest() 方法获得匹配选择器的第一个祖先元素，从当前元素开始沿 DOM 树向上。
+    $(function () {
+        //$('a').closest('div').css('backgroundColor', 'red');
+        $('a').closest('a').css({
+            'backgroundColor': 'red'
+        });
+
+//        选取所有的p元素，查找并选取span子元素，然后再回过来选取p元素
+        $('.box2 p').find('span').end().css({
+            color : 'blue'
+        });
+
+    });
+</script>
+</body>
+</html>

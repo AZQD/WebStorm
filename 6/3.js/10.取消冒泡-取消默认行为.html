@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box1">
+    <div id="box2"></div>
+</div>
+<hr/>
+<a href="http://www.baidu.com" id="aLink">百度一下</a>
+<hr/>
+
+<ul id="ul">
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+    <li>04</li>
+</ul>
+<script type="text/javascript">
+    var box1 = document.getElementById('box1');
+    var box2 = document.getElementById('box2');
+    var aLink = document.getElementById('aLink');
+    var ul = document.getElementById('ul');
+
+    var lis = document.getElementsByTagName('li');
+
+    box1.addEventListener('click', function(){
+        console.log('box1');
+    }, false);
+    //取消冒泡
+    box2.addEventListener('click', function(ev){
+        ev = ev || event;
+        if(ev.stopPropagation){
+            ev.stopPropagation(); //ie8及以上
+        }else{
+            ev.cancelBubble = true;//只支持ie10以下
+        }
+        console.log('box2');
+    }, false);
+
+
+    //取消默认行为
+    aLink.onclick = function(ev){
+        ev = ev || event;
+        if(ev.preventDefault){
+            ev.preventDefault();
+        }else{
+            return false;
+        }
+    };
+
+    //定义bind函数，解决绑定函数的兼容性
+    function bind (obj, eventStr, callback){
+        if(obj.addEventListener){
+            obj.addEventListener(eventStr, callback, false);//IE8以下都不支持
+        }else{
+            obj.attachEvent('on'+eventStr, function(){ //ie10以下
+                callback.call(obj);  //attachEvent 绑定的回调函数，this永远指的是window
+            });
+        }
+    }
+
+
+
+    //不用委派，和下面的做对比
+    /*for(var i=0; i<lis.length; i++){
+        lis[i].addEventListener('click', function(){
+            this.style.backgroundColor = 'red';
+        }, false);
+    }*/
+    //运用委派
+    ul.addEventListener('click', function(ev){
+        ev = ev || event;
+        var ele = ev.target || ev.srcElement;
+        ele.style.backgroundColor = 'red';
+    }, false);
+
+    /*//在jQuery中运用事件委托
+     $(function () {
+     var ul = $('#test');
+     ul.delegate('li', 'click',function(){
+     $(this).css({background : 'red'});
+     //this.style.background = 'red';
+     });
+     });*/
+
+</script>
+</body>
+</html>

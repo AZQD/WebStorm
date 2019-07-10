@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            background-color: red;
+            display: flex;
+            flex-flow: row wrap;
+            height: 600px;
+            align-items: center;
+        }
+        li{
+            background-color: yellow;
+        }
+        li:first-child{
+            flex-grow: 2;
+            background-color: beige;
+            flex-basis: 300px;
+            /*flex-shrink: 1;*/
+        }
+        li:nth-child(2){
+            flex-grow: 6;
+            background-color: fuchsia;
+        }
+        li:nth-child(3){
+            flex-grow: 2;
+            background-color: lawngreen;
+        }
+        li:nth-child(4){
+
+        }
+        li:nth-child(5){
+
+        }
+        img{
+            /*width: 100%;*/
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="img/1.png" alt=""></li>
+    <li><img src="img/2.png" alt=""></li>
+    <li><img src="img/3.png" alt=""></li>
+    <li><img src="img/4.png" alt=""></li>
+    <li><img src="img/5.png" alt=""></li>
+</ul>
+</body>
+</html>

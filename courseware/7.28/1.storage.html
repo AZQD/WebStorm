@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+
+</head>
+
+<body>
+    <button id="btn">点击删除</button>
+</body>
+<script type="text/javascript">
+    var obj1 = {
+        name : 'zh',
+        age : 12
+    };
+    var obj2 = {
+        name : 'li',
+        age : 18
+    };
+    var btn = document.getElementById('btn');
+    window.sessionStorage.setItem('first', JSON.stringify(obj1));
+    window.sessionStorage.setItem('second', JSON.stringify(obj2));
+    var getAnswer1 = window.sessionStorage.getItem('first');
+    var getAnswer2 = window.sessionStorage.getItem('second');
+    console.log(JSON.parse(getAnswer1).name);
+    console.log(JSON.parse(getAnswer2).name);
+    btn.onclick = function(){
+        //window.sessionStorage.removeItem('first');
+        window.sessionStorage.clear();
+    };
+    var length = window.sessionStorage.length;
+    console.log(length);
+    for(var i=0; i<length; i++){
+
+        var keyName = window.sessionStorage.key(i);
+        console.log(window.sessionStorage.key(i));
+        console.log(window.sessionStorage.getItem(keyName));
+    }
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<ul>
+    <a href="nono">1</a>
+    <a href="baidu" class="aaa">2</a>
+    <a href="tengxun" class="aaa">3</a>
+    <a href="alibaba" class="aaa">4</a>
+</ul>
+<script type="text/javascript">
+    var aArr = document.getElementsByTagName('a');
+    var aArrNew = [];
+    for (var i = 0; i < aArr.length; i++) {
+        if(aArr[i].className == 'aaa'){
+            aArrNew.push(aArr[i]);
+        }
+    }
+    console.log(aArrNew);
+    for (var j = 0; j < aArrNew.length; j++) {
+        aArrNew[j].onclick = function(ev){
+            alert(this.href);
+            ev = ev || event;
+            if(ev.preventDefault){
+                ev.preventDefault();
+            }else{
+                return false;
+            }
+        };
+
+    }
+</script>
+</body>
+</html>

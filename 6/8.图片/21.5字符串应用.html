@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str = 'get_it_without_anyreason';
+    function changeStr(str){
+        var result = str.split('_');
+        for (var i = 1; i < result.length; i++) {
+            result[i] = result[i].charAt(0).toUpperCase() + result[i].slice(1,result[i].length);
+        }
+        result = result.join('');
+        return result;
+    }
+    var strNew = changeStr(str);
+    console.log(strNew);
+</script>
+</body>
+</html>

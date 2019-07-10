@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>
+    <title>HTML5</title>
+    <link href="css/reset.css" rel="stylesheet">
+    <script src="js/common.js"></script>
+    <style type="text/css">
+        /** 添加样式 **/
+        .player{
+            margin: 15px auto;
+            width: 400px;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+        }
+        .player img{
+            width: 28px;
+            height: auto;
+            margin: 15px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="player">
+        <img id="play" src="img/icon_play.png">
+        <span id="duration"></span>
+        <span id="nowTime"></span>
+        <img id="mute" src="img/icon_vol.png">
+        <input type="range">
+    </div>
+
+<script type="text/javascript">
+    //添加脚本
+    var play = document.getElementById('play');
+    var duration = document.getElementById('duration');
+    var mute = document.getElementById('mute');
+    var nowTime = document.getElementById('nowTime');
+    var vol = document.querySelector('input[type = range]');
+
+    //创建Audio音频文件，并引入media/music.mp3
+    var audio = document.createElement('audio');
+    audio.src = 'media/music.mp3';
+
+    //点击控制播放或者暂停。
+    play.onclick = function(){
+        if(audio.paused || audio.ended){
+            play.src = 'img/icon_pause.png';
+            //paly() 从当前位置播放
+            audio.play();
+        }else {
+            play.src = 'img/icon_play.png';
+            //pause() 如果音频在播放中，则暂停播放。
+            audio.pause();
+        }
+    };
+
+    //显示该文件的总时长。
+    audio.addEventListener('loadedmetadata', function(){
+       duration.innerHTML =  audio.duration;
+    }, false);
+
+    //播放过程中，实时触发,显示当前已经播放的时长。
+    audio.addEventListener('timeupdate', function(){
+        nowTime.innerHTML = audio.currentTime;
+    }, false);
+
+    //控制静音
+    mute.onclick = function(){
+        if(audio.muted){
+            mute.src = 'img/icon_vol.png';
+            audio.muted = false;
+        }else{
+            mute.src = 'img/icon_vol_mute.png';
+            audio.muted = true;
+        }
+    };
+
+    //控制可以滑动的range，改变音量大小
+    vol.addEventListener('change', function(){
+        audio.volume = vol.value/100;
+        console.log(audio.volume);
+        if(audio.volume == 0){
+            mute.src = 'img/icon_vol_mute.png';
+        }else{
+            mute.src = 'img/icon_vol.png';
+        }
+    }, false);
+
+</script>
+</body>
+</html>

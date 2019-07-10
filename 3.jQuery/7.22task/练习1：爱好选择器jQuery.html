@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+//    1. 点击'全选': 选中所有爱好
+            $('#checkedAllBtn').click(function(){
+                /*$(':checkbox[name=items]').each(function(){
+                    this.checked = true;
+                });*/
+                $(':checkbox[name=items]').prop('checked', true);
+                $('#checkedAllBox').prop('checked', true);
+            });
+
+//    2. 点击'全不选': 所有爱好都不勾选
+            $('#checkedNoBtn').click(function(){
+                //方法1
+                /*$(':checkbox[name=items]').each(function(){
+                    this.checked = false;
+                });*/
+                //方法2
+                $(':checkbox[name=items]').prop('checked', false);
+                $('#checkedAllBox').prop('checked', false);
+            });
+//    3. 点击'反选': 改变所有爱好的勾选状态
+            $('#checkedRevBtn').click(function(){
+                $(':checkbox[name=items]').each(function(){
+                    this.checked = !this.checked;
+                    $('#checkedAllBox').prop('checked', $(':checkbox[name=items]:not(:checked)').length === 0);
+                });
+            });
+
+//    5. 点击'提交': 提示所有勾选的爱好
+            $('#sendBtn').click(function(){
+                $(':checkbox[name=items]:checked').each(function(){
+                    console.log(this.value);
+                });
+            });
+            
+//    6. 点击'全选/全不选': 选中所有爱好, 或者全不选中
+            $('#checkedAllBox').click(function(){
+                $(':checkbox[name=items]').prop('checked', this.checked);
+            });
+
+//    7. 点击某个爱好时, 必要时更新'全选/全不选'的选中状态
+            $(':checkbox[name=items]').click(function(){
+                $('#checkedAllBox').prop('checked', $(':checkbox[name=items]:not(:checked)').length === 0);
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+<form method="post" action="">
+    你爱好的运动是？<input type="checkbox" id="checkedAllBox" />全选/全不选
+
+    <br />
+    <input type="checkbox" name="items" value="足球" />足球
+    <input type="checkbox" name="items" value="篮球" />篮球
+    <input type="checkbox" name="items" value="羽毛球" />羽毛球
+    <input type="checkbox" name="items" value="乒乓球" />乒乓球
+    <br />
+    <input type="button" id="checkedAllBtn" value="全　选" />
+    <input type="button" id="checkedNoBtn" value="全不选" />
+    <input type="button" id="checkedRevBtn" value="反　选" />
+    <input type="button" id="sendBtn" value="提　交" />
+</form>
+
+</body>
+</html>

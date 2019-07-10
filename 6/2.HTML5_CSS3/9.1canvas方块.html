@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas">
+        温馨提示：IE8及以下浏览器不支持Canvas！
+    </canvas>
+    <script type="text/javascript">
+        var myCanvas = document.getElementById('myCanvas');
+        myCanvas.width = 360;
+        myCanvas.height = 360;
+        if(myCanvas.getContext){
+            var pointing = myCanvas.getContext('2d');
+            pointing.fillStyle = 'red';
+            pointing.strokeStyle = 'yellow';
+            pointing.lineWidth = 5;
+
+            //纵横坐标，宽高
+            pointing.fillRect(10, 10, 100, 200);
+            pointing.strokeRect(150, 10, 100, 200);
+        }else{
+            alert('温馨提示：IE8及以下浏览器不支持Canvas！');
+        }
+    </script>
+</body>
+</html>

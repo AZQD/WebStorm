@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<input type="checkbox">
+<!--<input type="checkbox" checked="checked">
+<input type="checkbox" checked="null">
+<input type="checkbox" checked="null/">
+<input type="checkbox" checked="">
+<input type="checkbox" checked="undefined">
+<input type="checkbox" checked="undefined">-->
+<button id="btn">anniu</button>
+<div class="box">divhezi</div>
+<script type="text/javascript" src="jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#btn').click(function () {
+                $('input').prop('checked', true);
+            });
+
+        });
+        var btn = document.getElementById('btn');
+        var box = document.querySelector('.box');
+        console.log(btn.nodeName);
+        console.log(btn.nodeType);
+        console.log(btn.nodeValue);
+        console.log(box.nodeName);
+        console.log(box.nodeType);
+        console.log(box.nodeValue);
+    </script>
+</body>
+</html>

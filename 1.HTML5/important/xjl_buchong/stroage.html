@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <style type="text/css">
+        /** 添加样式 **/
+        .box{
+            width: 100px;
+            height: 100px;
+            background: #f0f;
+            border: 1px solid red;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box1" class="box">关闭下载</div>
+    <div id="box2" class="box">正常的DIV</div>
+    <button id="closeBtn">关闭</button>
+
+<script type="text/javascript">
+
+    var accessFirst = 0;
+    //添加脚本
+    var box1 = document.querySelector("#box1");
+    var closeBtn = document.querySelector("#closeBtn");
+    //判断是否访问过
+    accessFirst = sessionStorage.getItem("accessFirst") == null ? 0 : sessionStorage.getItem("accessFirst");
+    //console.log(sessionStorage.getItem("accessFirst"));
+
+    if(accessFirst == 1){ //点击过关闭按钮
+        box1.style.display = "none";
+    }else{
+        box1.style.display = "block";
+    }
+
+    //点击时增加一条记录
+    closeBtn.onclick = function(){
+        sessionStorage.setItem("accessFirst", 1);
+        box1.style.display = "none";
+        accessFirst = 1;
+    }
+
+
+
+</script>
+</body>
+</html>

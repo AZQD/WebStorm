@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<input type="button" value="jQuery ajax() GET请求" id="ajaxGetBtn"/><br>
+<input type="button" value="jQuery ajax() POST请求" id="ajaxPostBtn"/><br>
+<input type="button" value="jQuery get()请求" id="getBtn"/><br>
+<input type="button" value="jQuery post()请求" id="postBtn"/><br>
+<input type="button" value="jQuery getJSON()请求" id="getJSONBtn"/><br>
+</body>
+<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        //jQuery ajax() GET请求
+        $('#ajaxGetBtn').click(function(){
+            $.ajax({
+                type : 'GET',
+                url : '/ajax/test/get',
+                data : 'superstar=liuyifei',
+                success : function(result){
+                    alert(result);
+                    console.log(result);
+            }
+            });
+        });
+
+        //jQuery ajax() POST请求
+        $('#ajaxPostBtn').click(function(){
+            $.ajax({
+                type : 'POST',
+                url : '/ajax/test/post',
+                data : {goddess:'刘亦菲', type : 'beautiful'},
+                success : function(result){
+                    alert(result);
+                    console.log(result);
+                }
+            });
+        });
+
+        //jQuery get()请求
+        $('#getBtn').click(function(){
+            $.get('/ajax/test/get', 'superstar=fanbingbing', function(result){
+                alert(result);
+                console.log(result);
+            });
+        });
+
+        //jQuery post()请求
+        $('#postBtn').click(function(){
+            $.post('/ajax/test/post', 'goddess=tongliya&type=nice', function(result){
+                alert(result);
+                console.log(result);
+            });
+        });
+
+        //jQuery getJSON()请求
+        //jQuery会自动将返回的json数据解析为js的对象/数组
+        $('#getJSONBtn').click(function(){
+            $.getJSON('/ajax/test/json', function(result){
+                alert(result);
+                console.log(result);
+            });
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    function Person(name, age){
+        if(this instanceof Person){
+            this.name = name;
+            this.age = age;
+            this.setName = function (name){
+                this.name = name;
+            }
+        }else{
+            return new Person(name, age);
+        }
+    }
+    
+    var person = Person('bob', 12);
+    person.setName('li');
+    console.log(person);
+</script>
+</html>

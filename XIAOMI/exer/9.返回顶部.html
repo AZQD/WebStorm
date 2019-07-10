@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #toTop{
+            width: 36px;
+            height: 100px;
+            background-color: red;
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<p>content</p>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<p id="here">I am here !</p>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+<!--方法1：a标签中href写一个# -->
+<!--<a href="#" id="toTop">返回顶部</a>-->
+
+<!--方法2：a标签中href写id名-->
+<a href="#here" id="toTop">返回指定位置</a>
+
+<!--方法3：用jQuery动画实现：比较高大上！-->
+<!--<a href="###" id="toTop">返回顶部</a>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#toTop').click(function(){
+            $('html, body').animate({
+                scrollTop : '0px'
+            }, 1000, 'linear');
+        });
+    });
+</script>-->
+</body>
+</html>

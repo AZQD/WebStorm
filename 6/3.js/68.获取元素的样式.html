@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 200px;
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">rgba字体不透明，opacity文字透明</div>
+<script type="text/javascript">
+    var box = document.getElementById('box');
+
+
+    //获取元素的样式
+    function getStyle (obj, attr){
+        //要掌握try catch，下面的if else参考。
+        try{
+            //getComputedStyle支持火狐，chorme，IE9及以上
+            return getComputedStyle(obj, null)[attr];
+        }catch(e){
+            //currentStyle这个属性只有IE支持，可以获取元素的样式
+            return obj.currentStyle[attr];
+        }
+
+        /*if(getComputedStyle){
+            return getComputedStyle(obj, null)[attr];
+        }else{
+            return obj.currentStyle[attr];
+        }*/
+
+    }
+
+    var result = getStyle(box, 'backgroundColor');
+    console.log(result);
+    
+</script>
+</body>
+</html>

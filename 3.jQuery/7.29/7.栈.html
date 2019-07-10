@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="7.栈.js"></script>
+    <script type="text/javascript">
+        //创建一个栈的实例
+        var stack = new Stack();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.push(40);
+        console.log(stack.isEmpty());//false
+        console.log(stack.peek()); //40
+        console.log(stack.pop()); //40
+        console.log(stack.peek()); //30
+        console.log(stack.size());// 3
+        stack.clear();
+        console.log(stack.size());// 0
+        console.log(stack.isEmpty());//true
+    </script>
+</head>
+<body>
+
+</body>
+</html>

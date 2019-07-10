@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //我们可以删除对象的某个属性:
+    /*var obj = {name : 'li'};
+    (function(x){
+        delete x.name;
+        console.log(x.name);   //undefined
+    })(obj);*/
+
+    /*//但不能删除变量
+    (function(x){
+        delete x;
+        console.log(x);  //10
+    })(10);*/
+
+    //也不能删除函数
+    /*(function(x){
+        delete x;
+        console.log(x);  //  function fun(){}
+    })(function fun(){});*/
+    
+    var a = 1;
+    delete a;
+    console.log(a); //1
+    
+    b = 2;
+    delete b;
+    console.log(b);  //报错
+</script>
+</body>
+</html>

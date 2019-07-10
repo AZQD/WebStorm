@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../build/react.js"></script>
+    <script type="text/javascript" src="../build/react-dom.js"></script>
+    <!--<script type="text/javascript" src="../build/browser.min.js"></script>-->
+    <script type="text/javascript" src="../build/JSXTransformer.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/jsx">
+    //创建组建
+    var Component = React.createClass({
+        propTypes:{
+            title : React.PropTypes.string.isRequired
+        },
+        render: function () {
+            return <h2>{this.props.title}</h2>
+        }
+    });
+//    var data = 123;
+    var data = 'abc';
+    ReactDOM.render(
+            <Component title={data}></Component>,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>

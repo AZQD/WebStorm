@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #test{
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 0 ,0 ,0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -999;
+        }
+    </style>
+</head>
+<body>
+<a href="http://www.baidu.com">百度</a>
+<a href="http://www.qq.com">腾讯</a>
+<a href="http://www.taobao.com">阿里</a>
+<div id="test"></div>
+<script type="text/javascript">
+    var test = document.getElementById('test');
+    var aArr = document.getElementsByTagName('a');
+    document.addEventListener('click', function(ev){
+        //移动端用js控制手机点击事件
+        ev = ev || event;
+        ev.preventDefault();
+    }, false);
+
+    for (var i = 0; i < aArr.length; i++) {
+        aArr[i].addEventListener('touchmove', function(){
+            //当判断到手机触屏移动的时候，不会触发href
+            if(!this.flag){
+                this.flag = true;
+            }
+        }, false);
+    }
+
+
+    for (var i = 0; i < aArr.length; i++) {
+        aArr[i].addEventListener('touchend', function(){
+            if(!this.flag){
+                window.location.href = this.href;
+            }
+            this.flag = false;
+        }, false);
+    }
+
+</script>
+</body>
+</html>

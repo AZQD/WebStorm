@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/cssreset.css">
+    <style type="text/css">
+        .box{
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+            border-radius: 15px;
+            position: relative;
+            animation: animName 1.5s infinite linear;
+        }
+        ul{
+            position: relative;
+            left: calc(50% - 1.5px);
+
+
+
+        }
+        @keyframes  animName{
+            0%{
+                transform: rotate(0deg);
+                transform-origin: center center;
+            }
+
+            100%{
+                transform: rotate(360deg);
+                transform-origin: center center;
+            }
+        }
+        li{
+            width: 3px;
+            height: 7.5px;
+            background-color: #d8dbdc;
+            position: absolute;
+            transform-origin: 1.5px 15px;
+        }
+        .loadingText{
+            text-align: center;
+            color: #c3c6c7;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul id="clock"></ul>
+</div>
+<p class="loadingText">正在加载</p>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+
+        for (var i=0;i<12;i++){
+            var $li = $('<li></li>');
+            $li.css('transform', "rotate("+30*i+"deg)");
+            $li.appendTo($('#clock'));
+        }
+        var num = 1;
+        $('li:lt(7)').css('backgroundColor', '#989a9c').each(function(index){
+            $('li').eq(index).css('opacity', num-=0.1);
+        });
+
+        /*var loadingIndex=1;
+        var loadingTime=setInterval(function(){
+            if(loadingIndex==12){
+                loadingIndex=0;
+            }
+//            $('li').css('backgroundColor', 'red');
+//        $(".loading-point").removeClass("loading-point-active");
+//        $(".loading-point").eq(loadingIndex).addClass("loading-point-active");
+            loadingIndex++;
+        },1500);*/
+    });
+//    var clock=document.querySelector("#clock");
+    /*var li=document.createElement("li");
+    for (var i=0;i<12;i++){
+        var li=document.createElement("li");
+        li.style.transform="rotate("+30*i+"deg)";
+        //li:after.style.content="i";
+        clock.appendChild(li);
+    }
+    var loadingIndex=1;
+    var loadingTime=setInterval(function(){
+        if(loadingIndex==12){
+            loadingIndex=0;
+        }
+        li.style.backgroundColor = 'red';
+//        $(".loading-point").removeClass("loading-point-active");
+//        $(".loading-point").eq(loadingIndex).addClass("loading-point-active");
+        loadingIndex++;
+    },150);*/
+</script>
+</body>
+</html>

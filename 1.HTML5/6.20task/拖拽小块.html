@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 100%;
+            background-color: #bfa;
+            height: 200px;
+            /*border: 1px solid yellow;*/
+           /* padding-top:0px ;*/
+            margin-bottom: 30px;
+        }
+        .box2{
+
+            width: 100px;
+            height: 100px;
+            background-color: #fe4478;
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2" draggable="true"></div>
+</body>
+<script>
+    var box2=document.querySelector(".box2");
+    var box1=document.querySelector(".box1");
+    box2.addEventListener("dragstart",function(){
+        //console.log("开始起飞");
+    },false);
+    box2.addEventListener("drag",function(){
+        //console.log("飞");
+    },false);
+    box1.addEventListener("dragenter",function(){
+        //console.log("jinru");
+    },false);
+    box1.addEventListener("dragover",function(event){
+        event.preventDefault();
+        //console.log("准备降落");
+    },false);
+    box1.addEventListener("dragleave",function(event){
+        event.preventDefault();
+       // console.log("准备离开");
+    },false);
+    box1.addEventListener("drop",function(event){
+        event.preventDefault();
+       console.log("落下");
+        box1.appendChild(box2);
+    },false);
+</script>
+</html>

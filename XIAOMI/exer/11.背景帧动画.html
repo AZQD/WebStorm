@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        *{margin: 0; padding: 0;}
+        #div1{
+            margin: 0 auto;
+            width: 154px;
+            height: 100px;
+            background: url("img/tu.png") no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script type="text/javascript">
+    var did1 = document.getElementById('div1');
+    var posi = ['0 0', '-169px 0'];
+    function dong(){
+        var index = 0;
+        var len = posi.length;
+        function d(){
+            did1.style.backgroundPosition = posi[index];
+            if(index >= len){
+                index = 0;
+            }else{
+                index ++;
+            }
+        }
+        setInterval(d, 50);
+    }
+    window.onload = function(){
+        dong();
+    };
+</script>
+</body>
+</html>

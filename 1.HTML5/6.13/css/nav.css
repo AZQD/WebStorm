@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.clear{
+    clear: both;
+}
+
+
+nav{
+    font-size: 12px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.all{
+    width: 980px;
+    margin: 0 auto;
+}
+
+/*box1*/
+.box1{
+    float: left;
+
+}
+
+nav .box1 li{
+    float: left;
+
+}
+
+nav .box1 a{
+    display: block;
+    padding: 0 9px;
+    background: url("../img/line.gif")no-repeat right center;
+
+}
+
+/*box2*/
+.box2{
+
+    float: left;
+    position: relative;
+}
+
+.box2-more{
+
+    float: left;
+    position: absolute;
+    width: 40px;
+
+    background-color: #ffffff;
+    border: 1px transparent solid;
+    z-index: 999;
+
+}
+.box2:hover .box2-more{
+    border: 1px #f0f0f0 solid;
+
+    border-bottom: 1px solid transparent;
+    z-index: 9999;
+
+}
+.box2:hover ul{
+    display:block;
+
+}
+
+.box2 ul{
+    display:none;
+
+    position:absolute;
+    float:left;
+    width:200px;
+    top:29px;
+    border:1px #f0f0f0 solid;
+    background-color:#ffffff;
+}
+
+.box2 li{
+    float: left;
+    width: 25%;
+
+}
+
+
+.box3{
+     float:right;
+ }
+
+.box3 li{
+    float: left;
+    padding-left: 10px;
+}

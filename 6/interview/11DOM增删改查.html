@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<ul>
+    <li>内容1</li>
+    <li id="li2">内容2</li>
+    <li>内容3</li>
+    <li>内容4</li>
+</ul>
+
+    <button id="btn1">父元素下增加：appendChild</button><br/>
+    <button id="btn2">指定元素前增加</button><br/>
+    <button id="btn3">删除内容2：removeChild</button><br/>
+    <button id="btn4">修改</button>
+</body>
+<script type="text/javascript">
+
+
+
+    myClick('btn1', function(){
+        //增
+        var liEle = document.createElement('li');
+        var liText = document.createTextNode('hi!我是新增的内容');
+        liEle.appendChild(liText);
+        var ulEle = document.getElementsByTagName('ul')[0];
+        ulEle.appendChild(liEle);
+    });
+
+    myClick('btn2', function(){
+        //在指定元素前增加
+        var liEle = document.createElement('li');
+        var liText = document.createTextNode('hi!我是新增的内容');
+        liEle.appendChild(liText);
+        var li2 = document.getElementById('li2');
+        var ulEle = document.getElementsByTagName('ul')[0];
+        ulEle.insertBefore(liEle, li2);
+    });
+
+    myClick('btn3', function(){
+        //删
+        var li2 = document.getElementById('li2');
+        var ulEle = document.getElementsByTagName('ul')[0];
+        ulEle.removeChild(li2);
+    });
+
+    myClick('btn4', function(){
+        //修改
+        var liEle = document.createElement('li');
+        var liText = document.createTextNode('hi!我是替换的内容');
+        liEle.appendChild(liText);
+        var li2 = document.getElementById('li2');
+        var ulEle = document.getElementsByTagName('ul')[0];
+        ulEle.replaceChild(liEle, li2);
+    });
+
+
+
+
+    function myClick(idStr, fun){
+        var btn = document.getElementById(idStr);
+        btn.onclick = fun;
+    }
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp">
+<!--自定义指令: 限制输入框中只能是1到100之间的数值-->
+<input type="text" my-directive>
+
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .directive('myDirective', function(){
+                return {
+                    restrict : 'A',
+                    link : function(scope, elements, attrs, controller){
+                        var input = elements[0];
+                        input.onkeyup = function(){
+                            //alert('hello');
+                            var value = this.value;
+                            if((value != '')&&(isNaN(value*1)||(value<0) ||(value>100))){
+                            //if(value!==''&&(isNaN(value*1)||value<1||value>100)){
+                                this.style.background = 'red';
+                            }else{
+                                this.style.background = 'blue';
+                            }
+                            var aa = 'abc';
+                            console.log(isNaN('aa<0'));
+                        };
+                    }
+                }
+            });
+
+</script>
+</body>
+</html>

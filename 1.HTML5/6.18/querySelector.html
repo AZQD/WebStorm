@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" lang="en"></div>
+    <div class="box happy"></div>
+    <script>
+        /*var obj=document.querySelectorAll(".box");*/
+        var obj=document.getElementsByClassName("box");
+        /*var obj=document.querySelector("div[lang=en]");*/
+        console.log(obj[0].nodeName);
+    </script>
+</body>
+</html>

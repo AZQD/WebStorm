@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+        //1. contains(str) : 判断是否包含指定的字符串
+        //console.log('abcdef'.contains('cd'));//true
+        //console.log('abcdef'.contains('dc'));//false
+
+        //2. startsWith(str) : 判断是否以指定字符串开头
+        console.log('abcdef'.startsWith('ab')); //true
+        console.log('abcdef'.startsWith('ba')); //false
+
+        //3. endsWith(str) : 判断是否以指定字符串结尾
+        console.log('abcdef'.endsWith('ef')); //true
+        console.log('abcdef'.endsWith('fe')); //false
+        //4. repeat(count) : 重复指定次数
+        console.log('abc'.repeat(6));
+        //5. 模板字符串 : 简化字符串的拼接
+        //1). 模板字符串必须用``饮食``
+        var name = 'jack';
+        var age =12;
+        console.log(name+'的年龄是'+age+'岁');
+        console.log(`${name}的年龄是${age}岁`); // ~~是键盘1左边的按键
+        //2). 变化的部分使用${xxx}定义
+</script>
+</body>
+</html>

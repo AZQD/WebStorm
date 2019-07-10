@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    var result =  {
+        "code": 0,
+        "data": {
+            "__v": 0,
+            "phone": "13716962779",
+            "_id": "576bbe0aa1d183c42c06c08e"
+        }
+    };
+
+    var obj = {
+        name : 'zh',
+        address : 'beijing'
+    };
+
+    var strJson = '{"name":"zhang", "sex":"female"}';
+    var str = '{name:"zhang", sex:"female"}';
+
+    var objNew = "'"+obj+"'";
+    var objChange = '{address : "beijing"}';
+//    console.log(typeof objChange);
+//    console.log(typeof objNew);
+//    console.log(typeof result.data);
+//    console.log(JSON.stringify(result.data));
+//    console.log(typeof JSON.stringify(result.data));
+//    var abc = '{"__v":0,"phone":"13716962779","_id":"576bbe0aa1d183c42c06c08e"}';
+//    console.log(abc === JSON.stringify(result.data));
+//    console.log(JSON.stringify(obj));
+//    console.log(typeof JSON.stringify(obj));
+      console.log(JSON.parse(strJson));
+      console.log(typeof JSON.parse(strJson));
+
+    console.log(JSON.parse(str));
+    console.log(typeof JSON.parse(str));
+
+</script>
+</body>
+</html>

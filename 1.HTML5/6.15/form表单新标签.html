@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="#">
+
+        <ul>
+            <li>电子邮箱：<input type="email"></li>
+            <li>电&emsp;&emsp;话：<input type="tel"></li>
+            <li>网址：<input type="url"></li>
+            <li>搜索：<input type="search"></li>
+            <li><input type="range"id="rang" min="10" max="100" step="5"></li>
+            <li><input type="number"></li>
+            <li><input type="datetime"></li>
+            <li><input type="datetime-local"></li>
+            <li><input type="time"></li>
+            <li><input type="date"></li>
+            <li><input type="week"></li>
+            <li><input type="month"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li><input type="submit"value="提交"></li>
+        </ul>
+
+    </form>
+    <script>
+        var rang=document.getElementById("rang");
+        rang.addEventListener("change",function(){
+            document.title=rang.value;
+        },false);
+    </script>
+</body>
+</html>

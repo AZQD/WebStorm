@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        body{margin: 0; padding: 0;}
+        #box{
+            width: 10rem;
+            height: 10rem;
+            background-color: #bfa;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">hello</div>
+    <script type="text/javascript">
+        setRem();
+        window.addEventListener('onorientationchange' in window ? 'orientationchange': 'resize', function(){
+            setRem();
+        }, false);
+
+        function setRem(){
+            var html = document.querySelector('html');
+            var width = html.getBoundingClientRect().width;
+            console.log(width);//这个值就是手机屏幕宽度的值
+            console.log(width/16);
+            html.style.fontSize = width/16 + 'px';
+        }
+
+        console.log(window.devicePixelRatio); //像素比
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 350px;
+            height: 250px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    var box=document.querySelector("#box");
+    var pageXStart=0;
+    var pageXEnd=0;
+    box.addEventListener("touchstart",function(event){
+        var touches=event.targetTouches;
+        pageXStart=touches[0].pageX;
+        //console.log(touches.length);
+        //console.log(touches);
+        //alert("hello");
+    },false);
+    box.addEventListener("touchmove",function(event){
+        var touches=event.targetTouches;
+        pageXEnd=touches[0].pageX;
+        //console.log(touches);
+        if(touches.length==1){
+            //console.log("("+touches[0].pageX+","+touches[0].pageY+")");
+        }
+    },false);
+    box.addEventListener("touchend",function(){
+        if((pageXEnd-pageXStart)>0){
+            console.log("左---右");
+        }else{
+            console.log("右---左");
+        }
+    },false);
+</script>
+</html>

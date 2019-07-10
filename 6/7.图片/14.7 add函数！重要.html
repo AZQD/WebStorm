@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+
+    /*add 函数  很重要！函数当成参数*/
+
+    var add = function(a,b){
+        //如果有两个参数
+        if(b != undefined){
+            return a+b;
+        }else{
+            //如果有一个参数
+            return function(y){
+                return a+y;
+            }
+        }
+    };
+    //var result = add(6, 4);
+    var result = add(6)(4);
+    console.log(result);
+
+
+</script>
+</body>
+</html>

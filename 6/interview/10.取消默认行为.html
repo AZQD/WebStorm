@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<a href="http://www.baidu.com">取消默认行为啦</a>
+</body>
+<script type="text/javascript">
+    var a = document.getElementsByTagName('a')[0];
+    a.onclick = function(event){
+        return false;
+        //event.preventDefault();
+    };
+</script>
+</html>

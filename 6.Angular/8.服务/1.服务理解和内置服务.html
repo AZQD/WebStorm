@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+
+<p>{{time}}</p>
+<p>{{delay}}</p>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('Mycontroller', function($scope, $filter, $interval, $timeout){
+
+                $interval(function(){
+                    $scope.time = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+                }, 1000);
+
+
+                $scope.delay = '需要加载3s……';
+                $timeout(function(){
+                    $scope.delay = '加载完成！！！';
+                }, 3000);
+
+            });
+</script>
+</body>
+</html>

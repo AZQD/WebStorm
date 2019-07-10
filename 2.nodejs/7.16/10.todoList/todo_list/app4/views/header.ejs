@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>尚硅谷 ToDo List</title>
+    <link href="/stylesheets/reset.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="page">
+
+
+    <% switch (loginState){
+    case 'logined': %>
+    <%- include logined_header.ejs -%>
+    <%        break; %>
+    <%  case 'notLogined': %>
+    <%- include not_login_header.ejs -%>
+    <%        break; %>
+    <%  case '404': %>
+    <%- include normal_header.ejs -%>
+    <%        break; %>
+    <%  default:  %>
+    <%- include normal_header.ejs -%>
+    <%}%>

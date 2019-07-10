@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    
+    function fun(str){
+        /*return str.replace(/\\</g, '<')
+        .replace(/\\>/g, '>')
+        .replace(/\\&/g, '&');*/
+        return str.replace(/\\<\\>\\&/g, '=');
+    }
+    var result = fun('abc\>def\<mn\&');
+    console.log(result);
+    var str = 'abc\>def\<mn\&';
+    console.log(str);
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app>
+    <div ng-controller="MyController">
+        <input type="text" ng-model="name">
+        <input type="text" ng-model="type">
+        <p>我喜欢--{{name}}--是--{{type}}！</p>
+        <p>{{fun()}}</p>
+
+    </div>
+    <script type="text/javascript" src="../js/angular-1.2.29/angular.js"></script>
+    <script type="text/javascript">
+        function MyController($scope){
+            $scope.name = '刘亦菲';
+            $scope.type = '静静地';
+            $scope.fun = function(){
+                return $scope.name+'是'+$scope.type;
+            }
+        }
+    </script>
+</body>
+</html>

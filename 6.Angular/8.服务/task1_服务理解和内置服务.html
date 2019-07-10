@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<!--
+服务:
+1. 理解
+    为angular应用提供各种服务的对象(单例), 具有特定的功能
+    可以是Object对象, 数组或函数
+    Angular内置多个服务(都以$开头), 在controller函数中可以声明注入服务并直接使用
+    我们也可以自定义服务(私人定制)
+2. 常用的内置服务
+    $rootScope与$scope
+    $filter
+    $http
+    $timeout与$interval
+-->
+
+<body ng-app="myApp" ng-controller="Mycontroller">
+<p ng-bind="time"></p>
+<p ng-bind="content"></p>
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('Mycontroller', function($scope, $interval, $filter, $timeout){
+                $interval(function(){
+                    $scope.time = $filter('date')(new Date(),'yyyy-MM-dd HH:mm:ss' );
+                }, 1000);
+
+                $scope.content = '3s之后跳转~~~';
+                $timeout(function(){
+                    $scope.content = '跳转完成';
+                }, 3000);
+            });
+</script>
+</body>
+</html>

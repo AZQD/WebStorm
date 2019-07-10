@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+        console.log(this);
+        this.sayName = function(){
+            //console.log(this);
+            console.log(this.name);
+        }
+    }
+
+    var per = new Person('zhang', 12);
+    per.sayName();
+    console.log(per instanceof Person);
+    
+    
+    var obj = {
+        name: "li",
+        age: 16,
+        address: 'beijing'
+    };
+    console.log('name' in obj);
+    console.log('age' in obj);
+    console.log('address' in obj);
+
+    
+    
+</script>
+</html>

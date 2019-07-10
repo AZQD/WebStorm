@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        .wrapper{
+            border: 1px solid black;
+            display: table;
+            width: 100%;
+        }
+        .left{
+            width: 50%;
+            display: table-cell;
+            background-color: red;
+        }
+        .right{
+            width: 50%;
+            display: table-cell;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<!--<input type="checkbox" name="word1">
+<input type="text" name="word2">
+<input type="checkbox">
+<button onclick="alert(22)">11</button>
+<p id="now"></p>
+<form action="#">
+    <input type="text">
+    <input type="button" value="tijiao">
+    <p>中秋<span>快乐</span></p>
+</form>-->
+
+<div class="wrapper">
+    <div class="left">
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+        <p>hello</p>
+    </div>
+    <!--<div class="middle"></div>-->
+    <div class="right">
+        world
+    </div>
+    <br clear="both">
+</div>
+<br/>
+<form action="#">
+    <input type="text">
+    <input type="submit" readonly>
+</form>
+<textarea name="text" id="" cols="30" rows="10"></textarea>
+<script type="text/javascript" src="jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    /*function bind(obj, eventStr, callback){
+        if(obj.addEventListener){
+            obj.addEventListener(eventStr, callback, false);
+        }else{
+            obj.attachEvent('on'+eventStr, function(){
+                callback.call(obj);
+            });
+        }
+    }*/
+    /*obj.addEventListener('click',function(ev){
+        ev = ev || event;
+        var ele = ev.target || ev.srcElement;
+        if(ev.preventDefault){
+            ev.preventDefault();
+        }else{
+            return false;
+        }
+
+        if(ev.stopPropagation){
+            ev.stopPropagation();
+        }else{
+            ev.cancelBubble = true;
+        }
+    }, false);
+
+    ul.addEventListener('click', function(ev){
+        ev = ev || event;
+        var ele = ev.target || ev.srcElement;
+        ele.style.color = 'red';
+    }, false);
+
+    $('ul').delegate('li', 'click', function(){
+        $(this).css({
+            color : 'red'
+        });
+        this.style.color = 'red';
+    });*/
+
+    /*function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.sayName = function(name){
+        this.name = name;
+    };
+
+    function Worker(name, age, salary){
+        Person.call(this, name, age);
+        this.salary = salary;
+    }
+    Worker.prototype = new Person();
+    
+    var worker = new Worker('bob', 20, 20000);
+    console.log(worker);
+    worker.sayName('jack');
+    console.log(worker);*/
+    /*
+    * 创建对象：1.构造函数 2 对象字面量 3 工厂方式 4 原型方式 5 自定义构造函数
+    *           6.构造函数+原型 7 动态原型方式
+    *继承方式：1原型方式继承 2构造函数方式 3构造函数+原型 4寄生式组合式继承
+    * 
+    * 作用域：收集和管理所有的变量，组成一套严格的规则：全局 函数 （作用域嵌套） 
+    * 作用域链： 当查找某个变量时，先在当前，父级，……全局window 没有 undefined
+    *
+    * 原型：在js中，每创建一个对象，对象都会有一个隐式原型__proto__,
+    * 创建的函数对象有显式原型prototype, 
+    
+    * */
+    /*function MyClass(){
+        prototype = {
+            constructor : function MyClass(){},
+            __proto__ : Object
+        }
+    }
+    
+    console.log(MyClass.prototype);
+    var obj = new MyClass();
+    
+    console.log(obj.__proto__);*/
+    
+    //createElement caeateTextNode appendChild
+    //removeChild replaceChild(n,o) insertBefore(new, old)
+    /*
+    * Function Object RegExp Date Array
+    * Math
+    * Window document
+    * */
+
+    
+    /*
+    * 加载一次  必须页面加载完才加载  效率慢
+    * */
+
+    /*var arr = [];
+    //console.log(arr instanceof Array);
+    
+    //console.log(arr.constructor == Array);
+
+    function isArray(obj){
+        return Object.prototype.toString.call(obj) == '[object Array]';
+    }
+    console.log(isArray(arr));
+
+    console.log($.type(arr));
+    console.log($.isArray(arr));*/
+
+    /*var inp = document.getElementsByTagName('input');
+    var arr = [];
+    //var body = document.getElementsByTagName('body');
+    var div = document.createElement('div');
+    //var text = document.createTextNode('love');
+    document.body.appendChild(div);
+    div.style.color = 'red';
+    div.innerHTML = 'h000000';*/
+    //div.appendChild(text);
+    /*for (var i = 0; i < inp.length; i++) {
+        if(inp[i].type == 'checkbox'){
+
+            inp[i].checked = 'checked';
+            arr.push(inp[i]);
+        }
+    }*/
+
+    /*for (var i = 0; i < inp.length; i++) {
+        if(inp[i].getAttribute('type') == 'checkbox'){
+            inp[i].checked = 'checked';
+            arr.push(inp[i]);
+        }
+    }
+
+    console.log(arr);*/
+    /*console.log(0 == []);
+    console.log(0 == {});
+    console.log(0 == function(){});*/
+    
+    /*var str = 'i-love-bei-jing';
+     var result = '';
+     var result1 = str.split('-');result2 = result1.slice(1);
+     for (var i = 0; i < result2.length; i++) {
+     result +=(result2[i].charAt(0).toUpperCase()+result2[i].slice(1));
+     }
+     result = result1[0]+result;
+     console.log(result);*/
+    
+
+    /*var result = sortArr(arr);
+    //排序
+    /!*var newArr = arr.sort(function(a, b){
+//        return a-b;
+//        return 0;
+        return b-a;
+    });*!/
+    function sortArr(arr){
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if(newArr.indexOf(arr[i]) == -1){
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    }*/
+
+    //var arr = [10, 12, 10, 8, 5, 23, 10, 12];
+    /*var arrNew = [];
+    var result = new Set(arr);
+    for(var i of result){
+        arrNew.push(i);
+    }*/
+
+    /*function fun(arr){
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr.length - i; j++) {
+                if(arr[j]>arr[j+1]){
+                    var temp = arr[j+1];
+                    arr[j+1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+    var result = fun(arr);
+    console.log(result);*/
+    /*var now = document.getElementById('now');
+
+
+    function fun(){
+        var time = new Date();
+        var year = time.getFullYear();
+        var month = time.getMonth() + 1;
+        month = (month<10?'0':'') + month;
+        var day = time.getDate();
+        day = (day<10?'0':'') + day;
+        var week = time.getDay();
+        var arr = ['日', 'yi', '22', '33', '44', '55', '66'];
+        week = '星期'+arr[week];
+        var hour = time.getHours();
+        hour = (hour<10?'0':'') + hour;
+        var minute = time.getMinutes();
+        minute = (minute<10?'0':'') + minute;
+        var second = time.getSeconds();
+        second = (second<10?'0':'') + second;
+        var millionSecond = time.getMilliseconds();
+        if(millionSecond<10){
+            millionSecond = '00'+millionSecond;
+        }else if(millionSecond>=10 && millionSecond<100){
+            millionSecond = '0' + millionSecond;
+        }
+        var result = year+month+day+week+hour+minute+second+millionSecond;
+        now.innerHTML = result;
+        setTimeout(fun, 200);
+    }
+    fun();*/
+    
+    /*var str = '<tr><td>{$id}</td><td>{$name}</td></tr>';
+    var result = str.replace(/\{\$id\}/g, 10).replace(/\{\$name\}/g, 'jack');
+    console.log(result);*/
+    /*function fun (aa){
+        if(aa == '>' || aa == '<'){
+            return '&lg';
+        }
+    }
+    console.log(fun('<'));*/
+    /*var arr = [];
+    for (var i = 0; i < 10; i++) {
+        arr.push(parseInt(Math.random()*90+10));
+    }
+    arr = arr.sort(function(a, b){
+        return a-b;
+    });
+    console.log(arr);
+    arr1 = [20,30];
+    var result =arr.concat(arr1);
+    console.log(result);
+    result.splice(1, 1);
+    console.log(result);*/
+    /*var arr = document.getElementsByTagName('input');
+    arr[2].checked = 'checked';*/
+    /*var str = 'http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e';
+    var result = str.slice(str.indexOf('?')+1);
+    result = result.split('&');
+    var obj = {};
+    for (var i = 0; i < result.length; i++) {
+        var item  = result[i].split('=');
+        obj[item[0]] = item[1];//关键的一步
+    }
+    console.log(obj);
+    console.log(result);*/
+
+    /*var reg = new RegExp('\\b'+'a'+'\\b');
+    console.log(reg.test('hel wo aa b'));*/
+    /*var str = '602295@aq.com.acn';
+    var reg = /^[0-9]{6,9}\@[a-z]{2}(\.[a-z]{2,3}){1,2}$/;
+    console.log(reg.test(str));*/
+    
+    /*var reg = /^1[3-9]{1}[\d]{9}$/;
+    console.log(reg.test(13936233468));*/
+
+    /*for (var i = 0; i < 3; i++) {
+
+        setTimeout(function(i){
+            return function(){
+                console.log(i);
+            }
+        }(i), 0);
+    }*/
+    /*for (let i = 0; i < 3; i++) {
+
+        setTimeout((function(i){
+            console.log(i);
+        })(i), 0);
+    }*/
+/*
+    for (let i = 0; i < 3; i++) {
+
+        setTimeout(function(){
+            console.log(i);
+        }, 0);
+    }
+*/
+    
+    /*function trim(str){
+        return str.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    var str = '   ah  sd sd    ';
+    console.log('--'+trim(str)+'--');
+    var obj = {};
+
+    console.log(NaN+[]);//NaN
+    console.log(NaN+function(){}); //NaNfunction (){}
+    console.log(NaN+{});//NaN[object Object]*/
+    
+    /*var str = '<div>hello<p>world</p></div>';
+    var reg = /\<\/?[a-z]+\>/ig;
+    console.log(str.replace(reg, ''));*/
+    
+    /*var fun = function(){};
+    console.log(fun);
+    function fn(){}
+    var fun3 = new Function('a', 'b','c', 'return a+b+c;');
+    console.log(fun3(1,3));
+    console.log(3+'undefined');*/
+
+    /*function getStyle(obj, attr){
+        try{
+           return getComputedStyle(obj, null)[attr];
+        }catch(e){
+            return obj.currentStyle[attr];
+        }
+    }*/
+
+
+    /*function getElesByClassName(cn){
+        var result = [];
+        var reg = new RegExp('\\b'+cn+'\\b');
+        var eles = document.all;
+        for (var i = 0; i < eles.length; i++) {
+            var className = eles[i].className;
+            if(reg.test(className)){
+                result.push(eles[i]);
+            }
+        }
+        return result;
+    }*/
+    /*var str  = 'abcsldfhjsldjfhside';
+    fun(str);
+    function fun(str){
+        var json = {};
+        for (var i = 0; i < str.length; i++) {
+            if(!json[str.charAt(i)]){
+                json[str.charAt(i)] = 1;
+            }else{
+                json[str.charAt(i)] ++;
+            }
+        }
+        var num = 0;
+        var aa = '';
+        console.log(json);
+        
+        for(var item in json){
+            if(json[item]>num){
+                num = json[item];
+                aa = item;
+
+            }
+        }
+        console.log(num, aa);
+    }*/
+
+    /*function fn1(){
+     var a = 1;
+     function fn2(){
+     a++;
+     console.log(a);
+     }
+     return fn2;
+     }
+     var fn = fn1();
+     fn();
+     fn();*/
+    //ceil floor round random 
+   /* for (var i = 0; i < 5; i++) {
+     console.log(parseInt(Math.random()*9+1));
+     }*/
+   // var aa = 123456378;
+   // aa = aa.toString();
+    //console.log(aa[4]);
+   /* console.log(aa);
+    console.log(typeof aa);
+    var tmp = '';
+    aa = aa.split('').reverse().join('');//87654321
+    for (var i = 0; i < aa.length; i++) {
+        tmp += aa[i];
+        if((i+1)%3 == 0 && (i+1)!= aa.length){
+            console.log(i);
+            tmp += ',';
+        }
+    }
+    console.log(tmp);*/
+
+    /*function fact(num){
+        var result = 1;
+        for (var i = 1; i <= num; i++) {
+            result *= i;
+        }
+        return result;
+    }
+    console.log(fact(0));*/
+    /*function fact(num){
+        if(num <= 1){
+            return 1;
+        }else{
+            return num*fact(num-1);
+        }
+    }
+    console.log(fact(3.23));*/
+
+    /*function fact(num){
+        var result = 1;
+        for (var i = 1; i <= num; i++) {
+            result *= i;
+        }
+        return result;
+    }
+    console.log(fact(5));*/
+    
+    
+    
+    
+    
+    
+    //阶乘
+    /*function fact(num){
+        var result = 1;
+        for (var i = 1; i <= num; i++) {
+            result *= i;
+        }
+        return result;
+    }
+    console.log(fact(5));*/
+    
+    //递归
+    /*function fact(num){
+        if(num<=1){
+            return 1;
+        }else{
+            return num*fact(num-1);
+        }
+    }
+    console.log(fact(6));*/
+    //navigator screen location history
+    //console.log(window.location.search());
+    //闭包 setTimeout(非函数，1000) 两个对象彼此引用(循环) 控制台日志
+    
+    /*function strLength(str){
+        var reg = /[\u4e00-\u9fa5]/g;
+        str = str.replace(reg, 'aa');
+        return str.length;
+    }
+    var str = 'hel北京lo';
+    console.log(strLength(str));
+    console.log(str);*/
+
+    /*function fun(str){
+        var len = 0;
+        for (var i = 0; i < str.length; i++) {
+            if(str.charCodeAt(i) > 255){
+                len += 2;
+            }else{
+                len++;
+            }
+        }
+        return len;
+    }
+    var str = 'hel北京lo';
+    console.log(fun(str));
+    console.log(str);*/
+    
+    
+    /*function isTrue(str){
+        var reg = /^[a-zA-Z_]{1}.{4,19}$/;
+        if(reg.test(str) == true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    var result = isTrue('_absdflh');
+    console.log(result);
+    */
+    //var fun = function(){};
+    //console.log(fun instanceof Function);
+
+    //console.log(fun.constructor == Function);
+
+    /*function fn(obj){
+        return Object.prototype.toString.call(obj) == '[object Function]';
+    }
+
+    var result = fn(fun);
+    console.log(result);*/
+
+//    DOM0  DOM2
+    /*window document navigator screen location history
+    alert() prompt() confirm() close() open()*/
+
+    /*var pp = document.getElementsByTagName('p')[1];
+
+    console.log(pp.innerText);
+    console.log(pp.innerHTML);
+    console.log(pp.outerHTML);*/
+
+    //继承
+    /*function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.sayAge = function(age){
+        this.age = age;
+    };
+    
+    function Worker(name, age, salary){
+        Person.call(this, name, age);
+        this.salary = salary;
+    }
+    Worker.prototype = new Person();
+    
+    var worker = new Worker('liming', 20, 12000);
+    console.log(worker);
+    worker.sayAge(22);
+    console.log(worker);*/
+
+    //bind live delegate 
+    //console.log($);
+    /*$(function () {
+        $('input[type="text"]').css({
+            width : 200,
+            height : 200,
+            color : 'red'
+        }).val('hello');
+    });*/
+
+    //var area = document.getElementsByTagName('textarea')[0];
+    /*String Number Boolean Function Array Object
+    Math global
+    Window document*/
+
+
+    /*area.onkeypress = function(ev){
+        ev = ev || event;
+        if(ev.keyCode == 13){
+            console.log(11);
+            area.value += '{{enter}}';
+            ev.preventDefault();
+        }
+    };*/
+    
+    /*var str = 'hello,world';
+    function specify(str){
+        str = str.replace(/,/ig, '');
+        str = str.split('').join(',');
+        return str;
+    }
+    var result = specify(str);
+    console.log(result);*/
+    
+    /*console.log(window);
+    console.log(navigator);
+    console.log(screen);
+    console.log(location);
+    console.log(history);
+    console.log(document);
+    console.log(Math);*/
+//    console.log(window.opener);
+    /*function fun(x, a, b){
+        var temp = Math.ceil(Math.min(Math.max(x-100, 0),1));
+        return a*temp + b*(1-temp);
+    }
+    console.log(fun(800, 1,2));*/
+
+    //type url data contentType dataType success error
+    /*$(function () {
+        $.ajax({
+            type : 'post',
+            url : '/hello',
+            data : {username:'lili', age:12},//'username=lili&age=12'
+            success : function(data){
+                console.log(data);
+            }
+        });
+    });*/
+    /*var ll = document.body.clientWidth || document.documentElement.clientWidth;
+    console.log(ll);*/
+    //console.log(window.event);
+    /*function fun(){
+        var result = 0;
+        //arguments = Array.from(arguments);
+        //arguments = Array.prototype.slice.call(arguments);
+        arguments.splice(1,1);
+        for (var i = 0; i < arguments.length; i++) {
+            result += arguments[i];
+        }
+
+        return result;
+    }
+    
+    console.log(fun(1,3,5,7));*/
+
+    /*var form = document.createElement('form');
+    form.setAttribute('method', 'post');
+    form.setAttribute('action', 'http//:www.baidu.com');
+    var input = document.createElement('input');
+    input.value = 'hello';
+    form.appendChild(input);
+    document.body.appendChild(form);
+    form.submit();*/
+    
+    /*var arr = [10,30,20,5,60];
+    function sortArr(arr){
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr.length-i; j++) {
+                var temp = [];
+                if(arr[j]>arr[j+1]){
+                    temp = arr[j+1];
+                    arr[j+1]=arr[j];
+                    arr[j] = temp;
+                }
+                
+            }
+        }
+        return arr;
+    }
+    console.log(sortArr(arr));*/
+    
+    /*console.log(1+undefined);
+    console.log(undefined/0);
+    console.log(Infinity == Infinity);*/
+
+    //console.log(parseFloat('1.2sfd'));
+    //es5
+    
+    /*'use strict';
+    console.log(JSON);
+    Object.create(obj);
+    Object.keys(obj);
+    function(){}.bind(this);
+    forEach map filter
+
+    let const
+    Object.is();
+    Object.assign();
+
+    Array.from(arr);
+    Array.of('a',3);
+    var set = new Set();
+    var map = new Map();
+    for of
+        promise then 避免回调函数嵌套*/
+
+    /*var sum = (a, b) =>a+b;
+    console.log(sum(1,2));*/
+    
+    /*var {a,b} = {a:'zz', b:'xx'};
+    a={a:b, b:a};
+    b = a.b;
+    a = a.a;
+    console.log(a, b);*/
+    
+    /*var obj = {name:'aa', age:12};
+    console.log(obj.prototype);
+    console.log(obj.__proto__);
+    console.log(obj.__proto__.__proto__);*/
+
+    /*function fun(){}
+    console.log(fun);
+    console.log(fun.prototype);*/
+
+//    canvas audio video  geolocation sessionStorage localStorage
+    //webSocket
+
+    /*
+    css sprite
+    运用压缩组件
+    浏览器缓存
+    css js外部引入
+    css，js压缩
+    css在上
+    js在下
+    精简代码
+
+    display：none
+    visibility：hidden
+    width:0;height:0；opacity：0；
+    margin-left:-10000px;
+    text-indent:-999px;
+    z-index:-999;
+
+
+
+
+
+
+
+
+
+     */
+    
+</script>
+</body>
+</html>

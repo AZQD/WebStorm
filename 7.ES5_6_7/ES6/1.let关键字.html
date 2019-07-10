@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<ul id="test">
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+</ul>
+<script type="text/javascript">
+    /*
+     作用:
+     与var类似, 用于声明一个变量
+     特点:
+     只在块作用域内有效 {}
+     不能重复声明
+     不会预处理, 不存在提升
+     应用:
+     循环遍历加监听
+     */
+    console.log(a1); //undefined
+    //console.log(a2); //报错
+    if(true){
+        var a1 = 1;
+        let a2 = 2;
+        console.log(a1);
+        console.log(a2);
+    }
+
+    var lis = document.getElementsByTagName('li');
+    for(let i=0; i<lis.length; i++){
+        //当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量
+        lis[i].onclick = function(){
+            alert(i);
+        };
+    }
+</script>
+</body>
+</html>

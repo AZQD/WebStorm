@@ -1,0 +1,32 @@
+.box1 {
+  color: #bbffaa;
+}
+.box2 {
+  border: 1px solid #800080;
+}
+.box31 {
+  width: 50px;
+  height: 100px;
+}
+.box32 {
+  width: 50px;
+  height: 100px;
+  color: red;
+}
+#header {
+  background-color: #bbffaa;
+  font-size: 12px;
+}
+.box5 {
+  color: #ffff00;
+}
+.box5 .canousel {
+  width: 200px;
+  height: 100px;
+}
+.box5 .more {
+  font-size: 12px;
+}
+.box5:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+
+<ul>
+    <li>
+        <a href="#/male">华语男星</a>
+    </li>
+    <li>
+        <a href="#/female">华语女星</a>
+    </li>
+</ul>
+
+<ng-view></ng-view>
+
+<script type="text/javascript" src="../../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript" src="../../js/angular-1.5.5/angular-route.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', ['ngRoute'])
+            //配置路由
+        .config(function($routeProvider){
+            $routeProvider.when('/male', {
+                templateUrl : '1.html',
+                //个人理解：目前正在配置路由，控制器从外面引入。
+                controller : 'FirController'
+            }).when('/female', {
+                templateUrl : '2.html',
+                controller : 'SecController'
+            }).otherwise('/male');//默认会请求路由
+        })
+        .controller('MyController', function($scope){
+
+        })
+        .controller('FirController', function($scope){
+            $scope.msg = '刘德华';
+        })
+        .controller('SecController', function($scope){
+            $scope.msg2 = '蒋雪儿';
+        });
+</script>
+</body>
+</html>

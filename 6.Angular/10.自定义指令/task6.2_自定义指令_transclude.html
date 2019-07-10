@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="Mycontroller">
+
+<div my-directive type="name">
+    <ul><li>#</li></ul>
+    <ul><li>#</li></ul>
+    <ul><li>#</li></ul>
+</div>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .directive('myDirective', function(){
+                return {
+                    restrict : 'A',
+//                    template : '<p>{{type}}</p><span ng-transclude></span>',
+                    templateUrl : 'templete2.html',
+                    scope : {
+                        type : '@'
+                    },
+                    transclude : true
+                    /*controller : function($scope, $element, $attrs, $transclude){
+                        $scope.type = "hello";
+                    }*/
+                }
+            })
+            .controller('Mycontroller', function($scope){
+                $scope.name = 'zhonguo';
+            });
+</script>
+</body>
+</html>

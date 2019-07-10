@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+<p ng-bind="msg | date: 'yyyy-MM-dd HH:mm:ss'"></p>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+        .controller('MyController', function($scope,$interval){
+//            第一种方法：
+            /*$interval(function(){
+                $scope.msg = new Date();
+            }, 1000);*/
+//            第二种方法：
+            setInterval(function(){
+                $scope.$apply(function(){
+                    $scope.msg = new Date();
+                });
+            }, 1000);
+
+        });
+</script>
+</body>
+</html>

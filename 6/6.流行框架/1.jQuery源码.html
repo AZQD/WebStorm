@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    (function(window, undefined){
+        var a = undefined;
+        if(a == undefined){
+
+            'use strict';
+            window.jQuery = window.$ = jQuery;
+
+
+        }
+        if(c == undefined) return;
+    })(window);
+
+</script>
+<!--在jQuery的设计中，最主要的两块就是（个人看法）：
+
+提供工具方法；
+DOM元素的操作，包括选取，属性取值等等。 对于一个库来说，第一点是必然要有所体现的，没有基础的工具方法，如何成为库。
+对于Javascript来说，最重要的一块就是DOM操作，jQuery在DOM操作这块的贡献是巨大的，以至于现在很多新手完全不会用原生的JS API（例如document.getElementById等）了，
+jQuery把复杂的DOM选取映射到了简单的CSS选择器，对复杂的DOM操作（不同浏览器的DOM操作接口不一致）封装非常简单的委托API，以达到其核心的目的：The Write Less, Do More。
+
+沙箱中第一句"use strict";是表示使用javascript的严格模式，对于低级的浏览器，这里相当一字符串，所以兼容性是没问题的
+
+
+window本来是没有undefined属性的，所以window.undefined的值就是undefined，
+把undefined赋值给window.undefined属性，undefined就变成全局变量了。
+
+-->
+
+</body>
+</html>

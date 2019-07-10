@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<form action="#" id="form1">
+    <input type="text">
+    <input type="button" value="提交">
+</form>
+<script type="text/javascript" src="jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //$('#form1')
+        $.post(
+                'http://www.xxx.com/ipo',
+                {username : 'liming', age : 12},
+                function(result){
+                    var data = JSON.parse(result);
+                    console.log(data);
+                }
+        );
+    });
+</script>
+</body>
+</html>

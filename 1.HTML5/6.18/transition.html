@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 0;
+            height: 50px;
+            background-color: #bfa;
+            /*transition-property: width,height,background;*/
+            /*transition-property: all;
+            transition-duration: 5s;
+            transition-timing-function: cubic-bezier(1,.09,.01,1.54);*/
+            /*transition-delay: 3s;*/
+            transition: width 2s cubic-bezier(1,.09,.01,1.54),height 3s ease-in 2s,background 6s ease-in-out;
+        }
+
+        body:hover #box{
+            width: 100%;
+        }
+        html, body{
+            background-color: red;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点击加载</button>
+    <div id="box"></div>
+    <!--<script>
+        var btn=document.getElementById("btn");
+        var box=document.getElementById("box");
+        btn.onclick=function(){
+            box.style.width="100%";
+            box.style.height="300px";
+            box.style.backgroundColor="yellow";
+        };
+    </script>-->
+</body>
+</html>

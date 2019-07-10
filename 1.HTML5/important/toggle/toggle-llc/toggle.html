@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/getEleByClass和addClass和hasClass和removeClass和toggleClass.js"></script>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="abc" class="box1">
+
+    </div>
+    <button class="btn">切换</button>
+</body>
+<script>
+    //var btn=document.querySelector(".btn");
+    //var box=document.querySelector("#btn");
+    //注意：此时获取的class是一个数组，
+    //用的时候需要写btn[i];!!!
+    var abc=document.getElementById("abc");
+    var btn=getEleByClass("btn");
+    var box1=getEleByClass("box1");
+    var box2=getEleByClass("box2");
+    btn[0].onclick=function(){
+        console.log("abc");
+        toggleClass(abc,"box2");
+    };
+</script>
+</html>

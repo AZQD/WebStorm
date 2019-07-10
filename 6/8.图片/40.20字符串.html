@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<script type="text/javascript">
+//    var str = '\\u104A0';
+    var str = '\u4edd0'; //解析成文字编码了
+    console.log(str.length); //2
+    console.log(str); //2  仝0
+    console.log(String(str) === String(str)); //true
+    console.log(RegExp(str) === RegExp(str)); //false
+    console.log(RegExp(str) == '/仝0/'); //true
+</script>
+</body>
+</html>

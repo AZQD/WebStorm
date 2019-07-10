@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="box">
+        <span id="day"></span>
+        <span id="hour"></span>
+        <span id="minute"></span>
+        <span id="second"></span>
+        <span id="millisecond"></span>
+    </div>
+</body>
+<script>
+     var timer=setInterval(getTime,1);
+
+
+    function getTime(){
+        var endTime=new Date("6/30/2018 24:00:00");
+        var nowTime=new Date();
+        var ts=endTime-nowTime;
+        //alert(typeof countDown);
+
+        var dd=Math.floor(ts/1000/60/60/24);
+        var hh=Math.floor(ts/1000/60/60%24);
+        var mm=Math.floor(ts/1000/60%60);
+        var ss=Math.floor(ts/1000%60);
+        var ms = Math.floor(ts%1000);
+
+        dd=checkTime(dd);
+        hh=checkTime(hh);
+        mm=checkTime(mm);
+        ss=checkTime(ss);
+        if(ms>=10&&ms<100){
+            ms="0"+ms;
+        }else if (ms<10){
+            ms="00"+ms;
+        }
+        document.getElementById("day").innerHTML=dd+"天";
+        document.getElementById("hour").innerHTML=hh+"小时";
+        document.getElementById("minute").innerHTML=mm+"分钟";
+        document.getElementById("second").innerHTML=ss+"秒";
+        document.getElementById("millisecond").innerHTML=ms+"毫秒";
+
+    }
+
+    function checkTime(i){
+        if(i<10){
+            i="0"+i;
+        }
+        return i;
+    }
+
+</script>
+</html>

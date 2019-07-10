@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+</body>
+<script type="text/javascript">
+    var btn = document.getElementsByTagName('button');
+    for(var i=0; i<btn.length; i++){
+
+        /*(function(i){
+            btn[i].onclick = function(){
+                alert(i);
+            };
+        })(i);*/
+
+        /*btn[i].index = i;
+        btn[i].onclick = function(){
+            alert(this.index);
+        };*/
+
+        btn[i].onclick = function(index){
+            return function(){
+                alert(index);
+            };
+        }(i);
+    }
+
+
+    /*(function fun(){
+        alert('he');
+    })();*/
+
+</script>
+</html>

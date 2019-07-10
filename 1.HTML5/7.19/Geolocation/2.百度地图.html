@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link href="img/logo.png" rel="shortcut icon" type="image/x-icon"/>
+    <title>baiduMap</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=XdkGZSNTy3x80FgcpWXUcWthmWon31UE">
+        //v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"
+        //v1.4版本及以前版本的引用方式：src="http://api.map.baidu.com/api?v=1.4&key=您的密钥&callback=initialize"
+    </script>
+    <style type="text/css">
+        /** 添加样式 **/
+        html{height: 100%;}
+        body{height: 100%;margin: 0; padding: 0;}
+        #container{height:100%;}
+    </style>
+</head>
+<body>
+
+    <div id="container"></div>
+
+<script type="text/javascript">
+    //添加脚本
+    // 创建地图实例
+    var map = new BMap.Map('container');
+    var geo = window.navigator.geolocation;
+    geo.getCurrentPosition(function(position){
+        var coords = position.coords;
+        // 创建点坐标
+        var point = new BMap.Point(coords.longitude, coords.latitude);
+        // // 初始化地图，设置中心点坐标和地图级别
+        map.centerAndZoom(point, 15);
+
+        map.centerAndZoom(point, 15);
+        // 创建标注
+        var marker = new BMap.Marker(point);
+        // 将标注添加到地图中
+        map.addOverlay(marker);
+        console.log(position);
+    }, function(err){
+        console.log(err);
+    }, {
+        timeout: 5000, //可选，等待返回位置信息的最长时间
+
+        //true表示经可能的使用精确的位置信息。除非确实非常需要精确的信息，否则建议使用false。
+        // 如果设置true，数据返回时间慢，还会导致移动设备耗用更多电量。
+        enableHighAccruacy: true,
+        //可选，上一次取得坐标的有效时间（单位毫秒）
+        maximumAge: 55
+    });
+</script>
+</body>
+</html>

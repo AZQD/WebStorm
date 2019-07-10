@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="img/JT.jpg" rel="shortcut icon" type="image/x-icon"/>
+    <title>Title</title>
+    <style>
+
+        /*图片自适应是用width等于%，而背景图片用下面这种方法实现。
+        也可以用background-size等于%来实现。  */
+        @media screen and (max-width: 375px) {
+            .box{
+                width: 48px;
+                height: 48px;
+                background: url("img/Play48px.png")no-repeat;
+                border: 2px solid greenyellow;
+                transition: 2s linear;
+            }
+        }
+        @media screen and (min-width: 375px) and (max-width: 640px) {
+            .box{
+                width: 72px;
+                height: 72px;
+                background: url("img/Play72px.png")no-repeat;
+                border: 2px solid black;
+                transition: 2s linear;
+            }
+        }
+        @media screen and (min-width: 640px) {
+            .box{
+                width: 128px;
+                height: 128px;
+                background: url("img/Play128px.png")no-repeat;
+                border: 2px solid red;
+                transition: 2s linear;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

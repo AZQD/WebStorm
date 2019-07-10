@@ -1,0 +1,479 @@
+/*公用*/
+.wrapper {
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+/*顶部app*/
+.app {
+    background: rgb(46,46,46);
+}
+.download {
+    width: 320px;
+    height: 50px;
+    margin: 0 auto;
+    color: white;
+}
+.close {
+    width: 14px;
+    margin-top: 18px;
+    margin-left: 12px;
+}
+.logo {
+    width: 40px;
+    margin-top: 5px;
+    margin-left: 11px;
+}
+.immediately {
+    width: 65px;
+    margin-top: 10px;
+}
+.download div {
+    width: 155px;
+    margin-top: 5px;
+}
+.download span {
+    display: block;
+    line-height: 1.6;
+    padding-left: 18px;
+}
+
+/*搜索栏*/
+.search-parent {
+    position: fixed;
+    width: 100%;
+    left: 50%;
+    z-index: 200;
+}
+.search {
+    background: rgba(255,255,255,0);
+    height: 40px;
+    display: flex;
+    line-height: 40px;
+    width: 100%;
+    position: relative;
+    left: -50%;
+}
+.jd {
+    flex-grow: 2;
+    flex-shrink: 0;
+    flex-basis: 30px;
+    background: url("../img/jddddd.png") no-repeat;
+    background-size: 70%;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+.search-box {
+    flex-grow: 7.7;
+}
+.search-box input {
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    text-indent: 35px;
+}
+.login {
+    flex-grow: .3;
+    text-align: left;
+}
+.login a {
+    padding-left: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+/*banner*/
+.banner-box {
+    overflow: hidden;
+    position: relative;
+}
+.banner {
+    overflow: hidden;
+    width: 12000px;
+}
+.banner img {
+    display: block;
+    width: 640px;
+}
+.banner li {
+    float: left;
+}
+.ul-index {
+    position: absolute;
+    bottom: 10px;
+    z-index: 100;
+}
+.ul-index li {
+    height: 6px;
+    width: 6px;
+    margin-left: 5px;
+    float: left;
+    border-radius: 3px;
+    border: 1px solid white;
+}
+.ul-index .active {
+    background: white;
+}
+
+/*shop-class*/
+.shop-class {
+    overflow: hidden;
+}
+.shop-class li {
+    float: left;
+    width: 25%;
+    padding-top: 10px;
+}
+.shop-class li img {
+    display: block;
+    width: 25%;
+    margin: 0 auto;
+}
+.shop-class li span {
+    text-align: center;
+    display: block;
+    margin-top: 5px;
+    color: #666;
+}
+.sixmonth {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/*限时秒杀*/
+.limit-time {
+    padding: 0 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+}
+.limit-time-top {
+    margin-top: 10px;
+    overflow: hidden;
+}
+.top-left {
+    padding-left: 10px;
+    color: #ca1327;
+    font-size: 15px;
+}
+.top-left em {
+    font: normal 13px/17px "微软雅黑";
+    color: white;
+    background: black;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+.limit-time ul {
+    width: 2000px;
+    margin-top: 10px;
+}
+.limit-time ul li {
+    float: left;
+    width: 9%;
+    border-right: 1px solid #eee;
+}
+.limit-time ul li:last-child {
+    border-right: 1px solid transparent;
+}
+.limit-time ul li img {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}
+.limit-time ul li span {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    font: 14px "微软雅黑";
+    color: red;
+}
+.limit-time ul li span:before {
+    content: "￥";
+    font-family: "微软雅黑";
+}
+.limit-time ul li .del {
+    color: black;
+    font-size: 12px;
+    text-decoration: line-through;
+}
+
+/*服装3免1*/
+.clothes img {
+    display: block;
+    width: 100%;
+}
+.clothes div {
+    overflow: hidden;
+}
+.clothes div img {
+    display: block;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+
+/*商品*/
+.shop-items ul {
+    overflow: hidden;
+}
+.shop-items img {
+    display: block;
+    width: 100%;
+}
+.shop-items .tv li {
+    width: 25%;
+    float: left;
+}
+.shop-items .bag {
+    border: 1px solid #eee;
+}
+.shop-items .bag li {
+    float: left;
+    width: 33.3333333%;
+}
+.shop-items .bag .center {
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+.shop-items .bottom li {
+    float: left;
+    width: 50%;
+}
+.shop-items .bottom .first-li {
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+/*第二个轮播图*/
+.boss {
+    position: relative;
+}
+.boss li {
+    float: left;
+}
+.boss li img {
+    display: block;
+    width: 100%;
+}
+
+
+/*特色市场*/
+.market span {
+    color: red;
+    font-size: 14px;
+    display: block;
+    padding: 8px 3px;
+}
+.market ul {
+    overflow: hidden;
+}
+.market>ul {
+    box-sizing: border-box;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+.market>ul>li:first-child {
+    border-right: 1px solid #eeeeee;
+    box-sizing: border-box;
+}
+.market .first-li {
+    border-bottom: 1px solid #eeeeee;
+}
+.market>ul>li {
+    float: left;
+    width: 50%;
+}
+.market img {
+    display: block;
+    width: 100%;
+}
+#camera  {
+    border: none;
+}
+
+/*主题街*/
+.theme span {
+    display: block;
+    color: red;
+    padding: 8px 3px;
+    font-size: 14px;
+}
+.theme img {
+    display: block;
+    width: 100%;
+}
+.theme ul {
+    overflow: hidden;
+}
+.air-condition>li {
+    float: left;
+    width: 50%;
+}
+.computer {
+    border-bottom: 1px solid #eeeeee;
+}
+.computer li {
+    float: left;
+    width: 50%;
+}
+.computer li:first-child {
+    border-right: 1px solid #eeeeee;
+    box-sizing: border-box;
+}
+.theme .bottom-ul li {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    border-right: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+.theme .bottom-ul li:nth-child(4n) {
+    border-right: 1px solid transparent;
+}
+
+/*品牌推荐*/
+.recommend span {
+    font-size: 14px;
+    color: red;
+    display: block;
+    padding: 8px 3px;
+}
+.recommend ul {
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+.recommend ul li {
+    float: left;
+    width: 30%;
+}
+.recommend ul li:first-child {
+    width: 40%;
+}
+.recommend img {
+    display: block;
+    width: 100%;
+}
+.recommend ul li:nth-child(2) {
+    border-right: 1px solid #eeeeee;
+    box-sizing: border-box;
+}
+.fruit {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    border-bottom: 8px solid #eeeeee;
+}
+
+/*猜你喜欢*/
+#guess-top span{
+    padding: 8px 3px;
+}
+#guess-top {
+    overflow: hidden;
+}
+.guess span:first-child {
+    font-size: 14px;
+}
+.guess span:nth-child(2) a {
+    color: red;
+}
+.guess ul {
+    overflow: hidden;
+}
+.guess li {
+    width: 50%;
+    float: left;
+}
+.guess li img {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.guess li p {
+    margin: 8px 15px 0;
+    padding-bottom: 8px;
+    color: black;
+    border-bottom: 1px solid #eeeeee;
+}
+.guess li div {
+    margin: 2px 15px;
+    padding-top: 5px;
+}
+.guess li div span {
+    color: red;
+}
+.guess li div span:before {
+    content: "￥";
+    font-family: "微软雅黑";
+}
+.guess li div a {
+    color: silver;
+    border-radius: 5px;
+    border: 1px solid silver;
+    padding: 2px 5px;
+}
+
+
+/*footer*/
+.footer {
+    background: #f8f8f8;
+    margin-top: 20px;
+    border-top: 1px solid silver;
+}
+.footer a {
+    color: #999;
+}
+.footer ul  {
+    overflow: hidden;
+    width: 320px;
+    margin: 0 auto;
+    height: 50px;
+}
+.footer-top li {
+    float: left;
+    width: 25%;
+    text-align: center;
+    border-right: 1px solid silver;
+    box-sizing: border-box;
+    margin-top: 18px;
+}
+.footer div {
+    border-top: 1px solid silver;
+}
+.footer-middle li {
+    width: 33.3333%;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+}
+.footer p {
+    width: 320px;
+    text-align: center;
+    margin: 0 auto;
+    color: #999999;
+    padding: 10px 0;
+}
+
+/*多媒体*/
+@media screen and (max-width: 480px){
+    .jd {
+        background-size: 100%;
+        margin: 12px 5px 0;
+    }
+}
+
+
+
+
+
+

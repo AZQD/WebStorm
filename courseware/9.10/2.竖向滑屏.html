@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        /*去除默认的滚动条,然后用js添加滚动条*/
+        html{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            position: relative;
+            margin: 0; /*body有默认的margin，去除掉*/
+            height: 100%;
+            overflow: hidden;
+        }
+        #wrap{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;/*wrap和手机等宽高*/
+        }
+        #scroll{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-color: pink;
+        }
+    </style>
+    <script type="text/javascript">
+        /*取消默认行为*/
+        document.addEventListener('touchstart', function(ev){
+            ev.preventDefault();
+        }, false);
+
+        window.onload = function(){
+            var wrap = document.getElementById('wrap'); //wrap是和等于手机宽高的div
+            var scroll = document.getElementById('scroll');
+            var startPoint = 0; //鼠标点击的位置
+            var scrollPoint = 0; //偏移量
+            var minTop = wrap.clientHeight - scroll.offsetHeight;
+
+            wrap.addEventListener('touchstart', function(ev){
+                var touch = ev.changedTouches[0];/*触发当前事件的手指列表*/
+                console.log(touch);
+                startPoint = touch.pageY;
+                scrollPoint = scroll.offsetTop;
+            }, false);
+
+            wrap.addEventListener('touchmove', function(ev){
+                console.log(ev.targetTouches);//可以对比
+                console.log(ev.changedTouches);//可以对比
+                var touch = ev.changedTouches[0];/*触发当前事件的手指列表*/
+                var movePoint = touch.pageY;
+                var dis = movePoint - startPoint;
+
+                var top = scrollPoint + dis;
+                if(top>0){ /*向下滑动,当为0的时候，就不能再小了，要不然最顶部会出现空白*/
+                    top = 0;
+                }else if(top<minTop){/*向上滑动,当为minTop的时候，就不能再小了，要不然最底部会出现空白*/
+                    top = minTop;
+                }
+
+                scroll.style.top = top + 'px';
+            }, false);
+        };
+    </script>
+</head>
+<body>
+<div id="wrap">
+    <div id="scroll">
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+        hello <br/>hello <br/>hello <br/>hello <br/>hello <br/>
+    </div>
+</div>
+</body>
+</html>

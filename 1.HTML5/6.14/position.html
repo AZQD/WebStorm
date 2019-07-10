@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--绝对定位可以脱离父元素。层级会提升一级-->
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: fuchsia;
+            position: relative;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            left: 118px;
+            z-index: 4;
+            opacity:0.3;
+        }.box3{
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0,255,0,0.3);
+            position: absolute;
+            left: 50px;
+            z-index: 3;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">小朋友</div>
+        <div class="box3">小朋友</div>
+
+    </div>
+
+</body>
+</html>

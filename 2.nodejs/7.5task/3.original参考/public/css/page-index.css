@@ -1,0 +1,373 @@
+/*设置body的背景*/
+body{
+	background: url(../img/body-bg.png) repeat-x;
+	
+	/*设置字体*/
+	font: 12px Georgia;
+}
+
+/*设置统一的宽度*/
+.w{
+	width: 940px;
+	margin: 0 auto;
+}
+
+/*清除浮动的代码*/
+.clear:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/*清除IE6中的浮动*/
+.clear{
+	zoom: 1;
+}
+
+/*设置头部*/
+.header{
+	height: 159px;
+}
+
+/*设置LOGO的样式*/
+.logo{
+	padding: 37px 0 0 15px;
+}
+
+/*设置导航条*/
+.nav{
+	float: right;
+	/*设置一个外边距*/
+	margin: 59px 0 0 0;
+}
+
+.nav li{
+	float: left;
+	/*设置左边框*/
+	border-left:1px #d6d6d6 dotted ;
+	/*设置内边距*/
+	padding: 0 8px 8px;
+}
+
+.nav a{
+	font: bold 14px Georgia;
+	color: #666666;
+	text-decoration: none;
+}
+
+.nav a:hover{
+	color: #8b8888;	
+}
+
+.nav p{
+	font: 11px Tahoma;
+	color: #b7b7b7;
+}
+
+
+/*设置banner*/
+.banner{
+	background: url(../img/banner-bg.png) no-repeat;
+	height: 355px;
+	/*设置相对定位*/
+	position: relative;
+}
+
+/*设置导航点*/
+.navPointer{
+	/*设置绝对定位*/
+	position: absolute;
+	
+	left: 19px;
+	bottom: 21px;
+}
+
+.navPointer a{
+	/*将a浮动*/
+	float: left;
+	width: 17px;
+	height: 17px;
+	background: url(../img/icon/pointer.png) no-repeat;
+	margin-left:4px ;
+}
+
+.navPointer .active{
+	background: url(../img/icon/pointer.png) -17px 0 no-repeat;
+}
+
+/*设置一个鼠标移入的效果*/
+.navPointer a:hover{
+	background: url(../img/icon/pointer.png) -17px 0  no-repeat;
+}
+
+
+/*设置内容部分*/
+/*中间的标题*/
+.content h2{
+	text-align: center;
+	font: bold 24px Georgia;
+	
+	/*设置一个背景*/
+	background: url(../img/break.png) bottom center no-repeat;
+	padding-bottom: 24px;
+}
+
+/*内容的div*/
+.contDiv{
+	width: 300px;
+	float: left;
+	margin-left: 20px;
+	padding-top: 26px;
+}
+
+
+
+/*设置div中的标题*/
+.contDiv h3{
+	font: 21px Georgia;
+	color: #11719e;
+}
+
+/*设置div中的p1*/
+.contDiv .p1{
+	font: 12px Helvetica;
+	color: #8c8c8c;
+}
+
+/*设置图片的div*/
+.imgDiv{
+	width: 300px;
+	height: 191px;
+	margin-top: 14px;
+	padding-top: 10px;
+	background: url(../img/img-bg.png) no-repeat;
+	text-align: center;
+}
+
+/*设置图片下的段落*/
+.contDiv .p2{
+	font:13px/18px Helvetica;
+	word-spacing: 2px;
+	color: #3e3e3e;
+	padding-top: 10px;
+}
+
+/*设置learnMore按钮*/
+.learnMore{
+	display: block;
+	font: 12px Helvetica;
+	color: #016999;
+	text-decoration: none;
+	padding-top: 12px;
+	text-indent: 12px;
+	margin-top: 14px;
+	width: 163px;
+	height: 28px;
+	background: url(../img/btn/btn01.png);
+}
+
+/*设置按钮移入效果*/
+.learnMore:hover{
+	color: #0598dc;
+}
+
+/*设置contact*/
+.contact{
+	margin:35px auto 0 auto ;
+	background: url(../img/break.png) no-repeat top center;
+}
+
+/*设置contactDiv的宽度*/
+.contactDiv{
+	width: 300px;
+	height: 381px;
+	float: left;
+	margin-left: 20px;
+	
+	/*设置一个相对定位*/
+	position: relative;
+}
+
+/*去除第一个div的左外边距*/
+.firDiv{
+	margin-left: 0;
+}
+
+/*确定标题的高度*/
+.contact .title{
+	height: 26px;
+	font: 18px Georgia;
+	color: #444;
+	padding-top: 40px;
+	/*设置一个下边框*/
+	border-bottom: 1px dashed #d3d3d3;
+}
+
+/*设置icondiv的高度*/
+.icon{
+	height: 104px;
+}
+
+/*设置p元素的样式*/
+.icon p{
+	font: 12px Helvetica;
+	color: #444;
+	/*上内边距*/
+	padding: 10px 0 4px 0;
+}
+
+/*设置小按钮的超链接的样式*/
+.icon a{
+	/*去除下划线*/
+	text-decoration: none;
+	/*设置左外边距*/
+	margin-left: 1px;
+}
+
+/*设置title2的高度*/
+.title2{
+	height: 26px;
+	font: bold 18px Gill Sans MT;
+	color: #444;
+	/*设置一个下边框*/
+	border-bottom: 1px dashed #d3d3d3;
+	/*设置上的内边距*/
+	padding-top: 34px;
+}
+
+/*设置contact中第二个段落的样式*/
+.contact .p2{
+	height: 27px;
+	font: 12px Helvetica;
+	color: #444;
+	padding-top: 12px;
+}
+
+/*设置email表单的高度*/
+.email-form{
+	height: 89px;
+}
+
+/*设置email-form下的text的对齐*/
+.email-form .text{
+	margin-top: 11px;
+}
+
+/*设置emil-form下的按钮的对齐*/
+.email-form .button{
+	margin-top: 11px;
+}
+
+/*设置中间表单的高度*/
+.contact-form{
+	height: 293px;
+}
+
+/*设置文本框*/
+.text{
+	width: 286px;
+	height: 33px;
+	background: url(../img/input-bg.png) no-repeat;
+	border: none;
+	padding: 0 0 0 10px;
+	/*设置一个上外边距*/
+	margin-top: 16px;
+	/*设置一个行高*/
+	line-height: 33px;
+}
+/*设置多行文本框*/
+.textarea{
+	width: 286px;
+	height: 124px;
+	background: url(../img/textarea-bg.png) no-repeat;
+	padding: 10px 0 0 10px;;
+	border: none;
+	resize: none;
+	/*去除滚动条*/
+	overflow: hidden;
+	
+	margin-top: 16px;
+}
+
+/*设置按钮的样式*/
+.button{
+	width: 163px;
+	height: 32px;
+	padding: 0;
+	background: url(../img/btn/btn02.png) no-repeat;
+	border: none;
+	font: 13px Georgia;
+	color: #fff;
+	text-align: left;
+	text-indent: 1em;
+	margin-top: 10px;
+	
+	/*开启按钮的绝对定位*/
+	position: absolute;
+	/*设置按钮的偏移量*/
+	bottom: 20px;
+	_bottom: 16px;
+	left: 0;
+}
+
+/*设置一个按钮的移入样式*/
+/*IE6不支持除了a元素以外元素的hover伪类*/
+.button:hover{
+	color: yellow;
+	/*cursor用来设置元素中鼠标的样式*/
+	cursor: pointer;
+}
+/*设置右侧三个p元素*/
+.contactDiv .p3{
+	height: 59px;
+	
+	/*单独为ie6设置一个高度*/
+	_height: 60px;
+	font: 12px Helvetica;
+	color: #444;
+	/*设置一个下边框*/
+	border-bottom: 1px dashed #d3d3d3;
+	/*设置上下内边距*/
+	padding: 14px 0 9px 66px;
+}
+
+/*为三个段落分别设置背景图片*/
+.contactDiv .pic1{
+	background: url(../img/1.gif) no-repeat left center;
+}
+.contactDiv .pic2{
+	background: url(../img/2.gif) no-repeat left center;
+}
+.contactDiv .pic3{
+	background: url(../img/3.gif) no-repeat left center;
+}
+
+/*设置底部的信息*/
+.footer{
+	height: 173px;
+	background: #333333;
+	border-top: 10px solid #4c4c4c;
+}
+
+/*设置div内边距*/
+.footer .w{
+	padding: 16px 22px 0 8px;
+}
+
+/*设置字体*/
+.footer p , .footer a{
+	font: 11px/20px Helvetica;
+	color: #999;
+	text-decoration: none;
+}
+
+/*设置一个超链接的移入样式*/
+.footer a:hover{
+	color: red;
+}
+
+/*设置版权信息向右浮动*/
+.footer .copy{
+	float: right;
+}
+

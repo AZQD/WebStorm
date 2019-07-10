@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<div class="box">千里之行始于足下</div>
+</body>
+<script type="text/javascript">
+
+    var div = document.querySelector('.box');
+    console.log(div.nodeName);
+    console.log(div.nodeValue);
+    console.log(div.nodeType);
+
+    var attr = div.attributes[0];
+    console.log(attr);
+    console.log(attr.nodeName);
+    console.log(attr.nodeValue);
+    console.log(attr.nodeType);
+
+    var text = div.innerHTML;
+    console.log(text);
+    console.log(text.nodeName);
+    console.log(text.nodeValue);
+    console.log(div.nodeType);
+
+</script>
+</html>

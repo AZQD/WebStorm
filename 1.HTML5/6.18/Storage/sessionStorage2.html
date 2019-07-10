@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn1">删除</button>
+</body>
+<script>
+    var btn1=document.querySelector("#btn1");
+    /*window.localStorage.setItem("address","beijing");
+    btn1.onclick= function () {
+        window.localStorage.removeItem("address");
+    }*/
+  window.sessionStorage.setItem("address","beijing");
+    btn1.onclick= function () {
+        window.sessionStorage.removeItem("address");
+    }
+</script>
+</html>

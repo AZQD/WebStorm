@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/cssreset.css">
+    <script src="../../js/获取元素的样式(宽高等)getStyle.js"></script>
+    <style>
+        .wrapper{
+            width: 640px;
+            margin: 0 auto;
+            background-color: #bfa;
+        }
+        .one{
+            height: 30px;
+            overflow: hidden;
+        }
+
+        li{
+            height: 30px;
+            line-height:30px;
+            background-color: fuchsia;
+            border-bottom:1px solid greenyellow;
+        }
+        .two{
+            height: 210px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <ul class="one">
+        <li><button id="btn">展开</button></li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <p>窈窕淑女</p>
+</div>
+</body>
+<script>
+    var ul=document.getElementsByTagName("ul")[0];
+    var btn=document.getElementById("btn");
+    /*btn.innerHTML="展开";*/
+    btn.onclick=function(){
+        //用的是HTML5中的新属性，可以用于移动端。
+        ul.classList.toggle("two");
+        btn.innerHTML="展开";
+        ul.style.transition="3s linear";
+
+        var abc=getStyle(ul,"height");
+        abc=Number.parseInt(abc);
+        console.log(abc);
+        if(abc==30){
+            btn.innerHTML="收起";
+        }
+
+    };
+
+
+</script>
+</html>

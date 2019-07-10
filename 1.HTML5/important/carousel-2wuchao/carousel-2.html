@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>轮播图-第二种模式</title>
+    <link rel="stylesheet" href="../css/cssreset.css">
+    <!--用外部引入JS的方法，此时调用了函数；或者用body下面的那种方式。-->
+    <script src="js/carouselFun2.js"></script>
+    <script src="js/index.js"></script>
+    <style>
+        .wrapper{
+            min-width: 320px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .banner{
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel{
+            overflow: hidden;
+            width: 1000%;
+        }
+        li{
+            float: left;
+        }
+        .banner ul img{
+            display: block;
+            width: 100%;
+        }
+
+        .navList{
+            overflow: hidden;
+            display: inline-block;
+            position: absolute;
+            vertical-align: middle;
+            bottom: 8px;
+            right: 8px;
+            background-color: #2b2b2b;
+            border: 1px solid #4D525D;
+            border-radius: 10px;
+            opacity: 0.8;
+            padding: 0 3px;
+        }
+        .navList a{
+            display: block;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            float: left;
+            margin: 2px 4px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="banner">
+            <ul class="carousel">
+                <!--注意图片的放置位置-->
+                <li><a href="javascript:;"><img src="img/5.jpg" alt=""></a></li>
+                <li><a href="javascript:;"><img src="img/1.jpg" alt=""></a></li>
+                <li><a href="javascript:;"><img src="img/2.jpg" alt=""></a></li>
+                <li><a href="javascript:;"><img src="img/3.jpg" alt=""></a></li>
+                <li><a href="javascript:;"><img src="img/4.jpg" alt=""></a></li>
+                <li><a href="javascript:;"><img src="img/5.jpg" alt=""></a></li>
+                <li><a href="javascript:;"><img src="img/1.jpg" alt=""></a></li>
+            </ul>
+            <div class="navList">
+                <!--<a href="java script:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>-->
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+<!--<script>
+
+    window.onload=function(){
+        //轮播图    这种方法有些东西可以和carousel-1再次整理，1，实时更改图片的宽度； 2.调整屏幕方面
+
+        var carousel=document.querySelector(".carousel");
+        //var banner=document.querySelector(".banner");
+        var lis=document.querySelectorAll(".carousel li");
+        var navList=document.querySelector(".navList");
+
+        //children 作用：获取当前节点的所有子元素（不包括文本节点）
+        var nav=navList.children;
+        //console.log(nav);
+        for(var i=0;i<lis.length-2;i++) {
+            navList.innerHTML+="<a href='javascript:;'></a>"
+        }
+
+
+        //设置ul宽度  用百分比表示
+        carousel.style.width=(lis.length*100)+"%";
+        //console.log(carousel.style.width);
+
+        //设置li宽度  用百分比表示
+        for(var i=0;i<lis.length;i++){
+            lis[i].style.width=(100/lis.length)+"%";
+        }
+        //console.log(lis[0].style.width);
+
+        //浏览器窗口改变时刷新页面
+        window.onresize =function(){
+            //判断是否为火狐
+            var ua = window.navigator.userAgent;
+            if(/firefox/i.test(ua)){
+
+                //重新加载当前页面的资源，就是刷新本页面
+                window.location=window.location; //火狐和谷歌支持，ie不支持
+            }else {
+                //reload() 方法用于重新加载当前文档。
+                window.location.reload();//火狐不支持
+            }
+        };
+
+        //获取图片宽度
+        var imgWidth=parseFloat(getComputedStyle(lis[0],null)["width"]);
+        //设置初始位置
+        carousel.style.transform="translateX("+(0-imgWidth)+"px"+")";
+
+        var timer=null;
+
+        //触屏切图
+        var startX,endX;
+        var num=1;
+        innitA();
+        ziDong();
+        carousel.addEventListener("touchstart" ,function(event){
+            var touches=event.targetTouches;
+            if(touches.length==1){
+                startX=touches[0].pageX;
+                endX=0;
+            }
+        });
+
+        carousel.addEventListener("touchmove" ,function(event){
+            var touches=event.targetTouches;
+            if(touches.length==1){
+                endX=touches[0].pageX;
+            }
+        });
+
+
+        carousel.addEventListener("touchend" ,function(event){
+            if(endX==0){
+                return;
+            }
+            //向左划
+            if(startX>endX){
+                clearInterval(timer);
+                num++;
+                innitA();
+                carousel.style.transition="1s linear" ;
+                carousel.style.transform="translateX("+(0-imgWidth*num)+"px"+")";
+                ziDong();
+                if(num==lis.length-1){
+                    setTimeout(function(){
+                        replay();
+                    },1001)
+
+                }
+            }
+            //向右划
+            if(startX<endX){
+                clearInterval(timer);
+                num&#45;&#45;;
+                innitA();
+                carousel.style.transition="1s linear" ;
+                carousel.style.transform="translateX("+(0-imgWidth*num)+"px"+")";
+                ziDong();
+                if(num==0){
+                    setTimeout(function(){
+                        replays();
+                    },1001)
+                }
+            }
+
+
+        });
+
+
+        function replay(){
+            num = 1;
+            carousel.style.transition = "none";
+            carousel.style.transform="translateX("+(0-imgWidth*num)+"px"+")";
+        }
+
+        function replays(){
+            num = lis.length-2;
+            carousel.style.transition = "none";
+            carousel.style.transform="translateX("+(0-imgWidth*num)+"px"+")";
+        }
+        //自动轮播
+        function ziDong(){
+            timer=setInterval(function(){
+                num++;
+                innitA();
+                carousel.style.transition="1s linear" ;
+                carousel.style.transform="translateX("+(0-imgWidth*num)+"px"+")";
+                if(num==lis.length-1){
+                    setTimeout(function(){
+                        replay();
+                    },1001)
+                }
+
+            },3000)
+
+        }
+        //导航点样式
+
+        function innitA(){
+            for(var i=0;i<nav.length;i++){
+                nav[i].style.backgroundColor="";
+            }
+            if(num<nav.length+1&&num>=1){
+                nav[num-1].style.backgroundColor="red";
+            }
+            if(num==nav.length+1){
+                nav[0].style.backgroundColor="red";
+            }
+            if(num==0){
+                nav[nav.length-1].style.backgroundColor="red";
+            }
+
+        }
+
+
+
+    };
+
+
+</script>-->
+
+</html>

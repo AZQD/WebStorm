@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //获取数组中的第一个对象
+    var obj1={name:"swk"};
+    var obj2={name:"zbj"};
+    var array=[obj1,obj2];
+    var result=array[0];
+    var num=123;
+    //console.log(result);
+
+    //instanceof 判断一个变量是否某个对象的实例
+    var str="hello world";
+    function fun(){}
+
+
+    console.log(typeof  array);//Object
+    console.log(typeof  obj1);//Object
+    console.log(typeof  num);//Number
+    console.log(typeof  str);//String
+    console.log(typeof  true);//Boolean
+    console.log(array instanceof Array);//true
+    console.log(obj1 instanceof Object);//true
+    console.log(num instanceof Number);//false
+    console.log(str instanceof String);//false
+    console.log(true instanceof Boolean);//false
+
+    console.log("****************************");
+
+    //注意: Function.arguments是null
+    console.log(Function);//Function() { [native code] }
+    console.log(Function.arguments);//null
+    console.log(typeof Function.arguments[0]);//object
+    console.log(Function.arguments instanceof  Array);//false
+    console.log(Function.arguments instanceof  Object);//false
+
+
+</script>
+</html>

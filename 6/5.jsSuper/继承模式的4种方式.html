@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //继承模式的4种方式：主要了解第三种：
+    
+    //1.原型链继承
+    //使用原型链实现对原型对象属性和方法的继承
+    
+    //2.借用构造函数的继承
+    //使用构造函数实现对实例对象属性的继承
+    /*function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.setName = function(name){
+        this.name = name;
+    };
+    
+    function Worker(name, age, salary){
+        //将Person作为Worker的实例对象的方法调用。
+        Person.call(this, name, age);
+        this.salary = salary;
+    }
+    var worker = new Worker('bob', 20, 12000);
+    console.log(worker);
+    worker.setName('tom');//会报错！*/
+    
+    //3.组合继承
+    // 组合继承是很常用的继承方式，但是它也有个缺点，就是需要调用两次超类型的构造函数。
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.setName = function(name){
+        this.name = name;
+    };
+    
+    function Worker(name, age, salary){
+        //将Person作为Worker的实例对象调用
+        Person.call(this, name, age);
+        this.salary = salary;
+    }
+    //修改Worker的prototype值为Person的实例对象。
+    Worker.prototype =  new Person();   //不传参数
+    var worker = new Worker('bob', 20, 12000);
+    console.log(worker);
+    worker.setName('jack');
+    console.log(worker);
+    console.log(Person);
+    console.log(Object.prototype.__proto__);
+
+    //4.寄生式组合式继承
+    
+
+</script>
+</body>
+</html>

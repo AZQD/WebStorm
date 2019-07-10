@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <link rel="stylesheet" href="../js/bootstrap-3.3.5/css/bootstrap.css">
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+
+<div class="container">
+    <br/>
+    <br/>
+    <form class="form-horizontal" name="userForm">
+        <!--1. 用户名: 必须的，长度为6--8位-->
+        <!--注意：1.ng-module别忘写了
+                  2.为了正常刷新出页面，将class="alert alert-danger" 改为 ng-class="'alert alert-danger'" -->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="用户名" name="username"
+                    ng-model="user.username"
+                    ng-required="true"
+                    ng-minlength="6"
+                    ng-maxlength="8">
+
+                <div ng-class="'alert alert-danger'" ng-messages="userForm.username.$error"
+                ng-show="userForm.username.$dirty && userForm.username.$invalid">
+                    <span ng-message="required" ng-bind="'用户名是必须的'"></span>
+                    <span ng-message="minlength" ng-bind="'最小长度6位'"></span>
+                    <span ng-message="maxlength" ng-bind="'最大长度8位'"></span>
+                </div>
+            </div>
+        </div>
+
+        <!--2. 密码：必须的，6到8位的字母-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" placeholder="密码" name="password"
+                       ng-model="user.password"
+                       ng-required="true"
+                       ng-pattern="/^[a-zA-z]{6,8}$/">
+
+                <div ng-class="'alert alert-danger'" ng-messages="userForm.password.$error"
+                     ng-show="userForm.password.$dirty && userForm.password.$invalid">
+                    <span ng-message="required" ng-bind="'密码是必须的'"></span>
+                    <span ng-message="pattern" ng-bind="'密码必须6-8位字母'"></span>
+                </div>
+            </div>
+        </div>
+        <!--3. 确认密码：必须与密码相同-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">确认密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" placeholder="确认密码" name="rwd"
+                       ng-model="user.rwd">
+
+                <div ng-class="'alert alert-danger'"
+                     ng-show="user.rwd != user.password && userForm.rwd.$dirty">
+                    <span ng-bind="'确认密码必须和密码一致！'"></span>
+                </div>
+            </div>
+        </div>
+        <!--4. 邮箱：必须的，必须是邮箱格式-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">邮箱</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" placeholder="邮箱" name="email"
+                       ng-model="user.email"
+                       ng-required="true">
+
+                <div ng-class="'alert alert-danger'" ng-messages="userForm.email.$error"
+                     ng-show="userForm.email.$dirty && userForm.email.$invalid">
+                    <span ng-message="required" ng-bind="'邮箱是必须的'"></span>
+                    <span ng-message="email" ng-bind="'邮箱必须是合法格式'"></span>
+                </div>
+            </div>
+        </div>
+        <!--5. 网址：必须的，必须是网址格式-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">博客</label>
+            <div class="col-sm-10">
+                <input type="url" class="form-control" placeholder="博客" name="blog"
+                       ng-model="user.blog"
+                       ng-required="true">
+
+                <div ng-class="'alert alert-danger'" ng-messages="userForm.blog.$error"
+                     ng-show="userForm.blog.$dirty && userForm.blog.$invalid">
+                    <span ng-message="required" ng-bind="'博客是必须的'"></span>
+                    <span ng-message="url" ng-bind="'博客必须是URL格式'"></span>
+                </div>
+            </div>
+        </div>
+        <!--6. 年龄：必须的，必须在10到30之间-->
+        <!--注意：这里限制年龄用的是：min="10"  max="30"-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">年龄</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" placeholder="年龄" name="age"
+                       ng-model="user.age"
+                       min="10"
+                       max="30"
+                       ng-required="true">
+
+                <div ng-class="'alert alert-danger'" ng-messages="userForm.age.$error"
+                     ng-show="userForm.age.$dirty && userForm.age.$invalid">
+                    <span ng-message="required" ng-bind="'年龄是必须的'"></span>
+                    <span ng-message="min" ng-bind="'年龄必须大于10'"></span>
+                    <span ng-message="max" ng-bind="'年龄必须小于30'"></span>
+                </div>
+            </div>
+        </div>
+        <!-- 7. 性别：必须选择-->
+        <!--注意：多选框是：.checkbox-inline，单选框是：.radio-inline-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">性别</label>
+            <div class="col-sm-10">
+                <label class="radio-inline">
+                    <input type="radio" name="sex" value="male" ng-model="user.sex" ng-required="true"> 男
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="sex" value="female" ng-model="user.sex" ng-required="true"> 女
+                </label>
+            </div>
+        </div>
+        <!--8. 爱好：至少选择2项-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">爱好</label>
+            <div class="col-sm-10">
+                <label class="checkbox-inline" ng-repeat="like in allLikes">
+                    <input type="checkbox" value="{{like.id}}" ng-model="like.checked"
+                           name="likes" ng-click="changeLike(like.id)">
+                    <span ng-bind="like.name"></span>
+                </label>
+
+                <div ng-class="'alert alert-danger'"
+                     ng-show="user.likes.length<2 && userForm.likes.$dirty">
+                    <span ng-bind="'至少选择两项'"></span>
+                </div>
+            </div>
+        </div>
+        <!--9. 职业：必须选择一个-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">职业</label>
+            <div class="col-sm-10">
+                <select class="form-control" name="job" ng-model="user.job"
+                    ng-required="true">
+                    <option value="">-未选择-</option>
+                    <option ng-repeat="item in jobs" value="{{item}}" ng-bind="item"></option>
+                </select>
+
+                <div ng-class="'alert alert-danger'" ng-messages="userForm.job.$error"
+                     ng-show="userForm.job.$dirty && userForm.job.$invalid">
+                    <span ng-message="required" ng-bind="'职业是必须的'"></span>
+                </div>
+            </div>
+        </div>
+        <!--  10. 同意条款：必须同意-->
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="agree" name="yes"
+                        ng-required="true" ng-click="changeAgree()"> 同意条款
+                    </label>
+                </div>
+                <div ng-class="'alert alert-danger'" ng-messages="userForm.yes.$error"
+                     ng-show="userForm.yes.$dirty && userForm.yes.$invalid">
+                    <span ng-message="required" ng-bind="'条款是必须的'"></span>
+                </div>
+            </div>
+        </div>
+        <!--注册-->
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default"
+                ng-disabled="userForm.$invalid || user.rwd != user.password || user.likes.length <2">注册</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<script type="text/javascript" src="../js/angular-1.5.5/angular.js"></script>
+<script type="text/javascript" src="../js/angular-1.5.5/angular-messages.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', ['ngMessages'])
+        .controller('MyController', function($scope){
+            $scope.user = {
+                username : 'beijing',
+                password : 'aaaaaa',
+                rwd : 'aaaaaa',
+                email : 'abc@qq.com',
+                blog : 'http://www.baidu.com',
+                age : 20,
+                sex : 'male',
+                likes : [],
+                agree : '不同意'
+            };
+            $scope.allLikes = [
+                {
+                    id : 9,
+                    name : '音乐'
+                },
+                {
+                    id : 12,
+                    name : '旅行'
+                },
+                {
+                    id : 6,
+                    name : '书法'
+                }
+            ];
+            $scope.jobs = ['公务员', '研究生', '本科生'];
+            $scope.changeLike = function (id) {
+                //保存用户操作的标识
+                $scope.userForm.likes.$dirty = true;
+
+                var index = $scope.user.likes.indexOf(id); //如果不存在返回-1
+                if(index===-1) {
+                    $scope.user.likes.push(id); //放进去
+                } else {
+                    $scope.user.likes.splice(index, 1); //移除
+                }
+            };
+
+            $scope.changeAgree = function () {
+                $scope.user.agree = $scope.user.agree=== '不同意' ? "同意" : '不同意';
+            }
+        });
+</script>
+</body>
+
+</html>
+
+     

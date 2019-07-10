@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        *{margin: 0; padding: 0}
+        .wrapper{
+            min-width: 700px;
+        }
+        header,footer{
+            background-color: #F842A0;
+            border: 3px solid greenyellow;
+        }
+        .container{
+            overflow: hidden;
+            padding:0 200px 0 100px;
+        }
+        .middle,.left,.right{
+            float: left;
+            position: relative;
+            padding-bottom: 10000px;
+            margin-bottom: -10000px;
+        }
+        .left{
+            width: 100px;
+            background-color: yellow;
+            margin-left: -100%;
+            left: -100px;
+        }
+        .right{
+            width: 200px;
+            background-color: green;
+            margin-left: -200px;
+            right: -200px;
+        }
+        .middle{
+            width: 100%;
+            background-color: blue;
+        }
+        /*footer{
+            clear: both;
+        }*/
+    </style>
+</head>
+<body>
+<!--圣杯布局：中间三个div在一个container内部-->
+<!--思路：
+1.对中间三个div设置左浮动
+2.设置三个div的宽度，middle为100%，对middle设置左右padding
+3.通过margin-left设置左右两个div的位置
+4.等高布局padding-bottom, margin-bottom
+-->
+<div class="wrapper">
+    <header><h1>header</h1></header>
+
+    <div class="container">
+        <div class="middle">
+            <h1>middle</h1>
+            <p>我忽而听到夜半的笑声，吃吃地，似乎不愿意惊动睡着的人，然而四围的空气都应和着笑。
+                夜半，没有别的人，我即刻听出这声音就在我嘴里，我也即刻被这笑声所驱逐，
+                回进自己的房。灯火的带子也即刻被我旋高了。</p>
+        </div>
+        <div class="left">
+            <h1>left</h1>
+            <h2></h2>
+            <p>在我的后园，可以看见墙外有两株树，一株是枣树，还有一株也是枣树。</p>
+        </div>
+        <div class="right">
+            <h1>right</h1>
+            <p>千淘万漉虽辛苦，吹尽黄沙始到金</p>
+        </div>
+    </div>
+    <footer><h1>footer</h1></footer>
+    <p>我是footer下面的内容</p>
+</div>
+</body>
+</html>

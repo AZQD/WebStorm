@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 300px;
+            /*列宽已经固定，不因内容多少发生变化。*/
+            table-layout: fixed;
+            /*边框折叠成正常状态。*/
+            border-collapse: collapse;
+        }
+        td{
+            border: 1px solid red;
+            width: 100px;
+
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>1111111111111111111111</td>
+            <td>222222222222222</td>
+            <td>3333333333333333333</td>
+        </tr>
+    </table>
+
+    <hr/>
+
+    <table>
+        <tr>
+            <td title="我是第一个">1</td>
+            <td title="我是第二个">2</td>
+            <td title="我是第三个">3</td>
+        </tr>
+    </table>
+    <p>鼠标悬浮到1，2，3上时，可以看到不一样的效果。</p>
+</body>
+</html>

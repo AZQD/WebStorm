@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //JS在创建对象（不论是普通对象还是函数对象）的时候，
+    // 都有一个叫做__proto__的内置属性，
+    // 用于指向创建它的函数对象的原型对象prototype。
+    function MyClass(){
+    }
+    var aa = new MyClass();
+    var bb = new MyClass();
+    console.log(aa.__proto__);//MyClass
+    console.log(aa.__proto__.__proto__);//Object
+    console.log(aa.__proto__.__proto__.__proto__);//null
+    //console.log(aa.__proto__.__proto__.__proto__.__proto__);//报错
+
+    console.log(MyClass.prototype);//MyClass
+    console.log(MyClass.prototype.__proto__);//Object
+    console.log(MyClass.prototype.__proto__.__proto__);//null
+    
+    console.log(Object.prototype);//Object
+    console.log(Object.prototype.__proto__);//null
+    
+    console.log(Function.prototype); //function(){}
+    console.log(Function.prototype.__proto__); //Object
+    console.log(Function.prototype.__proto__.__proto__); //null
+
+
+    console.log(Object.prototype); //Object {}
+    console.log(Object.prototype.__proto__);//null
+
+    console.log(Object.__proto__); //function() {}
+    console.log(Object.__proto__.__proto__);//Object {}
+    console.log(Object.__proto__.__proto__.__proto__);//null
+</script>
+
+</body>
+</html>

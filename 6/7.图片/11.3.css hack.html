@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        .box{
+            width: 100px;
+            height: 100px;
+            /**background-color: blue;
+            _background-color: blue;
+
+             _： 选择IE6及以下。连接线（中划线）（-）亦可使用，为了避免与某些带中划线的属性混淆，所以使用下划线（_）更为合适。
+             *： 选择IE7及以下。诸如：（+）与（#）之类的均可使用，不过业界对（*）的认知度更高
+            \9： 选择IE6+
+            \0： 选择IE8+和Opera15以下的浏览器
+            */
+
+        }
+        /*支持firefox*/
+        @-moz-document url-prefix() { .box {background-color:yellow} }
+        /*支持chrome*/
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            .box {background-color:yellowgreen}
+        }
+    </style>
+    <!--[if IE 9]>
+    <style type="text/css">
+        .box{
+            background-color : red;
+        }
+    </style>
+    <![endif]-->
+
+    <!--[if IE 8]>
+    <style type="text/css">
+        .box{
+            background-color : green;
+        }
+    </style>
+    <![endif]-->
+
+    <!--[if IE 7]>
+    <style type="text/css">
+        .box{
+            background-color : blue;
+        }
+    </style>
+    <![endif]-->
+
+    <!--[if IE 6]>
+    <style type="text/css">
+        .box{
+            background-color : fuchsia;
+        }
+    </style>
+    <![endif]-->
+
+
+</head>
+<body>
+
+
+<div class="box"></div>
+</body>
+</html>

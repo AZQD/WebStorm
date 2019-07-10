@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //字符串
+    // split indexOf length slice：不可调换顺序 substring：可调换顺序 substr concat
+    //charAt charCodeAt toUpperCase toLowerCase toLocal
+    //match replace   match:匹配之后是一个数组；
+    var str = 'abcd';
+    var result = str.match(/[a-z]/ig);
+    console.log(result instanceof Array);
+
+    //数组
+    //length forEach, map sort filter indexOf
+    //join reverse concat splice slice pop push unshift shift
+    //toString
+
+
+    //1.使用 .forEach来遍历
+    /*var arr = [12, true, 'lift', 66, 'catch'];
+    var result = arr.forEach(function (item, index) {
+        console.log(item, index);
+    });*/
+
+    //2.使用 .some和.every来断言
+    // .some方法可以在遍历数组中的每个元素时执行回调函数，直到回调函数返回true为止
+    // .every也是同样的道理，但他的短路是发生在回调函数返回false时。
+    /*var max = 0;
+    var satisfied = [10, 12, 10, 8, 5, 23].some(function (item, index, array) {
+        //当为8时，返回true
+        if (item > max) max = item;
+        console.log(item, index, array, max);
+        return item < 10
+    });
+
+    console.log(max);//12
+    console.log(satisfied); //true  返回值是布尔类型
+*/
+    //3.使用 .join and .concat 来合并
+    /*var str = 'heslhdelsdllo';
+    console.log(str.split('e')); //["h", "slhd", "lsdllo"]
+
+    var arr = [12, true, 'lift', 66, 'catch'];
+    console.log(arr.join('%%'));
+    console.log(typeof arr.join(''));
+    
+    console.log(arr.concat([11, 22]));*/
+    
+    //4.使用 .pop, .push, .shift, and .unshift 来操作栈和队列
+    //联想栈的结构
+    //var arr = [12, true, 'lift', 66, 'catch'];
+    //arr.pop();//删除尾部元素
+    //arr.push('abc', 'sd');//向尾部添加元素
+    //arr.shift();//删除头部元素
+    //arr.unshift(20);
+    //console.log(arr);
+
+    //5.使用 .map 映射模型
+    //.map在遍历数组中的每个元素时执行一次回调函数，并且会返回一个新的数组。
+    //回调函数只会对数组的元素索引执行，并不会对已删除或没元素的索引而执行。
+    /*var arr = [12, true, 'lift', 66, 'catch'];
+    var result = arr.map(function(item, index, array){
+        console.log(item, index, array);
+        return item;
+    });
+    console.log(result instanceof Array);  //true 返回值是一个数组*/
+
+    //6.使用 .filter 来做查询
+    // .filter在遍历数组中的每个元素时执行一次回调函数，
+    // 并且回调函数返回的true时，他将会保存这当前元素，最后返回一个新数组。
+    /*var arr1 = [0, null, undefined, false, true, 1, '', 'abc'];
+    var result = arr1.filter(function(item){
+        return item;
+    });
+    console.log(result);  //[true, 1, "abc"]
+    console.log(result instanceof Array); //true 返回值是一个新数组*/
+
+    /*//7.使用.sort 来做排序
+    /!*var arr = [9,80,3,10,5,6];
+    var result = arr.sort(function(a, b){
+        return a - b; //正序
+        //return 0; //不改变顺序
+        //return b - a; //逆序
+    });
+    console.log(result); // [3, 5, 6, 9, 10, 80]   返回一个正序的新数组*!/*/
+
+//    8.indexOf,lastIndexOf（第二个参数表示从第几项开始检索）
+    /*var arr = [9, 80, 3, 10, 5, 6];
+    console.log(arr.indexOf(10, 1));  //3
+    console.log(arr.lastIndexOf(10, 1));  //-1
+
+    和字符串的indexOf区别
+     var str = 'abcdefg';
+     console.log(str.indexOf('cd'));  //2
+    */
+
+//    9.reduce(), reduceRight()
+    //接收一个函数作为累加器（accumulator），数组中的每个值（从左到右）开始合并，最终为一个值。
+    
+
+
+
+
+
+</script>
+</body>
+</html>

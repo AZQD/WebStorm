@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        table, th, td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="MyController">
+    <div>
+
+    </div>
+
+    <script src="../javascripts/angular.js"></script>
+    <script>
+        angular.module('myApp',[])
+                .controller('MyController', function($scope, $http){
+                    //get第一种方法
+                    /*$http({
+                        method : 'GET',
+                        url : '/get',
+                        params : {username : 'Tom', pwd : 'abc123'}
+                    })
+                            .success(function(data){
+                                console.log(data, typeof data);
+                                $scope.emps = data;
+                            })
+                            .error(function(data){
+                                console.log(data);
+                            })*/
+                    //$http.get('/get?username=Tom&pwd=abc123')
+                            .success(function(data){
+                                console.log(data, typeof data);
+                                $scope.emps = data;
+                            })
+                            .error(function(data){
+                                console.log(data);
+                            })
+                });
+    </script>
+</body>
+
+</html>

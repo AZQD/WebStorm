@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <button id="btn2">按钮2</button>
+    <script>
+        var btn=document.querySelector("#btn");
+        var btn2=document.querySelector("#btn2");
+        btn.onclick=function(){
+            var json={"name":"li"};
+            window.history.pushState(json,"biaoti","http://localhost:63342/Webstorm/6.24/abc.html");
+        };
+        btn2.onclick=function(){
+            var json={"name":"zhao"};
+            window.history.replaceState(json,"biaoti","http://localhost:63342/Webstorm/6.24/def.html");
+        };
+        window.onpopstate=function(event){
+            if(event.state!=null){
+                console.log("触发"+event.state.name);
+            }
+        };
+    </script>
+</body>
+</html>

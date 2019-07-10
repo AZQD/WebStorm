@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <script type="text/javascript" src="7.栈.js"></script>
+    <script type="text/javascript">
+        //判断一个字符串是否是一个回文
+        function isPalindrome2(str){
+            return str.split('').reverse().join('') === str;
+        }
+
+        function isPalindrome(str){
+            var stack = new Stack();
+            //length
+            for(var i= 0; i<str.length;i++){
+                stack.push(str.charAt(i));
+            }
+            var newStr = '';
+            while(stack.size()>0){
+                newStr +=stack.pop();
+            }
+            return newStr ===str;
+        }
+
+
+        console.log(isPalindrome('abcdcba'));
+        console.log(isPalindrome('aaabbb'));
+    </script>
+</head>
+<body>
+
+</body>
+
+</html>

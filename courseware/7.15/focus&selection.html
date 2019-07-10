@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box::selection{
+            background-color: red;
+            color: yellow;
+        }
+        input{
+            outline: none;
+        }
+        input:focus{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">选中我，你会看到不一样的效果哦~</div>
+    <hr/>
+    <form action="">
+        <input type="text">
+    </form>
+</body>
+</html>

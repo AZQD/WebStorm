@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            border:1px solid red;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2"></div>
+    <br clear="both"/>
+</div>1
+<script type="text/javascript">
+    /**清除浮动的几7种方式：
+     * 1.给父元素指定宽高；缺点：扩展性不好；
+     * 2.父元素下加div，对div清除浮动:clear:both; 缺点：IE有偏差；
+     * 3.父元素：overflow:hidden; zoom:1(IE6);
+     * 4.after伪类：对父元素添加类clearFix：
+     * .clearFix:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+     .clearFix{
+            zoom: 1;
+        }
+     *5.父元素：display: inline-block; 缺点：左右的margin失效；
+     *6.父元素：float: left; 缺点：左右的margin失效；
+     * 7.br清浮动：.box2下面添加<br clear="both"  /> 缺点：结构表现行为不分离；
+     */
+</script>
+</body>
+</html>

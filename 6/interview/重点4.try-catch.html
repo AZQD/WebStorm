@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+    <style type="text/css">
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2"></div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    var box1 = document.getElementById('box1');
+    var box2 = document.getElementById('box2');
+    box1.onclick = function(){
+        console.log('box1');
+    };
+    box2.onclick = function(ev) {
+        ev = ev || event;
+        console.log('box2');
+        //取消冒泡
+        try{
+            ev.stopPropagation(); //IE8以上浏览器支持
+        }catch(e){
+            ev.cancelBubble = true; //基本所有浏览器都支持
+        }
+    };
+
+
+
+</script>
+
+</html>

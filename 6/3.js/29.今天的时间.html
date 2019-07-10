@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<span id="content"></span>
+<script type="text/javascript">
+    /*var time = new Date();
+    console.log(time);
+    var year = time.getFullYear();
+    var month = time.getMonth()+1;
+    console.log(typeof month);
+    month = (month<10 ? '0':'') +month;
+    console.log(typeof month);
+    var day = time.getDate();
+    console.log(month);
+    
+    //星期几
+    var num = time.getDay();
+    console.log(num);
+    var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+    console.log(arr[num]);
+    
+    console.log(time.getHours());
+    console.log(time.getMinutes());
+    console.log(time.getSeconds());
+    console.log(time.getMilliseconds());*/
+
+
+
+
+
+    function nowTime(){
+        var time = new Date(1508401760000);
+        console.log(time);
+        var year = time.getFullYear();
+        var month = time.getMonth() + 1;
+        month = (month<10?'0':'') + month;
+        var day = time.getDate();
+        day = (day<10?'0':'') + day;
+        var week = time.getDay();//周一 1
+        var arr = [7,1,2,3,4,5,6];
+        week = arr[week];
+        var hour = time.getHours(); //
+        hour = (hour<10?'0':'') + hour;
+        var minutes = time.getMinutes();
+        minutes = (minutes<10?'0':'') + minutes;
+        var seconds = time.getSeconds();
+        seconds = (seconds<10?'0':'') + seconds;
+        var minllseconds = time.getMilliseconds();
+        if(minllseconds<10){
+            minllseconds = '00'+minllseconds;
+        }else if(minllseconds<100){
+            minllseconds = '0'+minllseconds;
+        }
+//        setTimeout(nowTime, 200);
+        var result = year+month+day+'星期'+week+hour+minutes+seconds+minllseconds;
+        content.innerHTML = result;
+    }
+    nowTime();
+
+
+</script>
+</body>
+</html>

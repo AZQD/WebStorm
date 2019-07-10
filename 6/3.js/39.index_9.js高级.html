@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+<ul id="test">
+    <li name="1">这是第1条</li>
+    <li name="2">这是第2条</li>
+    <li name="3">这是第3条</li>
+</ul>
+<script type="text/javascript">
+    var lis = document.getElementsByTagName('li');
+
+//    还有一种方法：let
+
+  /* //方法一：闭包
+    for(var i=0; i<lis.length; i++){
+        lis[i].onclick = function(index){
+            return function(){
+                alert(index);
+            };
+        }(i);
+    }*/
+
+    //方法二： 闭包
+    /*for(var i=0; i<lis.length; i++){
+        lis[i].index = i;
+        lis[i].onclick = (function(index){
+            return function(){
+                alert(index);
+            }
+        })(i);
+    }*/
+
+
+    //方法三： this
+    /*for(var i=0; i<lis.length; i++){
+        lis[i].index = i;
+        lis[i].onclick = function(){
+            alert(this.index);
+        };
+    }*/
+
+    //方法四： getAttribute
+    ////获取当前索引值(这个方法应该不是正规的方法，
+    // 要是需要就用上面的这种方法，这个作为了解的方法之一)
+    for(var i=0; i<lis.length; i++){
+        lis[i].onclick = function(){
+            alert(this.getAttribute('name'));
+        };
+    }
+
+</script>
+</body>
+</html>

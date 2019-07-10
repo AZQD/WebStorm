@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KEEP MOVING</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        //    网址：http://blog.csdn.net/chengxuyuan20100425/article/details/8497277
+
+        //数组去重方法五： 太重要啦！！！
+        var set = new Set([2, 5, 3, 1, 5, 6, 2, 4]);
+        console.log(set); //Set {2, 5, 3, 1, 6…}
+        console.log(typeof set); //object
+        /*var arrNew = [];
+        for(item of set){
+            console.log(item);
+            arrNew.push(item);
+        }
+        console.log(arrNew); //[2, 5, 3, 1, 6, 4]*/
+        
+        /*//也可以用伪数组转换成数组的方法。
+        var result = Array.from(set);
+        console.log(result);*/
+        var obj = {name:'zs',age:11};
+        console.log(obj.name);
+        console.log(obj['name']);
+
+        //方法六：可以用npm加载数组去重的模块，npm install uniq.js, 实现数组去重。
+        
+        //数组去重方法一：
+        //
+        /*Array.prototype.unique1 = function()
+        {
+            var arrNew = []; //一个新的临时数组
+            for(var i = 0; i < this.length; i++) //遍历当前数组
+                    //console.log(this);
+            {
+                //如果当前数组的第i已经保存进了临时数组，那么跳过，
+                //否则把当前项push到临时数组里面
+                if (arrNew.indexOf(this[i]) == -1){
+                    //console.log(this[i]);
+                    arrNew.push(this[i]);
+                }
+            }
+            return arrNew;
+        };
+        var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0];
+        console.log(arr.unique1());*/
+
+        //不定义到原型上
+        /*function sortArr(arr){
+         var arrNew = [];
+         for (var i = 0; i < arr.length; i++) {
+         if(arrNew.indexOf(arr[i]) == -1){
+         arrNew.push(arr[i]);
+         }
+         }
+         return arrNew;
+         }*/
+
+
+
+
+        /*//数组去重方法二：
+         Array.prototype.unique2 = function()
+         {
+         var n = [this[0]]; //结果数组
+         for(var i = 1; i < this.length; i++) //从第二项开始遍历
+         {
+         //如果当前数组的第i项在当前数组中第一次出现的位置不是i，
+         //那么表示第i项是重复的，忽略掉。否则存入结果数组
+         if (this.indexOf(this[i]) == i)
+            n.push(this[i]);
+         }
+         return n;
+         };
+         var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0];
+         console.log(arr.unique2());*/
+
+
+        //数组去重方法三：
+        /*这个方法的思路是先把数组排序，然后比较相邻的两个值。
+         排序的时候用的JS原生的sort方法，JS引擎内部应该是用的快速排序吧。
+         最终测试的结果是此方法运行时间平均是第二种方法的三倍左右，
+         不过比第一种和第三种方法快了不少。*/
+        /*Array.prototype.unique3 = function()
+         {
+         this.sort();  //先进行排序，然后相邻的两个进行对比，查重
+         var re=[this[0]];
+         for(var i = 1; i < this.length; i++)
+         {
+         if( this[i] !== re[re.length-1])
+         {
+         re.push(this[i]);
+         }
+         }
+         return re;
+         };
+         var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0];
+         console.log(arr.unique3());*/
+
+
+        //数组去重方法四： 看看，先不做掌握
+        /*Array.prototype.unique4 = function()
+        {
+            var n = {},r=[]; //n为hash表，r为临时数组
+            for(var i = 0; i < this.length; i++) //遍历当前数组
+            {
+                if (!n[this[i]]) //如果hash表中没有当前项
+                {
+                    n[this[i]] = true; //存入hash表
+                    r.push(this[i]); //把当前数组的当前项push到临时数组里面
+                }
+            }
+            return r;
+        };
+        var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0];
+        console.log(arr.unique4());*/
+        
+        
+    /*function sortArr(arr){
+        var arrNew = [];
+        for (var i = 0; i < arr.length; i++) {
+            if(arrNew.indexOf(arr[i]) == -1){
+                arrNew.push(arr[i]);
+            }
+        }
+        return arrNew;
+    }
+        var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0];
+        var result = sortArr(arr);
+        console.log(result);*/
+
+
+    </script>
+</body>
+</html>

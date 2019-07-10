@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script type="text/javascript">
+
+        //当页面加载好的时候运行， 显示欢迎
+        function pageOnload(){
+            var name = getCookie('userName');
+            console.log(name);
+            document.getElementById('userName').value = name;
+        }
+
+        //获得某个 cookie
+        function getCookie(cookieName)
+        {
+            //如果 cookie 不空
+            if (document.cookie.length>0)
+            {
+                //找到 cookieName= 所在的位置
+                var cookieStart = document.cookie.indexOf( cookieName + '=');
+                if (cookieStart != -1)
+                {
+                    //找到 cookieName= 之后， 第一个 ; 所在的位置
+                    cookieStart = cookieStart + cookieName.length + 1;
+                    var cookieEnd = document.cookie.indexOf( ";", cookieStart );
+                    if (cookieEnd === -1){
+                        //如果没找到，那么就说明当前是最后一个名值对
+                        cookieEnd = document.cookie.length;
+                    }
+                    //裁剪出 名值对中的 值 ， 并且 返回
+                    return document.cookie.substring(cookieStart,cookieEnd);
+                }
+                else {
+                    return '';
+                }
+            }
+            else {
+                return '';
+            }
+        }
+
+    </script>
+</head>
+<body onload="pageOnload()">
+<form method="post" action="/login">
+    <label for="userName">userName:</label>
+    <input type="text" id="userName" name="userName" ><br>
+    <label for="password">password:</label>
+    <input type="text" id="password" name="password" ><br>
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>

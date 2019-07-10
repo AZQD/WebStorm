@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a,img{
+            border:none;
+            text-decoration: none;
+        }
+        body{
+            font:16px/1.2 Arial,Helvetica,sans-serif,"微软雅黑";
+        }
+        .sdmenu{
+            width: 150px;
+            margin: 0 auto;
+            font-family: Arial,sans-serif;
+            font-size: 12px;
+            padding-bottom:10px;
+            color: #bfa;
+            background: url("img/bottom.gif")no-repeat right bottom;
+        }
+        .sdmenu div{
+            background: url("img/title.gif") repeat-x;
+            overflow: hidden;
+        }
+        .sdmenu div:first-child{
+            background: url("img/toptitle.gif")no-repeat;
+        }
+        .collapsed{
+            height: 25px;
+        }
+        .sdmenu div span{
+            display: block;
+            overflow: hidden;
+            height: 15px;
+            line-height: 15px;
+            padding: 5px 25px;
+            font-weight: bold;
+            color: white;
+            background: url("img/expanded.gif")no-repeat 10px center;
+            cursor: pointer;
+            border-bottom:1px solid #ddd;
+        }
+        .sdmenu .collapsed span{
+            background-image: url("img/collapsed.gif");
+        }
+        .sdmenu div a{
+            display: block;
+            padding: 5px 10px;
+            background: #EEEEEE;
+            color: #066;
+            border-bottom:1px solid #ddd;
+        }
+
+        .sdmenu div a:hover{
+            background: #066 url("img/linkarrow.gif")no-repeat right center;
+            color: #ffffff;
+            text-decoration: none;
+        }
+    </style>
+    <script src="js/atguigu-tools.js"></script>
+    <script>
+        window.onload=function(){
+
+            var menuSpan=getEleByClass("menuSpan");
+            var opend=menuSpan[0].parentNode;
+            for(var i=0;i<menuSpan.length;i++){
+                menuSpan[i].onclick=function(){
+                    //alert("hi");
+                    var parentDiv=this.parentNode;
+                    toggleMenu(parentDiv);
+                    if(opend==parentDiv){
+                        opend=null;
+                    }else{
+                        if(opend!=null){
+                            toggleMenu(opend);
+                        }
+                        opend=parentDiv;
+                    }
+                };
+            }
+        };
+
+        function toggleMenu(obj){
+            var oldHeight=obj.offsetHeight;
+            toggleClass(obj,"collapsed");
+            var newHeight=obj.offsetHeight;
+            obj.style.height=oldHeight+"px";
+            move(obj,"height",newHeight,10,function(){
+               obj.style.height="";
+            });
+        }
+    </script>
+</head>
+<body>
+<div class="sdmenu" id="my_menu">
+    <div>
+        <span class="menuSpan">1</span>
+        <a href="#">01</a>
+        <a href="#">02</a>
+        <a href="#">03</a>
+        <a href="#">04</a>
+    </div>
+    <div class="collapsed">
+        <span class="menuSpan">2</span>
+        <a href="#">01</a>
+        <a href="#">02</a>
+        <a href="#">03</a>
+        <a href="#">04</a>
+    </div>
+    <div class="collapsed">
+        <span class="menuSpan">3</span>
+        <a href="#">01</a>
+        <a href="#">02</a>
+        <a href="#">03</a>
+        <a href="#">04</a>
+    </div>
+    <div class="collapsed">
+        <span class="menuSpan">4</span>
+        <a href="#">01</a>
+        <a href="#">02</a>
+        <a href="#">03</a>
+        <a href="#">04</a>
+    </div>
+</div>
+</body>
+</html>
