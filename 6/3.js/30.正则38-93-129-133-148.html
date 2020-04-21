@@ -7,6 +7,22 @@
 <body>
 
 <script type="text/javascript">
+
+  /*
+  *
+参考文档：https://www.runoob.com/regexp/regexp-metachar.html
+*	零次或多次
++	一次或多次
+?	零次或一次
+\s	匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。
+\S	匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。
+\w  匹配字母、数字、下划线。等价于'[A-Za-z0-9_]'。
+\W  匹配非字母、数字、下划线。等价于 '[^A-Za-z0-9_]'。
+\d	匹配一个数字字符。等价于 [0-9]。
+\D	匹配一个非数字字符。等价于 [^0-9]。
+  *
+  * */
+
     //replace  注意$需要转义
     var str = '<tr><td>{$id}</td><td>{$name}</td></tr>';
     strNew = str.replace(/{\$id}/g, 10).replace(/{\$name}/g, 'Tony');
