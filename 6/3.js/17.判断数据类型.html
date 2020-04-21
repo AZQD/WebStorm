@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>KEEP MOVING</title>
+  <meta charset="UTF-8">
+  <title>KEEP MOVING</title>
 </head>
 <body>
 
@@ -18,19 +18,20 @@
   // 引用数据类型：Object、Array、Function、RegExp、Date、Math(创建出来的对象统称为object)
 
 
-
   // 理解和使用ES6中的Symbol：https://www.jianshu.com/p/f40a77bbd74e
   // 应用场景1：使用Symbol来作为对象属性名(key)
   // 应用场景2：使用Symbol来替代常量
   // 应用场景3：使用Symbol定义类的私有属性/方法
 
   let s = Symbol();
-  let obj = {a:1};
+  let obj = {a: 1};
   obj[s] = 2;
 
   // 常规对象枚举不可以获取symbol
   console.log(Object.keys(obj));
-  for (let item in obj) { console.log(item); }
+  for (let item in obj) {
+    console.log(item);
+  }
   console.log(Object.getOwnPropertyNames(obj));
 
   // 可以获取symbol
@@ -38,31 +39,29 @@
   console.log(Reflect.ownKeys(obj));
 
 
+  // 判断数据类型的方法：(基本数据类型)
+  //方法一:
+  console.log('方法一', typeof undefined);
+  console.log('方法一', typeof NaN);// 'number'
+  console.log('方法一', typeof Symbol()); // 'symbol'
+
+  //方法二: (引用数据类型)
+  var arr = [1, 2, 3];
+  console.log('方法二', 'test' instanceof String);//false(基本数据类型不可用)
+  console.log('方法二', arr instanceof Array);//true 里面用到的Array都是大写
+
+  //方法三:
+  console.log('方法三', 'test'.constructor === String);// true; 里面用到的String都是大写
+  console.log('方法三', arr.constructor === Array);// true里面用到的Array都是大写
+
+  //方法四:
+  console.log('方法四', Object.prototype.toString.call(arr) === '[object Array]');//里面用到的Array都是大写
 
 
-    // 判断数据类型的方法：(基本数据类型)
-    //方法一:
-    console.log('方法一', typeof undefined);
-    console.log('方法一', typeof NaN);// 'number'
-    console.log('方法一', typeof Symbol()); // 'symbol'
-
-    //方法二: (引用数据类型)
-    var arr = [1, 2, 3];
-    console.log('方法二', 'test' instanceof String);//false(基本数据类型不可用)
-    console.log('方法二', arr instanceof Array);//true 里面用到的Array都是大写
-
-    //方法三:
-    console.log('方法三', 'test'.constructor === String);// true; 里面用到的String都是大写
-    console.log('方法三', arr.constructor === Array);// true里面用到的Array都是大写
-
-    //方法四:
-    console.log('方法四', Object.prototype.toString.call(arr) === '[object Array]');//里面用到的Array都是大写
-
-
-    //方法五:用jQuery核心函数的type方法：
-    //string number boolearn null undefined function array object 8种
-    console.log('方法五', $.type(arr));
-    console.log('方法五', $.isArray(arr));
+  //方法五:用jQuery核心函数的type方法：
+  //string number boolearn null undefined function array object 8种
+  console.log('方法五', $.type(arr));
+  console.log('方法五', $.isArray(arr));
 
 </script>
 </body>
