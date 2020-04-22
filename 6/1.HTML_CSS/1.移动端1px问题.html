@@ -34,7 +34,7 @@
         }
     }
 
-    参考：https://zhuanlan.zhihu.com/p/100752129
+    // 参考：https://zhuanlan.zhihu.com/p/100752129
 
     /*
     详细看自己的为知笔记：
@@ -57,10 +57,10 @@
      把布局视口的宽度改成了可视化视口的宽度
 
      解决方法：
-     1.用小数来写px值--js判定支持0.5px
-     2.border-image
-     3. background渐变 ---背景图渐变
-     4. :before, :after与transform-scale缩放的方式(推荐此方式)
+     1. :before, :after与transform-scale缩放的方式(推荐此方式)
+     2.用小数来写px值--js判定支持0.5px
+     3.border-image
+     4. background渐变 ---背景图渐变
      5. flexible.js：---rem解决方案
      这是淘宝移动端采取的方案, github的地址:https://github.com/amfe/lib-flexible. 前面已经说过1px变粗的原因就在于一刀切的设置viewport宽度,
      如果能把viewport宽度设置为实际的设备物理宽度, css里的1px不就等于实际1px长了么. flexible.js就是这样干的.
