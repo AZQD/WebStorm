@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>KEEP MOVING</title>
+  <meta charset="UTF-8">
+  <title>KEEP MOVING</title>
 </head>
 <body>
 
 <script type="text/javascript">
-    var obj = {proto: {a:1,b:2}};
-     function F(){}
-     F.prototype = obj.proto;
-     var f = new F();
-     obj.proto.c = 3;
-     obj.proto = {a:-1, b:-2};
-     alert(f.a);
-     alert(f.c);
-     delete F.prototype['a'];
-     alert(f.a);
-     alert(obj.proto.a);
+  var obj = {proto: {a: 1, b: 2}};
+
+  function F () {
+  }
+
+  F.prototype = obj.proto;
+  var f = new F();
+  obj.proto.c = 3;
+  obj.proto = {a: -1, b: -2};
+  console.log(f.a);//1
+  console.log(f.c);//3
+  delete F.prototype['a'];
+  console.log(f.a);//undefined
+  console.log(obj.proto.a);//-1
 
 </script>
 </body>
