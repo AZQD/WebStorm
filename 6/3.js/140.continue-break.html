@@ -16,6 +16,17 @@
         num++;
     }
     console.log(num);
+
+    // 跳出父级循环
+    parentFor:
+    for(let i = 0; i<3; i++){
+        for(let j = 0; j<5; j++){
+          if(i>1){
+            break parentFor;
+          }
+          console.log(j);
+        }
+    }
 </script>
 </body>
 </html>
