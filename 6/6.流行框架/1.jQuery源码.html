@@ -31,6 +31,8 @@ jQuery把复杂的DOM选取映射到了简单的CSS选择器，对复杂的DOM�
 沙箱中第一句"use strict";是表示使用javascript的严格模式，对于低级的浏览器，这里相当一字符串，所以兼容性是没问题的
 
 
+undefined在老一辈的浏览器是不被支持的，直接使用会报错，js框架要考虑到兼容性，因此增加一个形参undefined。
+
 window本来是没有undefined属性的，所以window.undefined的值就是undefined，
 把undefined赋值给window.undefined属性，undefined就变成全局变量了。
 
