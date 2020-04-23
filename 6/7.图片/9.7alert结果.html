@@ -10,10 +10,19 @@
     var a = {a:1},
         b={a:1},
         c = a;
-    alert(a==b); //false
-    alert(a===b); //false
-    alert(a==c); //true
-    alert(a===c);//true
+    console.log(a==b); //false
+    console.log(a===b); //false
+    console.log(a==c); //true
+    console.log(a===c);//true
+
+    let arr_origin = [1,2,3,4,5];
+    let arr_copy = arr_origin;
+    console.log(arr_copy === arr_origin);
+    arr_origin[2] = 234;
+    console.log(arr_copy);
+    arr_copy[2] = 543;
+    console.log(arr_origin);
+    console.log(arr_copy === arr_origin);
 </script>
 </body>
 </html>
