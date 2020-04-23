@@ -13,6 +13,14 @@
             background-color: red;
         }
 
+
+      #test2{
+
+      }
+      /*获取最后一个desc1*/
+      #test2 .desc1:last-of-type{
+        background-color: red;
+      }
     </style>
 </head>
 <body>
@@ -22,6 +30,15 @@
     <div>div2</div>
     <p>p2</p>
     <p>p3</p>
+</div>
+
+<hr/>
+
+<div id="test2">
+  <p class="desc1">1</p>
+  <p class="desc1">2</p>
+  <p class="desc1">3</p>
+  <div class="nomore">没有更多了</div>
 </div>
 </body>
 </html>
