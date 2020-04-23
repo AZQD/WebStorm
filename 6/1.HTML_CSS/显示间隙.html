@@ -5,19 +5,34 @@
     <title>KEEP MOVING</title>
     <style type="text/css">
         /*<!--display:inline-block的间隙问题-->*/
-        /*方法1*/
+
+
+        /*方法1：*/
+        /*写法不留空格：<a href="">01</a><a href="">02</a><a href="">03</a>*/
+
+        /*方法2：*/
+        /*取消标签闭合：<a href="">01<a href="">02<a href="">03</a>*/
+
+        /*方法3：推荐使用！！！*/
         .box{font-size: 0;}
         a{background-color: red; display: inline-block; font-size: 16px;
         *margin-left: -1px;
         }
 
-        /*方法2*/
-        /*.box{letter-spacing: -8px;}
-        a{background-color: red;display: inline-block;letter-spacing: 0;}*/
+        /*方法4：不规范*/
+        /*.box{letter-spacing: -1px;}*/
+        /*a{background-color: red;display: inline-block;letter-spacing: 0;}*/
 
-        /*方法3*/
+        /*方法5：不规范*/
         /*.box{word-spacing: -8px;}
         a{background-color: red; display: inline-block;word-spacing: 0;}*/
+
+
+
+        /*word-spacing和letter-spacing之间的区别:*/
+        /*https://blog.csdn.net/binlety/article/details/81322077*/
+        .test1 {letter-spacing: 20px}
+        .test2 {word-spacing: 20px}
     </style>
 </head>
 <body>
@@ -27,5 +42,8 @@
     <a href="">02</a>
     <a href="">03</a>
 </div>
+
+<h1 class='test1'>This is header 1</h1>
+<h1 class='test2'>This is header 4</h1>
 </body>
 </html>
