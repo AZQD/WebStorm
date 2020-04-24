@@ -1,4 +1,4 @@
-ju<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,9 +18,9 @@ ju<!DOCTYPE html>
 
     var a = 3, b = 5;
 //    方法1：只能用于整数
-//    a = a^b;
-//    b = b^a;
-//    a = a^b;
+   a = a^b; // ^ 二进制异或运算
+   b = a^b;
+   a = a^b;
 
     //方法2：只能用于整数
     //    a = a+b;
@@ -37,7 +37,7 @@ ju<!DOCTYPE html>
     //b = [a, a = b][0];
 
     //方法5：
-    //eval('a='+b+'; b='+a);
+    // eval('a='+b+'; b='+a);
 
 //    方法6：变量的解构赋值
 //    [a, b] = [b, a];
