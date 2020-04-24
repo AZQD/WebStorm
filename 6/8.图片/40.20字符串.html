@@ -7,12 +7,14 @@
 <body>
 <script type="text/javascript">
 //    var str = '\\u104A0';
-    var str = '\u4edd0'; //解析成文字编码了
+    var str = '\u4eddbj'; //解析成文字编码了
     console.log(str.length); //2
     console.log(str); //2  仝0
     console.log(String(str) === String(str)); //true
-    console.log(RegExp(str) === RegExp(str)); //false
-    console.log(RegExp(str) == '/仝0/'); //true
+    console.log(RegExp(str)); // /仝bj/
+    console.log(RegExp(str) === RegExp(str)); //false 正则本身是object，指向地址不同；
+    console.log(RegExp(str) == '/仝bj/'); //true
+    console.log(RegExp(str) === '/仝bj/'); //false
 </script>
 </body>
 </html>
