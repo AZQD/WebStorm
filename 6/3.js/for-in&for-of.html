@@ -6,40 +6,39 @@
 </head>
 <body>
 <script type="text/javascript">
-    // 参考：http://www.fly63.com/article/detial/1444
+  // 参考：http://www.fly63.com/article/detial/1444
 
-    let obj = {
-      a:1,
-      b:2
-    };
-    let arr = ['a', 'b'];
+  let obj = {
+    a: 1,
+    b: 2
+  };
+  let arr = ['a', 'b'];
 
-    for (let item in obj){
-      console.log(item);
-    }
+  for (let item in obj) {
+    console.log(item);
+  }
 
-    for (let item in arr){
-      console.log(item);
-    }
+  for (let item in arr) {
+    console.log(item);
+  }
 
-    // 不能直接遍历对象
-    for (let item of Object.keys(obj)){
-      console.log(item);
-    }
+  // 不能直接遍历对象
+  for (let item of Object.keys(obj)) {
+    console.log(item);
+  }
 
-    for (let item of arr){
-      console.log(item);
-    }
+  for (let item of arr) {
+    console.log(item);
+  }
 
 
-
-    // for in遍历的是数组/对象的索引（即键名），而for of遍历的是数组(不能遍历对象)元素值。
+  // for in遍历的是数组/对象的索引（即键名），而for of遍历的是数组(不能遍历对象)元素值。
 
 
   // Object:
-    console.log(Object.keys(obj)); // ["a", "b"]
-    console.log(Object.values(obj)); // [1, 2]
-    console.log(Object.entries(obj)); // [ ["a", 1], ["b", 2] ]
+  console.log(Object.keys(obj)); // ["a", "b"]
+  console.log(Object.values(obj)); // [1, 2]
+  console.log(Object.entries(obj)); // [ ["a", 1], ["b", 2] ]
 </script>
 </body>
 </html>
