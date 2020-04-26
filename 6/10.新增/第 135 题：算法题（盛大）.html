@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    let str = '红蓝蓝黄红黄蓝红红黄红';
+    let arr = str.split('');
+    let arr1 = [],arr2 = [],arr3 = [];
+    for (let item of arr){
+      item === '黄' && arr1.push(item);
+      item === '红' && arr2.push(item);
+      item === '蓝' && arr3.push(item);
+    }
+    let result = arr1.concat(arr2, arr3);
+    console.log(result);
+
+
+    let obj = {
+      '黄': [],
+      '红': [],
+      '蓝': [],
+    };
+    for (let item of arr){
+      obj[item].push(item);
+    }
+    let result2 = [];
+    for(let item of Object.values(obj)){
+      result2 = result2.concat(item);
+    }
+    console.log(result2);
+
+
+    let sortRule = new Map([['黄', 1], ['红', 2], ['蓝', 3]]);
+    let result3 = arr.sort((a, b) => {
+      return  sortRule.get(a) - sortRule.get(b);
+    });
+    console.log(result3);
+
+
+    let result4 = ['黄','红','蓝'].map((o)=>o.repeat([...'红蓝蓝黄红黄蓝红红黄红'.matchAll(o)].length)).join('')
+  console.log(result4);
+</script>
+</body>
+</html>
