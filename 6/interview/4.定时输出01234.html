@@ -8,8 +8,8 @@
 
 </body>
 <script type="text/javascript">
-   /* 连续输出01234
-   var  i =0;
+    // 连续输出0123401234
+   /*var  i =0;
         setInterval(function(){
 
             if(i == 5){
@@ -17,10 +17,10 @@
             }
             console.log(i);
             i++;
-        }, 1000);
-        */
+        }, 1000);*/
 
    //延时输出01234
+
     for (var i = 0; i < 5; ++i) {
         (function(i){
             setTimeout(function () {
@@ -28,6 +28,7 @@
             }, 1000);
         })(i);
     }
+
 
 </script>
 </html>
