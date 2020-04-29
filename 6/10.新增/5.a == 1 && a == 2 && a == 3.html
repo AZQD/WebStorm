@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+  // 方法一：构造函数：
+  /*function A (value) {
+    this.value = value;
+    // toString可以替换成valueOf
+    this.toString = function () {
+      return this.value ++
+    }
+  }
+  let a = new A(1);
+  // 原理：== 会触发toString方法
+  if (a == 1 && a == 2 && a == 3) {
+    console.log("Hello World !");
+  }*/
+
+  // 方法二：定义类
+  /*class A {
+    constructor(value){
+      this.value = value;
+    };
+    // toString可以替换成valueOf
+    toString(){
+      return this.value ++;
+    }
+  }
+  let a = new A(1);
+  // 原理：== 会触发toString方法
+  if (a == 1 && a == 2 && a == 3) {
+    console.log("Hello World !");
+  }*/
+
+  // 方法三：修改Object
+  var value = 1; // 这里不能用let，let声明的全局变量不是全局对象window的属性
+  Object.defineProperty(window, 'a', {
+    get (){
+      return this.value ++
+    }
+  });
+  // 原理：劫持a变量（这里是全等！！！）
+  if (a === 1 && a === 2 && a === 3) {
+    console.log("Hello World !");
+  }
+</script>
+</body>
+</html>
