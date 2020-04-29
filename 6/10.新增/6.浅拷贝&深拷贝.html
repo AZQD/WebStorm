@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  let originObj = {
+    name: '张三',
+    arr: [11, 22, 33],
+    obj: {a: 1, b: 2},
+    fun: function () {
+      console.log('hello');
+    }
+  };
+
+
+  let resultObj1 = deepClone1(originObj);
+  let resultObj2 = deepClone2(originObj);
+  let resultObj3 = deepClone3({}, originObj);
+
+  console.log('originObj修改前:', originObj);
+
+  originObj.name = '李四';
+  originObj.arr = [44, 55, 66];
+  originObj.obj = {c: 3, d: 4};
+  originObj.fun = function () {
+    console.log('world')
+  };
+  console.log('originObj修改后:', originObj);
+  console.log('深复制方法1:', resultObj1);
+  console.log('深复制方法2:', resultObj2);
+  console.log('深复制方法3:', resultObj3);
+
+
+  // 深复制：第一种方法（如果数据中没有函数，可以直接用JSON来实现深拷贝）
+  function deepClone1 (originObj) {
+    return JSON.parse(JSON.stringify(originObj));
+  }
+
+
+  // 深复制：第二种方法（必须记住！！！）
+  function deepClone2 (obj) {
+    //判断进行深拷贝的是数组还是对象
+    let newObj = Array.isArray(obj) ? [] : {};
+    //深拷贝不能为空
+    if (obj && typeof obj === "object") {
+      for (key in obj) { // for in 在循环对象的属性时也会遍历原型链
+        if (obj.hasOwnProperty(key)) { // hasOwnProperty检测某个对象是否拥有某个属性
+          if (obj[key] && typeof obj[key] === "object") {
+            newObj[key] = deepClone2(obj[key]);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+    }
+    return newObj;
+  }
+
+
+  // 深复制：第三种方法
+  function deepClone3 (newObj, obj) {
+    // 获取对象下的所有属性，包括不可遍历属性
+    let names = Object.getOwnPropertyNames(obj);
+    for (let i = 0; i < names.length; i++) {
+      let desc = Object.getOwnPropertyDescriptor(obj, names[i]);
+      if (typeof (desc.value) === 'object' && desc.value !== null) {
+        let value = Array.isArray(desc.value) ? [] : {};
+        Object.defineProperty(newObj, names[i], {
+          configurable: desc.configurable, // 不可删除
+          enumerable: desc.enumerable, // 是否可遍历/枚举
+          writable: desc.writable, // 是否可修改,
+          value: value, // 值
+        });
+        deepClone3(value, desc.value);
+      } else {
+        Object.defineProperty(newObj, names[i], desc);
+      }
+    }
+    return newObj;
+  }
+
+</script>
+</body>
+</html>
