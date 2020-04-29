@@ -6,6 +6,53 @@
 </head>
 <body>
 <script type="text/javascript">
+
+  // 浅拷贝（shallowCopy）只是增加了一个指针指向已存在的内存地址，
+  // 深拷贝（deepCopy）是增加了一个指针并且申请了一个新的内存，使这个增加的指针指向这个新的内存，
+
+  // 浅复制只会将对象的各个属性进行复制，并不会进行递归复制
+  // 深复制则不同，它不仅将原对象的各个属性逐个复制出去，而且将原对象各个属性所包含的对象也依次采用深复制的方法递归复制到新对象上
+
+  console.log('**********浅拷贝************');
+
+  // 方法1：b=a;
+  // 方法2：Object.assign
+
+  // b=a
+  let obj = {a: 1, b: 2};
+  let target = obj;
+  target.b = 3;
+  console.log(target);
+  console.log(obj);
+
+  // Object.assign
+  let obj1 = {
+    a: 1,
+    b: {
+      c: {
+        d: 0
+      }
+    }
+  };
+  let obj2 = Object.assign({}, obj1);
+  let obj3 = JSON.parse(JSON.stringify(obj1));
+  obj1.a = 2;
+  console.log(obj1.a); //2
+  console.log(obj2.a); //1
+  console.log(obj3.a); //1
+  obj1.b.c.d = 1;
+  console.log(obj1.b.c.d); //1
+  console.log(obj2.b.c.d); //1
+  console.log(obj3.b.c.d); //0
+
+  // Object.assign：当对象中只有一级属性，没有二级属性的时候，此方法为深拷贝，但是对象中有对象的时候，此方法，在二级属性以后就是浅拷贝。
+  // 因为 Object.assign()拷贝的是属性值。假如源对象的属性值是一个对象的引用，那么它也只指向那个引用。
+  // 参考：https://www.jianshu.com/p/099598a3c491
+
+
+  console.log('**********深拷贝************');
+
+
   let originObj = {
     name: '张三',
     arr: [11, 22, 33],
