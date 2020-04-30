@@ -40,8 +40,8 @@
   // 方法三：修改Object
   var value = 1; // 这里不能用let，let声明的全局变量不是全局对象window的属性
   Object.defineProperty(window, 'a', {
-    get (){
-      return this.value ++
+    get () {
+      return this.value++
     }
   });
   // 原理：劫持a变量（这里是全等！！！）
