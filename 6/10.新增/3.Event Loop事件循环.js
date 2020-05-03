@@ -44,7 +44,7 @@ new Promise((resolve, reject) => {
   Promise.resolve().then(() => {
     console.log(6)
   }).then(() => {
-    console.log(7)
+    console.log(7);
 
     setTimeout(() => {
       console.log(8)
