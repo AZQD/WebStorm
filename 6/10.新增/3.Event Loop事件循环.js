@@ -36,7 +36,7 @@ setTimeout(() => {
 });
 
 new Promise((resolve, reject) => {
-  console.log(4)
+  console.log(4);
   resolve(5)
 }).then((data) => {
   console.log(data);
