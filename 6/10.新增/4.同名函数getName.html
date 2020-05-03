@@ -64,8 +64,11 @@
   new Foo.getName();//2
   new Foo().getName();//3
   new new Foo().getName();//3
-  
-  
+
+
+
+  // 函数声明会覆盖变量声明，但不会覆盖变量赋值
+  // a = 1;
 
   // 函数声明会覆盖变量声明
   function a () {
