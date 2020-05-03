@@ -20,7 +20,7 @@
             text-shadow: 1px 1px 2px red;
         }
 
-        /*<!--3.文本溢出-->*/
+        /*<!--3.单行文本溢出-->*/
         .box3{
             width: 100px;
             background-color: fuchsia;
@@ -31,14 +31,19 @@
             /*text-overflow: clip;  *//*仅仅简单的剪裁，不使用省略号。*/
             /*注意：上述两个属性需要配合  white-space: nowrap;
             和 overflow: hidden 一起使用，且容器需要定义宽度。只在块元素内生效。*/
+        }
 
+        /*<!--4.多行文本溢出-->*/
+        .box4{
+            width: 100px;
+            background-color: pink;
 
             /*支持多行文本溢出*/
             /*这个属性比较合适WebKit浏览器或移动端，其他浏览器就要用js实现了*/
-            /*-webkit-box-orient: vertical;
+            -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
             display: -webkit-box;
-            overflow: hidden;*/
+            overflow: hidden;
         }
     </style>
 </head>
@@ -53,8 +58,14 @@
     </div>
     <hr/>
 
-    <!--3.文本溢出-->
+    <!--3.单行文本溢出-->
     <div class="box3">
+        山重水复疑无路，柳暗花明又一村。
+    </div>
+    <hr/>
+
+    <!--4.多行文本溢出-->
+    <div class="box4">
         山重水复疑无路，柳暗花明又一村。
     </div>
 </body>
