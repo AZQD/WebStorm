@@ -50,7 +50,7 @@ new Promise((resolve, reject) => {
       console.log(8)
     }, 0);
   });
-})
+});
 
 setTimeout(() => {
   console.log(9);
