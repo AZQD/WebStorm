@@ -64,6 +64,15 @@
   new Foo.getName();//2
   new Foo().getName();//3
   new new Foo().getName();//3
+  
+  
+
+  // 函数声明会覆盖变量声明
+  function a () {
+    
+  }
+  var a;
+  console.log('a', a); // func
 
 </script>
 </body>
