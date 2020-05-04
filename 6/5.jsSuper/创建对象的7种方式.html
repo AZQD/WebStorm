@@ -16,18 +16,8 @@
 
     //二、创建对象的7种方式：
 
-    //1.构造函数 （语句太多）
-    /*var obj = new Object();
-    obj.name = 'bob';
-    obj.setName = function(name){
-        this.name = name;
-        this.age = age;
-    };
-    console.log(obj.name); //bob
-    obj.setName('jack');
-    console.log(obj.name);//jack*/
 
-    //2.对象字面量 (创建多个对象有重复代码)
+    //1.对象字面量 (创建多个对象有重复代码)
     /*var obj = {
         name : 'bob',
         age : 12,
@@ -37,7 +27,7 @@
     };
     console.log(obj);*/
 
-    //3.工厂模式 （对象没有一个具体的类型，只是Object）
+    //2.工厂模式 （对象没有一个具体的类型，只是Object）
     /*function createPerson(name, age){
         var p = new Object();
         p.name = name;
@@ -49,6 +39,17 @@
     }
     var person = createPerson('bob', 13);
     console.log(person);*/
+
+    //3.构造函数 （语句太多）
+    /*var obj = new Object();
+    obj.name = 'bob';
+    obj.setName = function(name){
+        this.name = name;
+        this.age = age;
+    };
+    console.log(obj.name); //bob
+    obj.setName('jack');
+    console.log(obj.name);//jack*/
 
     //4.1自定义构造函数 （必须通过new）
     /*function Person (name, age){
@@ -85,18 +86,7 @@
     var person = new Person();
     console.log(person.name); //tom*/
 
-    //6.构造函数+原型 (最常用的方式)
-    /*function Person (name, age) {
-        this.name = name;
-        this.age = age;
-    }
-    Person.prototype.setAge = function (age){this.age = age};
-    var person = new Person('jack', 16);
-    console.log(person);
-    person.setAge(16.5);
-    console.log(person);*/
-
-    //7.动态原型模式（查找整个原型链）
+    //6.动态原型模式（查找整个原型链）
     /*function Person(name, age){
         this.name = name;
         this.age = age;
@@ -107,6 +97,17 @@
     var person = new Person('jack', 17);
     console.log(person);
     person.setAge(17.5);
+    console.log(person);*/
+
+    //7.构造函数+原型 (最常用的方式)
+    /*function Person (name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.setAge = function (age){this.age = age};
+    var person = new Person('jack', 16);
+    console.log(person);
+    person.setAge(16.5);
     console.log(person);*/
 
 </script>
