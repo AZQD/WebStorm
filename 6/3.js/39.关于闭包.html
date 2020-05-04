@@ -16,18 +16,29 @@
     }*/
 
     // 闭包：对于嵌套的两个函数，外部函数执行完毕后，内部函数依然可以访问外部函数当中的变量，就叫做闭包。
+
     //闭包举例,面试就举这个例子
     function fun1(){
-        var a = 1;
-        function fun2(){
-            a++;
-            console.log(a);
-        }
-        return fun2;
+      var a = 1;
+      function fun2(){
+        a++;
+        console.log(a);
+      }
+      return fun2;
     }
     var result = fun1();
     result();
     result();
+
+
+    // 内存泄漏：任何对象在不需要使用它时仍然存在；
+    
+    
+    //造成内存泄漏：闭包 setTimeout(非函数，1000) 两个对象彼此引用(循环) 控制台日志
+  
+  // 防止内存泄漏
+  // 1.不适用的变量置为null；
+  // 2.少绑事件，可用事件冒泡在父容器监听事件；
 
 </script>
 </body>
