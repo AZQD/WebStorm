@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    .box1 {
+      height: 1000px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+<div class="box1"></div>
+<script type="text/javascript">
+
+  // 防抖（只执行一次）
+  /**
+   * 定义：规定一个期限时间，在首次触发事件时，不立即执行回调函数，而是在期限时间后再执行，如果期限时间内回调函数被重复执行，则期限时间重新计时。
+   * 应用：1.百度搜索输入框，延迟请求；2.window的scroll、resize事件调整窗口；
+   */
+  function debounce (fn, delay) {
+    let timer = null;
+    return function () {
+      if (timer) {
+        clearTimeout(timer);
+      }
+      timer = setTimeout(fn, delay)
+    }
+  }
+
+  // 节流（每隔delay周期执行一次）
+  /**
+   * 规定一个期限时间，在该时间内，触发事件的回调函数只能执行一次，如果期限时间内回调函数被多次触发，则只有一次能生效。
+   * 应用：1.监听滚动条加载更多；
+   */
+  function throttle (fn, delay) {
+    let timer = null;
+    return function () {
+      if (!timer) {
+        timer = setTimeout(function () {
+          fn();
+          timer = null;
+        }, delay);
+      }
+    }
+  }
+
+  function handle () {
+    console.log(Math.random());
+  }
+
+  window.addEventListener('scroll', debounce(handle, 1000)); // 防抖
+  window.addEventListener('scroll', throttle(handle, 1000)); // 节流
+
+</script>
+</body>
+</html>
