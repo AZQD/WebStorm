@@ -9,6 +9,14 @@
 
 </body>
 <script type="text/javascript">
+
+    // [] 转为字符串是 "" // String([]) 返回""
+    // [] 转为数字是 0 // Number([]) 返回0
+    // [] 转为布尔值是 true // Boolean([]) 返回true
+    console.log(!![] == true); //结果是true
+    console.log([] == true); //结果是false
+    console.log(![] == []); //结果是true
+
     console.log(NaN == NaN); false
     console.log(Number('abc')); //NaN
     console.log('abc' == 1); //false
