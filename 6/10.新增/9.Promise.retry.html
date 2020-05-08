@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+      #box{
+        height: 1000px;
+        background-color: pink;
+      }
+  </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript">
+
+  function throtFun(getData, delay, times){
+
+    return new Promise(function (resolve, reject) {
+      function attampt () {
+        getData().then((res)=>{
+          console.log('成功输出：', res);
+        }).catch(function (error) {
+          console.log('剩余次数times', times);
+          if(times > 0){
+            times -- ;
+            setTimeout(attampt(), delay);
+          }else{
+            console.log('抛出异常：', error);
+            reject(error);
+          }
+        });
+      }
+      attampt();
+    })
+
+  }
+
+  function getData(){
+    let p = new Promise(function (resolve, reject) {
+      let num = Math.round(Math.random());
+      // let num = 0;
+      num ? resolve(num): reject(num);
+    });
+    return p;
+  }
+
+  throtFun(getData, 1000, 5);
+
+</script>
+</body>
+</html>
