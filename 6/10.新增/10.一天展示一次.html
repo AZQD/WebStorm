@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  let currentDate = localStorage.getItem('dateStr');
+  if (currentDate === getCurrentDate()) {
+    console.log('今天已展示', currentDate);
+  } else {
+    console.log('今天第一次展示', currentDate);
+    localStorage.setItem('dateStr', getCurrentDate());
+  }
+
+  function getCurrentDate () {
+    let t = new Date();
+    let y = t.getFullYear(); // 年
+    let m = t.getMonth() + 1; // 月份从0开始的
+    let d = t.getDate(); //日
+    return [y, m, d].join('');
+  }
+</script>
+</body>
+</html>
