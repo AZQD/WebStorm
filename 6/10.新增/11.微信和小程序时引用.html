@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--微信和小程序时引用-->
+<!--使用document.write，不要使用动态创建script标签，然后添加src属性，因为这种方式引入的第三方文件里面的document.write不执行；-->
+<script type="text/javascript">
+  if (window.navigator.userAgent.match(/MicroMessenger\/([\d.]+)/)) {
+    document.write('<script type="text/javascript" src="//j1.58cdn.com.cn/weixin/js/lib/wxjs-1.4.0.js"><\/script>');
+  }
+</script>
+</body>
+</html>
