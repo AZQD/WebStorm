@@ -9,7 +9,7 @@
     var aa = 'aa';
     var abc = true;
     var def;
-    console.log(typeof aa);
+    console.log(typeof aa);//string
     console.log(typeof abc);
     console.log(typeof 1);
     console.log(typeof def);
@@ -19,10 +19,11 @@
     console.log(typeof null);
     console.log(typeof []);
     console.log(typeof {});
-    
-    console.log(aa instanceof String);
+
+    // instanceof是对于引用类型数据的
+    console.log(aa instanceof String); // false
     console.log([] instanceof Array);
-    console.log(abc instanceof Boolean);
+    console.log(abc instanceof Boolean); // false
 
 </script>
 </body>
