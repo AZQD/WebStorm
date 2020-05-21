@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>KEEP MOVING</title>
+  <meta charset="UTF-8">
+  <title>KEEP MOVING</title>
 </head>
 <body>
 <button id="btn">bind()函数</button>
 <script type="text/javascript">
-    //简单的bind()函数
-     btn.onclick = function(){
-     return (function(){
-     alert(this.nodeName.toLowerCase());
-     }.bind(this))();
-     }
+  //简单的bind()函数
+  btn.onclick = function () {
+    return (function () {
+      alert(this.nodeName.toLowerCase());
+    }.bind(this))();
+  }
 
 </script>
 </body>
