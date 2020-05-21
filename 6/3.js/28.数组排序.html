@@ -24,13 +24,15 @@
     //数组排序方法二： 冒泡排序
     //原理：相邻的两个进行对比，大的放到右边。如此循环一周
     function arrSort(arr){
-        var arrNew = [];
         for(var i=0; i<arr.length; i++){
             for(var j=0; j<arr.length-i; j++){
                 if(arr[j] > arr[j+1]){
-                    arrNew = arr[j+1];
+                    let temp = arr[j+1];
                     arr[j+1] = arr[j];
-                    arr[j] = arrNew;
+                    arr[j] = temp;
+
+                    // 或者使用对象的解构赋值
+                    // [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
                 }
             }
         }
