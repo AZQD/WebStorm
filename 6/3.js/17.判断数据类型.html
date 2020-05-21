@@ -28,15 +28,15 @@
   obj[s] = 2;
 
   // 常规对象枚举不可以获取symbol
-  console.log(Object.keys(obj));
+  console.log(11, Object.keys(obj));
   for (let item in obj) {
-    console.log(item);
+    console.log(22, item);
   }
-  console.log(Object.getOwnPropertyNames(obj));
+  console.log(33, Object.getOwnPropertyNames(obj));
 
   // 可以获取symbol
-  console.log(Object.getOwnPropertySymbols(obj));
-  console.log(Reflect.ownKeys(obj));
+  console.log(44, Object.getOwnPropertySymbols(obj));
+  console.log(55, Reflect.ownKeys(obj));
 
 
   // 判断数据类型的方法：(基本数据类型)
