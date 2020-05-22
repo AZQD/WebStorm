@@ -9,6 +9,9 @@
 
 </body>
 <script type="text/javascript">
+  console.log([]);
+  console.log(!![]);
+  console.log(Boolean([]));
 
     // [] 转为字符串是 "" // String([]) 返回""
     // [] 转为数字是 0 // Number([]) 返回0
@@ -50,6 +53,7 @@
     console.log(NaN === NaN); //false
     console.log(!NaN == !NaN); //true
     console.log(typeof 'abc'*1);//NaN
+    console.log(typeof ('abc'*1));//number
 
     console.log(Object.is(1, 1.0)); //true
     console.log(1 === 1.0); //true
@@ -74,8 +78,8 @@
     console.log(0.4-0.3);  //0.10000000000000003
 
     //122.小数相乘
-    console.log(0.2*0.4);
-    console.log(0.2*10*0.4*10/100);
+    console.log(0.2*0.4); // 0.08000000000000002
+    console.log(0.2*10*0.4*10/100); // 0.08
 
 
     //看141题
