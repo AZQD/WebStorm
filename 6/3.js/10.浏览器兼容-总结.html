@@ -12,14 +12,14 @@
         #box2{
             width: 100px;
             height: 100px;
-            background-color: red;
+            background-color: rgba(255, 0, 0, 0.5);
         }
     </style>
 </head>
 <body>
 
 <div id="box1">
-    <div id="box2"></div>
+    <div id="box2">rgba字体不透明，opacity文字透明</div>
 </div>
 <hr/>
 <a href="http://www.baidu.com" id="aLink">百度一下</a>
@@ -42,6 +42,8 @@
     box1.addEventListener('click', function(){
         console.log('box1');
     }, false);
+
+
     //取消冒泡
     box2.addEventListener('click', function(ev){
         ev = ev || event;
@@ -98,6 +100,21 @@
      //this.style.background = 'red';
      });
      });*/
+
+    //获取元素的样式
+    function getStyle (obj, attr){
+      //要掌握try catch，下面的if else参考。
+      try{
+        //getComputedStyle支持火狐，chorme，IE9及以上
+        return getComputedStyle(obj, null)[attr];
+      }catch(e){
+        //currentStyle这个属性只有IE支持，可以获取元素的样式
+        return obj.currentStyle[attr];
+      }
+    }
+
+    var result = getStyle(box, 'backgroundColor');
+    console.log(result);
 
 </script>
 </body>
