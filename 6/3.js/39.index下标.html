@@ -6,9 +6,9 @@
 </head>
 <body>
 <ul id="test">
-    <li>01</li>
-    <li>02</li>
-    <li>03</li>
+    <li name="1">这是第1条</li>
+    <li name="2">这是第2条</li>
+    <li name="3">这是第3条</li>
 </ul>
 <script type="text/javascript">
     var lis = document.getElementsByTagName('li');
@@ -38,12 +38,15 @@
         alert(ele.innerHTML);
     }, false);*/
 
+
 /*这种类型的题：记住三种方法即可：
 * 1.let
 * 2.return 闭包
 * 3.lis[i].index = i; 保存i
 * */
 
+
+    // 1.let
     /*for(let i=0; i<lis.length; i++){
         lis[i].onclick = function(){
             alert(i);
@@ -51,6 +54,7 @@
     }*/
 
 
+    // 2.return 闭包
     /*for(var i = 0; i < lis.length; i++){
         lis[i].onclick = (function(i){
             alert(i);
@@ -65,15 +69,22 @@
         }(i);
     }*/
 
+    // 3.lis[i].index = i; 保存i
     /*for(var i = 0; i < lis.length; i++){
         lis[i].index = i;
         lis[i].onclick = function(){
             alert(this.index);
         };
     }*/
-    var obj = {a:1,b:2};
-    console.log(Object.create(obj));
-    
+
+    //4： getAttribute
+    ////获取当前索引值(这个方法应该不是正规的方法，
+    // 要是需要就用上面的这种方法，这个作为了解的方法之一)
+    for(var i=0; i<lis.length; i++){
+      lis[i].onclick = function(){
+        alert(this.getAttribute('name'));
+      };
+    }
 
 
 </script>
