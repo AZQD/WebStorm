@@ -22,7 +22,7 @@
     <div id="box2">rgba字体不透明，opacity文字透明</div>
 </div>
 <hr/>
-<a href="http://www.baidu.com" id="aLink">百度一下</a>
+<a href="http://www.baidu.com" id="aLink" class="link">百度一下</a>
 <hr/>
 
 <ul id="ul">
@@ -44,40 +44,10 @@
     }, false);
 
 
-    //取消冒泡
-    box2.addEventListener('click', function(ev){
-        ev = ev || event;
-        if(ev.stopPropagation){
-            ev.stopPropagation(); //ie8及以上
-        }else{
-            ev.cancelBubble = true;//只支持ie10以下
-        }
-        console.log('box2');
-    }, false);
+    // 1. ev = ev || event;
 
 
-    //取消默认行为
-    aLink.onclick = function(ev){
-        ev = ev || event;
-        if(ev.preventDefault){
-            ev.preventDefault();
-        }else{
-            return false;
-        }
-    };
-
-    //定义bind函数，解决绑定函数的兼容性
-    function bind (obj, eventStr, callback){
-        if(obj.addEventListener){
-            obj.addEventListener(eventStr, callback, false);//IE8以下都不支持
-        }else{
-            obj.attachEvent('on'+eventStr, function(){ //ie10以下
-                callback.call(obj);  //attachEvent 绑定的回调函数，this永远指的是window
-            });
-        }
-    }
-
-
+    // 2. ele = ev.target || ev.srcElement;
 
     //不用委派，和下面的做对比
     /*for(var i=0; i<lis.length; i++){
@@ -87,9 +57,9 @@
     }*/
     //运用委派
     ul.addEventListener('click', function(ev){
-        ev = ev || event;
-        var ele = ev.target || ev.srcElement;
-        ele.style.backgroundColor = 'red';
+      ev = ev || event;
+      var ele = ev.target || ev.srcElement;
+      ele.style.backgroundColor = 'red';
     }, false);
 
     /*//在jQuery中运用事件委托
@@ -101,7 +71,42 @@
      });
      });*/
 
-    //获取元素的样式
+
+    //3.取消冒泡
+    box2.addEventListener('click', function(ev){
+        ev = ev || event;
+        if(ev.stopPropagation){
+            ev.stopPropagation(); //ie8及以上
+        }else{
+            ev.cancelBubble = true;//只支持ie10以下
+        }
+        console.log('box2');
+    }, false);
+
+
+    //4.取消默认行为
+    aLink.onclick = function(ev){
+        ev = ev || event;
+        if(ev.preventDefault){
+            ev.preventDefault();
+        }else{
+            return false;
+        }
+    };
+
+    //5.定义bind函数，解决绑定函数的兼容性
+    function bind (obj, eventStr, callback){
+        if(obj.addEventListener){
+            obj.addEventListener(eventStr, callback, false);//IE8以下都不支持
+        }else{
+            obj.attachEvent('on'+eventStr, function(){ //ie10以下
+                callback.call(obj);  //attachEvent 绑定的回调函数，this永远指的是window
+            });
+        }
+    }
+
+
+    //6.获取元素的样式
     function getStyle (obj, attr){
       //要掌握try catch，下面的if else参考。
       try{
@@ -113,8 +118,31 @@
       }
     }
 
-    var result = getStyle(box, 'backgroundColor');
+    var result = getStyle(box2, 'backgroundColor');
     console.log(result);
+
+
+    //7.定义获取class的函数
+    function getEleByClass(cn){
+      var result = [];
+      var reg = new RegExp('\\b' + cn + '\\b');
+      var allEles = document.all;
+      for (var i = 0; i < allEles.length; i++) {
+        var className = allEles[i].className;
+        if(reg.test(className)){
+          result.push(allEles[i]);
+        }
+      }
+      return result;
+    }
+
+    var classArr = getEleByClass('link');
+    console.log(classArr);
+    
+    // 8.常用兼容js
+    // html5shiv.min.js h5标签不识别
+    // prefixfree.min.js 浏览器厂商前缀
+    // respond.min.js 媒体查询
 
 </script>
 </body>
