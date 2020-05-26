@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+  // 单例就是保证一个类只有一个实例;
+  // 实现方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。
+
+  // 应用：页面登录框，只可能有一个登录框
+
+  // 参考文档：https://segmentfault.com/a/1190000015384478?utm_source=tag-newest
+
+
+  // 借助闭包
+  function Person () {
+    let instance = this;
+
+    //重写构造函数
+    Person = function () {
+      return instance;
+    }
+  }
+
+
+  Person.prototype.pro1 = "from protptype1";
+  var p1 = new Person();
+  Person.prototype.pro2 = "from protptype2";
+  var p2 = new Person();
+
+
+  console.log(p1);
+  console.log(p1 === p2);
+
+  console.log(p1.constructor);
+  console.log(Person);
+  console.log(p1.constructor === Person);
+
+  console.log(p1.pro1);
+  console.log(p1.pro2);
+  console.log(p2.pro1);
+  console.log(p2.pro2);
+</script>
+</body>
+</html>
