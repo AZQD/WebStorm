@@ -27,22 +27,24 @@
 
 
   Person.prototype.pro1 = "from protptype1";
+  console.log(11, Person.prototype.pro1);
   var p1 = new Person();
+  console.log(11, Person.prototype.pro1);
   Person.prototype.pro2 = "from protptype2";
   var p2 = new Person();
 
 
-  console.log(p1);
-  console.log(p1 === p2);
+  console.log(22, p1);
+  console.log(22, p1 === p2);
 
-  console.log(p1.constructor);
-  console.log(Person);
-  console.log(p1.constructor === Person);
+  console.log(33, p1.constructor);
+  console.log(33, Person);
+  console.log(33, p1.constructor === Person);
 
-  console.log(p1.pro1);
-  console.log(p1.pro2);
-  console.log(p2.pro1);
-  console.log(p2.pro2);
+  console.log(44, p1.pro1);
+  console.log(44, p1.pro2);
+  console.log(44, p2.pro1);
+  console.log(44, p2.pro2);
 </script>
 </body>
 </html>
