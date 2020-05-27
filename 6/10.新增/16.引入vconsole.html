@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button id="log">输出log</button>
+<script type="text/javascript">
+  // 开启debug模式
+  function loadScript (url, callback, async = true) {
+    let head = document.getElementsByTagName('head')[0];
+    let script = document.createElement('script');
+    let done = false;
+    script.async = async;
+    script.type = 'text/javascript';
+    script.src = url;
+    script.onload = script.onreadystatechange = function () {
+      if (!done && (!this.readyState || /loaded|complete/.test(script.readyState))) {
+        done = true;
+        if (typeof callback === 'function') {
+          callback();
+        }
+        script.onload = script.onreadystatechange = null;
+        head.removeChild(script);
+        head = script = null;
+      }
+    };
+    head.appendChild(script);
+  }
+  const debugPanel = 'https://j1.58cdn.com.cn/weixin/js/lib/vconsole.min.js';
+  loadScript(debugPanel);
+
+  log.onclick = function () {
+    console.log('hello world !');
+  }
+</script>
+</body>
+</html>
