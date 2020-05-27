@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+  // 一、JSONP
+
+  // 二、CORS
+
+  // 三、window.name
+  // window.name有一个奇妙的性质，页面如果设置了window.name，那么在不关闭页面的情况下，即使进行了页面跳转location.href=…，这个window.name还是会保留。
+  //
+  // 四、postMessage
+  // 一个页面发送消息，另一个页面判断来源并接收消息
+  // window.frames[0].postMessage(this.value, '*');
+  // //*号表示在任何域下都可以接收message
+  // window.addEventListener('message', function(e){
+  //   console.log(e.data);
+  // })；
+  //
+  // 五、document.domain
+  // 此方案仅限主域相同，子域不同的跨域应用场景。
+  // 实现原理：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。
+  //
+  // 六、nginx
+
+</script>
+</body>
+</html>
