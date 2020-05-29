@@ -20,13 +20,6 @@
   // console.log(Object.values(obj)); // [1, 2]
   // console.log(Object.entries(obj)); // [ ["a", 1], ["b", 2] ] 返回一个给定对象自身可枚举属性的键值对数组
 
-  // 获取对象下的所有属性，包括不可遍历属性
-  // let names = Object.getOwnPropertyNames(obj);
-
-  // Object.getOwnPropertyNames和Object.keys的区别，即Object.keys只适用于可枚举的属性，而Object.getOwnPropertyNames返回对象自动的全部属性名称。
-
-
-  // if (obj.hasOwnProperty(key)) { // hasOwnProperty检测某个对象是否拥有某个属性
 
   // Object.defineProperty(window, 'a', {
   //   get () {
@@ -34,6 +27,13 @@
   //   }
   // });
 
+  // 获取对象下的所有属性，包括不可遍历属性
+  // let names = Object.getOwnPropertyNames(obj);
+
+  // Object.getOwnPropertyNames和Object.keys的区别，即Object.keys只适用于可枚举的属性，而Object.getOwnPropertyNames返回对象自动的全部属性名称。
+
+
+  // if (obj.hasOwnProperty(key)) { // hasOwnProperty检测某个对象是否拥有某个属性
 
 
 
