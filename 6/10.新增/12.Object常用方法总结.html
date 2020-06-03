@@ -8,8 +8,8 @@
 <script type="text/javascript">
 
   // 创建一个新对象，使用现有的对象来提供新创建的对象的__proto__
-  var obj = {a:1,b:2};
-  console.log(Object.create(obj));
+  // var obj = {a:1,b:2};
+  // console.log(Object.create(obj));
 
   // ES6
   // Object.is(obj1, obj2);
@@ -34,6 +34,34 @@
 
 
   // if (obj.hasOwnProperty(key)) { // hasOwnProperty检测某个对象是否拥有某个属性
+
+  var obj1 = {
+    a: 1,
+    b: 2
+  };
+  var obj2 = {
+    a: 1,
+    b: 2
+  };
+
+  var c = Symbol();
+  obj1[c] = 3;
+  obj2[c] = 3;
+  console.log(obj1, obj2);
+  console.log(Object.is(obj1, obj2)); // false，指向的是不同的内存
+
+
+  var obj3 = obj1;
+  var obj4 = obj1;
+  console.log(Object.is(obj3, obj4));// true，指向的是相同的内存
+
+
+  // 遍历不可枚举属性  // for in 在循环对象的属性时也会遍历原型链
+  for(let key in obj1){
+      console.log(key); // a, b
+  }
+
+  console.log(obj1.hasOwnProperty(c)); // true hasOwnProperty检测某个对象是否拥有某个属性
 
 
 
