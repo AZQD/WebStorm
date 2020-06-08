@@ -30,7 +30,9 @@
   // 获取对象下的所有属性，包括不可遍历属性
   // let names = Object.getOwnPropertyNames(obj);
 
-  // Object.getOwnPropertyNames和Object.keys的区别，即Object.keys只适用于可枚举的属性，而Object.getOwnPropertyNames返回对象自动的全部属性名称。
+  // for...in循环是 遍历对象可枚举属性,包括原型链上面的可枚举属性；（深复制）
+  // 而Object.keys()只是遍历可枚举属性,不可以遍历原型链上的可枚举属性.
+  // 而Object.getOwnPropertyNames()则是遍历自身所有属性（不论是否是可枚举的）,不包括原型链上面的.
 
 
   // if (obj.hasOwnProperty(key)) { // hasOwnProperty检测某个对象是否拥有某个属性
@@ -56,7 +58,7 @@
   console.log(Object.is(obj3, obj4));// true，指向的是相同的内存
 
 
-  // 遍历不可枚举属性  // for in 在循环对象的属性时也会遍历原型链
+  // 遍历可枚举属性  // for in 在循环对象的属性时也会遍历原型链
   for(let key in obj1){
       console.log(key); // a, b
   }
