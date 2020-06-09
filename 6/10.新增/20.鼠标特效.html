@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    .box{
+      padding: 100px;
+      text-align: center;
+    }
+    .box .btn{
+
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <button class="btn">点击我查看效果</button>
+</div>
+<script type="text/javascript" src="../../6/3.js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+
+  /* 鼠标特效 */
+  var a_idx = 0;
+  jQuery(document).ready(function ($) {
+    $("body").click(function (e) {
+      var a = new Array("❤记得好评哦❤", "❤记得打赏哦❤", "❤记得关注哦❤", "❤赞一个❤");
+      var $i = $("<span></span>").text(a[a_idx]);
+      a_idx = (a_idx + 1) % a.length;
+      var x = e.pageX,
+        y = e.pageY;
+      $i.css({
+        "z-index": 99,
+        "top": y - 20,
+        "left": x,
+        "position": "absolute",
+        "font-weight": "bold",
+        "color": "rgb(" + ~~(255 * Math.random()) + "," + ~~(
+          255 * Math.random()) + "," + ~~(255 * Math.random()) +
+        ")"
+      });
+      $("body").append($i);
+      $i.animate({
+          "top": y - 180,
+          "opacity": 0
+        },
+        1500,
+        function () {
+          $i.remove();
+        });
+    });
+  });
+
+</script>
+</body>
+</html>
