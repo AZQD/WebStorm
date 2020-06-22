@@ -7,6 +7,16 @@
 <body>
 <script type="text/javascript">
     // 总结：https://segmentfault.com/a/1190000022746584
+    // 1.箭头函数是匿名函数，不能作为构造函数，不能使用new
+    // 2.箭头函数不能绑定arguments，取而代之用扩展运算符...解决
+    // 4.箭头函数的this永远指向其上下文的this，没有办改变其指向
+    // 3.箭头函数没有原型属性
+    const fn = (...params) => {
+      console.log(params);
+    };
+    fn(1, 2, 3);
+    console.log(fn);
+    console.log(fn.prototype);
 </script>
 </body>
 </html>
