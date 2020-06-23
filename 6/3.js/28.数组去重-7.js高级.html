@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>KEEP MOVING</title>
+  <meta charset="UTF-8">
+  <title>KEEP MOVING</title>
 </head>
 <body>
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
-        //数组去重方法一：利用 ES6的Set方法。
-        let arr1 = [1, 3, 2, 4, 4, 3, 1, 2, '中', '中'];
-        let set = new Set(arr1);
-        let newArr1 = Array.from(set); // 伪数组转换成数组的方法
-        console.log('newArr1', newArr1);
+  //数组去重方法一：利用 ES6的Set方法。
+  let arr1 = [1, 3, 2, 4, 4, 3, 1, 2, '中', '中'];
+  let set = new Set(arr1);
+  let newArr1 = Array.from(set); // 伪数组转换成数组的方法
+  console.log('newArr1', newArr1);
 
-        //数组去重方法二：利用数组的includes/indexOf下标属性来查询。
-        let arr2 = [1, 3, 2, 4, 4, 3, 1, 2, '中', '中'];
-        let newArr2 = [];
-        for(let i = 0; i<arr2.length; i++){
-          if(!newArr2.includes(arr2[i])){
-          // if(newArr.indexOf(arr[i]) === -1){
-            newArr2.push(arr2[i]);
-          }
-        }
-        console.log('newArr2', newArr2);
+  //数组去重方法二：利用数组的includes/indexOf下标属性来查询。
+  let arr2 = [1, 3, 2, 4, 4, 3, 1, 2, '中', '中'];
+  let newArr2 = [];
+  for (let i = 0; i < arr2.length; i++) {
+    if (!newArr2.includes(arr2[i])) {
+      // if(newArr.indexOf(arr[i]) === -1){
+      newArr2.push(arr2[i]);
+    }
+  }
+  console.log('newArr2', newArr2);
 
-        //数组去重方法三：利用对象属性存在的特性，如果没有该属性则存入新数组。
-        let arr3 = [1, 3, 2, 4, 4, 3, 1, 2, '中', '中'];
-        let newArr3 = [];
-        let obj3 = {};
-        for(let i = 0; i<arr3.length; i++){
-            if(!obj3[arr3[i]]){
-              obj3[arr3[i]] = 1;
-              newArr3.push(arr3[i]);
-            }
-        }
-        console.log('newArr3', newArr3);
+  //数组去重方法三：利用对象属性存在的特性，如果没有该属性则存入新数组。
+  let arr3 = [1, 3, 2, 4, 4, 3, 1, 2, '中', '中'];
+  let newArr3 = [];
+  let obj3 = {};
+  for (let i = 0; i < arr3.length; i++) {
+    if (!obj3[arr3[i]]) {
+      obj3[arr3[i]] = 1;
+      newArr3.push(arr3[i]);
+    }
+  }
+  console.log('newArr3', newArr3);
 
-        //数组去重方法四：先将原数组排序，在与相邻的进行比较，如果不同则存入新数组。
-        let arr4 = [1, 3, 2, 4, 4, 3, 1, 2, '中', '中'];
-        let tempArr4 = arr4.sort();
-        let newArr4 = [tempArr4[0]];
-        for(let i = 1; i<tempArr4.length; i++){
-            if(tempArr4[i] !== tempArr4[i-1]){
-              newArr4.push(tempArr4[i]);
-            }
-        }
-        console.log('newArr4', newArr4);
+  //数组去重方法四：先将原数组排序，在与相邻的进行比较，如果不同则存入新数组。
+  let arr4 = [1, 3, 2, 4, 4, 3, 1, 2, '中', '中'];
+  let tempArr4 = arr4.sort();
+  let newArr4 = [tempArr4[0]];
+  for (let i = 1; i < tempArr4.length; i++) {
+    if (tempArr4[i] !== tempArr4[i - 1]) {
+      newArr4.push(tempArr4[i]);
+    }
+  }
+  console.log('newArr4', newArr4);
 
-    </script>
+</script>
 </body>
 </html>
