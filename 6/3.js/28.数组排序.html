@@ -1,48 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>KEEP MOVING</title>
-    <link rel="stylesheet" href="">
+  <meta charset="UTF-8">
+  <title>KEEP MOVING</title>
+  <link rel="stylesheet" href="">
 </head>
 <body>
 
 <script type="text/javascript">
-    /*var numberArray = [3,6,2,4,1,5];
-    //倒序
-    console.log(numberArray.reverse());
 
-    //数组排序方法一：
+  //数组排序方法一：
+  let arr1 = [3, 1, 2, 4, 1, 5, 2];
+  let newArr1 = arr1.sort(function (a, b) {
+    return a - b;//升序
+    return 0; //不改变顺序
+    return b - a; //降序
+  });
+  console.log('newArr1', newArr1);
 
-    console.log(numberArray.sort(function(a,b){
-        return a-b;//升序
-        return 0; //不改变顺序
-        return b-a; //降序
-    }));*/
+  //数组排序方法二： 冒泡排序
+  //原理：相邻的两个进行对比，大的放到右边。如此循环一周
+  function arrSort (arr) {
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length - i; j++) {
+        if (arr[j] > arr[j + 1]) {
+          let temp = arr[j + 1];
+          arr[j + 1] = arr[j];
+          arr[j] = temp;
 
-
-    //数组排序方法二： 冒泡排序
-    //原理：相邻的两个进行对比，大的放到右边。如此循环一周
-    function arrSort(arr){
-        for(var i=0; i<arr.length; i++){
-            for(var j=0; j<arr.length-i; j++){
-                if(arr[j] > arr[j+1]){
-                    let temp = arr[j+1];
-                    arr[j+1] = arr[j];
-                    arr[j] = temp;
-
-                    // 或者使用对象的解构赋值
-                    // [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
-                }
-            }
+          // 或者使用对象的解构赋值
+          // [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
         }
-        return arr;
+      }
     }
-    var numberArray2 = [3,6,2,4,1,5,6];
-    var result = arrSort(numberArray2);
-    console.log(result);
+    return arr;
+  }
+  let arr2 = [3, 1, 2, 4, 1, 5, 2];
+  let newArr2 = arrSort(arr2);
+  console.log('newArr2', newArr2);
 
-    
 </script>
 </body>
 </html>
