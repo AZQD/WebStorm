@@ -6,16 +6,17 @@
 </head>
 <body>
 <script type="text/javascript">
-    function *g () {
-      yield 1;
-      yield 2;
-      yield 3;
-    }
-    var gen = g();
-    console.log(111, gen.next());
-    console.log(111, gen.next());
-    console.log(111, gen.next());
-    console.log(111, gen.next());
+  function* g () {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+
+  var gen = g();
+  console.log(111, gen.next());
+  console.log(111, gen.next());
+  console.log(111, gen.next());
+  console.log(111, gen.next());
 </script>
 </body>
 </html>
