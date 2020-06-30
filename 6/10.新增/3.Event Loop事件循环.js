@@ -26,7 +26,7 @@ console.log(7);*/
 
 
 //demo02
-console.log(1);
+/*console.log(1);
 
 setTimeout(() => {
   console.log(2);
@@ -56,4 +56,19 @@ setTimeout(() => {
   console.log(9);
 })
 
-console.log(10);
+console.log(10);*/
+
+// demo3
+async function async1 () {
+  console.log('async1 start');
+  await async2();
+  console.log('async1 end');
+}
+
+async function async2 () {
+  console.log('async2');
+}
+
+console.log('start');
+async1();
+console.log('end');
