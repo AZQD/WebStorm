@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul id="ul">
+  <li>这是第01个li</li>
+  <li>这是第02个li</li>
+  <li>这是第03个li</li>
+  <li>这是第04个li</li>
+  <li>这是第05个li</li>
+</ul>
+<script type="text/javascript">
+
+    ul.addEventListener('click', function(e){
+      console.log(e.target); // li
+      console.log(e.currentTarget); // ul
+      console.log(this); // ul
+      console.log(e.currentTarget === this); // true
+
+      // target: 触发事件的对象。
+      // currentTarget: 绑定事件的对象，等于this
+    }, false);
+
+</script>
+</body>
+</html>
