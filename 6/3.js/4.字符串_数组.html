@@ -68,7 +68,6 @@
   console.log('arr1:', arr1.concat(2, 3));
 
   var forEachArr = [1, 2, 3];
-  var mapArr = [1, 2, 3];
 
   // forEach()不会返回数据
   let forEachArrNew = forEachArr.forEach(item => item + 1);
@@ -76,10 +75,45 @@
   console.log('forEachArrNew：', forEachArrNew); // undefined
 
   // map()会分配内存空间存储新数组并返回，而且更快
+  var mapArr = [1, 2, 3];
   let mapArrNew = mapArr.map(item => item + 1);
   console.log('mapArr：', mapArr); // [1, 2, 3]
   console.log('mapArrNew：', mapArrNew); // [2, 3, 4]
 
+  var filterArr = [1, 2, 3];
+  let filterArrNew = filterArr.map(item => item + 1);
+  console.log('filterArr：', filterArr); // [1, 2, 3]
+  console.log('filterArrNew：', filterArrNew); // [2, 3, 4]
+
+  // map() 不会改变原始数组。
+  // filter() 不会改变原始数组。
+  // 对于基本类型数据，不会改变；
+  // 对于引用类型数据，如果也不改变，需要这样处理：
+  // {
+  // ...item,
+  //   age: item.age+2
+  // }
+
+  // forEach也是看遍历的数组的每一项是基本类型数据，还是引用类型数据
+
+  // 例子🌰
+  let objArr = [
+    {
+      name: 'liming',
+      age: 12
+    },
+    {
+      name: 'lihua',
+      age: 20
+    },
+  ];
+  objArr.forEach(item => {
+    return {
+      ...item,
+      age: item.age+2
+    };
+  });
+  console.log('88888', objArr);
 
   //1.使用 .forEach来遍历
   /*var arr = [12, true, 'lift', 66, 'catch'];
