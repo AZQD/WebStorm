@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  var obj = {};
+
+  // 方法1
+  console.log(JSON.stringify(obj) === '{}');
+
+  // 方法2
+  let arr1 = [];
+  for (let key in obj) {
+    arr1.push(key);
+  }
+  console.log(arr1);
+
+  // 方法3
+  let arr2 = [];
+  for (let key of Object.keys(obj)) {
+    arr2.push(key);
+  }
+  console.log(arr2);
+
+  // 方法4
+  console.log(Object.keys(obj));
+  console.log(Object.values(obj));
+  console.log(Object.entries(obj));
+
+  // 方法5
+  console.log(Object.getOwnPropertyNames(obj));
+
+
+</script>
+</body>
+</html>
