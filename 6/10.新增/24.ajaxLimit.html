@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;">
+    <meta name="viewport"
+          content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="format-detection" content="address=no;">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>ajaxLimit</title>
+</head>
+<body>
+<script type="text/javascript">
+  //2.reqPromiseLimit
+
+  /*
+  * running  request ==> complete ==>check 1:runing<max;2.arr.length;
+  *
+  * */
+
+  let queryArr = [];
+  const max = 5;
+  let running = 0;
+
+
+  let wx = {
+    request: (OBJECT) => {
+      setTimeout(() => {
+        if (!!OBJECT) {
+          OBJECT.success && OBJECT.success(JSON.stringify(OBJECT));
+          OBJECT.complete && OBJECT.complete();
+        }
+      }, 2000)
+    }
+  }
+
+  for (let i = 0; i < 1000; i++) {
+    reqPromiseLimit({
+      data: i
+    }).then(function (res) {
+      console.log(res);
+    });
+  }
+
+
+  function reqPromiseLimit(object) {
+    return new Promise(function (resolve, reject) {
+      queryArr.push({
+        ...object,
+        success: resolve,
+        fail: reject
+      });
+      request();
+    });
+  }
+
+  function request() {
+    if (running < max && queryArr.length) {
+      let options = queryArr.shift();
+      running++;
+      wx.request({
+        ...options,
+        complete: function () {
+          running--;
+          request();
+        }
+      });
+    }
+  }
+
+
+</script>
+</body>
+</html>
