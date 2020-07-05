@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html;">
-    <meta name="viewport"
-          content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="format-detection" content="email=no"/>
-    <meta name="format-detection" content="address=no;">
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <title>ajaxLimit</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html;">
+  <meta name="viewport"
+        content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="format-detection" content="email=no"/>
+  <meta name="format-detection" content="address=no;">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <title>ajaxLimit</title>
 </head>
 <body>
 <script type="text/javascript">
@@ -46,7 +46,7 @@
   }
 
 
-  function reqPromiseLimit(object) {
+  function reqPromiseLimit (object) {
     return new Promise(function (resolve, reject) {
       queryArr.push({
         ...object,
@@ -57,7 +57,7 @@
     });
   }
 
-  function request() {
+  function request () {
     if (running < max && queryArr.length) {
       let options = queryArr.shift();
       running++;
