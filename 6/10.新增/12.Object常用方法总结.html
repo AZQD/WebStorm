@@ -36,6 +36,9 @@
 
 
   // if (obj.hasOwnProperty(key)) { // hasOwnProperty检测某个对象是否拥有某个属性
+  // 如果启用ESLint 配置"extends": "eslint:recommended"，则会报错；
+  // 新的写法：Object.prototype.hasOwnProperty.call(obj, 'xxx')
+  // 参考：https://zhuanlan.zhihu.com/p/118126825
 
   var obj1 = {
     a: 1,
