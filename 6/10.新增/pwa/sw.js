@@ -1,18 +1,18 @@
 // importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox-sw.js");
-var cacheStorageKey = 'minimal-pwa-2'
+var cacheStorageKey = 'minimal-pwa-2';
 var cacheList = [
   '/',
   'index.html',
   'main.css',
   'youhun.jpg'
-]
+];
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(cacheStorageKey)
       .then(cache => cache.addAll(cacheList))
       .then(() => self.skipWaiting())
   )
-})
+});
 
 self.addEventListener('fetch', function (e) {
   console.log(2, e);
@@ -24,7 +24,7 @@ self.addEventListener('fetch', function (e) {
       return fetch(e.request.url)
     })
   )
-})
+});
 self.addEventListener('activate', function (e) {
   e.waitUntil(
     //获取所有cache名称
@@ -41,4 +41,4 @@ self.addEventListener('activate', function (e) {
       return self.clients.claim()
     })
   )
-})
+});
