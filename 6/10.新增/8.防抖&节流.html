@@ -5,12 +5,13 @@
   <title>Title</title>
   <style type="text/css">
     .box1 {
-      height: 1000px;
+      height: 10000px;
       background-color: pink;
     }
   </style>
 </head>
 <body>
+<button id="submitBtn">提交</button>
 <div class="box1"></div>
 <script type="text/javascript">
 
@@ -52,6 +53,11 @@
 
   window.addEventListener('scroll', debounce(handle, 1000)); // 防抖
   // window.addEventListener('scroll', throttle(handle, 1000)); // 节流
+
+
+  submitBtn.addEventListener('click', debounce(function(){
+      console.log('clickLog');
+  }, 1000), false);
 
 </script>
 </body>
