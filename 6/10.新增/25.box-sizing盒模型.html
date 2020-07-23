@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+      *{
+         margin: 0;
+         padding: 0;
+       }
+      .box{
+        display: flex;
+        padding: 20px;
+      }
+      .box .part{
+        color: #999;
+        font-size: 20px;
+        width: 200px;
+        height: 100px;
+        text-align: center;
+        /*margin-right: 10px;*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px;
+        box-sizing: border-box; /*更改为IE盒模型*/
+      }
+      .box .left{
+        border: 10px solid pink;
+      }
+      .box .right{
+        background-color: fuchsia;
+      }
+  </style>
+</head>
+<body>
+
+<!--
+
+
+盒模型区别：
+标准盒模型:盒子总宽度/高度=width/height+padding+border+margin。（width/height即为内容区content）
+IE盒模型:盒子总宽度/高度=width/height + margin = 内容区宽度/高度 + border + padding + margin。（width/height包含border和padding）
+
+即box-sizing属性可以指定盒子模型种类，content-box指定盒子模型为W3C（标准盒模型）（默认值），border-box为IE盒子模型（怪异盒模型）。
+
+应用：
+使用box-sizing: border-box;就是为了在设置有padding值和border值的时候不把宽度撑开。
+比如：更改盒模型为IE盒模型；保证左右两个box宽高一致；
+src/components/userSharing/components/myPostComp/style.scss:134
+
+
+-->
+
+<div class="box">
+  <div class="part left">李沁</div>
+  <div class="part right">景甜</div>
+</div>
+
+</body>
+</html>
