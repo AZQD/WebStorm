@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style type="text/css">
-    #deleteFocus{
+    #input1{
 
       /*去掉默认谷歌点击input边框显示蓝色*/
       outline: none;
@@ -19,15 +19,40 @@
       /*去掉textarea,input的默认样式*/
       -webkit-appearance:none;
     }
+
+
+    #input2::-webkit-input-placeholder { /* WebKit browsers */
+      color: red;
+    }
+    /*在less中可以封装一个方法处理：*/
+    /*
+    .placeholder-color (@color: #999) {
+      ::-webkit-input-placeholder { !* WebKit browsers *!
+        color: @color;
+      }
+      :-moz-placeholder { !* Mozilla Firefox 4 to 18 *!
+        color: @color;
+      }
+      ::-moz-placeholder { !* Mozilla Firefox 19+ *!
+        color: @color;
+      }
+      :-ms-input-placeholder { !* Internet Explorer 10+ *!
+        color: @color;
+      }
+    }
+    */
   </style>
 </head>
 <body>
 
-参考文档：https://www.cnblogs.com/libin-1/p/5903350.html
+<!--参考文档：https://www.cnblogs.com/libin-1/p/5903350.html-->
 
 <!--ios输入框为readonly时，去除光标：-->
+<input id='input1' readonly unselectable="on" />
 
-<input id='deleteFocus' readonly unselectable="on" />
+<br/>
+
+<input id='input2' placeholder="请输入内容" />
 
 </body>
 </html>
