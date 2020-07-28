@@ -12,11 +12,19 @@
         height: 200px;
         background-color: pink;
       }
+
+    #top{
+      position: fixed;
+      right: 30px;
+      bottom: 30px;
+    }
   </style>
 </head>
 <body>
 <div id="topBox">topBox</div>
 <div id="bottomBox">bottomBox</div>
+
+<text id="top">回到顶部</text>
 <script type="text/javascript">
 
   var topBoxHeight = 1000;
@@ -41,6 +49,11 @@
   intersectionObserver.observe(
     document.getElementById("bottomBox")
   );
+
+
+  top.addEventListener('click', function(){
+      window.scrollTo(0, 0);
+  }, false);
 
   // 参考文档：IntersectionObserver API 使用教程
   // http://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html
