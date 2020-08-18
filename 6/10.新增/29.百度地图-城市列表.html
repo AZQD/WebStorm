@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+</head>
+<body>
+
+<div style="width: 420px; height: 340px; border: 1px solid gray; float: left;" id="container"></div>
+
+<div style="width: 350px; height: 340px;" id="Div1"><div>
+
+
+  <div class="sel_container">
+    <strong id="curCity"></strong> [<a id="curCityText" href="javascript:void(0)">更换城市</a>]
+  </div>
+
+
+  <div class="map_popup" id="cityList" style="display: none;">
+    <div class="popup_main">
+      <div class="title">城市列表</div>
+      <div class="cityList" id="citylist_container"></div>
+      <input type="button" id="popup_close" value="关闭"/>
+    </div>
+  </div>
+</div>
+  <script type="text/javascript" src="../3.js/jquery-1.10.1.js"></script> <!-- jquery库 -->
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script> <!-- 百度地图的文件 -->
+  <script type="text/javascript" src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js"></script> <!-- 城市选择的 -->
+  <script type="text/javascript">
+    var map = new BMap.Map("container");
+    map.centerAndZoom(new BMap.Point(117.10, 40.13), 11); //初始化地图
+
+    // 创建CityList对象，并放在citylist_container节点内
+    var myCl = new BMapLib.CityList({ container: "citylist_container", map: map });
+
+
+    $("#citylist_container").onclick = function () {
+
+    }
+
+
+    // 给“更换城市”链接添加点击操作
+    document.getElementById("curCityText").onclick = function () {
+      var cl = document.getElementById("cityList");
+      if (cl.style.display == "none") {
+        cl.style.display = "";
+      } else {
+        cl.style.display = "none";
+      }
+    };
+
+    // 给城市列表上的关闭按钮添加点击操作
+    document.getElementById("popup_close").onclick = function () {
+      var cl = document.getElementById("cityList");
+      if (cl.style.display == "none") {
+        cl.style.display = "";
+      } else {
+        cl.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>
