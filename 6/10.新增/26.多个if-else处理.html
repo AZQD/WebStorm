@@ -46,18 +46,22 @@
         ['middle', 'middleLog'],
         ['right', 'rightLog'],
     ]);
+    console.time('logName');
     const logName = map.get('middle');
     console.log(11, logName);
+    console.timeEnd('logName');
 
     const obj = {
         'left': 'leftLog',
         'middle': 'middleLog',
         'right': 'rightLog',
     };
+    console.time('logName2');
     const logName2 = obj['middle'];
     console.log(22, logName2);
-  
-  
+    console.timeEnd('logName2');
+
+
 </script>
 </body>
 </html>
