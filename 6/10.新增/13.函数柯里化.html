@@ -7,40 +7,40 @@
 <body>
 <script type="text/javascript">
 
-  // 柯里化有3个常见作用：
-  // 1.参数复用
-  // 2.提前确认 if else 判断
-  // 3.延迟计算/运行（先收集参数，最后调用， Function.prototype.bind 方法也是柯里化应用）
+    // 柯里化有3个常见作用：
+    // 1.参数复用
+    // 2.提前确认 if else 判断
+    // 3.延迟计算/运行（先收集参数，最后调用， Function.prototype.bind 方法也是柯里化应用）
 
-  // 参考文档：https://www.jianshu.com/p/2975c25e4d71
+    // 参考文档：https://www.jianshu.com/p/2975c25e4d71
 
 
-  // 实现一个add方法，使计算结果能够满足如下预期：
+    // 实现一个add方法，使计算结果能够满足如下预期：
 
-  function add () {
-    // 第一次执行时，定义一个数组专门用来存储所有的参数
-    var _args = Array.prototype.slice.call(arguments);
-    // var _args = Array.from(arguments); // 或者使用Array.from
+    function add () {
+        // 第一次执行时，定义一个数组专门用来存储所有的参数
+        var _args = Array.prototype.slice.call(arguments);
+        // var _args = Array.from(arguments); // 或者使用Array.from
 
-    // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
-    var fn = function () {
-      _args.push(...arguments);
-      return fn;
-    };
+        // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
+        var fn = function () {
+            _args.push(...arguments);
+            return fn;
+        };
 
-    // 利用toString隐式转换的特性，当最后执行时隐式转换，并计算最终的值返回
-    fn.toString = function () {
-      return _args.reduce(function (a, b) {
-        return a + b;
-      });
-    };
-    return fn;
-  }
+        // 利用toString隐式转换的特性，当最后执行时隐式转换，并计算最终的值返回
+        fn.toString = function () {
+            return _args.reduce(function (a, b) {
+                return a + b;
+            });
+        };
+        return fn;
+    }
 
-  console.log(add(1)(2)(3));
-  console.log(add(1, 2, 3)(4));
-  console.log(add(1)(2)(3)(4)(5));
-  console.log(add(2, 6)(1));
+    console.log(add(1)(2)(3));
+    console.log(add(1, 2, 3)(4));
+    console.log(add(1)(2)(3)(4)(5));
+    console.log(add(2, 6)(1));
 </script>
 </body>
 </html>
