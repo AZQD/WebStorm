@@ -45,17 +45,18 @@
     observerHandle(document.querySelectorAll("#div2 .myDiv"), function (res) {
         // console.log(234, res);
     });
-    function observerHandle(elements, callback) {
-        let observer = new IntersectionObserver( entries => {
+
+    function observerHandle (elements, callback) {
+        let observer = new IntersectionObserver(entries => {
             entries.forEach((item) => {
-                if(item.intersectionRatio >= 0.5) {
+                if (item.intersectionRatio >= 0.5) {
                     // console.log(item);
                     console.log(item.target.innerHTML, '显示', item.intersectionRatio);
                     // let idx = item.target.dataset.idx;
                     // idx = idx ? parseInt(idx, 10) : 0;
                     // console.log(234, idx);
                     // typeof callback === "function" && callback(idx);
-                }else{
+                } else {
                     // console.log(item);
                     console.log(item.target.innerHTML, '不显示', item.intersectionRatio);
                 }
