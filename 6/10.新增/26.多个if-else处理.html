@@ -34,35 +34,35 @@
 <script type="text/javascript" src="../3.js/jquery-1.10.1.js"></script>
 <script type="text/javascript">
 
-    // tabList.addEventListener('click', function (e) {
-    //     let target = e.target || e.srcElement;
-    //     target.classList.add('active');
-    // }, false);
+  // tabList.addEventListener('click', function (e) {
+  //     let target = e.target || e.srcElement;
+  //     target.classList.add('active');
+  // }, false);
 
-    // $('#tabList').delegate('.tabItem', 'click', function(){
-    //     let index = $(this).index();
-    // });
+  // $('#tabList').delegate('.tabItem', 'click', function(){
+  //     let index = $(this).index();
+  // });
 
-    const map = new Map([
-        ['left', 'leftLog'],
-        ['middle', 'middleLog'],
-        ['right', 'rightLog'],
-    ]);
+  const map = new Map([
+    ['left', 'leftLog'],
+    ['middle', 'middleLog'],
+    ['right', 'rightLog'],
+  ]);
 
-    console.time('logName');
-    const logName = map.get('middle');
-    console.log(11, logName);
-    console.timeEnd('logName');
+  console.time('logName');
+  const logName = map.get('middle');
+  console.log(11, logName);
+  console.timeEnd('logName');
 
-    const obj = {
-        'left': 'leftLog',
-        'middle': 'middleLog',
-        'right': 'rightLog',
-    };
-    console.time('logName2');
-    const logName2 = obj['middle'];
-    console.log(22, logName2);
-    console.timeEnd('logName2');
+  const obj = {
+    'left': 'leftLog',
+    'middle': 'middleLog',
+    'right': 'rightLog',
+  };
+  console.time('logName2');
+  const logName2 = obj['middle'];
+  console.log(22, logName2);
+  console.timeEnd('logName2');
 
 </script>
 </body>
