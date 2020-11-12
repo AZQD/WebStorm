@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      .wrapper{
+
+      }
+      #topBox{
+        height: 500px;
+        background-color: pink;
+      }
+      #middleBox{
+        height: 500px;
+        background-color: #bfa;
+      }
+      #bottomBox{
+        height: 500px;
+        background-color: pink;
+      }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div id="topBox">topBox</div>
+  <div id="middleBox">middleBox</div>
+  <div id="bottomBox">bottomBox</div>
+</div>
+<script type="text/javascript">
+  // 功能：
+  // 浏览器标签页被隐藏或显示的时候会触发visibilitychange事件.
+  // 页面隐藏：监听返回、分享、跳转、切入后台；
+
+  // 应用：
+  // 可用于统计某个页面用户停留时长，即显示时开始计算，隐藏时结束计算；
+  // 也可用于控制播放音乐视频、轮播等循环动画效果等；
+
+  // 参考文档：https://www.cnblogs.com/zshno1/p/9739407.html
+  document.addEventListener("visibilitychange", function () {
+    console.log('document.visibilityState=' + document.visibilityState);
+    console.log('document.hidden=' + document.hidden, document.hidden ? '页面隐藏' : '页面显示');
+  });
+</script>
+</body>
+</html>
