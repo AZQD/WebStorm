@@ -26,7 +26,9 @@
   // 可用于统计某个页面用户停留时长，即显示时开始计算，隐藏时结束计算；
   // 也可用于控制播放音乐视频、轮播等循环动画效果等；
 
-  // 参考文档：https://www.cnblogs.com/zshno1/p/9739407.html
+  // 参考文档：
+  // https://developer.mozilla.org/zh-CN/docs/Web/API/Document/visibilitychange_event
+  // https://www.cnblogs.com/zshno1/p/9739407.html
   document.addEventListener("visibilitychange", function () {
     console.log('document.visibilityState=' + document.visibilityState);
     console.log('document.hidden=' + document.hidden, document.hidden ? '页面隐藏' : '页面显示');
