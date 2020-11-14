@@ -19,7 +19,7 @@
       padding: 200px 0;
     }
 
-    .myDiv {
+    .partItem {
       margin-top: 50px;
       width: 70px;
       height: 70px;
@@ -30,19 +30,19 @@
 <body>
 <div id="div1">
   <div id="div2">
-    <div class="myDiv myDiv1">1</div>
-    <div class="myDiv myDiv2">2</div>
-    <div class="myDiv myDiv3">3</div>
-    <div class="myDiv myDiv4">4</div>
-    <div class="myDiv myDiv5">5</div>
-    <div class="myDiv myDiv6">6</div>
-    <div class="myDiv myDiv7">7</div>
-    <div class="myDiv myDiv8">8</div>
+    <div class="partItem partItem1">1</div>
+    <div class="partItem partItem2">2</div>
+    <div class="partItem partItem3">3</div>
+    <div class="partItem partItem4">4</div>
+    <div class="partItem partItem5">5</div>
+    <div class="partItem partItem6">6</div>
+    <div class="partItem partItem7">7</div>
+    <div class="partItem partItem8">8</div>
   </div>
 </div>
 <script type="text/javascript">
     // 示例参考文档：cnblogs.com/yhquan/p/11326038.html
-    observerHandle(document.querySelectorAll("#div2 .myDiv"), function (res) {
+    observerHandle(document.querySelectorAll("#div2 .partItem"), function (res) {
         // console.log(234, res);
     });
 
