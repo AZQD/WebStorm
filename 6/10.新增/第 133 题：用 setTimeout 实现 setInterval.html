@@ -8,9 +8,9 @@
 <script type="text/javascript">
     function test () {
         console.time('betweenTime');
-        // for(let i = 0; i<1000000000; i++){
-        //   // console.log(i);
-        // }
+        for(let i = 0; i<10; i++){
+          console.log(i);
+        }
         setTimeout(test, 1000);
         console.timeEnd('betweenTime');
     }
