@@ -3,26 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>Mixpanel无埋点示例</title>
+  <style type="text/css">
+      .listBox{
+      }
+      .listBox .listItem{
+        height: 32px;
+        border: 1px solid #999;
+        margin: 8px;
+      }
+      .inputBox{
+
+      }
+      .inputBox .iptItem{
+        margin: 8px;
+      }
+  </style>
 </head>
 <body>
 
 <div class="wrapper">
+
   <div class="listBox">
-    <div class="listItem">01</div>
-    <div class="listItem">02</div>
-    <div class="listItem">03</div>
-    <div class="listItem">04</div>
-    <div class="listItem">05</div>
-    <div class="listItem">06</div>
-    <div class="listItem">07</div>
-    <div class="listItem">08</div>
-    <div class="listItem">09</div>
+    <div class="listItem">item01</div>
+    <div class="listItem">item02</div>
+    <div class="listItem">item03</div>
+    <div class="listItem">item04</div>
+    <div class="listItem">item05</div>
+    <div class="listItem">item06</div>
+    <div class="listItem">item07</div>
+    <div class="listItem">item08</div>
+    <div class="listItem">item09</div>
   </div>
+
+  <hr/>
+
+  <form>
+    你更喜欢哪种颜色?<br>
+    <input type="radio" name="colors" id="red">红色<br>
+    <input type="radio" name="colors" id="yellow">黄色<br>
+    <input type="radio" name="colors" id="blue">蓝色
+  </form>
+
+  <hr/>
+
   <div class="inputBox">
-    <input type="text" placeholder="用户名"/><br/>
-    <input type="text" placeholder="密码"/><br/>
-    <input type="button" value="提交"/>
+    <input class="iptItem" type="text" placeholder="用户名"/><br/>
+    <input class="iptItem" type="text" placeholder="密码"/><br/>
+    <input class="iptItem" type="button" value="提交"/>
   </div>
+
 </div>
 
 <script type="text/javascript" src="./js/mixpanel.min.js"></script>
