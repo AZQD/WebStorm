@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>无限滚动方案</title>
   <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+    }
     #topBox {
       height: 1000px;
       background-color: #bfa;
@@ -32,7 +36,7 @@
     let time = 1;
     let intersectionObserver = new IntersectionObserver(
         function (entries) {
-            console.log(entries);
+            console.log(entries[0]);
             console.log(entries[0].intersectionRatio);
             // 如果不可见，就返回
             if (entries[0].intersectionRatio <= 0) return;
