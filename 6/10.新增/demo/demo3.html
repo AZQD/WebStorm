@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>动态埋点统计</title>
+  <title>动态埋点统计示例</title>
   <style type="text/css">
     #div1 {
       width: 300px;
@@ -41,6 +41,8 @@
   </div>
 </div>
 <script type="text/javascript">
+    console.log('%c 动态埋点统计示例：', 'font-size:30px;color:red;');
+
     observerHandle(document.querySelectorAll("#div2 .partItem"), function () {
         // todo
     });
