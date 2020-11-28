@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mixpanel无埋点示例</title>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="listBox">
+    <div class="listItem">01</div>
+    <div class="listItem">02</div>
+    <div class="listItem">03</div>
+    <div class="listItem">04</div>
+    <div class="listItem">05</div>
+    <div class="listItem">06</div>
+    <div class="listItem">07</div>
+    <div class="listItem">08</div>
+    <div class="listItem">09</div>
+  </div>
+  <div class="inputBox">
+    <input type="text" placeholder="用户名" /><br/>
+    <input type="text" placeholder="密码" /><br/>
+    <input type="button" value="提交" />
+  </div>
+</div>
+
+<script type="text/javascript" src="./js/mixpanel.min.js"></script>
+<script type="text/javascript">
+    document.addEventListener('click', e => {
+        console.log('DOM节点：', e.target);
+    }, true);
+</script>
+</body>
+</html>
