@@ -43,10 +43,13 @@
 <script type="text/javascript">
     console.log('%c 动态埋点统计示例：', 'font-size:30px;color:red;');
 
+    // 开始观察
     observerHandle(document.querySelectorAll("#div2 .partItem"), function () {
         // todo
     });
 
+
+    // 初始化观察器
     function observerHandle (elements, callback) {
         let observer = new IntersectionObserver(entries => {
             entries.forEach((item) => {
