@@ -68,9 +68,17 @@
      *
      * @param options  配置参数（非必填）；
      * ratio：显示/隐藏比例，默认值：0.5；poll：节流时间，50ms；
+     *
+     * 调用示例：
+     * watchExposure(document.querySelectorAll("#div2 .partItem"), function (res) {
+          console.log('成功回调:', res);
+          }, {
+          ratio: 0.1,
+          poll: 50,
+      });
      */
     function watchExposure (elements, callback, options = {}) {
-        let observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach((item) => {
                 if (item.intersectionRatio >= (options.ratio || 0.5)) {
                     // console.log(item.target.getAttribute('idx'));
