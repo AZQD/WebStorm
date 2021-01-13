@@ -16,7 +16,7 @@
       width: 300px;
       background-color: #ddd;
       overflow: hidden;
-      padding: 200px 0;
+      padding-bottom: 200px;
     }
 
     .partItem {
@@ -43,17 +43,15 @@
 <script type="text/javascript">
   console.log('%c 元素观察器监听封装：', 'font-size:30px;color:red;');
 
-  // 开始观察
   /**
-   *
+   *开始观察
    */
   watchExposure(document.querySelectorAll("#div2 .partItem"), function (res) {
-    // todo
     console.log('成功回调:', res);
   }, {
     ratio: 0.5,
     poll: 50,
-    once: false, // 仅展示时上报一次埋点；
+    once: true, // 仅展示时上报一次埋点；
   });
 
 
@@ -63,19 +61,24 @@
    * @param elements 元素伪数组（必填）；
    * 例如：document.querySelectorAll("#div2 .partItem")；
    *
+   *
    * @param callback 成功回调（非必填）；
-   * 返回值：visibility：是否显示
+   * 返回值：
+   *       index：DOM元素在伪数组中的下标；
    *       item：监听dom节点信息；
+   *       visibility：DOM元素是否显示；（true：显示埋点；false：隐藏埋点；）
+   *
    *
    * @param options  配置参数（非必填）；
    * ratio：显示/隐藏比例，默认值：0.5；poll：节流时间，50ms；
-   * once：仅展示时上报一次埋点；（ 在业务代码中，once=true时，仅判断needLog=true，添加上报埋点逻辑即可；）
+   * once：仅展示时上报一次埋点；（ 在业务代码中，once=true时，判断返回值visibility=true，添加上报埋点逻辑即可；）
+   *
    *
    * 调用示例：
    * watchExposure(document.querySelectorAll("#div2 .partItem"), function (res) {
           console.log('成功回调:', res);
           }, {
-          ratio: 0.1,
+          ratio: 0.5,
           poll: 50,
           once: true,
       });
@@ -86,55 +89,43 @@
 
   function watchExposure (elements, callback, options = {}) {
     try {
+      const {ratio = 0.5, poll = 50, once = false} = options; // 配置数据
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((item) => {
 
-          if (item.intersectionRatio >= (options.ratio || 0.5)) {
+          const index = Number(item.target.getAttribute('idx')); // DOM元素在伪数组中的下标
+          const visibility = item.intersectionRatio >= ratio; // DOM元素是否显示
+          // console.log(visibility ? '显示' : '不显示', item.intersectionRatio);
+          const {hasLog = false} = item.target.dataset;
+          let res = {
+            index,
+            item,
+            visibility
+          };
 
-            // console.log(item.target.innerHTML, '显示', item.intersectionRatio);
-            const {hasLog = false} = item.target.dataset;
-            if (options.once) { // 如果仅展示时上报一次埋点
-              if (!hasLog) {
-                item.target.dataset.hasLog = true;
-                callback && callback({
-                  index: Number(item.target.getAttribute('idx')),
-                  visibility: true,
-                  needLog: true,
-                  item
-                });
-                observer.unobserve(item.target); // 上报完埋点，停止监听该DOM节点，优化性能；
-              }
-              return;
+          // hasLog默认为undefined，如果初次展示，则统计上报，并将hasLog置为true；否则return;
+          if (!hasLog && visibility) { // 第一次进入可视区域执行，只会执行一次
+            item.target.dataset.hasLog = true;
+
+            if (once) { // 如果仅展示时上报一次埋点
+              observer.unobserve(item.target); // 上报完埋点，停止监听该DOM节点，优化性能；
             }
-            callback && callback({
-              index: Number(item.target.getAttribute('idx')),
-              visibility: true,
-              item
-            });
-
-          } else {
-
-            // console.log(item.target.innerHTML, '不显示', item.intersectionRatio);
-            if (options.once) { // 如果仅展示时上报一次埋点
-              return;
-            }
-            callback && callback({
-              index: Number(item.target.getAttribute('idx')),
-              visibility: false,
-              item
-            });
-
+            callback && callback(res);
+            return;
           }
+
+          hasLog && callback && callback(res); // 第一次进入可视区域之后的逻辑
+
         });
       }, {
-        threshold: [options.ratio || 0.5] // 一个包含阈值的列表, 按升序排列, 列表中的每个阈值都是监听对象的交叉区域与边界区域的比率。
+        threshold: [ratio] // 一个包含阈值的列表, 按升序排列, 列表中的每个阈值都是监听对象的交叉区域与边界区域的比率。
       });
 
-      observer.POLL_INTERVAL = (options.poll || 50); // 节流时间为50毫秒
+      observer.POLL_INTERVAL = poll; // 节流时间为50毫秒
 
       Array.from(elements).forEach((el, idx) => {
         el.setAttribute('idx', idx);
-        return observer.observe(el)
+        return observer.observe(el);
       });
     } catch (e) {
       console.log('元素观察器监听异常', e);
