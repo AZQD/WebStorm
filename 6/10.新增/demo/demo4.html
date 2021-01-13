@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>动态埋点统计示例</title>
   <style type="text/css">
+
     #div1 {
       width: 300px;
       height: 200px;
@@ -25,6 +26,7 @@
       height: 70px;
       background-color: pink;
     }
+
   </style>
 </head>
 <body>
@@ -51,12 +53,13 @@
   }, {
     ratio: 0.5,
     poll: 50,
-    once: true, // 仅展示时上报一次埋点；
+    once: false, // 仅展示时上报一次埋点；
   });
 
 
   /**
    * 元素观察器监听
+   *
    *
    * @param elements 元素伪数组（必填）；
    * 例如：document.querySelectorAll("#div2 .partItem")；
@@ -70,21 +73,23 @@
    *
    *
    * @param options  配置参数（非必填）；
-   * ratio：显示/隐藏比例，默认值：0.5；poll：节流时间，50ms；
-   * once：仅展示时上报一次埋点；（ 在业务代码中，once=true时，判断返回值visibility=true，添加上报埋点逻辑即可；）
+   *        ratio：显示/隐藏比例，默认值：0.5；
+   *        poll：节流时间，默认值：50ms；
+   *        once：仅展示时上报一次埋点，默认值：false；（ 在业务代码中，once=true时，判断返回值visibility=true，添加上报埋点逻辑即可；）
    *
    *
    * 调用示例：
    * watchExposure(document.querySelectorAll("#div2 .partItem"), function (res) {
           console.log('成功回调:', res);
-          }, {
+        }, {
           ratio: 0.5,
           poll: 50,
           once: true,
       });
-
-   todo
-   // observer.disconnect(); // 使IntersectionObserver对象停止监听工作
+   *
+   *
+   * TODO
+   observer.disconnect(); // 使IntersectionObserver对象停止监听工作
    */
 
   function watchExposure (elements, callback, options = {}) {
