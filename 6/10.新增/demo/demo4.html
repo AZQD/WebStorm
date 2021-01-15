@@ -5,14 +5,14 @@
   <title>动态埋点统计示例</title>
   <style type="text/css">
 
-    #div1 {
+    #wrapper {
       width: 300px;
       height: 200px;
       overflow-y: auto;
       overflow-x: hidden;
     }
 
-    #div2 {
+    .infoBox {
       height: 800px;
       width: 300px;
       background-color: #ddd;
@@ -20,7 +20,7 @@
       padding-bottom: 200px;
     }
 
-    .partItem {
+    .infoItem {
       margin-top: 50px;
       width: 70px;
       height: 70px;
@@ -30,16 +30,16 @@
   </style>
 </head>
 <body>
-<div id="div1">
-  <div id="div2">
-    <div class="partItem partItem1">1</div>
-    <div class="partItem partItem2">2</div>
-    <div class="partItem partItem3">3</div>
-    <div class="partItem partItem4">4</div>
-    <div class="partItem partItem5">5</div>
-    <div class="partItem partItem6">6</div>
-    <div class="partItem partItem7">7</div>
-    <div class="partItem partItem8">8</div>
+<div id="wrapper">
+  <div class="infoBox">
+    <div class="infoItem infoItem1">1</div>
+    <div class="infoItem infoItem2">2</div>
+    <div class="infoItem infoItem3">3</div>
+    <div class="infoItem infoItem4">4</div>
+    <div class="infoItem infoItem5">5</div>
+    <div class="infoItem infoItem6">6</div>
+    <div class="infoItem infoItem7">7</div>
+    <div class="infoItem infoItem8">8</div>
   </div>
 </div>
 <script type="text/javascript">
@@ -48,12 +48,12 @@
   /**
    *开始观察
    */
-  watchExposure(document.querySelectorAll("#div2 .partItem"), function (res) {
+  watchExposure(document.querySelectorAll(".infoBox .infoItem"), function (res) {
     console.log('成功回调:', res);
   }, {
-    ratio: 0.5,
-    poll: 50,
-    once: false, // 仅展示时上报一次埋点；
+    ratio: 0.5, // 露出比例，0.5即元素露出/隐藏50%时上报；
+    poll: 100, // 节流时间；
+    repeat: false, // 是否上报多次埋点；
   });
 
 
@@ -62,39 +62,43 @@
    *
    *
    * @param elements 元素伪数组（必填）；
-   * 例如：document.querySelectorAll("#div2 .partItem")；
+   * 例如：DOM结构为：
+           <div class="infoBox">
+             <div class="infoItem">1</div>
+             <div class="infoItem">2</div>
+             <div class="infoItem">3</div>
+           </div>
+   *      传参方式：document.querySelectorAll(".infoBox .infoItem")；
    *
    *
    * @param callback 成功回调（非必填）；
    * 返回值：
    *       index：DOM元素在伪数组中的下标；
-   *       item：监听dom节点信息；
    *       visibility：DOM元素是否显示；（true：显示埋点；false：隐藏埋点；）
+   *       item：监听dom节点信息；
    *
    *
    * @param options  配置参数（非必填）；
    *        ratio：显示/隐藏比例，默认值：0.5；
-   *        poll：节流时间，默认值：50ms；
-   *        once：仅展示时上报一次埋点，默认值：false；（ 在业务代码中，once=true时，判断返回值visibility=true，添加上报埋点逻辑即可；）
+   *        poll：节流时间，默认值：100ms；
+   *        repeat：是否上报多次埋点；默认值：false，即：仅上报一次展示埋点；
    *
    *
    * 调用示例：
-   * watchExposure(document.querySelectorAll("#div2 .partItem"), function (res) {
+   * watchExposure(document.querySelectorAll(".infoBox .infoItem"), function (res) {
           console.log('成功回调:', res);
         }, {
-          ratio: 0.5,
-          poll: 50,
-          once: true,
+          ratio: 0.5, // 露出比例，0.5即元素露出/隐藏50%时上报；
+          poll: 100, // 节流时间；
+          repeat: false, // 是否上报多次埋点；
       });
    *
    *
-   * TODO （卸载时才触发）
-   observer.disconnect(); // 使IntersectionObserver对象停止监听工作
    */
 
   function watchExposure (elements, callback, options = {}) {
     try {
-      const {ratio = 0.5, poll = 50, once = false} = options; // 配置数据
+      const {ratio = 0.5, poll = 100, repeat = false} = options; // 配置数据
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((item) => {
 
@@ -112,7 +116,7 @@
           if (!hasLog && visibility) { // 第一次进入可视区域执行，只会执行一次
             item.target.dataset.hasLog = true;
 
-            if (once) { // 如果仅展示时上报一次埋点
+            if (!repeat) { // 如果仅展示时上报一次埋点
               observer.unobserve(item.target); // 上报完埋点，停止监听该DOM节点，优化性能；
             }
             callback && callback(res);
@@ -126,10 +130,15 @@
         threshold: [ratio] // 一个包含阈值的列表, 按升序排列, 列表中的每个阈值都是监听对象的交叉区域与边界区域的比率。
       });
 
-      observer.POLL_INTERVAL = poll; // 节流时间为50毫秒
+      observer.POLL_INTERVAL = poll; // 节流时间为100毫秒
 
       Array.from(elements).forEach((el, idx) => {
         el.setAttribute('idx', idx);
+        // 分页情况下，如果再次调用该方法，则对同一个DOM，不再重复监听；
+        if(el.getAttribute('observer')) {
+          return;
+        }
+        el.setAttribute('observer', true);
         return observer.observe(el);
       });
     } catch (e) {
