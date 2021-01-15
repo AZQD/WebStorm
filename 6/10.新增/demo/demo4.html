@@ -56,9 +56,9 @@
   watchExposure(document.querySelectorAll(".infoBox .infoItem"), function (res) {
     console.log('成功回调:', res);
   }, {
-    ratio: 0.5, // 露出比例，0.5即元素露出/隐藏50%时上报；
-    poll: 100, // 节流时间；
-    repeat: false, // 是否上报多次埋点；
+    ratio: 0.5, // 显示/隐藏比例，默认值：0.5，0.5即元素显示/隐藏50%时上报；
+    poll: 100, // 节流时间，默认值：100ms；
+    repeat: false, // 是否上报多次埋点，默认值：false，即：仅上报一次展示埋点；
   });
 
 
@@ -84,18 +84,18 @@
    *
    *
    * @param options  配置参数（非必填）；
-   *        ratio：显示/隐藏比例，默认值：0.5；
+   *        ratio：显示/隐藏比例，默认值：0.5，0.5即元素显示/隐藏50%时上报；
    *        poll：节流时间，默认值：100ms；
-   *        repeat：是否上报多次埋点；默认值：false，即：仅上报一次展示埋点；
+   *        repeat：是否上报多次埋点，默认值：false，即：仅上报一次展示埋点；
    *
    *
    * 调用示例：
    * watchExposure(document.querySelectorAll(".infoBox .infoItem"), function (res) {
           console.log('成功回调:', res);
         }, {
-          ratio: 0.5, // 露出比例，0.5即元素露出/隐藏50%时上报；
-          poll: 100, // 节流时间；
-          repeat: false, // 是否上报多次埋点；
+          ratio: 0.5, // 显示/隐藏比例，默认值：0.5，0.5即元素显示/隐藏50%时上报；
+          poll: 100, // 节流时间，默认值：100ms；
+          repeat: false, // 是否上报多次埋点，默认值：false，即：仅上报一次展示埋点；
       });
    *
    *
