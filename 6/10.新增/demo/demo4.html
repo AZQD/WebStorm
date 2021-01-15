@@ -133,11 +133,11 @@
       observer.POLL_INTERVAL = poll; // 节流时间为100毫秒
 
       Array.from(elements).forEach((el, idx) => {
-        el.setAttribute('idx', idx);
         // 分页情况下，如果再次调用该方法，则对同一个DOM，不再重复监听；
         if(el.getAttribute('observer')) {
           return;
         }
+        el.setAttribute('idx', idx);
         el.setAttribute('observer', true);
         return observer.observe(el);
       });
