@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<input id="fileIpt" type="file" multiple="multiple" onchange="uploadFun()">
+
+<script type="text/javascript">
+
+    let fileIpt = document.getElementById("fileIpt");
+
+    async function uploadFun () {
+        // console.log(fileIpt);
+        // console.log(fileIpt.value);
+        // console.log(fileIpt.files);
+
+        let files = fileIpt.files;
+        for (let i = 0; i < files.length; i++) {
+            let file = files[i];
+            console.log(`第${i}个file文件为：`, file);
+            let base64 = await fileConvertBase64(file);
+            console.log(`第${i}个base64文件为：`, base64);
+            let newFile = base64ConvertFile(base64, file.name.split('.')[0]);
+            console.log(`第${i}个base64文件转为新的file文件为：`, newFile);
+        }
+
+    }
+
+    // file 转 base64
+    async function fileConvertBase64 (file) {
+        return new Promise(((resolve, reject) => {
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.addEventListener("load", async function () {
+                resolve(reader.result);
+            }, false);
+            reader.addEventListener('error', reject); // don't forget this one
+        }));
+
+    }
+
+    // base64 转 file
+    function base64ConvertFile (base64Data, filename) { // 64转file
+        if (typeof base64Data !== 'string') {
+            alert("urlData不是字符串")
+            return;
+        }
+        let arr = base64Data.split(',')
+        let type = arr[0].match(/:(.*?);/)[1]
+        let fileExt = type.split('/')[1]
+        let bstr = atob(arr[1])
+        let n = bstr.length
+        let u8arr = new Uint8Array(n)
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new File([u8arr], `${filename}.` + fileExt, {
+            type: type
+        });
+    }
+
+
+</script>
+</body>
+</html>
