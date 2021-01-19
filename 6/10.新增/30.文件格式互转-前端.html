@@ -5,13 +5,14 @@
   <title>Title</title>
 </head>
 <style type="text/css">
-    img{
-      vertical-align: middle;
-    }
-    #mycanvas{
-      margin-top: 10px;
-      border:1px solid fuchsia;
-    }
+  img {
+    vertical-align: middle;
+  }
+
+  #mycanvas {
+    margin-top: 10px;
+    border: 1px solid fuchsia;
+  }
 </style>
 <body>
 
@@ -28,12 +29,13 @@
 <a id="downloadDom2">点此进行下载</a>
 
 <hr/>
-<button id="canvasBtn">将base64图片数据绘制到canvas</button><br/>
+<button id="canvasBtn">将base64图片数据绘制到canvas</button>
+<br/>
 <canvas id="mycanvas"></canvas>
 
 <script type="text/javascript">
 
-  let windowBase64 = '';
+    let windowBase64 = '';
 
     let fileIpt = document.getElementById("fileIpt");
 
@@ -167,18 +169,18 @@
 
     // canvas转换为dataURL
     let mycanvas = document.querySelector('#mycanvas');
-    var context=mycanvas.getContext("2d");
+    var context = mycanvas.getContext("2d");
     mycanvas.width = 360;
     mycanvas.height = 360;
 
-    if(mycanvas.getContext){
+    if (mycanvas.getContext) {
         let painting = mycanvas.getContext('2d');
         painting.beginPath();
         painting.fillStyle = 'red';
         painting.rect(150, 150, 100, 100);
         painting.closePath();
         painting.fill();
-    }else {
+    } else {
         alert('您的浏览器不支持Canvas');
     }
     let canvas_base64_png = mycanvas.toDataURL('image/png');
@@ -189,12 +191,12 @@
 
     // 将base64图片数据绘制到canvas
     document.getElementById("canvasBtn").addEventListener('click', function () {
-        if(!windowBase64){
+        if (!windowBase64) {
             alert('请先选择图片~');
             return;
         }
         let img = new Image();
-        img.onload = function(){
+        img.onload = function () {
             context.drawImage(img, 50, 50);
         };
         img.src = windowBase64;
