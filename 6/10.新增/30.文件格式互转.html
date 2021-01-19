@@ -8,6 +8,8 @@
 
 <input id="fileIpt" type="file" multiple="multiple" onchange="uploadFun()">
 
+<img id="imgFile" alt="">
+
 <script type="text/javascript">
 
     let fileIpt = document.getElementById("fileIpt");
@@ -20,18 +22,35 @@
         let files = fileIpt.files;
         for (let i = 0; i < files.length; i++) {
 
+            // File
             let file = files[i];
             console.log(`第${i}个file文件为：`, file);
+            console.log('%c *******', 'color:red;');
 
+            // base64
             let base64 = await fileConvertBase64(file);
             console.log(`第${i}个base64文件为：`, base64);
 
+
+            // Blob
             let blob = dataURItoBlob(base64);
             console.log(`第${i}个blob文件为：`, blob);
 
+            let blobURL = window.URL.createObjectURL(blob); // Blob URL所实现的下载或者显示等功能，仅仅可以在单个浏览器内部进行
+            console.log(`第${i}个blobURL文件为：`, blobURL);
+            document.getElementById("imgFile").setAttribute('src', blobURL);
+
+            document.getElementById("imgFile").onload = function () {
+                // 释放一个之前通过调用 URL.createObjectURL创建的 URL 对象
+                // window.URL.revokeObjectURL(blobURL);
+                // console.log(`第${i}个blobURL被释放了：`, blobURL);
+            };
+
+            // arrayBuffer
             let arrayBuffer = await blobConvertArrayBuffer(blob);
             console.log(`第${i}个arrayBuffer文件为：`, arrayBuffer);
 
+            // File
             let newFile = base64ConvertFile(base64, file.name.split('.')[0]);
             console.log(`第${i}个base64文件转为新的file文件为：`, newFile);
         }
