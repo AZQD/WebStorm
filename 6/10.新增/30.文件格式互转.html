@@ -14,6 +14,7 @@
 
     let fileIpt = document.getElementById("fileIpt");
 
+    // 上传文件操作
     async function uploadFun () {
         // console.log(fileIpt);
         // console.log(fileIpt.value);
@@ -22,18 +23,21 @@
         let files = fileIpt.files;
         for (let i = 0; i < files.length; i++) {
 
-            // File
+
+            // File源文件
             let file = files[i];
             console.log(`第${i}个file文件为：`, file);
             console.log('%c *******', 'color:red;');
 
-            // base64
-            let base64 = await fileConvertBase64(file);
+
+            // file_base64
+            let base64 = await file_base64(file);
             console.log(`第${i}个base64文件为：`, base64);
+            console.log('%c *******', 'color:red;');
 
 
-            // Blob
-            let blob = dataURItoBlob(base64);
+            // base64_blob
+            let blob = base64_blob(base64);
             console.log(`第${i}个blob文件为：`, blob);
 
             let blobURL = window.URL.createObjectURL(blob); // Blob URL所实现的下载或者显示等功能，仅仅可以在单个浏览器内部进行
@@ -45,20 +49,25 @@
                 // window.URL.revokeObjectURL(blobURL);
                 // console.log(`第${i}个blobURL被释放了：`, blobURL);
             };
+            console.log('%c *******', 'color:red;');
 
-            // arrayBuffer
-            let arrayBuffer = await blobConvertArrayBuffer(blob);
+
+            // blob_arrayBuffer
+            let arrayBuffer = await blob_arrayBuffer(blob);
             console.log(`第${i}个arrayBuffer文件为：`, arrayBuffer);
+            console.log('%c *******', 'color:red;');
 
-            // File
-            let newFile = base64ConvertFile(base64, file.name.split('.')[0]);
+
+            // base64_file
+            let newFile = base64_file(base64, file.name.split('.')[0]);
             console.log(`第${i}个base64文件转为新的file文件为：`, newFile);
+            console.log('%c *******', 'color:red;');
         }
     }
 
 
     // file 转 base64
-    function fileConvertBase64 (file) {
+    function file_base64 (file) {
         return new Promise(((resolve, reject) => {
             let reader = new FileReader();
             reader.readAsDataURL(file);
@@ -71,12 +80,12 @@
 
 
     // base64 转 file
-    function base64ConvertFile (base64Data, filename) { // 64转file
-        if (typeof base64Data !== 'string') {
+    function base64_file (base64, filename) { // 64转file
+        if (typeof base64 !== 'string') {
             alert("urlData不是字符串");
             return;
         }
-        let arr = base64Data.split(',');
+        let arr = base64.split(',');
         let type = arr[0].match(/:(.*?);/)[1];
         let fileExt = type.split('/')[1];
         let bstr = atob(arr[1]);
@@ -91,10 +100,10 @@
     }
 
 
-    // base64 转成blob 上传
-    function dataURItoBlob (dataURI) {
-        let byteString = atob(dataURI.split(',')[1]);
-        let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    // base64 转 blob
+    function base64_blob (base64) {
+        let byteString = atob(base64.split(',')[1]);
+        let mimeString = base64.split(',')[0].split(':')[1].split(';')[0];
         let ab = new ArrayBuffer(byteString.length);
         let ia = new Uint8Array(ab);
         for (let i = 0; i < byteString.length; i++) {
@@ -104,8 +113,8 @@
     }
 
 
-    // blob 转成ArrayBuffer
-    function blobConvertArrayBuffer (blob) {
+    // blob 转 ArrayBuffer
+    function blob_arrayBuffer (blob) {
         return new Promise(((resolve, reject) => {
             let blobData = new Blob([blob]);
             let reader = new FileReader();
