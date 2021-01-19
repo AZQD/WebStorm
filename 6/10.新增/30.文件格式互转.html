@@ -4,13 +4,24 @@
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
+<style type="text/css">
+    img{
+      vertical-align: middle;
+    }
+</style>
 <body>
 
 <input id="fileIpt" type="file" multiple="multiple" onchange="uploadFun()">
 
-<img id="imgFile" alt="">
+<hr/>
+<h3>通过base64展示/下载文件：</h3>
+<img id="imgFile1" alt="">
+<a id="downloadDom1">点此进行下载</a>
 
-<a id="downloadDom">点此进行下载</a>
+<hr/>
+<h3>通过blobURL展示/下载文件：</h3>
+<img id="imgFile2" alt="">
+<a id="downloadDom2">点此进行下载</a>
 
 <script type="text/javascript">
 
@@ -35,6 +46,14 @@
             // file_base64
             let base64 = await file_base64(file);
             console.log(`第${i}个base64文件为：`, base64);
+
+            // 通过base64展示文件
+            document.getElementById("imgFile1").setAttribute('src', base64);
+
+            // 通过base64下载文件
+            let downloadDom1 = document.getElementById("downloadDom1");
+            downloadDom1.download = file.name;
+            downloadDom1.href = base64;
             console.log('%c *******', 'color:red;');
 
 
@@ -46,17 +65,17 @@
             console.log(`第${i}个blobURL文件为：`, blobURL);
 
             // 通过blobURL展示文件
-            document.getElementById("imgFile").setAttribute('src', blobURL);
-            document.getElementById("imgFile").onload = function () {
+            document.getElementById("imgFile2").setAttribute('src', blobURL);
+            document.getElementById("imgFile2").onload = function () {
                 // 释放一个之前通过调用 URL.createObjectURL创建的 URL 对象
                 // window.URL.revokeObjectURL(blobURL);
                 // console.log(`第${i}个blobURL被释放了：`, blobURL);
             };
 
             // 通过blobURL下载文件
-            let downloadDom = document.getElementById("downloadDom");
-            downloadDom.download = file.name;
-            downloadDom.href = blobURL;
+            let downloadDom2 = document.getElementById("downloadDom2");
+            downloadDom2.download = file.name;
+            downloadDom2.href = blobURL;
             console.log('%c *******', 'color:red;');
 
 
