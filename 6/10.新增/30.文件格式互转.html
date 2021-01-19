@@ -19,10 +19,19 @@
 
         let files = fileIpt.files;
         for (let i = 0; i < files.length; i++) {
+
             let file = files[i];
             console.log(`第${i}个file文件为：`, file);
+
             let base64 = await fileConvertBase64(file);
             console.log(`第${i}个base64文件为：`, base64);
+
+            let blob = dataURItoBlob(base64);
+            console.log(`第${i}个blob文件为：`, blob);
+
+            let arrayBuffer = await blobConvertArrayBuffer(blob);
+            console.log(`第${i}个arrayBuffer文件为：`, arrayBuffer);
+
             let newFile = base64ConvertFile(base64, file.name.split('.')[0]);
             console.log(`第${i}个base64文件转为新的file文件为：`, newFile);
         }
@@ -45,21 +54,49 @@
     // base64 转 file
     function base64ConvertFile (base64Data, filename) { // 64转file
         if (typeof base64Data !== 'string') {
-            alert("urlData不是字符串")
+            alert("urlData不是字符串");
             return;
         }
-        let arr = base64Data.split(',')
-        let type = arr[0].match(/:(.*?);/)[1]
-        let fileExt = type.split('/')[1]
-        let bstr = atob(arr[1])
-        let n = bstr.length
-        let u8arr = new Uint8Array(n)
+        let arr = base64Data.split(',');
+        let type = arr[0].match(/:(.*?);/)[1];
+        let fileExt = type.split('/')[1];
+        let bstr = atob(arr[1]);
+        let n = bstr.length;
+        let u8arr = new Uint8Array(n);
         while (n--) {
             u8arr[n] = bstr.charCodeAt(n);
         }
         return new File([u8arr], `${filename}.` + fileExt, {
             type: type
         });
+    }
+
+
+
+    // base64 转成blob 上传
+    function dataURItoBlob(dataURI) {
+        let byteString = atob(dataURI.split(',')[1]);
+        let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        let ab = new ArrayBuffer(byteString.length);
+        let ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([ab], {type: mimeString});
+    }
+
+
+    // blob 转成ArrayBuffer
+    function blobConvertArrayBuffer (blob) {
+        return new Promise(((resolve, reject) => {
+            let blobData = new Blob([blob]);
+            let reader = new FileReader();
+            reader.readAsArrayBuffer(blobData);
+            reader.addEventListener("load", async function () {
+                resolve(reader.result);
+            }, false);
+            reader.addEventListener('error', reject); // don't forget this one
+        }));
     }
 
 
