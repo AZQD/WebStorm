@@ -10,6 +10,8 @@
 
 <img id="imgFile" alt="">
 
+<a id="downloadDom">点此进行下载</a>
+
 <script type="text/javascript">
 
     let fileIpt = document.getElementById("fileIpt");
@@ -42,13 +44,19 @@
 
             let blobURL = window.URL.createObjectURL(blob); // Blob URL所实现的下载或者显示等功能，仅仅可以在单个浏览器内部进行
             console.log(`第${i}个blobURL文件为：`, blobURL);
-            document.getElementById("imgFile").setAttribute('src', blobURL);
 
+            // 通过blobURL展示文件
+            document.getElementById("imgFile").setAttribute('src', blobURL);
             document.getElementById("imgFile").onload = function () {
                 // 释放一个之前通过调用 URL.createObjectURL创建的 URL 对象
                 // window.URL.revokeObjectURL(blobURL);
                 // console.log(`第${i}个blobURL被释放了：`, blobURL);
             };
+
+            // 通过blobURL下载文件
+            let downloadDom = document.getElementById("downloadDom");
+            downloadDom.download = file.name;
+            downloadDom.href = blobURL;
             console.log('%c *******', 'color:red;');
 
 
