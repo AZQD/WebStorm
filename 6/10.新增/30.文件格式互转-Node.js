@@ -1,3 +1,5 @@
+// Buffer是Node.js提供的对象，前端没有
+
 const fs = require("fs");
 const path = require('path');
 
