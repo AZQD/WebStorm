@@ -8,6 +8,10 @@
     img{
       vertical-align: middle;
     }
+    #mycanvas{
+      margin-top: 10px;
+      border:1px solid fuchsia;
+    }
 </style>
 <body>
 
@@ -23,7 +27,13 @@
 <img id="imgFile2" alt="">
 <a id="downloadDom2">点此进行下载</a>
 
+<hr/>
+<button id="canvasBtn">将base64图片数据绘制到canvas</button><br/>
+<canvas id="mycanvas"></canvas>
+
 <script type="text/javascript">
+
+  let windowBase64 = '';
 
     let fileIpt = document.getElementById("fileIpt");
 
@@ -46,6 +56,7 @@
             // file_base64
             let base64 = await file_base64(file);
             console.log(`第${i}个base64文件为：`, base64);
+            windowBase64 = base64;
 
             // 通过base64展示文件
             document.getElementById("imgFile1").setAttribute('src', base64);
@@ -152,6 +163,42 @@
             reader.addEventListener('error', reject); // don't forget this one
         }));
     }
+
+
+    // canvas转换为dataURL
+    let mycanvas = document.querySelector('#mycanvas');
+    var context=mycanvas.getContext("2d");
+    mycanvas.width = 360;
+    mycanvas.height = 360;
+
+    if(mycanvas.getContext){
+        let painting = mycanvas.getContext('2d');
+        painting.beginPath();
+        painting.fillStyle = 'red';
+        painting.rect(150, 150, 100, 100);
+        painting.closePath();
+        painting.fill();
+    }else {
+        alert('您的浏览器不支持Canvas');
+    }
+    let canvas_base64_png = mycanvas.toDataURL('image/png');
+    let canvas_base64_jpg = mycanvas.toDataURL('image/jpeg', 0.8);
+    console.log('canvas_base64_png：', canvas_base64_png);
+    console.log('canvas_base64_jpg：', canvas_base64_jpg);
+
+
+    // 将base64图片数据绘制到canvas
+    document.getElementById("canvasBtn").addEventListener('click', function () {
+        if(!windowBase64){
+            alert('请先选择图片~');
+            return;
+        }
+        let img = new Image();
+        img.onload = function(){
+            context.drawImage(img, 50, 50);
+        };
+        img.src = windowBase64;
+    }, false);
 
 
 </script>
