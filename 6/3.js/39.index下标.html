@@ -86,6 +86,12 @@
       };
     }
 
+    // const 可以定义引用类型的数据，并且可以修改，变量其实是保存的在栈内存中的一个指针
+    const arr = [];
+    console.log(234, arr);
+    arr[0] = 3;
+    console.log(4, arr);
+
 
 </script>
 </body>
