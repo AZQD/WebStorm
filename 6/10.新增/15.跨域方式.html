@@ -14,7 +14,7 @@
   // 三、window.name
   // window.name有一个奇妙的性质，页面如果设置了window.name，那么在不关闭页面的情况下，即使进行了页面跳转location.href=…，这个window.name还是会保留。
   //
-  // 四、postMessage
+  // 四、window.postMessage
   // 一个页面发送消息，另一个页面判断来源并接收消息
   // window.frames[0].postMessage(this.value, '*');
   // //*号表示在任何域下都可以接收message
@@ -27,6 +27,8 @@
   // 实现原理：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。
   //
   // 六、nginx
+
+  // 参考文档：https://zhuanlan.zhihu.com/p/27052828
 
 </script>
 </body>
