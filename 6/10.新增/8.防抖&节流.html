@@ -15,6 +15,7 @@
 <button id="submitBtn">提交</button>
 <div class="box1"></div>
 
+<script type="text/javascript" src="./demo/js/wbutil.global.pro.js"></script>
 <script type="text/javascript">
     // 参考文档：https://github.com/lodash/lodash
 
@@ -60,6 +61,12 @@
     submitBtn.addEventListener('click', debounce(function () {
         console.log('clickLog');
     }, 1000), false);
+
+    // 同镇拉新-library发包调试
+    // console.log(WBUtil.web);
+    // submitBtn.addEventListener('click', WBUtil.web.debounce(1000, function () {
+    //     console.log('clickLog');
+    // }, false), false);
 
 </script>
 </body>
