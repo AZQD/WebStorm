@@ -33,7 +33,7 @@ g 匹配所有
 
     //验证是否有abcde
     var str1 = 'abcde';
-    var reg = /^a|e$/g;
+    var reg = /^a|e$/g; // 	指明两项之间的一个选择。要匹配 |，请使用 \|。 // ace：true
     console.log(reg.test(str1));  //true
 
     //验证单词
