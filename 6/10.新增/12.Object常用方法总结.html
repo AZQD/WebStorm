@@ -34,6 +34,17 @@
   // 而Object.keys()只是遍历可枚举属性,不可以遍历原型链上的可枚举属性.
   // 而Object.getOwnPropertyNames()则是遍历自身所有属性（不论是否是可枚举的）,不包括原型链上面的.
 
+  function P () {
+    this.name = name;
+  }
+  P.prototype.a = 1;
+  let p = new P();
+  p.b = 2;
+  for (let i in p){
+    console.log(i);
+  }
+  console.log(Object.keys(p));
+
 
   // if (obj.hasOwnProperty(key)) { // hasOwnProperty检测某个对象是否拥有某个属性
   // 如果启用ESLint 配置"extends": "eslint:recommended"，则会报错；
