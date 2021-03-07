@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KEEP MOVING</title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+
+<script type="text/javascript">
+
+  // 数组扁平化：把二维或者多维数组，转成一维数组
+
+  let arr = [1, 2, 3, 4, [5, 6, [7, 8]], true];
+  console.log('原数组：', arr);
+
+
+  //方法一：ES6 flat函数，不改变原数组：
+  let newArr1 = arr.flat(Infinity);
+  console.log('newArr1：', newArr1);
+
+
+  //方法二：reduce函数+递归
+  function flatten (arr) {
+    return arr.reduce((result, item) => {
+      return result.concat(Array.isArray(item) ? flatten(item) : item)
+    }, []);
+  }
+
+  let newArr2 = flatten(arr);
+  console.log('newArr2：', newArr2);
+
+
+  //方法三：for循环+递归
+  function flatten3 (arr) {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        result = result.concat(flatten(arr[i]));
+      } else {
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  }
+
+  let newArr3 = flatten3(arr);
+  console.log('newArr3：', newArr3);
+
+
+</script>
+</body>
+</html>
