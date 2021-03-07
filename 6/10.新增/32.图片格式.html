@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+  <title>SVG</title>
+  <meta charset="utf-8" />
+</head>
+<style type="text/css">
+    .box{
+      display: flex;
+    }
+    .box .item{
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+</style>
+
+<body>
+
+
+<h3>图片格式总结</h3>
+<p>png、jpg、gif、base64、svg(矢量图，不失真，支持动画)、webp（加载速度快，体积大约只有 jpg的2/3）；</p>
+
+
+<hr/>
+<h3>SVG格式</h3>
+<p>参考文档：https://www.runoob.com/svg/svg-inhtml.html</p>
+<p>转换工具：https://www.bejson.com/convert/image_to_svg</p>
+<svg id="svgelem" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle id="redcircle" cx="50" cy="50" r="50" fill="pink" />
+</svg>
+
+<svg id="svgelem" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect id="redrect" width="300" height="100" fill="red" />
+</svg>
+
+
+<hr/>
+<h3>Webp格式</h3>
+<p>转换工具：https://cloudconvert.com/png-to-webp</p>
+
+
+<hr/>
+<h3>对比</h3>
+<div class="box">
+  <div class="item">
+    <img src="./32.test.png" alt=""><span>PNG</span>
+  </div>
+  <div class="item">
+    <img src="./32.test.svg" alt=""><span>SVG</span>
+  </div>
+  <div class="item">
+    <img src="./32.test.webp" alt=""><span>WEBP</span>
+  </div>
+</div>
+
+</body>
+
+</html>
