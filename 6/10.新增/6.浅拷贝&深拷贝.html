@@ -93,7 +93,7 @@
     let newObj = Array.isArray(obj) ? [] : {};
     //深拷贝不能为空
     if (obj && typeof obj === "object") {
-      for (let key in obj) { // for in 在循环对象的属性时也会遍历原型链
+      for (let key in obj) { // for in 会遍历原型链上的可枚举属性；（Object.keys不会）
         if (obj.hasOwnProperty(key)) { // hasOwnProperty检测某个对象是否拥有某个属性
           if (obj[key] && typeof obj[key] === "object") {
             newObj[key] = deepClone2(obj[key]);
