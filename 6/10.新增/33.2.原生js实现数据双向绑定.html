@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<input type="text" id="ipt"/>
+
+<span id="text"> {{content}} </span>
+
+
+<script>
+
+
+  var obj = {};
+
+  Object.defineProperty(obj, 'content', {
+
+    set: function (val) {
+
+      document.getElementById('text').innerHTML = val;
+
+      document.getElementById('ipt').value = val;
+
+    }
+
+  });
+
+  document.getElementById('ipt').onkeyup = function (e) {
+
+    obj.content = e.target.value;
+
+  };
+
+  obj.content = '';
+
+
+</script>
+</body>
+</html>
