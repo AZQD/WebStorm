@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js 截屏</title>
+  <style>
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, a {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    .box {
+      box-sizing: border-box;
+      width: 100%;
+      height: auto;
+      min-height: 100vh;
+      background-color: pink;
+      padding: 20px;
+      font-size: 30px;
+      border: 2px solid red;
+    }
+    .button {
+      width: 120px;
+      height: 60px;
+      font-size: 28px;
+      text-align: center;
+      line-height: 60px;
+      border: 1px solid #222;
+      border-radius: 8px;
+      box-shadow: 5px 5px 10px #999999;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      /* border: 2px solid blue; */
+    }
+    p {
+      text-shadow: 5px 5px 5px #FF0000;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="box" id="box">
+  <div id="btn" class="button">截屏</div>
+  <br/>
+  <p>截图如下所示：</p>
+  <br/>
+</div>
+</body>
+<script type="text/javascript" src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<!-- <script type="text/javascript" src="./html2canvas/dist/html2canvas.js"></script> -->
+<script>
+  function getImgByteSize (data) {
+    var size = 0;
+    if (data) { // 获取base64图片byte大小
+      const equalIndex = data.indexOf('=');  // 获取=号下标
+      if (equalIndex > 0) {
+        console.log('111111');
+        const str = data.substring(0, equalIndex); // 去除=号
+        const strLength = str.length;
+        console.log('strLength');
+        const fileLength = strLength - (strLength / 8) * 2; // 真实的图片byte大小
+        size = Math.floor(fileLength); // 向下取整
+      } else {
+        console.log('2222');
+        const strLength = data.length;
+        console.log(strLength);
+        const fileLength = strLength - (strLength / 8) * 2;
+        console.log(fileLength);
+        size = Math.floor(fileLength); // 向下取整
+      }
+    }
+    return size;
+  }
+  document.getElementById('btn').onclick = function(event) {
+    console.log('截屏开始');
+    html2canvas(document.body, {
+      // 解决PNG图片不透明问题
+      backgroundColor: "transparent",
+      // 解决跨域图片不显示问题
+      allowTaint: true,
+      useCORS: true
+    }).then(function(canvas) {
+      console.log(canvas);
+      var dataUrl = canvas.toDataURL();
+      console.log('图片的base64格式数据' + dataUrl);
+      var newImg = document.createElement("img");
+      newImg.src =  dataUrl;
+      console.log(newImg);
+      console.log('图片大小=');
+      console.log(getImgByteSize(dataUrl)/1024 + 1);
+      document.getElementById('box').appendChild(newImg);
+    });
+  };
+</script>
+</html>
