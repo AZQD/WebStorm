@@ -30,6 +30,20 @@
 </head>
 <body>
 
+
+总结：如果设计师给到的是ttf，我们仅在font-face里面引入ttf时，可能有如下报错：
+"Failed to decode downloaded font ..."
+"OTS parsing error: OS/2: Failed to parse table"
+网上查到的原因，说是：原因其实只是因为中文字体比较大；
+参考文档：https://bbs.huaweicloud.com/blogs/100709
+
+<hr>
+解决方案：
+通过在线转换网站：https://transfonter.org/，将ttf文件转换为woff2/woff/eot文件，一起引入；
+也就是当前这个demo中box2的font-face设置；
+<hr>
+
+
 <div class="box">我是娃娃体</div>
 <div class="box2">我是汉仪雅酷黑-85J</div>
 <h1>My first SVG</h1>
