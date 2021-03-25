@@ -5,20 +5,33 @@
   <title>Title</title>
   <style type="text/css">
     @font-face {
-      font-family: 'fontNameRegular';
-      src: url(./fonts/DFPWaWa-B5.ttf);
-      src: local('fontName Regular'),
-      local('fontName'),
-      url(./fonts/DFPWaWa-B5.ttf) format('truetype');
+      font-family: 'DFPWaWa-B5';
+      src: url('./fonts/DFPWaWa-B5.ttf');
+      url('./fonts/DFPWaWa-B5.ttf') format('truetype');
     }
     .box {
-      font-family: 'fontNameRegular';
+      font-family: 'DFPWaWa-B5';
+    }
+
+    @font-face {
+      font-family: 'HYYaKuHei-85J';
+      src: url('./fonts/HYYaKuHei-85J.eot');
+      src: url('./fonts/HYYaKuHei-85J.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/HYYaKuHei-85J.woff2') format('woff2'),
+      url('./fonts/HYYaKuHei-85J.woff') format('woff'),
+      url('./fonts/HYYaKuHei-85J.ttf') format('truetype'),
+      url('./fonts/HYYaKuHei-85J.svg#HYYaKuHei-85J') format('svg');
+    }
+
+    .box2 {
+      font-family: 'HYYaKuHei-85J';
     }
   </style>
 </head>
 <body>
 
 <div class="box">我是娃娃体</div>
+<div class="box2">我是汉仪雅酷黑-85J</div>
 <h1>My first SVG</h1>
 
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
