@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    create();
+    async function create(){
+        const res = await this.test();
+        console.log(123, res);
+    }
+
+    async function test(){
+        await fun();
+        return 1;
+    }
+    function fun(){}
+</script>
+</body>
+</html>
