@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/joeymalvinni/webrtc-ip/dist/production.min.js"></script>
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/joeymalvinni/webrtc-ip/dist/bundle.dev.js"></script>-->
+<script type="text/javascript">
+    // 参考文档：https://github.com/joeymalvinni/webrtc-ip
+    getIPs().then(res => {
+        console.log('获取IP：', res.join('\n'))
+    })
+</script>
+</body>
+</html>
