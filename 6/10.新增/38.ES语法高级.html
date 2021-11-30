@@ -10,5 +10,17 @@
 <script type="text/javascript">
     let arr = [['北京', '上海'], ['郑州', ['二七区', '金水区'], '杭州']];
     console.log(arr.flat(Infinity));
+
+    let obj = {a: 1, b: 2};
+    const entriesArr =
+    console.log(Object.fromEntries(Object.entries(obj).map(([ key, val ]) => [ key + '_new', val * 2 ])));
+
+    let object1 = { a: 1, b: 2, c: 3 };
+    let object2 = Object.fromEntries(
+        Object.entries(object1)
+            .map(([ key, val ]) => [ key + '_new', val * 2 ])
+    );
+    console.log(object2);
+    // { a: 2, b: 4, c: 6 }
 </script>
 </html>
