@@ -22,5 +22,10 @@
     );
     console.log(object2);
     // { a: 2, b: 4, c: 6 }
+
+    const promiseArr = [Promise.resolve(200), Promise.reject(500), Promise.reject(new Error('err info'))];
+    Promise.allSettled(promiseArr).then((results) => {
+        console.log(results);
+    });
 </script>
 </html>
