@@ -32,5 +32,11 @@
     // let userName = (role && role.info && role.info.base && role.info.base.userName) || '游客';
     let userName = role?.info?.base?.userName ?? '游客';
     console.log(123, userName);
+
+    let str = 'a-b-c';
+    console.log(str.replaceAll('-', '+'));
+
+    /hi.welcome/.test('hi\nwelcome') // false
+    /hi.welcome/s.test('hi\nwelcome') // true
 </script>
 </html>
