@@ -39,6 +39,25 @@
   let newArr2 = arrSort(arr2);
   console.log('newArr2', newArr2);
 
+  let arr3 = [
+    {userId: '1a', userName: '张三'},
+    {userId: '2b', userName: '李四'},
+    {userId: '3c', userName: '王五'},
+    {userId: '4d', userName: '赵六'},
+    {userId: '5e', userName: '朱七'},
+  ];
+  // 如果李四、赵六为已选：如何将已选数据排在最前面
+  let checkedUserIdArr3 = ['2b', '4d'];
+  let newArr3 = arr3.sort((item) => {
+    if(checkedUserIdArr3.includes(item.userId)) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+  console.log('arr3', arr3);
+  con`sole.log('newArr3', newArr3);
+``
 </script>
 </body>
 </html>
