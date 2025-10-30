@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 350px;
+            height: 250px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="box" draggable="true"></div>
+
+<script type="text/javascript" src="./拖拽drag.js"></script>
+<script type="text/javascript">
+    var wrapper=document.querySelector("#box");
+    drag(wrapper);
+</script>
+</body>
+</html>
